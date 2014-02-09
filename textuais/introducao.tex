@@ -1,0 +1,196 @@
+%TITULO------------------------------------------------------------------------
+
+%==============================================================================
+\label{introducao}
+%==============================================================================
+
+	%comentar sobre a conexão de conversores de tensão na rede e aplicações de filtragem
+	%ativa. Depois, falar de geração distribuída e comentar problemas de harmônicas
+	%de comutação
+	Diversos fatores têm levado à intensificação no uso de conversores eletrônicos
+	de potência nos últimos anos. As inúmeras aplicações que precisam de uma forma
+	de conexão com a rede elétrica fazem uso de conversores de potência.
+	Novas tecnologias, crise energética e o aumento do efeito estufa são algumas
+	dessas aplicações. Aplicações de geração distribuída, como células de energia,
+	painéis fotovoltaicos, turbinas eólicas e microturbinas são usadas não só
+	para aumentar a energia disponível no sistema, mas também para melhorar sua
+	confiabilidade, fornecendo energia aos consumidores mesmo durante uma falta
+	na rede~\cite{ref:KARSHENAS}.
+
+	Na maioria desses geradores, a eletricidade está disponível em um estágio
+	contínuo, ou é produzida em baixa frequência e, portanto, é convertida
+	para um nível contínuo. Inversores de tensão são predominantemente utilizados
+	para transferir energia de uma fonte contínua para a rede elétrica.
+
+	Apesar de vastamente utilizados, os inversores de tensão demandam cuidado
+	em sua utilização. Isso deve-se ao fato de o inversor de tensão gerar
+	inerentemente harmônicas de comutação durante seu funcionamento, o que pode
+	ultrapassar os requisitos da rede com relação ao conteúdo harmônico
+	das correntes que nela circulam.
+
+	Existem muitas topologias de filtros ativos que podem ser utilizadas para
+	resolver este problema~\cite{ref:RIBEIRO}. A mais comum, é a aplicação de
+	um filtro L como interface entre a rede e o inversor. Mais recentemente,
+	filtros LCL começaram a ser utilizados para esta função~\cite{ref:LINDGREN},
+	\cite{ref:TEODORESCU},~\cite{ref:XU}, a fim de obter o
+	mesmo resultado de atenuação, porém com componentes fisicamente
+	menores~\cite{ref:HOLMES}. Essa redução é muito vantajosa, visto que implica
+	em redução no custo do filtro e	nas perdas de operação.
+
+	Por ser de terceira ordem, o filtro LCL apresenta um pico de amplitude em
+	sua frequência de ressonância, o que faz com que a estabilidade geral do
+	sistema seja reduzida dependendo principalmente de sua frequência de
+	ressonância. Dessa forma, é necessário compensar este comportamento.
+	Uma maneira de compensar o efeito da ressonância é o amortecimento passivo
+	através da inserção	de um resistor em série ou em paralelo com o capacitor
+	do filtro~\cite{ref:AHMED}. Embora	esse amortecimento reduza consideravelmente
+	o pico de amplitude na frequência de ressonância, ele degrada o desempenho do
+	filtro nas altas frequências e, portanto, não é uma solução aceitável para
+	aplicações que necessitam do máximo de desempenho~\cite{ref:SHEN}.
+
+	Outra forma de abordar a questão é utilizar uma estratégia de controle que
+	compense este comportamento, resultando num amortecimento ativo. Usualmente,
+	os controladores são implementados digitalmente em microcontroladores utilizando
+	uma frequência de amostragem adequada frente à frequência de ressonância do
+	filtro. Isso garante que o controlador seja capaz de atuar sobre e rejeitar
+	o distúrbio de amplitude na frequência de ressonância, mas demanda técnicas
+	de projeto do filtro e do controlador para atender este requisito.
+
+	Existem múltiplas estratégias de controle para conversores conectados à
+	rede elétrica que podem ser classificadas, de maneira geral, como analógicas
+	e digitais. Os métodos de controle digital oferecem diversas vantagens sobre
+	as técnicas analógicas, como reprogramabilidade, tolerância à variações
+	nos componentes, suporte a multiplos modos de operação, melhor eficiência e,
+	em geral, melhor desempenho. O controle analógico se limita a estruturas particulares,
+	enquanto o controle digital depende apenas dos limites da taxa de amostragem,
+	resolução e capacidade computacional~\cite{ref:KIMBALL}.
+
+	Assim sendo, o enfoque recai sobre as técnicas de controle digital. Existem
+	muitas técnicas diferentes para o controle de conversores. O controle \textit{PI}
+	utiliza compensadores de erro do tipo proporcional-integral para produzir os
+	sinais de comando de cada fase. A parte integral do controlador minimiza o
+	erro em baixas frequências, enquanto a parte proporcional e a posição do zero
+	influenciam na ondulação do sinal. O desafio desta técnica é realizar o
+	rastreamento das referências de corrente. Isto é resolvido, em geral,
+	utilizando circuitos do tipo PLL (\textit{Phase Locked Loop}) para gerar as
+	referências de corrente. O controlador \textit{PI} geralmente é implementado
+	em eixos síncronos $dq$, de modo que as	referências senoidais são transformadas
+	em sinais constantes. Alternativamente, podem ser utilizados \textit{PI's} em
+	eixos estacionários $\alpha \beta$~\cite{ref:KAZMIERKOWSKI}. Em ambos os casos,
+	o objetivo é o rastreamento de referências senoidais e a rejeição de distúrbios
+	de mesma natureza~\cite{ref:AREERAK}.
+
+	%\comment{Este controlador
+	%ainda pode ser implementado em eixos síncronos, sendo utilizado para
+	%eliminação de erro da componente fundamental devido à eficiência
+	%computacional do método~\cite{ref:AREERAK}.}
+
+	Uma outra técnica é o controle de corrente usando um controlador do tipo
+	\textit{Dead-Beat}. Essa é a mais rápida estratégia de controle linear que pode
+	ser adotada. Teoricamente, o laço de corrente replica exatamente a corrente
+	de referência com dois ciclos de atraso. O controle é baseado no modelo interno
+	da carga do conversor, usado para prever o comportamento dinâmico do sistema. O
+	controlador, assim sendo, é inerentemente sensível a descasamento de parâmetros
+	e de modelo~\cite{ref:MALESANI}.
+
+	Existe ainda o controlador por Histerese. Devido à sua inerente não-linearidade,
+	este controlador é capaz de proporcionar a mais rápida resposta dinâmica possível.
+	Utilizando esta técnica, é possível atingir o máximo aproveitamento do conversor
+	de potência~\cite{ref:YAO}. O limite para a regulação de corrente, na verdade,
+	é dado pelo projeto do conversor. O controle de corrente por histerese é estável
+	e robusto com relação à variações na carga ou qualquer outro tipo de distúrbios
+	dinâmicos~\cite{ref:TENTI}.
+
+	O controle de realimentação é a estratégia de controle mais simples que existe
+	para compensar perturbações de um processo. Embora a grande maioria das estratégias
+	de controle utilizadas na prática industrial seja controle de realimentação simples,
+	essa estratégia apresenta uma desvantagem bastante significativa: é preciso que
+	um distúrbio se propague pelo processo, fazendo a variável controlada desviar
+	do ponto de operação, para que a realimentação adote uma ação corretiva~\cite{ref:SMITH}.
+
+	Existem aplicações, no entanto, que demandam desempenho superior, devido à alguma
+	necessidade específica, dinâmica lenta ou perturbações frequentes. Quando o distúrbio
+	é associado à variável controlada ou quando o elemento de controle final apresenta
+	comportamento não-linear, o Controle em Multi-Malha melhora significativamente o
+	desempenho em relação ao controle com realimentação simples~\cite{ref:KRISHNA}.
+
+	Este tipo de controle pressupõe um conjunto de malhas em cascata, onde as mais
+	externas geram as referências para as malhas mais internas. Dessa forma, variáveis
+	intermediárias são usadas para reduzir o efeito de algumas dinâmicas no processo.
+	Não é mais necessário esperar o distúrbio propagar-se pelo sistema e modificar a
+	variável controlada. Uma vez que uma mudança seja detectada em uma variável
+	intermediária, a ação corretiva começa imediatamente a ser aplicada na variável
+	controlada, reduzindo a magnitude do impacto do distúrbio e consequentemente
+	melhorando o desempenho. O único requisito para que isto aconteça é que a malha
+	interna seja mais rápida que a malha externa. Quanto mais rápida, melhor, pois
+	a velocidade da malha interna implica na velocidade com que mudanças na variável
+	intermediária serão detectadas, o que afeta diretamente a redução do impacto
+	do distúrbio na variável controlada.
+
+	As técnicas de controle clássicas pressupõe o uso de um modelo interno do sistema
+	que deve ser precisamente conhecido. Nas duas últimas décadas, esse requisito
+	vem sendo relaxado, e o desafio é desenvolver estratégias de controle robustas
+	à incerteza paramétrica~\cite{ref:GEROMEL}.
+
+	Considerando o contexto descrito acima, a proposta deste trabalho é apresentar
+	uma estratégia de controle de conversores conectados à rede elétrica através de
+	um filtro LCL. Esta estratégia apresenta ótimo desempenho através do uso de
+	Controle Multimalha, é capaz de rejeitar distúrbios e é robusta em relação à
+	incertezas paramétricas em termos da indutância da rede.
+
+	%COMENTAR SOBRE INCERTEZA PARAMÉTRICA
+	%incerteza paramétrica do lado da rede é um problema frequente
+
+	%COMENTAR O CONTROLADOR QUE SERÁ USADO
+	%será usado o adaptativo porque uma vez que o controle da tensão do capacitor
+	%seja realizado com sucesso, então a dinâmica anterior é desconsiderada e resta
+	%apenas o capacitor como uma fonte de tensão ligada a um braço LR. Controlar
+	%essa corrente com um controlador adaptativo é muito simples (embora tenha
+	%incerteza paramétrica).
+
+	% OK Controle de conversores conectados à rede
+
+	% OK Introdução da proposta
+
+	% OK Usar referências para introduzir multimalhas (Lee e o livro marrom)
+
+	%Incerteza paramétrica, em algum lugar (referências?)
+
+	%Novo capítulo, método do Lee, ajuda do Márcio para a descrição matemática
+	%do controlador adaptativo, mostrar o projeto de cada malha
+
+\section*{Objetivos}
+
+	O objetivo deste trabalho é propor uma estratégia de controle para um conversor
+	conectado à rede elétrica através de um filtro LCL. A estratégia proposta deve
+	ser robusta com relação às incertezas e distúrbios da rede elétrica, e resultar
+	numa dinâmica de malha fechada rápida o suficiente para permitir a rejeição de
+	distúrbios e o rastreamento de possíveis referências complexas, incluindo harmônicas.
+
+	Os objetivos específicos são:
+
+	\begin{itemize}
+		\item Determinação teórica via modelagem matemática e simulação do sistema
+			em malha fechada;
+		\item Comprovação da análise teórica por meio da obtenção de resultados
+			experimentais;
+		\item Comparação da proposta com controladores convencionalmente utilizados.
+	\end{itemize}
+
+%\section{Revisão Bibliográfica}
+
+%	Será feito no fim.
+
+\section*{Contribuição da Dissertação}
+
+	Uma estratégia de controle que oferece robustez frente a distúrbios e que
+	tem capacidade de lidar com incertezas paramétricas do lado da rede.
+
+\section*{Organização do Documento}
+
+	Este trabalho é organizado como segue: o primeiro capítulo apresenta uma introdução
+	e motivação para o trabalho proposto. O segundo capítulo apresenta uma breve revisão
+	bibliográfica dos elementos necessários ao desenvolvimento do trabalho. O terceiro
+	capítulo apresenta a modelagem matemática do sistema.
+
+%FIM---------------------------------------------------------------------------

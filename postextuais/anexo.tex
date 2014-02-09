@@ -1,0 +1,96 @@
+\chapter{Procedimento de Projeto do Filtro \textit{LCL}}
+
+	O projeto de um filtro LCL pode ser feito de várias maneiras, dependendo
+    do objetivo do projetista. O procedimento de projeto apresentado em~\cite{ref:TANG}
+    é muito utilizado, por ser generalizado, simples e em valores \textit{por unidade},
+    o que torna simples a escalabilidade do sistema. Os passos deste procedimento são:
+
+    \begin{enumerate}
+
+        \item Definir qual a ordem $k$ mais alta das correntes harmônicas que precisam ser
+        compensadas. A frequência de ressonância $\omega_{res}$ deve ser função da frequência
+        fundamental nominal $\omega_n$:
+
+        \begin{equation}
+            \frac{k \omega_n}{0,3} \leq \omega_{res} \leq \frac{k \omega_n}{0,25}
+        \label{eq:wres}
+        \end{equation}
+
+        \item A frequência de comutação deve ser pelo menos duas vezes maior que a frequência
+        de ressonância. Valores maiores podem ser usados para uma melhor atenuação harmônica,
+        mas resultarão em mais perdas.
+
+        \item Valores de impedância, capacitância e indutância base devem ser definidos. Dessa
+        forma, a impedância base $Z_b$ é função da tensão nominal $V$ e da potência nominal $P$:
+
+        \begin{equation}
+            Z_b = \frac{V^2}{P}
+        \end{equation}
+
+        Os valores da capacitância e indutância base são, respectivamente:
+
+        \begin{equation}
+            C_b = \frac{1}{\omega_n Z_b}
+        \end{equation}
+
+        \begin{equation}
+            L_b = \frac{Z_b}{\omega_n}
+        \end{equation}
+
+        \item As indutâncias do lado do conversor $L_{ff}$ e da rede $L_{fg}$ devem ser iguais para
+        produzir a menor frequência de ressonância possível, e a máxima atenuação de harmônicas de
+        comutação. Além disso, é recomendável que o valor total em \textit{por unidade} dos dois
+        indutores seja igual ao valor do capacitor do filtro $C_f$. Desta forma:
+
+        \begin{equation}
+            L_{ff} = L_{gf} = \frac{1}{4k} L_b
+        \end{equation}
+
+        \begin{equation}
+            C_f = \frac{1}{2k} C_b
+        \label{eq:cf}
+        \end{equation}
+
+        \item O valor comercial de capacitor mais próximo ao valor encontrado em (\ref{eq:cf})
+        deve ser escolhido, e os valores de indutância ajustados de acordo. A frequência de
+        ressonância recalculada com os valores ajustados deve, no entando, estar de acordo com
+        (\ref{eq:wres}).
+
+    \end{enumerate}
+
+
+% \chapter{Cronograma}
+% \label{cronograma}
+% \addcontentsline{toc}{chapter}{Cronograma}
+
+% \begin{table}[htb]
+%    \centering
+%    \begin{small}        
+%        \setlength{\tabcolsep}{3pt}%redefine espaçamento das colunas
+%        \begin{tabular}{|L|c|c|c|c|c|c|c|c|}\hline
+%             & \multicolumn{8}{c|}{\textbf{Meses}}\\ \cline{2-9}
+%            \raisebox{1.5ex}{\textbf{Etapa}} & 02 & 03 & 04 & 05 & 06 & 07 & 08 & 09 \\ \hline
+%            Qualificação 
+%            & \textbullet &   &   &   &   &   &   &   \\ \hline
+%            Resultados de simulação do controlador Multi-malhas com malha interna utilizando a tensão
+%            do capacitor numa estrutura IMC
+%            & \textbullet &   &   &   &   &   &   &   \\ \hline
+%            Resultados de simulação do controlador Multi-malhas com malha interna utilizando a corrente
+%            do capacitor numa estrutura IMC
+%            &   & \textbullet &   &   &   &   &   &   \\ \hline
+%            Resultados experimentais
+%            &   & \textbullet & \textbullet &   &   &   &   &   \\ \hline
+%            Escrita de um artigo científico
+%            &   & \textbullet & \textbullet &   &   &   &   &   \\ \hline
+%            Comparação das duas técnicas multi-malhas utilizadas, entre si e com outras técnicas clássicas
+%            (PI e Deadbeat, por exemplo)
+%            &   &   &   & \textbullet & \textbullet &   &   &   \\ \hline
+%            Verificação de melhorias da relação Desempenho x Robustez
+%            &   &   &   &   & \textbullet &   &   &   \\ \hline
+%            Análise dos resultados e redação
+%            &   &   &   &   &   & \textbullet & \textbullet &   \\ \hline
+%            Defesa
+%            &   &   &   &   &   &   &   & \textbullet \\ \hline
+%        \end{tabular}
+%    \end{small}
+% \end{table}
