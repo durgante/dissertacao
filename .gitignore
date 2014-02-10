@@ -1,0 +1,5 @@
+*.mexw32
+*.mexw64
+
+referencias/
+img/corel/
