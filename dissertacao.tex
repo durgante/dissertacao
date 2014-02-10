@@ -4,17 +4,17 @@
 % verso e anverso:
 \documentclass[12pt,openright,twoside,a4paper,english,french,spanish,brazil]{abntex2}
 
-% apenas verso:	
-% \documentclass[12pt,oneside,a4paper,english,french,spanish,brazil]{abntex2} 
+% apenas verso:
+% \documentclass[12pt,oneside,a4paper,english,french,spanish,brazil]{abntex2}
 
 
 %PACOTES-----------------------------------------------------------------------
 
 % ---
-% Pacotes fundamentais 
+% Pacotes fundamentais
 % ---
 \usepackage{cmap}				         % Mapear caracteres especiais no PDF
-\usepackage{lmodern}			       % Usa a fonte Latin Modern			
+\usepackage{lmodern}			       % Usa a fonte Latin Modern
 \usepackage[T1]{fontenc}		     % Selecao de codigos de fonte.
 \usepackage[utf8]{inputenc}		   % Codificacao do documento (conversão automática dos acentos)
 \usepackage{lastpage}			       % Usado pela Ficha catalográfica
@@ -44,9 +44,9 @@
 \usepackage[brazilian,hyperpageref]{backref} % Paginas com as citações na bibl
 \usepackage[alf]{abntex2cite}	   % Citações padrão ABNT
 
-% --- 
+% ---
 % CONFIGURAÇÕES DE PACOTES
-% --- 
+% ---
 
 % ---
 % Configurações do pacote backref
@@ -88,8 +88,8 @@
   \par
   Programa de Pós-Graduação}
 \tipotrabalho{Dissertação (Mestrado)}
-% O preambulo deve conter o tipo do trabalho, o objetivo, 
-% o nome da instituição e a área de concentração 
+% O preambulo deve conter o tipo do trabalho, o objetivo,
+% o nome da instituição e a área de concentração
 \preambulo{Dissertação apresentada ao Curso de Mestrado do Programa de Pós-Graduação em
   Engenharia Elétrica, Área de Concentração em Controle de Sistemas, da Universidade Federal
   do Pampa (Unipampa, RS), como requisito parcial para obtenção do grau de
@@ -108,12 +108,12 @@
 \makeatletter
 \hypersetup{
      	%pagebackref=true,
-		pdftitle={\@title}, 
+		pdftitle={\@title},
 		pdfauthor={\@author},
     	pdfsubject={\imprimirpreambulo},
 	    pdfcreator={LaTeX with abnTeX2},
 		pdfkeywords={Controle Multimalha}{Controle Adaptativo}{Conexão de Conversores na Rede}
-      {Rejeição de Distúrbios}{Incerteza Paramétrica}, 
+      {Rejeição de Distúrbios}{Incerteza Paramétrica},
 		colorlinks=true,       		% false: boxed links; true: colored links
     	linkcolor=black,          	% color of internal links
     	citecolor=black,        		% color of links to bibliography
@@ -122,11 +122,11 @@
 		bookmarksdepth=4
 }
 \makeatother
-% --- 
+% ---
 
-% --- 
-% Espaçamentos entre linhas e parágrafos 
-% --- 
+% ---
+% Espaçamentos entre linhas e parágrafos
+% ---
 
 % O tamanho do parágrafo é dado por:
 \setlength{\parindent}{1.3cm}
@@ -146,7 +146,7 @@
 \begin{document}
 
 % Retira espaço extra obsoleto entre as frases.
-\frenchspacing 
+\frenchspacing
 
 % ----------------------------------------------------------
 % ELEMENTOS PRÉ-TEXTUAIS
@@ -171,7 +171,7 @@
 % ---
 
 % Isto é um exemplo de Ficha Catalográfica, ou ``Dados internacionais de
-% catalogação-na-publicação''. Você pode utilizar este modelo como referência. 
+% catalogação-na-publicação''. Você pode utilizar este modelo como referência.
 % Porém, provavelmente a biblioteca da sua universidade lhe fornecerá um PDF
 % com a ficha catalográfica definitiva após a defesa do trabalho. Quando estiver
 % com o documento, salve-o como PDF no diretório do seu projeto e substitua todo
@@ -180,7 +180,7 @@
 % \begin{fichacatalografica}
 %     \includepdf{fig_ficha_catalografica.pdf}
 % \end{fichacatalografica}
-\begin{fichacatalografica}	
+\begin{fichacatalografica}
   \input{pretextuais/ficha_catalografica}
 \end{fichacatalografica}
 % ---
@@ -197,14 +197,14 @@
 % \includepdf{folhadeaprovacao_final.pdf}
 %
 \begin{folhadeaprovacao}
-  \input{pretextuais/folha_de_aprovacao}  
+  \input{pretextuais/folha_de_aprovacao}
 \end{folhadeaprovacao}
 % ---
 
 % ---
 % Dedicatória
 % ---
-\begin{dedicatoria}   
+\begin{dedicatoria}
 %  \input{pretextuais/dedicatoria}
 \end{dedicatoria}
 % ---
@@ -230,7 +230,7 @@
 % ---
 
 % resumo em português
-\begin{resumo} 
+\begin{resumo}
  \input{pretextuais/resumo}
 \end{resumo}
 
@@ -326,7 +326,7 @@
 % ---
 % Finaliza a parte no bookmark do PDF, para que se inicie o bookmark na raiz
 % ---
-\bookmarksetup{startatroot}% 
+\bookmarksetup{startatroot}%
 % ---
 
 % ---

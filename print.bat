@@ -32,7 +32,7 @@ ps2pdf %NOME%.ps %VERSAO%.pdf
 start %DIR% %VERSAO%.pdf
 
 :CLEANUP
-DEL *.aux *.bbl *.blg *.dvi *.log *.nav *.out *.ps *.snm *.bak *.toc *.lot *.lof
+::DEL *.aux *.bbl *.blg *.dvi *.log *.nav *.out *.ps *.snm *.bak *.toc *.lot *.lof
 set NOME=
 set DIR=
 set PROC=
