@@ -1,1 +1,20 @@
-Este é o README do meu projeto de dissertação!
+==============
+	README
+==============
+
+Este é o README do meu projeto de dissertação de mestrado!
+
+
+TODO
+----
+
++ Refazer figuras:
+	* Ler a documentação para criação de figuras uniformes;
+	* Refazer as figuras para que fiquem todas vetoriais.
+
++ Remanejar conteúdo da seção revisão bibliográfica: o intuito é remover esta
+	seção e deixar apenas Introdução, Modelagem e Controle.
+
++ Resolver o problema do nome do anexo de provas matemáticas, o nome está muito
+	ultrapassando a margem, quando deveria quebrar para uma nova linha.
+

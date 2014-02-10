@@ -1,0 +1,179 @@
+%TITULO------------------------------------------------------------------------
+
+%==============================================================================
+\chapter{Modelagem}\label{modelagem}
+%==============================================================================
+
+	%intro temporária, melhorar
+	Este capítulo apresenta a modelagem de conversores de potência conectados à rede
+    elétrica via filtro LCL. São apresentados modelos em coordenadas $\alpha \beta 0$
+    considerando a corrente $i_C$ e a tensão $v_C$ do capacitor como variável
+    intermediária, bem como a estrutura de controle para a malha interna associada à
+    cada possível escolha. Modelos em tempo discreto são desenvolvidos, e o impacto do
+    atraso de transporte da implementação digital é explicitado.
+
+
+\section{Modelo do Filtro LCL}
+
+    A representação de sistemas elétricos trifásicos é objeto de estudos desde o
+    início de sua utilização, no começo do século XX. Dentre as primeiras contribuições
+    neste sentido, encontra-se o trabalho de Charles L. Fortescue~\cite{ref:FORTESCUE},
+    conhecido como a teoria de componentes simétricas, que representa um sistema trifásico
+    desequilibrado em termos de três sistemas trifásicos equilibrados, chamados circuitos
+    de sequência positiva, negativa e zero. Uma outra contribuição foi feita por Edith
+    Clarke, com a transformação nomeada em sua homenagem~\cite{ref:CLARKE}. A transformação
+    de Clarke, ou transformação $\alpha \beta 0$ permite representar um sistema trifásico
+    acoplado em termos de componentes monofásicas desacopladas. Esta transformação é muito
+    útil em aplicações de conversores estáticos trifásicos, visto que possibilita a
+    simplificação dos modelos e do projeto dos controladores.
+
+    A transformação $\alpha \beta 0$ é linear e invariante no tempo, e é dada por
+
+    %usando array e phantom{-} pelo alinhamento
+    \begin{equation}
+        \mathbf{T}_{\alpha \beta 0} = \frac{2}{3} \left[
+        \begin{array}{ccc}
+            1 & -\frac{1}{2} & -\frac{1}{2} \\[0.3em]
+            0 & \phantom{-}\frac{\sqrt{3}}{2} & -\frac{\sqrt{3}}{2} \\[0.3em]
+            \frac{1}{2} &  \phantom{-}\frac{1}{2} & \phantom{-}\frac{1}{2}
+        \end{array}
+        \right]
+        \label{eq:alpha_beta_0}
+    \end{equation}
+
+    Utilizando esta transformação, qualquer parâmetro em coordenadas $abc$ pode ser
+    transcrito em coordenadas $\alpha \beta 0$, e vice versa.
+
+    \begin{equation*}
+        \begin{split}
+            \mathbf{T}_{\alpha \beta 0} \mathbf{x}_{abc} & = \mathbf{x}_{\alpha \beta 0} \\
+            \mathbf{T}_{\alpha \beta 0}^{-1} \mathbf{x}_{\alpha \beta 0} & = \mathbf{x}_{abc}
+        \end{split}
+    \end{equation*}
+
+    No projeto de controladores para sistemas elétricos trifásicos, é usual levar em
+    consideração esta transformação e modelar o sistema para o caso monofásico, projetando
+    o controlador considerando os equivalentes nas coordenadas $\alpha$ e $\beta$. A
+    Fig~\ref{fig:LCL_geral} apresenta a estrutura do sistema para o caso monofásico. Neste
+    caso, as indutâncias do filtro são: $L_1$ do lado do conversor e $L_2$ do lado da rede,
+    $C$ é a capacitância do filtro e $L_g$ é a indutância da rede elétrica. A rede elétrica
+    é representada por $v_g$.
+
+    \begin{figure}[htb]
+        \centering{
+            \includegraphics[width=0.9\textwidth]{img/LCL_geral}}
+        \renewcommand\figurename{Fig.}
+        \caption{Filtro LCL para o caso monofásico.}
+        \label{fig:LCL_geral}
+    \end{figure}
+
+    Uma forma conveniente de modelar este sistema é através de impedâncias
+    complexas~\cite{ref:XU}. As indutâncias e a capacitância do filtro podem ser
+    representadas pelas seguintes impedâncias
+
+    \begin{equation}
+        \begin{split}
+            Z_i & = r_1 + L_1 s \\
+            Z_C & = \frac{1}{s C} \\
+            Z_g & = r_2 + r_g + \left( L_2 + L_g \right) s
+        \end{split}
+    \end{equation}
+
+    A impedância do lado da rede $Z_g$ engloba duas indutâncias: uma indutância projetada,
+    $L_2$, e uma indutância desconhecida que é a indutância da rede elétrica $L_g$. Escolheu-se
+    esta forma de representação de modo a explicitar a incerteza paramétrica, apesar de $L_2$
+    ser uma indutância projetada. Além disso, é importante esclarecer que a tensão da rede
+    $v_g$ pode ser desprezada na obtenção do modelo, visto que é um distúrbio exógeno que
+    deve ser rejeitado pelo controlador adaptativo.
+
+    A Fig.~\ref{fig:estrutura_geral_cascata} demonstra a estrutura de controle utilizada.
+
+    \begin{figure}[htb]
+        \centering{
+            \includegraphics[width=0.9\textwidth]{img/cascade_general}}
+        \renewcommand\figurename{Fig.}
+        \caption{Diagrama de blocos demonstrando a estrutura geral de controle.}
+        \label{fig:estrutura_geral_cascata}
+    \end{figure}
+
+    Observa-se que $U_p$ indica a variável de controle intermediária utilizada para
+    implementar a malha interna e realizar o amortecimento ativo da ressonância do filtro,
+    podendo ser $V_C$ ou $I_C$. O controlador adaptativo na malha externa gera a referência
+    $U$ para a malha interna, que por sua vez gera a ação de controle $U_c$ implementada
+    via PWM.
+
+    Considerando a estrutura da Fig.~\ref{fig:LCL_geral} e desprezando o distúrbio da
+    rede $v_g$, obtém-se as seguintes expressões a partir das leis de Kirchhoff
+
+    \begin{equation}
+        \frac{V_C}{U_c} = \frac{Z_C Z_g}{Z_i \left( Z_C + Z_g \right) + Z_C Z_g}
+        \label{eq:vc_uc}
+    \end{equation}
+
+    \begin{equation}
+        \frac{I_C}{U_c} = \frac{Z_g}{Z_i \left( Z_C + Z_g \right) + Z_C Z_g}
+        \label{eq:ic_uc}
+    \end{equation}
+
+    \begin{equation}
+        \frac{I_2}{U_c} = \frac{Z_C}{Z_i \left( Z_C + Z_g \right) + Z_C Z_g}
+    \end{equation}
+
+    Do ponto de vista de amortecimento ativo, todo e qualquer elemento resistivo
+    que se encontre no sistema irá colaborar com o amortecimento, embora de forma
+    passiva. Por esse motivo, as resistências são desprezadas na modelagem do
+    sistema, visto que isto irá facilitar a modelagem e criar um caso pior do que
+    o que se encontra na prática.
+
+    A discretização destas funções de transferência é feita conforme realizado
+    em \cite{ref:PARKER}, incluindo um retentor de ordem zero (ZOH) e aplicando a
+    transformada $\mathcal{Z}$. Desta forma, considerando o atraso de tempo associado
+    à implementação digital, obtém-se
+
+    \begin{equation}
+        G_d (z) = \frac{I_2}{U_c} = K_1 \frac{1}{z \left( z-1 \right)}
+        - \frac{K_1 \sen \left( \omega_n T_s \right) }{\omega_n T_s}
+        \frac{z-1}{z \left( z^2 - 2 \cos\left( \omega_n T_s \right) z +1 \right) }
+    \end{equation}
+
+    onde $T_s$ é o período de amostragem e
+
+    \begin{equation*}
+        K_1 = \frac{T_s}{L1 + L2 + Lg}
+    \end{equation*}
+
+    \begin{equation*}
+        \omega_n = \sqrt{\frac{ L_1 + L_2 + L_g }{ L_1 C \left( L_2 + L_g \right)}}
+    \end{equation*}
+
+    No caso em que a variável intermediária é a tensão do capacitor $V_C$, para
+    relacionar $I_2$ com $V_C$ é necessário discretizar a equação~(\ref{eq:vc_uc})
+
+    \begin{equation}
+        G_{id}(z) = \frac{2 \sen^2 \left( \omega_n \frac{T_s}{2} \right)}{L_1 C \omega_n^2}
+            \frac{z+1}{z \left( z^2 - \cos \left( \omega_n T_s \right) z + 1 \right)}
+    \end{equation}
+
+    Desta forma, a relação $G_{od}$ entre $I_2$ e $V_C$ é
+
+    \begin{equation}
+        G_{od}(z) = \frac{I_2}{V_C} = \frac{G_d}{G_{id}}
+    \end{equation}
+
+    De forma semelhante, no caso em que a variável intermediária é a corrente do
+    capacitor $I_C$, para relacionar $I_2$ com $I_C$ é necessário discretizar a
+    equação~(\ref{eq:ic_uc})
+
+    \begin{equation}
+        G_{id}(z) = \frac{\sen \left( \omega_n T_s \right)}{\omega_n L_1}
+            \frac{z-1}{z \left( z^2 - \cos \left( \omega_n T_s \right) z + 1 \right)}
+    \end{equation}
+
+    e assim
+
+    \begin{equation}
+        G_{od}(z) = \frac{I_2}{I_C} = \frac{G_d}{G_{id}}
+    \end{equation}
+
+
+%FIM---------------------------------------------------------------------------

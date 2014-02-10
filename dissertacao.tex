@@ -13,7 +13,6 @@
 % ---
 % Pacotes fundamentais
 % ---
-\usepackage{cmap}				         % Mapear caracteres especiais no PDF
 \usepackage{lmodern}			       % Usa a fonte Latin Modern
 \usepackage[T1]{fontenc}		     % Selecao de codigos de fonte.
 \usepackage[utf8]{inputenc}		   % Codificacao do documento (conversão automática dos acentos)
@@ -21,6 +20,8 @@
 \usepackage{indentfirst}		     % Indenta o primeiro parágrafo de cada seção.
 \usepackage{color}				       % Controle das cores
 \usepackage{graphicx}            % Inclusão de gráficos
+\usepackage{microtype}           % PDF fica melhor
+\usepackage{cmap}                % Mapear caracteres especiais no PDF
 % ---
 
 % ---
@@ -34,7 +35,6 @@
 % usar http://tex.stackexchange.com/questions/48837/subcaption-package-incompatible-with-memoir-class
 \usepackage[scaled=0.92]{helvet} % Usado em conjunto com o mtpro2
 \usepackage[lite]{mtpro2}        % Fonte matemática melhorada
-\usepackage{microtype}           % PDF fica melhor
 \usepackage{array}               % Tabelas
 \newcolumntype{L}{>{\centering\arraybackslash}m{0.55\linewidth}}
 
@@ -320,13 +320,16 @@
 % ----------------------------------------------------------
 %\part{Resultados}
 
-\input{textuais/modelagem_e_controle}
-\input{textuais/provas_matematicas}
+\input{textuais/modelagem}
+\input{textuais/controle_adaptativo}
+\input{textuais/imc}
+\input{textuais/resultados}
 
 % ---
 % Finaliza a parte no bookmark do PDF, para que se inicie o bookmark na raiz
 % ---
-\bookmarksetup{startatroot}%
+%\bookmarksetup{startatroot}%
+\phantompart
 % ---
 
 % ---
@@ -334,6 +337,7 @@
 % ---
 \chapter*[Conclusão]{Conclusão}
 \addcontentsline{toc}{chapter}{Conclusão}
+\input{textuais/conclusoes}
 
 
 
@@ -389,6 +393,7 @@
 \partanexos
 
 \input{postextuais/anexo}
+\input{textuais/provas_matematicas}
 
 \end{anexosenv}
 
@@ -396,6 +401,7 @@
 % INDICE REMISSIVO
 %---------------------------------------------------------------------
 
+\phantompart
 \printindex
 
 \end{document}
