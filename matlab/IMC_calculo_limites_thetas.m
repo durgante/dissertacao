@@ -1,7 +1,6 @@
 %% Definições Iniciais
 
-%Ts=1/12000;
-Ts=0.5;
+Ts=1/12000;
 s=tf('s');
 z=tf('z', Ts);
 
