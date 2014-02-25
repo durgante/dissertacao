@@ -7,57 +7,104 @@
 	%comentar sobre a conexão de conversores de tensão na rede e aplicações de filtragem
 	%ativa. Depois, falar de geração distribuída e comentar problemas de harmônicas
 	%de comutação
-	Diversos fatores têm levado à intensificação no uso de conversores eletrônicos
-	de potência nos últimos anos. As inúmeras aplicações que precisam de uma forma
-	de conexão com a rede elétrica fazem uso de conversores de potência.
-	Novas tecnologias, crise energética e o aumento do efeito estufa são algumas
-	dessas aplicações. Aplicações de geração distribuída, como células de energia,
-	painéis fotovoltaicos, turbinas eólicas e microturbinas são usadas não só
-	para aumentar a energia disponível no sistema, mas também para melhorar sua
-	confiabilidade, fornecendo energia aos consumidores mesmo durante uma falta
-	na rede~\cite{ref:KARSHENAS}.
 
-	Na maioria desses geradores, a eletricidade está disponível em um estágio
-	contínuo, ou é produzida em baixa frequência e, portanto, é convertida
-	para um nível contínuo. Inversores de tensão são predominantemente utilizados
-	para transferir energia de uma fonte contínua para a rede elétrica.
+	A tensão fornecida pelo sistema elétrico de potência é idealmente senoidal e
+	balanceada, com correntes de linha senoidais, amplitude e frequência fixas e
+	fator de potência unitário. Durante a operação real do sistema, no entanto,
+	é difícil manter as condições ideais. As divergências do padrão são classificadas
+	como problemas de qualidade de energia e, por se tratarem de problemas, devem
+	ser corrigidas.
+
+	Problemas de qualidade de energia ocorrem com mais frequência e intensidade em
+	ambientes industriais, devido ao tipo de carga instalada. Transformadores,
+	fornos a arco, conversores tiristorizados e cargas semelhantes drenam correntes
+	harmônicas e causam variações bruscas de energia reativa. É crescente a
+	utilização de dispositivos eletrônicos de potência em equipamentos
+	eletroeletrônicos, atualmente tão comuns em residências. Tais dispositivos possuem,
+	em geral, um estágio de entrada sem correção do fator de potência, fazendo com que
+	drenem correntes distorcidas da rede elétrica~\cite{ref:MANSOOR}. Estes fatores em
+	conjunto agravam o problema de qualidade de energia, devido às suas consequências
+	negativas, como	o aquecimento de condutores e transformadores devido à circulação
+	de correntes reativas e o mau funcionamento de equipamentos sensíveis conectados
+	ao sistema.	Tais consequências levaram à criação de normas internacionais que
+	regulamentam limites para a distorção harmônica total, ou THD (do inglês \emph{
+	Total Harmonic Distortion}). Como exemplos de normas pode-se citar a IEC 1000-3-2
+	e a IEEE 519-1992.
+
+	É possível mitigar estes problemas através da conexão de filtros de potência
+	com a carga. Estes filtros podem ser ativos ou passivos, e a conexão pode ser
+	em série, em paralelo, ou em série-paralelo. O filtro pode ser implementado
+	com elementos passivos (resistores, indutores e capacitores) ou elementos
+	ativos (chaves semicondutoras de potência), sendo os filtros ativos conhecidos
+	como FAP's (Filtros Ativos de Potência). Embora filtros passivos sejam mais
+	simples de projetar e mais baratos de construir do que filtros ativos, têm como
+	desvantagem a possibilidade de oscilar com a impedância da linha e uma capacidade
+	de compensação limitada, visto que para cada componente harmônica um reator
+	deve ser projetado. Por isso, a partir da década de $70$, com o desenvolvimento
+	da tecnologia de dispositivos semicondutores de potência, microprocessadores e
+	processadores digitais de sinal, ou DSP's (do inglês \emph{Digital Signal
+	Processor}) foi possível desenvolver algoritmos mais complexos de modulação,
+	geração de referências e programas supervisórios, o que tornou a utilização de
+	FAP's ainda mais popular~\cite{ref:SASAKI}.
+
+	Além disso, diversos fatores têm levado à intensificação no uso de conversores
+	eletrônicos	de potência nos últimos anos. As inúmeras aplicações que precisam de
+	uma forma de conexão com a rede elétrica fazem uso de conversores de potência.
+	Novas tecnologias, a crise energética e o aumento do efeito estufa são alguns dos
+	motivos para o aumento desta demanda. Aplicações de geração distribuída, como
+	células de energia,	painéis fotovoltaicos, turbinas eólicas e microturbinas são
+	usadas não só para aumentar a energia disponível no sistema, mas também para
+	melhorar sua confiabilidade, fornecendo energia aos consumidores mesmo durante
+	uma falta na rede~\cite{ref:KARSHENAS}.	Na maioria destes geradores, a eletricidade
+	está disponível em um estágio contínuo, ou é produzida em baixa frequência e,
+	portanto, é convertida para um nível contínuo. Inversores de tensão são
+	predominantemente utilizados para transferir energia de uma fonte contínua para
+	a rede elétrica.
 
 	Apesar de vastamente utilizados, os inversores de tensão demandam cuidado
-	em sua utilização. Isso deve-se ao fato de o inversor de tensão gerar
-	inerentemente harmônicas de comutação durante seu funcionamento, o que pode
-	ultrapassar os requisitos da rede com relação ao conteúdo harmônico
-	das correntes que nela circulam.
+	em sua utilização. Isso deve-se ao fato de o inversor de tensão trabalhar
+	com uma frequência de comutação da ordem de $kHz$ para manter as perdas de
+	comutação em níveis aceitáveis. Para manter as correntes harmônicas oriundas
+	do inversor em níveis aceitáveis, de forma a respeitar os códigos de
+	rede~\cite{ref:HOLMES}, existem diversas topologias de filtro que podem ser
+	utilizadas~\cite{ref:RIBEIRO}. A mais comum é a aplicação de um filtro L como
+	interface entre a rede e o inversor. Mais recentemente, filtros LCL começaram
+	a ser utilizados para esta função~\cite{ref:LINDGREN}\cite{ref:TEODORESCU}
+	\cite{ref:XU}, pois apresentam maior atenuação das frequências harmônicas sem
+	aumentar significativamente o consumo de potência reativa na frequência
+	fundamental da rede quando comparados a filtros L~\cite{ref:FUCHS}. Além disso,
+	as dimensões do filtro LCL são significativamente menores que a de um filtro L,
+	reduzindo o custo do filtro e as perdas de operação.
 
-	Existem muitas topologias de filtros ativos que podem ser utilizadas para
-	resolver este problema~\cite{ref:RIBEIRO}. A mais comum, é a aplicação de
-	um filtro L como interface entre a rede e o inversor. Mais recentemente,
-	filtros LCL começaram a ser utilizados para esta função~\cite{ref:LINDGREN},
-	\cite{ref:TEODORESCU},~\cite{ref:XU}, a fim de obter o
-	mesmo resultado de atenuação, porém com componentes fisicamente
-	menores~\cite{ref:HOLMES}. Essa redução é muito vantajosa, visto que implica
-	em redução no custo do filtro e	nas perdas de operação.
+	A indutância da rede pode ser considerada como parte do filtro LCL. No entanto,
+	a incerteza quanto ao seu valor real altera a frequência de ressonância do
+	filtro e pode levar a instabilidade. Por este motivo, a incerteza quanto ao
+	valor da indutância da rede precisa ser incluída no projeto do
+	controlador~\cite{ref:LISERRE}. Outro ponto importante é que o controlador
+	precisa rejeitar distorções de corrente de baixa ordem resultantes da
+	distorção de tensão no ponto de conexão do conversor. Isto, aliado ao fato de
+	que o controlador é implementado em um microcontrolador ou um DSP, torna o
+	projeto bastante complexo.
 
 	Por ser de terceira ordem, o filtro LCL apresenta um pico de amplitude em
 	sua frequência de ressonância, o que faz com que a estabilidade geral do
 	sistema seja reduzida dependendo principalmente de sua frequência de
-	ressonância. Dessa forma, é necessário compensar este comportamento.
-	Uma maneira de compensar o efeito da ressonância é o amortecimento passivo
+	ressonância. Dessa forma, é necessário realizar o amortecimento deste pico
+	de amplitude. É possível realizar este amortecimento de forma passiva
 	através da inserção	de um resistor em série ou em paralelo com o capacitor
-	do filtro~\cite{ref:AHMED}. Embora	esse amortecimento reduza consideravelmente
-	o pico de amplitude na frequência de ressonância, ele degrada o desempenho do
-	filtro nas altas frequências e, portanto, não é uma solução aceitável para
-	aplicações que necessitam do máximo de desempenho~\cite{ref:SHEN}.
+	do filtro~\cite{ref:AHMED}. Embora este amortecimento reduza consideravelmente
+	o pico de amplitude na frequência de ressonância, ele aumenta o consumo de
+	energia e degrada o desempenho do filtro nas altas frequências. Não é,
+	portanto, uma solução aceitável para aplicações que necessitam do máximo de
+	desempenho~\cite{ref:SHEN}. Outra forma de realizar este amortecimento é via
+	amortecimento ativo. Isto é alcançado utilizando uma dentre várias estratégias
+	de controle possíveis, tais como estruturas de controle específicas~\cite{ref:WU},
+	estimação de impedância da rede~\cite{ref:BLAABJERG}, retroação de
+	estados~\cite{ref:MASSING}, estratégias utilizando múltiplos laços de
+	realimentação~\cite{ref:POH}, dentre outras~\cite{ref:WESSELS} \cite{ref:MORENO}
+	\cite{ref:YANG}.
 
-	Outra forma de abordar a questão é utilizar uma estratégia de controle que
-	compense este comportamento, resultando num amortecimento ativo. Usualmente,
-	os controladores são implementados digitalmente em microcontroladores utilizando
-	uma frequência de amostragem adequada frente à frequência de ressonância do
-	filtro. Isso garante que o controlador seja capaz de atuar sobre e rejeitar
-	o distúrbio de amplitude na frequência de ressonância, mas demanda técnicas
-	de projeto do filtro e do controlador para atender este requisito.
-
-	Existem múltiplas estratégias de controle para conversores conectados à
-	rede elétrica que podem ser classificadas, de maneira geral, como analógicas
+	Essas estratégias podem ser classificadas, de maneira geral, como analógicas
 	e digitais. Os métodos de controle digital oferecem diversas vantagens sobre
 	as técnicas analógicas, como reprogramabilidade, tolerância à variações
 	nos componentes, suporte a multiplos modos de operação, melhor eficiência e,
@@ -66,24 +113,20 @@
 	resolução e capacidade computacional~\cite{ref:KIMBALL}.
 
 	Assim sendo, o enfoque recai sobre as técnicas de controle digital. Existem
-	muitas técnicas diferentes para o controle de conversores. O controle \textit{PI}
+	muitas técnicas diferentes para o controle de conversores. O controle \emph{PI}
 	utiliza compensadores de erro do tipo proporcional-integral para produzir os
 	sinais de comando de cada fase. A parte integral do controlador minimiza o
 	erro em baixas frequências, enquanto a parte proporcional e a posição do zero
 	influenciam na ondulação do sinal. O desafio desta técnica é realizar o
 	rastreamento das referências de corrente. Isto é resolvido, em geral,
-	utilizando circuitos do tipo PLL (\textit{Phase Locked Loop}) para gerar as
-	referências de corrente. O controlador \textit{PI} geralmente é implementado
-	em eixos síncronos $dq$, de modo que as	referências senoidais são transformadas
-	em sinais constantes. Alternativamente, podem ser utilizados \textit{PI's} em
-	eixos estacionários $\alpha \beta$~\cite{ref:KAZMIERKOWSKI}. Em ambos os casos,
-	o objetivo é o rastreamento de referências senoidais e a rejeição de distúrbios
-	de mesma natureza~\cite{ref:AREERAK}.
-
-	%\comment{Este controlador
-	%ainda pode ser implementado em eixos síncronos, sendo utilizado para
-	%eliminação de erro da componente fundamental devido à eficiência
-	%computacional do método~\cite{ref:AREERAK}.}
+	utilizando circuitos do tipo malha de captura de fase, ou PLL (do inglês
+	\emph{Phase Locked Loop}) para gerar as referências de corrente. O controlador
+	\emph{PI} geralmente é implementado em eixos síncronos $dq$, de modo que as
+	referências senoidais são transformadas em sinais constantes. Alternativamente,
+	podem ser utilizados \emph{PI's} em eixos estacionários
+	$\alpha \beta$~\cite{ref:KAZMIERKOWSKI}. Em ambos os casos, o objetivo é o
+	rastreamento de referências senoidais e a rejeição de distúrbios de mesma
+	natureza~\cite{ref:AREERAK}.
 
 	Uma outra técnica é o controle de corrente usando um controlador do tipo
 	\textit{Dead-Beat}. Essa é a mais rápida estratégia de controle linear que pode
@@ -128,11 +171,11 @@
 	do distúrbio na variável controlada.
 
 	As técnicas de controle clássicas pressupõe o uso de um modelo interno do sistema
-	que deve ser precisamente conhecido. Nas duas últimas décadas, esse requisito
+	que deve ser precisamente conhecido. Nas duas últimas décadas, este requisito
 	vem sendo relaxado, e o desafio é desenvolver estratégias de controle robustas
 	à incerteza paramétrica~\cite{ref:GEROMEL}.
 
-	Considerando o contexto descrito acima, a proposta deste trabalho é apresentar
+	Considerando o contexto descrito acima, a proposta desse trabalho é apresentar
 	uma estratégia de controle de conversores conectados à rede elétrica através de
 	um filtro LCL. Esta estratégia apresenta ótimo desempenho através do uso de
 	Controle Multimalha, é capaz de rejeitar distúrbios e é robusta em relação à
@@ -159,36 +202,33 @@
 	%Novo capítulo, método do Lee, ajuda do Márcio para a descrição matemática
 	%do controlador adaptativo, mostrar o projeto de cada malha
 
-\section*{Objetivos}
+\section*{Objetivos e Contribuições da Dissertação}
 
-	O objetivo deste trabalho é propor uma estratégia de controle para um conversor
+	O objetivo desse trabalho é propor uma estratégia de controle para um conversor
 	conectado à rede elétrica através de um filtro LCL. A estratégia proposta deve
 	ser robusta com relação às incertezas e distúrbios da rede elétrica, e resultar
 	numa dinâmica de malha fechada rápida o suficiente para permitir a rejeição de
 	distúrbios e o rastreamento de possíveis referências complexas, incluindo harmônicas.
 
-	Os objetivos específicos são:
+	Mais especificamente, esta Dissertação visa:
 
 	\begin{itemize}
-		\item Determinação teórica via modelagem matemática e simulação do sistema
-			em malha fechada;
-		\item Comprovação da análise teórica por meio da obtenção de resultados
-			experimentais;
-		\item Comparação da proposta com controladores convencionalmente utilizados.
+		\item Propor um controlador adaptativo para controlar a corrente de conversores
+			conectados à rede elétrica com um filtro LCL que ajuste automaticamente os
+			ganhos e que garanta estabilidade para uma ampla faixa de valores de
+			impedância da rede;
+		\item Propor um controlador que garanta desempenho e estabilidade frente a
+			distúrbios de tensão e incerteza na impedância da rede elétrica;
+		\item Realizar a prova de estabilidade do controlador proposto.
 	\end{itemize}
 
 %\section{Revisão Bibliográfica}
 
 %	Será feito no fim.
 
-\section*{Contribuição da Dissertação}
-
-	Uma estratégia de controle que oferece robustez frente a distúrbios e que
-	tem capacidade de lidar com incertezas paramétricas do lado da rede.
-
 \section*{Organização do Documento}
 
-	Este trabalho é organizado como segue: o primeiro capítulo apresenta uma introdução
+	Esse trabalho é organizado como segue: o primeiro capítulo apresenta uma introdução
 	e motivação para o trabalho proposto. O segundo capítulo apresenta uma breve revisão
 	bibliográfica dos elementos necessários ao desenvolvimento do trabalho. O terceiro
 	capítulo apresenta a modelagem matemática do sistema.
