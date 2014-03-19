@@ -63,7 +63,7 @@
 
 	Apesar de vastamente utilizados, os inversores de tensão demandam cuidado
 	em sua utilização. Isso deve-se ao fato de o inversor de tensão trabalhar
-	com uma frequência de comutação da ordem de $kHz$ para manter as perdas de
+	com uma frequência de comutação da ordem de kHz para manter as perdas de
 	comutação em níveis aceitáveis. Para manter as correntes harmônicas oriundas
 	do inversor em níveis aceitáveis, de forma a respeitar os códigos de
 	rede~\cite{ref:HOLMES}, existem diversas topologias de filtro que podem ser
@@ -89,23 +89,23 @@
 	Por ser de terceira ordem, o filtro LCL apresenta um pico de amplitude em
 	sua frequência de ressonância, o que faz com que a estabilidade geral do
 	sistema seja reduzida dependendo principalmente de sua frequência de
-	ressonância. Dessa forma, é necessário realizar o amortecimento deste pico
-	de amplitude. É possível realizar este amortecimento de forma passiva
+	ressonância. Dessa forma, é necessário realizar o amortecimento desta
+	ressonância. É possível realizar este amortecimento de forma passiva
 	através da inserção	de um resistor em série ou em paralelo com o capacitor
 	do filtro~\cite{ref:AHMED}. Embora este amortecimento reduza consideravelmente
-	o pico de amplitude na frequência de ressonância, ele aumenta o consumo de
-	energia e degrada o desempenho do filtro nas altas frequências. Não é,
+	o pico de amplitude na frequência de ressonância, ele resulta em dissipação de
+	energia pelo filtro e degrada o desempenho de atenuação nas altas frequências. Não é,
 	portanto, uma solução aceitável para aplicações que necessitam do máximo de
 	desempenho~\cite{ref:SHEN}. Outra forma de realizar este amortecimento é via
-	amortecimento ativo. Isto é alcançado utilizando uma dentre várias estratégias
-	de controle possíveis, tais como estruturas de controle específicas~\cite{ref:WU},
-	estimação de impedância da rede~\cite{ref:BLAABJERG}, retroação de
-	estados~\cite{ref:MASSING}, estratégias utilizando múltiplos laços de
+	amortecimento ativo~\cite{ref:GERVASIO}. Isto é alcançado utilizando uma dentre
+	várias estratégias de controle possíveis, tais como estruturas de controle
+	específicas~\cite{ref:WU}, estimação de impedância da rede~\cite{ref:BLAABJERG},
+	retroação de estados~\cite{ref:MASSING}, estratégias utilizando múltiplos laços de
 	realimentação~\cite{ref:POH}, dentre outras~\cite{ref:WESSELS} \cite{ref:MORENO}
 	\cite{ref:YANG}.
 
-	Essas estratégias podem ser classificadas, de maneira geral, como analógicas
-	e digitais. Os métodos de controle digital oferecem diversas vantagens sobre
+	Em geral, essas estratégias de controle podem ser implementadas analogicamente ou
+	digitalmente. Os métodos de controle digital oferecem diversas vantagens sobre
 	as técnicas analógicas, como reprogramabilidade, tolerância à variações
 	nos componentes, suporte a multiplos modos de operação, melhor eficiência e,
 	em geral, melhor desempenho. O controle analógico se limita a estruturas particulares,
@@ -122,7 +122,7 @@
 	rastreamento das referências de corrente. Isto é resolvido, em geral,
 	utilizando circuitos do tipo malha de captura de fase, ou PLL (do inglês
 	\emph{Phase Locked Loop}) para gerar as referências de corrente. O controlador
-	PI geralmente é implementado em eixos síncronos $dq$, de modo que as
+	PI geralmente é implementado em eixos síncronos dq, de modo que as
 	referências senoidais são transformadas em sinais constantes. Alternativamente,
 	podem ser utilizados PI em eixos estacionários
 	$\alpha \beta$~\cite{ref:KAZMIERKOWSKI}. Em ambos os casos, o objetivo é o
@@ -133,12 +133,12 @@
 	\emph{Dead-Beat}. Essa é a mais rápida estratégia de controle linear que pode
 	ser adotada. Teoricamente, o laço de corrente replica exatamente a corrente
 	de referência com dois ciclos de atraso. O controle é baseado no modelo interno
-	da carga do conversor, usado para prever o comportamento dinâmico do sistema. O
-	controlador, assim sendo, é inerentemente sensível a descasamento de parâmetros
-	e de modelo~\cite{ref:MALESANI}.
+	do sistema, usado para prever o comportamento dinâmico do sistema. O
+	controlador, assim sendo, é inerentemente sensível às incertezas do
+	modelo~\cite{ref:MALESANI}.
 
 	Existe ainda o controlador por Histerese. Devido à sua inerente não-linearidade,
-	este controlador é capaz de proporcionar a mais rápida resposta dinâmica possível.
+	este controlador é capaz de proporcionar uma resposta dinâmica rápida.
 	Utilizando esta técnica, é possível atingir o máximo aproveitamento do conversor
 	de potência~\cite{ref:YAO}. O limite para a regulação de corrente, na verdade,
 	é dado pelo projeto do conversor. O controle de corrente por histerese é estável

@@ -1,35 +1,36 @@
 %TITULO------------------------------------------------------------------------
 
 %==============================================================================
-\chapter{Análise de Estabilidade Robusta do Algoritmo Adaptativo}\label{provas}
+\chapter[Análise de Estabilidade do Alg. Adaptativo]{Análise de Estabilidade
+    Robusta do Algoritmo Adaptativo}\label{provas}
 %==============================================================================
 
 \section{Descrição da Planta e do Modelo de Referência}
 
-    Considere a planta SISO, LTI:
-
+    Considere a planta SISO, LTI
+    %
     \begin{equation}
-        y(k) = G(z) \cdot u(k) = G_o(z) \cdot u(k) + \Delta(z) \cdot u(k)
+        y(k) = G(z) \cdot u(k) = G_o(z) \cdot u(k) + \Delta(z) \cdot u(k)\text{,}
         \label{eq:saida_da_planta}
     \end{equation}
-
-    Onde:
-
+    %
+    onde:
+    %
     \begin{equation}
-        G_o(z) = k_p \frac{Z_o(z)}{P_o(z)}
+        G_o(z) = k_p \frac{Z_o(z)}{P_o(z)}\text{.}
     \end{equation}
 
     $G(z)$ é uma função de transferência estritamente própria, $Z_o(z)$ e $P_o(z)$
-    são polinômios mônicos e o sinal de $k_p$ é assumido como sendo conhecido. Além
-    disso, o comportamento desejado da planta em malha fechada é descrito pelo modelo de
-    referência, dado pela seguinte função de transferência:
-
+    são polinômios mônicos e o sinal do ganho $k_p$ é assumido como sendo conhecido. Além
+    disso, o comportamento desejado da planta em malha fechada é descrito por um modelo de
+    referência, dado pela função de transferência
+    %
     \begin{equation}
-        y_m(k) = W_m(z) \cdot r(k) = \frac{k_m}{P_m(z)} r(k)
+        y_m(k) = W_m(z) \cdot r(k) = \frac{k_m}{P_m(z)} r(k)\text{,}
         \label{eq:saida_do_modelo_de_referencia}
     \end{equation}
-
-    Onde $P_m(z)$ é um polinômio mônico e $k_m > 0$.
+    %
+    onde $P_m(z)$ é um polinômio mônico e $k_m > 0$.
 
     O objetivo do Controle por Modelo de Referência ou MRC (do inglês \emph{Model
     Reference Control}) é determinar a entrada $u$ da planta de forma que sua saída
@@ -37,12 +38,15 @@
     desde que mantendo os sinais de malha fechada limitados.
 
     É necessário definir uma Lei de Controle e uma Lei de Adaptação Paramétrica para
-    projetar a entrada $u$ da planta. Caso existam incertezas paramétricas, utiliza-se
-    uma técnica de controle adaptativo que resulta no Controlador Adaptativo por Modelo
-    de Referência ou MRAC (do inglês \emph{Model Reference Adaptive Control}).
-    No caso de plantas com dinâmicas não-modeladas, é
-    necessário modificar a lei de adaptação paramétrica de forma a garantir a robustez
-    do controlador. Neste caso, diz-se que o controlador é MRAC robusto.
+    projetar a entrada $u$ da planta.
+
+    Caso existam incertezas paramétricas, utiliza-se uma técnica de controle adaptativo
+    que resulta no Controlador Adaptativo por Modelo de Referência ou MRAC (do inglês
+    \emph{Model Reference Adaptive Control}). É necessário definir uma Lei de Controle
+    e uma Lei de Adaptação Paramétrica para projetar a entrada $u$ da planta. No caso de
+    plantas com dinâmicas não-modeladas, é necessário modificar a lei de adaptação
+    paramétrica de forma a garantir a robustez do controlador. Neste caso, diz-se que o
+    controlador é MRAC robusto.
 
     As hipóteses feitas sobre a planta e o modelo de referência são as seguintes:
 
@@ -68,25 +72,26 @@
 
 \section{Estrutura do Algoritmo Adaptativo}
 
-    Em casos onde os estados não são medidos é possível a utilização de estimadores,
-    de onde resulta a seguinte estrutura para a lei de controle~\cite{ref:TAO}:
-
+    Em casos onde os estados da planta não são medidos é possível a utilização de
+    estimadores, de onde resulta a estrutura para a lei de
+    controle~\cite{ref:TAO}
+    %
     \begin{equation}
-        u = \theta^T \omega
+        u = \theta^T \omega\text{,}
     \end{equation}
-
-    Na qual os vetores $\theta$ e $\omega$ são definidos como:
-
+    %
+    na qual os vetores $\theta$ e $\omega$ são definidos como
+    %
     \begin{equation}
         \begin{split}
             \theta^T & = \left[ \begin{matrix} \theta_1^T, & \theta_2^T, & \theta_3, & \theta_4
-                \end{matrix} \right]\\
+                \end{matrix} \right]\text{ e}\\
             \omega & = {\left[ \begin{matrix} \omega_1 & \omega_2 & y & r \end{matrix}
-                \right]}^T
+                \right]}^T\text{.}
         \end{split}
     \end{equation}
 
-    A Fig.~\ref{fig:cascata} mostra a estrutura geral do sistema de controle.
+    A Fig.~\ref{fig:cascata} apresenta a estrutura geral do sistema de controle.
 
     \begin{figure}[htb]
         \centering{
@@ -97,8 +102,8 @@
     \end{figure}
 
     A entrada $u$ e a saída $y$ da planta são usadas para gerar os sinais $\omega_1$ e
-    $\omega_2$, dados por:
-
+    $\omega_2$ dados por
+    %
     \begin{equation}
         %\begin{split}
             \omega_1(k) = \frac{\alpha(z)}{\Lambda(z)} u(k) \text{ e }
@@ -106,36 +111,41 @@
         %\end{split}
         \label{eq:omega_1_2}
     \end{equation}
-
-    Com $\Lambda(z)$ estável e $\alpha(z)$ dados por:
-
+    %
+    com $\Lambda(z)$ estável e $\alpha(z)$ dados por
+    %
     \begin{equation*}
         \alpha(z) = \left[ \begin{matrix} z^{n-2}, & ..., & z, & 1 \end{matrix} \right]
         \text{ e }
-        \Lambda(z) = z^{n-1} + \lambda_{n-2} z^{n-2} + ... + \lambda_1 z + \lambda_0
+        \Lambda(z) = z^{n-1} + \lambda_{n-2} z^{n-2} + ... + \lambda_1 z + \lambda_0\text{.}
     \end{equation*}
 
-    Os polinômios $\alpha$ e $\Lambda$ são definidos com base no grau da planta.
+    Nota-se que a dimensão de $\alpha$ e $\Lambda$ é definida com base no grau da planta.
     Considerando que a planta $G(z)$ pode ser descrita em termos de uma parte conhecida
-    $G_o(z)$ e uma parte de dinâmicas não-modeladas do tipo aditiva, estável e estritamente
-    própria $\Delta(z)$:
-
+    $G_o(z)$ e uma parte com dinâmicas não-modeladas do tipo aditiva, estável e estritamente
+    própria $\Delta(z)$ tem-se
+    %
     \begin{equation}
-        G(z) = G_o(z) + \Delta(z)
+        G(z) = G_o(z) + \Delta(z) \text{.}
         \label{eq:planta_go_delta}
     \end{equation}
 
-    Define-se o modelo de referência como sendo:
-
+    Define-se o modelo de referência como sendo
+    %
     \begin{equation*}
-        y_m = W_m(z) r
+        y_m = W_m(z) r \text{.}
     \end{equation*}
 
-    É necessário garantir que os graus da planta $G_o(z)$ e do modelo de referência $W_m(z)$ sejam
-    iguais, para que seja possível resolver a condição de casamento \cite{ref:IOANNOU}. Dessa forma,
-    garante-se que existe um conjunto de ganhos $\theta = \theta^*$ tal que a saída da planta $y$ é
-    igual a saída do modelo de referência $y_m$ quando $\Delta(z) = 0$:
+    É necessário garantir que o grau relativo da planta $G_o(z)$ e do modelo de referência
+    $W_m(z)$ sejam iguais para que seja possível resolver a condição de casamento
+    \cite{ref:IOANNOU}. Dessa forma, garante-se que existe um conjunto de ganhos
+    $\theta = \theta^*$ tal que a saída da planta $y$ é igual a saída do modelo de referência
+    $y_m$ quando $\Delta(z) = 0$.
 
+    Para a obtenção dos sinais necessários para a implementação do controlador adaptativo,
+    parte-se da definição da lei de controle assumindo a existência de um conjunto de ganhos
+    $\theta = \theta^*$. Assim
+    %
     \begin{equation}
         \begin{split}
             u(k) &= \theta^T \omega = \theta^T \omega + \theta^{*T} \omega - \theta^{*T} \omega\\
@@ -143,172 +153,167 @@
             \label{eq:u_para_theta_estrela}
         \end{split}
     \end{equation}
-
-    Onde:
-
+    %
+    onde:
+    %
     \begin{equation*}
-        \phi = \theta - \theta^*
+        \phi = \theta - \theta^* \text{.}
     \end{equation*}
-
+    %
     De (\ref{eq:u_para_theta_estrela}):
-
+    %
     \begin{equation*}
-        u(k) = \phi^T \omega + \theta_1^{*T} \omega_1 + \theta_2^{*T} \omega_2 + \theta_3^* y(k) + \theta_4 r
+        u(k) = \phi^T \omega + \theta_1^{*T} \omega_1 + \theta_2^{*T} \omega_2 + \theta_3^* y(k)
+            + \theta_4 r \text{.}
     \end{equation*}
-
-    E levando em consideração (\ref{eq:omega_1_2}), tem-se:
-
+    %
+    Considerando (\ref{eq:omega_1_2}) tem-se
+    %
     \begin{equation*}
-        u(k) = \phi^T \omega + \theta_1^{*T} \frac{\alpha}{\Lambda} u(k)  + \left( \theta_2^{*T} \frac{\alpha}{\Lambda}
-            + \theta_3^* \right) y(k) + \theta_4^* r
+        u(k) = \phi^T \omega + \theta_1^{*T} \frac{\alpha(z)}{\Lambda(z)} u(k) +
+            \left( \theta_2^{*T} \frac{\alpha(z)}{\Lambda(z)} + \theta_3^* \right)
+            y(k) + \theta_4^* r \text{.}
     \end{equation*}
-
-    Definindo:
-
+    %
+    Definindo
+    %
     \begin{equation*}
         \begin{split}
-            F_1 &= \theta_1^{*T} \frac{\alpha}{\Lambda}\\
-            F_2 &= \theta_2^{*T} \frac{\alpha}{\Lambda} + \theta_3^*
+            F_1 &= \theta_1^{*T} \frac{\alpha(z)}{\Lambda(z)}\\
+            F_2 &= \theta_2^{*T} \frac{\alpha(z)}{\Lambda(z)} + \theta_3^*
         \end{split}
     \end{equation*}
-
-    E considerando que $y(k) = G(z) \cdot u(k)$, obtém-se:
-
+    %
+    e considerando que $y(k) = G(z) u(k)$, obtém-se
+    %
     \begin{equation}
-        \left( 1 - F_1(z) - F_2(z) \cdot G(z) \right) u(k) = \phi^T \omega + \theta_4^* r
+        \left( 1 - F_1(z) - F_2(z) G(z) \right) u(k) = \phi^T \omega + \theta_4^* r \text{.}
         \label{eq:funcao_de_fs}
     \end{equation}
 
     Levando em conta que, na ausência de dinâmicas não modeladas, existe um conjunto de
-    ganhos $\theta = \theta^*$ tal que $\phi = 0$ e $y = y_m$. Dessa forma, têm-se:
-
+    ganhos $\theta = \theta^*$ tal que $\phi = 0$ e $y = y_m$, têm-se:
+    %
     \begin{equation}
-        y(k) = G_o(z) \cdot u(k) = y_m = W_m(z) \cdot r
+        y(k) = G_o(z) u(k) = y_m = W_m(z) r
     \end{equation}
-
+    %
     Então de (\ref{eq:funcao_de_fs}):
-
+    %
     \begin{equation}
-        \left( 1 - F_1(z) - F_2(z) \cdot G(z) \right) u(k) = \theta_4^* r
+        \left( 1 - F_1(z) - F_2(z) G(z) \right) u(k) = \theta_4^* r
     \end{equation}
-
-    Como $r = W_m(z)^{-1} \cdot y_m$, e definindo $\rho^* = \frac{1}{\theta_4^*}$:
-
+    %
+    Como $r = W_m(z)^{-1} y_m$, e definindo $\rho^* = 1/\theta_4^*$:
+    %
     \begin{equation*}
-        \rho^* W_m(z) \left( 1 - F_1(z) - F_2(z) \cdot G(z) \right) u(k) = y_m = G_o(z) \cdot u(z)
+        \rho^* W_m(z) \left( 1 - F_1(z) - F_2(z) G(z) \right) u(k) = y_m = G_o(z) u(z)
     \end{equation*}
-
+    %
     O que resulta em:
-
+    %
     \begin{equation}
-        G_o(z) = \rho^* W_m(z) \left( 1 - F_1(z) - F_2(z) \cdot G(z) \right)
+        G_o(z) = \rho^* W_m(z) \left( 1 - F_1(z) - F_2(z) G(z) \right)
         \label{eq:go_z_em_funcao_de_f}
     \end{equation}
-
-    % Tendo em vista (\ref{eq:planta_go_delta}) e $y = G_o(z) \cdot \Delta(z)$, então:
-
-    % \begin{equation*}
-    %     y(k) = \left( G_o(z) + \Delta(z) \right) u(k)
-    % \end{equation*}
-
-    % Ou seja:
-
-    % \begin{equation}
-    %     y(k) = G_o(z) \cdot u(k) + \Delta(z) \cdot u(k)
-    %     \label{eq:go_u_delta_u}
-    % \end{equation}
-
-    % De (\ref{eq:funcao_de_fs}):
-
+    %
     De (\ref{eq:saida_da_planta}) e (\ref{eq:go_z_em_funcao_de_f}) resulta:
-
+    %
     \begin{equation*}
-        \left( 1 - F_1(z) - F_2(z) \cdot \left( G_o(z) + \Delta(z) \right) \right) u(k) =
+        \left[ 1 - F_1(z) - F_2(z) \left( G_o(z) + \Delta(z) \right) \right] u(k) =
             \phi^T \omega + \theta_4^* r
     \end{equation*}
-
+    %
     \begin{equation}
-        \left( 1 - F_1(z) - F_2(z) \cdot G_o(z) \right) u(k) = \phi^T \omega + \theta_4^* r +
-            F_2(z) \cdot \Delta(z) \cdot u(k)
+        \left( 1 - F_1(z) - F_2(z) G_o(z) \right) u(k) = \phi^T \omega + \theta_4^* r +
+            F_2(z) \Delta(z) u(k)
         \label{eq:phi_theta_f}
     \end{equation}
-
-    Substituindo (\ref{eq:go_z_em_funcao_de_f}) em (\ref{eq:saida_da_planta}), obtém-se:
-
+    %
+    Substituindo (\ref{eq:go_z_em_funcao_de_f}) em (\ref{eq:saida_da_planta}), obtém-se
+    %
     \begin{equation}
-        y(k) = \rho^* W_m(z) \left( 1 - F_1(z) - F_2(z) G_o(z) \right) u(k) + \Delta(z) u(k)
+        y(k) = \rho^* W_m(z) \left( 1 - F_1(z) - F_2(z) G_o(z) \right) u(k) + \Delta(z)
+            u(k) \text{.}
         \label{eq:y_em_funcao_f}
     \end{equation}
-
-    Substituindo (\ref{eq:phi_theta_f}) em (\ref{eq:y_em_funcao_f}), obtém-se:
-
+    %
+    Substituindo (\ref{eq:phi_theta_f}) em (\ref{eq:y_em_funcao_f}) resulta
+    %
     \begin{equation*}
-        y(k) = \rho^* W_m(z) \left[ \phi^T \omega + \theta_4^* r + F_2(z) \Delta(z) u(k) \right] + \Delta(z) u(k)
+        y(k) = \rho^* W_m(z) \left[ \phi^T \omega + \theta_4^* r + F_2(z) \Delta(z) u(k) \right]
+            + \Delta(z) u(k) \text{ ou }
     \end{equation*}
-
+    %
     \begin{equation*}
         y(k) = \rho^* W_m(z) \left[ \phi^T \omega + \theta_4^* r \right] + \left( \rho^* W_m(z)
-            \cdot F_2(z) + 1 \right) \cdot \Delta(z) u(k)
+            \cdot F_2(z) + 1 \right) \cdot \Delta(z) u(k) \text{.}
     \end{equation*}
-
-    Definindo:
-
+    %
+    Definindo
+    %
     \begin{equation*}
         \bar{\Delta}(z) = \left( \rho^* W_m(z) F_2 + 1 \right) \Delta(z)
     \end{equation*}
-
-    E também:
-
+    %
+    também
+    %
     \begin{equation*}
         \eta(k) = \bar{\Delta}(z) u(k)
     \end{equation*}
-
-    Tem-se que:
-
+    %
+    tem-se que:
+    %
     \begin{equation*}
         y(k) = \rho^* W_m(z) \left[ \phi^T(k) \omega(k) + \theta_4^* r(k) \right] + \eta(k)
         %\label{eq:y_em_funcao_de_eta}
     \end{equation*}
+    %
+    com $y_m(k) = W_m(z) r(k)$ e $\rho^* = 1/\theta_4^*$:
+    %
+    \begin{equation}
+        e_1(k) = y(k) - y_m(k) = \rho^* W_m(z) \left[ \phi^T(k) \omega(k) \right] + \eta(k) \text{.}
+        \label{eq:e1_em_funcao_de_eta}
+    \end{equation}
 
-    Com $y_m(k) = W_m(z) r(k)$ e $\rho^* = \frac{1}{\theta_4^*}$:
-
-    \begin{equation*}
-        e_1(k) = y(k) - y_m(k) = \rho^* W_m(z) \left[ \phi^T(k) \omega(k) \right] + \eta(k)
-        %\label{eq:e1_em_funcao_de_eta}
-    \end{equation*}
-
-    Para sistemas discretos, não se pode garantir que $W_m(z)$ será estritamente positivo e real
-    (\emph{SPR}) e, portanto, define-se uma equação de erro aumentado $e_a$ para o qual será possível
-    demonstrar a estabilidade do algoritmo:
-
-    \begin{equation*}
+    Para sistemas discretos não se pode garantir que $W_m(z)$ será estritamente positivo e real
+    (\emph{SPR}), não sendo possível a utilização do erro tal como dado em
+    (\ref{eq:e1_em_funcao_de_eta}) para o projeto da lei de adaptação paramétrica, visto que
+    não é possível provar que o algoritmo resultante é estável. Portanto, define-se uma equação
+    de erro aumentado $e_a$ para o qual será possível demonstrar a estabilidade do algoritmo.
+    O erro aumentado é dado por
+    %
+    \begin{equation}
         e_a = \rho^* \phi^T \zeta + \tilde{\rho} \cdot e_2 + \eta
-    \end{equation*}
-
-    Onde:
-
+        \label{eq:ea_erro_aumentado}
+    \end{equation}
+    %
+    onde:
+    %
     \begin{itemize}[leftmargin=+2cm]
         \item[] $e_2$ é o sinal de aumento do erro;
         \item[] $\tilde{\rho}$ é o erro na estimação da divisão do ganho da planta
-            pelo ganho do modelo de referência.
+            pelo ganho do modelo de referência;
+        \item[] $\zeta(k) = W_m(z) \omega(k) \text{.}$
     \end{itemize}
-
-    E:
-
-    \begin{equation}
-        \zeta(k) = W_m(z) \cdot \omega(k)
-        \label{eq:zeta}
-    \end{equation}
+    %
+    %E:
+    %
+    %\begin{equation}
+    %    \zeta(k) = W_m(z) \cdot \omega(k)
+    %    \label{eq:zeta}
+    %\end{equation}
 
     Para a implementação, é possível expressar o erro aumentado em uma forma computável:
-
+    %
     \begin{equation}
         e_a = e_1 + \rho \cdot e_2
         \label{eq:erro_aumentado_computavel}
     \end{equation}
-
-    Considerando as equações do algoritmo adaptativo:
-
+    %
+    A partir de (\ref{eq:ea_erro_aumentado}) pode-se obter o seguinte algoritmo de adaptação
+    paramétrica
+    %
     \begin{equation}
         \begin{split}
             \theta(k+1) &= \theta(k) - \mathrm{sgn}(k_p) \gamma_d \frac{\zeta(k) \cdot e_a(k)}{{\bar{m}}^2(k)} \\
@@ -318,11 +323,11 @@
         \end{split}
         \label{eq:equacoes_algoritmo_adaptativo}
     \end{equation}
-
-    Onde:
-
+    %
+    onde:
+    %
     \begin{itemize}[leftmargin=+2cm]
-        \item[] $\gamma$ e $\gamma_d$ são ganhos das leis de adaptação;
+        \item[] $\gamma$ e $\gamma_d$ são ganhos das leis de adaptação, e
         \item[] $\delta_0$ é uma constante utilizada no normalizador para o projeto
             da robustez das leis de adaptação.
     \end{itemize}
@@ -431,8 +436,8 @@
     \end{equation}
 
     \begin{teorema}
-        A estrutura de controle (\ref{eq:saida_do_modelo_de_referencia}) - (\ref{eq:omega_1_2}),
-        (\ref{eq:zeta}) e (\ref{eq:erro_aumentado_computavel}) com o algoritmo adaptativo
+        A estrutura de controle (\ref{eq:saida_do_modelo_de_referencia}) - (\ref{eq:omega_1_2}) e
+        (\ref{eq:erro_aumentado_computavel}) com o algoritmo adaptativo
         (\ref{eq:equacoes_algoritmo_adaptativo}) garante a limitação dos seguintes sinais na malha
         fechada~\cite{ref:STEFANELLO}:
 

@@ -8,13 +8,32 @@ Este é o README do meu projeto de dissertação de mestrado!
 TODO
 ----
 
++ Montar um cronograma, o tempo está se esgotando e é preciso priorizar tarefas;
+
++ Coletar referências: pegar o arquivo de referências .bib e baixar todas, salvando
+	na pasta adequada com a nomenclatura adequada (conforme consta lá). O que não
+	estiver incluso, procurar eliminar, ou colocar em uma subpasta;
+
 + Refazer figuras:
 	* Ler a documentação para criação de figuras uniformes;
+	* Ler a documentação para criação de figuras com Inkscape, provavelmente é melhor
+		exportar do Inkscape e sobrescrever texto com o Latex;
 	* Refazer as figuras para que fiquem todas vetoriais.
 
-+ Remanejar conteúdo da seção revisão bibliográfica: o intuito é remover esta
-	seção e deixar apenas Introdução, Modelagem e Controle.
++ Descrever melhor a modelagem. O que há até o momento é a modelagem via impedâncias
+	para função de transferência e então discretização.
+	* Adicionar modelagem no tempo contínuo;
+	* Adicionar comentários sobre os efeitos da discretização (surgimento do zero de
+		amostragem);
+	* Adicionar modelagem em espaço de estados (vale a pena?);
 
-+ Resolver o problema do nome do anexo de provas matemáticas, o nome está muito
++ Resolver os problemas da Introdução.
+	* A folha revisada pelo Márcio ainda contém alterações que precisam ser realizadas;
+	* Citar o artigo do Holmes em outra parte;
+	* Encontrar uma referência para citar códigos de redes (ou não citar);
+	* O artigo do Gervasio já foi citado, falta comentá-lo;
+	* Resolver a questão da expressão "estruturas de controle específicas".
+
+OK Resolver o problema do nome do anexo de provas matemáticas, o nome está muito
 	grande, ultrapassando a margem, quando deveria quebrar para uma nova linha.
-
+	* Resolvido adicionando um nome curto para aparecer no sumário.
