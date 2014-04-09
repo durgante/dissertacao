@@ -10,10 +10,6 @@ TODO
 
 + Montar um cronograma, o tempo está se esgotando e é preciso priorizar tarefas;
 
-+ Coletar referências: pegar o arquivo de referências .bib e baixar todas, salvando
-	na pasta adequada com a nomenclatura adequada (conforme consta lá). O que não
-	estiver incluso, procurar eliminar, ou colocar em uma subpasta;
-
 + Refazer figuras:
 	* Ler a documentação para criação de figuras uniformes;
 	* Ler a documentação para criação de figuras com Inkscape, provavelmente é melhor
@@ -28,7 +24,8 @@ TODO
 	* Adicionar modelagem em espaço de estados (vale a pena?);
 
 + Resolver os problemas da Introdução.
-	* A folha revisada pelo Márcio ainda contém alterações que precisam ser realizadas;
+	* A folha revisada pelo Márcio ainda contém alterações que precisam ser
+		realizadas;
 	* Citar o artigo do Holmes em outra parte;
 	* Encontrar uma referência para citar códigos de redes (ou não citar);
 	* O artigo do Gervasio já foi citado, falta comentá-lo;
@@ -37,3 +34,9 @@ TODO
 OK Resolver o problema do nome do anexo de provas matemáticas, o nome está muito
 	grande, ultrapassando a margem, quando deveria quebrar para uma nova linha.
 	* Resolvido adicionando um nome curto para aparecer no sumário.
+
+OK Coletar referências: pegar o arquivo de referências .bib e baixar todas, salvando
+	na pasta adequada com a nomenclatura adequada (conforme consta lá). O que não
+	estiver incluso, procurar eliminar, ou colocar em uma subpasta;
+	* Todas baixadas, o resto jogado em uma subpasta;
+	* Falta encontrar o pdf do Gang Tao.

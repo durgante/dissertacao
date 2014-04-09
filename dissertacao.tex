@@ -2,7 +2,8 @@
 %CLASSE------------------------------------------------------------------------
 
 % verso e anverso:
-\documentclass[12pt,openright,twoside,a4paper,english,french,spanish,brazil]{abntex2}
+\documentclass[12pt,openright,twoside,a4paper,english,french,spanish,
+                sumario=tradicional,brazil]{abntex2}
 
 % apenas verso:
 % \documentclass[12pt,oneside,a4paper,english,french,spanish,brazil]{abntex2}
@@ -22,6 +23,7 @@
 \usepackage{graphicx}            % Inclusão de gráficos
 \usepackage{microtype}           % PDF fica melhor
 \usepackage{cmap}                % Mapear caracteres especiais no PDF
+\usepackage{pgfplots}
 % ---
 
 % ---
@@ -33,7 +35,7 @@
 \usepackage{multirow}            % Para criar tabelas
 %\usepackage{subcaption}          % NÃO PODE JUNTO COM MEMOIR Criar figuras com a) b) c) etc
 % usar http://tex.stackexchange.com/questions/48837/subcaption-package-incompatible-with-memoir-class
-\usepackage[scaled=0.92]{helvet} % Usado em conjunto com o mtpro2
+%\usepackage[scaled=0.92]{helvet} % Usado em conjunto com o mtpro2
 \usepackage[lite]{mtpro2}        % Fonte matemática melhorada
 \usepackage{array}               % Tabelas
 \newcolumntype{L}{>{\centering\arraybackslash}m{0.55\linewidth}}
@@ -70,6 +72,9 @@
 % Definindo um operador para o seno
 \newcommand{\sen}{\operatorname{sen}}
 \newtheorem{teorema}{Teorema}[section]
+\graphicspath{{img/}}
+\pgfplotsset{compat=newest}
+\pgfplotsset{plot coordinates/math parser=false}
 % ---
 
 % ---
@@ -322,8 +327,8 @@
 % ----------------------------------------------------------
 %\part{Resultados}
 
-\input{textuais/modelagem}
-\input{textuais/controle_adaptativo}
+%\input{textuais/modelagem}
+%\input{textuais/controle_adaptativo}
 \input{textuais/imc}
 \input{textuais/resultados}
 
@@ -394,8 +399,8 @@
 % Imprime uma página indicando o início dos anexos
 \partanexos
 
-\input{postextuais/anexo}
-\input{textuais/provas_matematicas}
+%\input{postextuais/anexo}
+%\input{textuais/provas_matematicas}
 
 \end{anexosenv}
 

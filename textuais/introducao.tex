@@ -66,7 +66,7 @@
 	com uma frequência de comutação da ordem de kHz para manter as perdas de
 	comutação em níveis aceitáveis. Para manter as correntes harmônicas oriundas
 	do inversor em níveis aceitáveis, de forma a respeitar os códigos de
-	rede~\cite{ref:HOLMES}, existem diversas topologias de filtro que podem ser
+	rede, existem diversas topologias de filtro que podem ser
 	utilizadas~\cite{ref:RIBEIRO}. A mais comum é a aplicação de um filtro L como
 	interface entre a rede e o inversor. Mais recentemente, filtros LCL começaram
 	a ser utilizados para esta função~\cite{ref:LINDGREN}\cite{ref:TEODORESCU}
@@ -196,7 +196,9 @@
 
     \begin{figure}[htb]
         \centering{
-            \includegraphics[width=0.9\textwidth]{img/topologia}}
+            %\includegraphics[width=0.9\textwidth]{img/topologia}}
+            \def\svgwidth{\textwidth}
+            \input{./img/topologia.pdf_tex}}
         \renewcommand\figurename{Fig.}
         \caption{Topologia do filtro LCL.}
         \label{fig:LCL_topologia}
@@ -249,7 +251,9 @@
 
     \begin{figure}[htb]
         \centering{
-            \includegraphics[width=0.9\textwidth]{img/L_vs_LCL}}
+        	\newlength\figureheight
+		    \newlength\figurewidth
+            \input{./img/L_vs_LCL.tex}}
         \caption{Comparação entre filtro L e filtro LCL.}
         \label{fig:L_vs_LCL}
     \end{figure}
@@ -271,8 +275,11 @@
 
     \begin{figure}[htb]
         \centering{
-            \includegraphics[width=0.9\textwidth]{img/R_in_LCL}}
-        \caption{Diferença entre filtros L, LCL e LCL com amortecimento passivo.}
+            %\includegraphics[width=0.9\textwidth]{img/R_in_LCL}}
+            %\newlength\figureheight
+		    %\newlength\figurewidth
+            \input{./img/R_in_LCL.tex}}
+        \caption{Diferença entre filtros LCL e LCL com amortecimento passivo.}
         \label{fig:R_in_LCL}
     \end{figure}
 
@@ -304,10 +311,10 @@
     exibe um comportamento não-linear~\cite{ref:LEE}.
 
     A Fig.~\ref{fig:multiloop} mostra a estrutura geral do Controle Multimalha, onde
-    $r_1$ é a referência para a malha externa, $r_2$ é a referência para a malha
-    interna, $G_p$ é a função de transferência do controlador primário,
-    $G_s$ é a função de transferência do controlador secundário, $P_1$ e $P_2$
-    são a planta, $d_1$ e $d_2$ são os distúrbios.
+    $I_2^*$ é a referência para a malha externa, $U$ é a referência para a malha
+    interna, $C_o$ é a função de transferência do controlador primário,
+    $C_i$ é a função de transferência do controlador secundário, $G_{id}$ e
+    $G_{od}$ são a planta, $G_{di}$ e $G_{do}$ são os distúrbios.
 
     %Uma forma
     %de fazer isto é controlar ou a corrente ou a tensão do capacitor. O controle
@@ -316,7 +323,9 @@
 
     \begin{figure}[htb]
         \centering{
-            \includegraphics[width=0.9\textwidth]{img/multiloop_geral}}
+            %\includegraphics[width=0.9\textwidth]{img/multiloop_geral}}
+            \def\svgwidth{0.9\textwidth}
+            \input{./img/multiloop_geral.pdf_tex}}
         \renewcommand\figurename{Fig.}
         \caption{Estrutura geral de Controle Multimalha.}
         \label{fig:multiloop}
@@ -327,9 +336,9 @@
     opção para cada malha. Essa análise é feita em~\cite{ref:NASER}, utilizando o
     método do lugar das raízes e a técnica do espaço de estados médio. Esta é uma técnica
     essencial para a análise de circuitos chaveados, pois permite que as técnicas de
-    análise de circuitos tradicionais sejam aplicadas à eles.
+    análise de circuitos tradicionais sejam aplicadas a eles.
 
-    O princípio de funcionamento é que a comutação ciclo à ciclo é ignorada em
+    O princípio de funcionamento é que a comutação ciclo a ciclo é ignorada em
     favor das características médias do circuito nas frequências abaixo da
     frequência de Nyquist. Perde-se então a capacidade de ver a forma de onda
     da comutação, mas pode-se determinar rapidamente uma série de fatores
@@ -346,15 +355,17 @@
     \end{enumerate}
 
     As funções de transferência da tensão $v_c$ e da corrente $i_c$ do
-    capacitor são dadas por:
+    capacitor em relação à razão cíclica $d$ são dadas por:
 
     \begin{equation}
-        v_c = \frac{\frac{2V_{DC}}{L_1} \frac{1}{C} \left( s + \frac{R_2}{L_2} \right)}{s^3 + a_2 s^2 + a_1 s + a_0}
+        \frac{v_c}{d} = \frac{\frac{2V_{DC}}{L_1} \frac{1}{C}
+        	\left( s + \frac{R_2}{L_2} \right)}{s^3 + a_2 s^2 + a_1 s + a_0}
         \label{eq:vc}
     \end{equation}
 
     \begin{equation}
-        i_c = \frac{\frac{2V_{DC}}{L_1} s \left( s + \frac{R_2}{L_2} \right)}{s^3 + a_2 s^2 + a_1 s + a_0}
+        \frac{i_c}{d} = \frac{\frac{2V_{DC}}{L_1} s
+        	\left( s + \frac{R_2}{L_2} \right)}{s^3 + a_2 s^2 + a_1 s + a_0}
         \label{eq:ic}
     \end{equation}
 
@@ -378,7 +389,7 @@
 
     \begin{figure}[htb]
         \centering{
-            \includegraphics[width=0.9\textwidth]{img/rlocus_vc}}
+           } %\includegraphics[width=0.9\textwidth]{img/rlocus_vc}}
         \renewcommand\figurename{Fig.}
         \caption{Lugar das raízes para a tensão do capacitor.}
         \label{fig:rlocus_vc}
@@ -403,7 +414,7 @@
 
     \begin{figure}[htb]
         \centering{
-            \includegraphics[width=0.9\textwidth]{img/rlocus_ic}}
+            }%\includegraphics[width=0.9\textwidth]{img/rlocus_ic}}
         \renewcommand\figurename{Fig.}
         \caption{Lugar das raízes para a corrente do capacitor.}
         \label{fig:rlocus_ic}

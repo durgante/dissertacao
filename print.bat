@@ -11,21 +11,23 @@ set VERSAO="dissertacao"
 
 :TXF
 ::Monta tex
-texify %NOME%.tex
-texify %NOME%.tex
+::texify %NOME%.tex
+::texify %NOME%.tex
+pdflatex -job-name=%VERSAO% %NOME%.tex
+pdflatex -job-name=%VERSAO% %NOME%.tex
 ::Gera bibliografia
 bibtex %NOME%
 
 ::Prepara impressão de pdf
-dvips -Ppdf -t a4 %NOME%
-set GS_OPTIONS=-dMaxSubsetPct=100
-set GS_OPTIONS=-dSubsetFonts=true
-set GS_OPTIONS=-dEmbedAllFonts=true
-set GS_OPTIONS=-dCompatibilityLevel=1.2
-set GS_OPTIONS=-sPAPERSIZE=a4
+::dvips -Ppdf -t a4 %NOME%
+::set GS_OPTIONS=-dMaxSubsetPct=100
+::set GS_OPTIONS=-dSubsetFonts=true
+::set GS_OPTIONS=-dEmbedAllFonts=true
+::set GS_OPTIONS=-dCompatibilityLevel=1.2
+::set GS_OPTIONS=-sPAPERSIZE=a4
 
 ::Imprime pdf
-ps2pdf %NOME%.ps %VERSAO%.pdf
+::ps2pdf %NOME%.ps %VERSAO%.pdf
 
 :OPEN
 ::Abre documento
