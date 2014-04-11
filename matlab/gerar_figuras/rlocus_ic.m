@@ -43,94 +43,76 @@ Rg=Rgideal+deltaRg;
 Rd=Rdideal+deltaRd;
 
 
-Zi= L1*s + R1;
+Vdc = 20;
 
-Zg= (L2 + Lg)*s + R2 + Rg;
+a0= (R1 + R2)/(C*L1*L2);
+a1= 1/(L1*L2)*(R1*R2+(L1+L2)/C);
+a2= R1/L1 + R2/L2;
 
-Z0= 1/(C*s) + Rd;
+den= (s^3+a2*s^2+a1*s+a0);
 
-L= L1+L2+Lg;
+vc= ((2*Vdc/(L1*C))*(s+R2/L2))/den;
+ic= ((2*Vdc/(L1)*s)*(s+R2/L2))/den;
 
-%alfa= L1/L;
 
-%Gvi_i1= ((1-alfa)*L*C*s^2 + Rd*C*s + 1) ...
-%    /(alfa*(1-alfa)*L^2*C*s^3 + Rd*L*C*s^2 + L*s);
+%Número de pontos para plotar
+pontos=2000;
+passo=0.01;
 
-%Gvi_i2= (Rd*C*s + 1) ...
-%    /(alfa*(1-alfa)*L^2*C*s^3 + Rd*L*C*s^2 + L*s);
-
-%C=0;
-%Gvi_i2_C0= (Rd*C*s + 1) ...
-%    /(alfa*(1-alfa)*L^2*C*s^3 + Rd*L*C*s^2 + L*s);
-
-Rd=0;
-Z0= 1/(C*s) + Rd;
-Gi1_i2_Rd0=Z0/(Zg+Z0);
-Rd=2;
-Z0= 1/(C*s) + Rd;
-Gi1_i2_Rd2=Z0/(Zg+Z0);
-Rd=10;
-Z0= 1/(C*s) + Rd;
-Gi1_i2_Rd10=Z0/(Zg+Z0);
-
-%% Plot
+K=0:passo:pontos*passo;
 
 close all
+% cor1=rand(1, 3);
+% cor2=rand(1, 3);
+% cor3=rand(1, 3);
+cor1=[1/3, 1/3, 1/3];
+cor2=[2/3, 2/3, 2/3];
+cor3=[0, 0, 0];
 
-%Gera frequências espaçadas logaritmicamente
-t=logspace(3, 5, 2000);
-
-%Pega magnitudes das duas funções
-[MAG_1, PHASE] = bode(Gi1_i2_Rd0, t);
-[MAG_2, PHASE] = bode(Gi1_i2_Rd2, t);
-[MAG_3, PHASE] = bode(Gi1_i2_Rd10, t);
-
-%Prepara magnitudes para o plot
-MAG_1 = 20*log10(MAG_1);
-MAG_2 = 20*log10(MAG_2);
-MAG_3 = 20*log10(MAG_3);
-MAG_1 = squeeze(MAG_1);
-MAG_2 = squeeze(MAG_2);
-MAG_3 = squeeze(MAG_3);
-
-%Plot básico
-hold off
-plot(t, MAG_1, 'LineWidth', 1.5, ...
-               'LineStyle', '-', ...
-               'Color', [0, 0, 0]);
-               %'Color', rand(1,3));
+R = rlocus(ic, K);
+n=1;
+for i=1:2:length(K)
+    R1(n)=R(i);
+    n=n+1;
+end
+n=1;
+for i=2:2:length(K)
+    R2(n)=R(i);
+    n=n+1;
+end
+figure;
+plot(real(R1), imag(R1), 'LineWidth', 1.5, ...
+                         'LineStyle', 'x', ...
+                         'MarkerSize', 8, ...
+                         'Color', cor1);
 hold on
-plot(t, MAG_2, 'LineWidth', 1.5, ...
-               'LineStyle', '--', ...
-               'Color', [0.3, 0.3, 0.3]);
-               %'Color', rand(1,3));
-               
-plot(t, MAG_3, 'LineWidth', 1.5, ...
-               'LineStyle', '-.', ...
-               'Color', [0.6, 0.6, 0.6]);
-               %'Color', rand(1,3));
+grid on
 
-%Mudança de escala do eixo X para logaritmica
-set(gca, 'XScale', 'log');
+plot(real(R2), imag(R2), 'LineWidth', 1.5, ...
+                         'LineStyle', 'x', ...
+                         'MarkerSize', 8, ...
+                         'Color', cor2);
 
+[P, Z] = pzmap(vc);
+plot(real(Z), imag(Z), 'LineWidth', 1.5, ...
+                       'LineStyle', 'o', ...
+                       'MarkerSize', 8, ...
+                       'Color', cor3);
+                   
 %Escolha dos pontos marcados nos eixos
-set(gca, 'YTick', [-20 0 20 40 60]);
-set(gca, 'XTick', [10^3 10^3.5 10^4]);
-set(gca, 'XTickLabel', {'$10^{3}$', '$10^{3.5}$', '$10^{4}$'});
-
+set(gca, 'XTick', [-8000 -4000 0]);
+set(gca, 'YTick', [-5000 -2500 0 2500 5000]);
+%set(gca, 'XTickLabel', []);
+                     
 %Escolha dos limites dos eixos X e Y
-set(gca, 'XLim', [10^3 10^(4.1)]);
-set(gca, 'YLim', [-30 70]);
+set(gca, 'XLim', [-10^4 0.2*10^4]);
+set(gca, 'YLim', [-5500 5500]);
 
 %Labels
-ylabel('Magnitude (dB)');
-xlabel('Frequência (rad/s)');
+ylabel('Eixo Imaginário');
+xlabel('Eixo Real');
 title('');
-legend(...
-    'R_d = 0\Omega', ...
-    'R_d = 2\Omega', ...
-    'R_d = 10\Omega', 'location', 'NE');
-    
+
 
 %% Ajuste fino do gráfico
 
@@ -172,4 +154,10 @@ set(gca, 'Units','normalized',... %
 %% Imprime figura
 
 cleanfigure
-matlab2tikz('R_in_LCL.tex', 'width', '0.8\textwidth', 'interpretTickLabelAsTex', true, 'encoding', 'UTF-8');
+axoptions={'scaled y ticks = false',...
+           ...'y tick label style={/pgf/number format/.cd, fixed, fixed zerofill,precision=3}'};
+           'y tick label style={/pgf/number format/.cd, fixed, fixed zerofill, precision=0}',...
+           'scaled x ticks = false',...
+           'x tick label style={/pgf/number format/.cd, fixed, fixed zerofill, precision=0}'};
+matlab2tikz('rlocus_ic.tex', 'width', '0.8\textwidth', ...
+            'interpretTickLabelAsTex', true, 'encoding', 'UTF-8', 'extraAxisOptions', axoptions);

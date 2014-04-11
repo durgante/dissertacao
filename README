@@ -11,8 +11,8 @@ TODO
 + Montar um cronograma, o tempo está se esgotando e é preciso priorizar tarefas;
 
 + Refazer figuras:
-	* Ler a documentação para criação de figuras uniformes;
-	* Ler a documentação para criação de figuras com Inkscape, provavelmente é melhor
+	OK Ler a documentação para criação de figuras uniformes;
+	OK Ler a documentação para criação de figuras com Inkscape, provavelmente é melhor
 		exportar do Inkscape e sobrescrever texto com o Latex;
 	* Refazer as figuras para que fiquem todas vetoriais.
 
