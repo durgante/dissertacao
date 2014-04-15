@@ -48,21 +48,24 @@
   \global\let\svgwidth\undefined%
   \global\let\svgscale\undefined%
   \makeatother%
-  \begin{picture}(1,0.36192175)%
+  \begin{picture}(1,0.36192174)%
     \put(0,0){\includegraphics[width=\unitlength]{topologia.pdf}}%
-    \put(0.02760385,0.22156744){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.06357569\unitlength}\centering \tiny $V_{CC}$\end{minipage}}}%
-    \put(0.0443292,0.36291172){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.25631204\unitlength}\centering Inversor\end{minipage}}}%
-    \put(0.42839956,0.32281615){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.13301502\unitlength}\centering Filtro LCL\end{minipage}}}%
-    \put(0.26661119,0.29304145){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.11080549\unitlength}\centering \tiny $R_1$\end{minipage}}}%
-    \put(0.35211895,0.29219471){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.05797962\unitlength}\centering \tiny $L_1$\end{minipage}}}%
+    \put(0.02760385,0.22156743){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.06357569\unitlength}\centering \tiny $V_{CC}$\end{minipage}}}%
+    \put(0.0443292,0.36291171){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.25631204\unitlength}\centering Inversor\end{minipage}}}%
+    \put(0.42864494,0.34023795){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.13301502\unitlength}\centering Filtro LCL\end{minipage}}}%
+    \put(0.26661119,0.29218125){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.11080549\unitlength}\centering \tiny $R_1$\end{minipage}}}%
+    \put(0.35211895,0.2921947){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.05797962\unitlength}\centering \tiny $L_1$\end{minipage}}}%
     \put(0.56897519,0.2930468){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.07773564\unitlength}\centering \tiny $R_2$\end{minipage}}}%
-    \put(0.63472557,0.29304145){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.0644218\unitlength}\centering \tiny $L_2$\end{minipage}}}%
-    \put(0.71959462,0.29218664){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.07988303\unitlength}\centering \tiny $R_g$\end{minipage}}}%
+    \put(0.63472557,0.29304144){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.0644218\unitlength}\centering \tiny $L_2$\end{minipage}}}%
+    \put(0.71959462,0.29218663){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.07988303\unitlength}\centering \tiny $R_g$\end{minipage}}}%
     \put(0.76537832,0.29218661){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.1065107\unitlength}\centering \tiny $L_g$\end{minipage}}}%
-    \put(0.79728276,0.15158835){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.15719613\unitlength}\centering \tiny $V_a$\end{minipage}}}%
-    \put(0.89272682,0.1515801){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.05542293\unitlength}\centering \tiny $V_b$\end{minipage}}}%
-    \put(0.9388401,0.15159023){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.05299343\unitlength}\centering \tiny $V_c$\end{minipage}}}%
-    \put(0.38612648,0.11778628){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.08482203\unitlength}\centering \tiny C\end{minipage}}}%
-    \put(0.39979923,0.0682098){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.05497335\unitlength}\centering \tiny $R_d$\end{minipage}}}%
+    \put(0.79728276,0.15158834){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.15719613\unitlength}\centering \tiny $V_c$\end{minipage}}}%
+    \put(0.89272682,0.15158009){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.05542293\unitlength}\centering \tiny $V_b$\end{minipage}}}%
+    \put(0.9388401,0.15159022){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.05299343\unitlength}\centering \tiny $V_a$\end{minipage}}}%
+    \put(0.38612648,0.11778627){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.08482203\unitlength}\centering \tiny C\end{minipage}}}%
+    \put(0.39979923,0.06820979){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.05497335\unitlength}\centering \tiny $R_d$\end{minipage}}}%
+    \put(0.49595187,0.27928141){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.09681752\unitlength}\centering a\end{minipage}}}%
+    \put(0.45384853,0.23453852){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.09161227\unitlength}\centering b\end{minipage}}}%
+    \put(0.40887556,0.18925291){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.0921328\unitlength}\centering c\end{minipage}}}%
   \end{picture}%
 \endgroup%

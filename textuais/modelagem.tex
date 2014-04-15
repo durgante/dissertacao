@@ -7,13 +7,75 @@
 	%intro temporária, melhorar
 	Este capítulo apresenta a modelagem de conversores de potência conectados à rede
     elétrica via filtro LCL. São apresentados modelos em coordenadas $\alpha \beta 0$
-    considerando a corrente $i_C$ e a tensão $v_C$ do capacitor como variável
-    intermediária, bem como a estrutura de controle para a malha interna associada à
-    cada possível escolha. Modelos em tempo discreto são desenvolvidos, e o impacto do
-    atraso de transporte da implementação digital é explicitado.
+    \cite{ref:JORGE} considerando a corrente $i_C$ e a tensão $v_C$ do capacitor como
+    variável intermediária, bem como a estrutura de controle para a malha interna
+    associada à cada possível escolha. Modelos em tempo discreto são desenvolvidos,
+    e o impacto do atraso de transporte da implementação digital é explicitado.
 
 
 \section{Modelo do Filtro LCL}
+
+    Considere um conversor trifásico conectado à rede elétrica via filtro LCL
+    e a rede elétrica como sendo uma fonte de tensão trifásica alternada
+    equilibrada com uma impedância série equivalente com característica indutiva.
+
+    A partir das leis de Kirchhoff pode-se obter:
+
+    \begin{equation*}
+        u_{ab}(t) = R_1 i_{a1}(t) + L_1 \frac{d}{dt} i_{a1}(t) + v_{an}(t)
+            - v_{bn}(t) - L_1 \frac{d}{dt} i_{b1}(t) - R_1 i_{b1}(t)
+    \end{equation*}
+
+    \begin{equation*}
+        u_{bc}(t) = R_1 i_{b1}(t) + L_1 \frac{d}{dt} i_{b1}(t) + v_{bn}(t)
+            - v_{cn}(t) - L_1 \frac{d}{dt} i_{c1}(t) - R_1 i_{c1}(t)
+    \end{equation*}
+
+    \begin{equation*}
+        i_{a1}(t) + i_{b1}(t) + i_{c1}(t) = 0 \implies \frac{d}{dt} i_{a1}(t)
+            + \frac{d}{dt} i_{b1}(t) + \frac{d}{dt} i_{c1}(t) = 0
+    \end{equation*}
+
+    Além disso, das tensões nos capacitores:
+
+    \begin{equation*}
+        C \frac{d}{dt} v_{an}(t) = i_{a1}(t) - i_{a2}(t)
+    \end{equation*}
+
+    \begin{equation*}
+        C \frac{d}{dt} v_{bn}(t) = i_{b1}(t) - i_{b2}(t)
+    \end{equation*}
+
+    \begin{equation*}
+        C \frac{d}{dt} v_{an}(t) + C \frac{d}{dt} v_{bn}(t) + C \frac{d}{dt} v_{cn}(t) = 0
+    \end{equation*}
+
+    E das correntes do lado da rede:
+
+    \begin{equation*}
+        v_{ab}(t) = R_2 i_{a2}(t) + L_2 \frac{d}{dt} i_{a2}(t) + v_a(t) - v_b(t)
+            - L_2 \frac{d}{dt} i_{b2}(t) - R_2 i_{b2}(t)
+    \end{equation*}
+
+    \begin{equation*}
+        v_{bc}(t) = R_2 i_{b2}(t) + L_2 \frac{d}{dt} i_{b2}(t) + v_b(t) - v_c(t)
+            - L_2 \frac{d}{dt} i_{c2}(t) - R_2 i_{c2}(t)
+    \end{equation*}
+
+    \begin{equation*}
+        i_{a2}(t) + i_{b2}(t) + i_{c2}(t) = 0 \implies \frac{d}{dt} i_{a2}(t) +
+            \frac{d}{dt} i_{b2}(t) + \frac{d}{dt} i_{c2}(t) = 0
+    \end{equation*}
+
+    É possível escrever esse modelo em forma matricial:
+
+    \begin{equation*}
+        \begin{split}
+            \mathbf{L} \frac{d}{dt} \mathbf{x}_{abc}(t) & = \mathbf{Ax}_{abc}(t) +
+                \mathbf{Bu}_{Labc}(t) + \mathbf{Fv}_{abc}(t) \\
+            \mathbf{y}(t) & = \mathbf{Cx}_{abc}(t)
+        \end{split}
+    \end{equation*}
 
     A representação de sistemas elétricos trifásicos é objeto de estudos desde o
     início de sua utilização, no começo do século XX. Dentre as primeiras contribuições
@@ -61,7 +123,9 @@
 
     \begin{figure}[htb]
         \centering{
-            \includegraphics[width=0.9\textwidth]{img/LCL_geral}}
+            %\includegraphics[width=0.9\textwidth]{img/LCL_geral}}
+            \def\svgwidth{\textwidth}
+            \input{./img/LCL_geral_2.pdf_tex}}
         \renewcommand\figurename{Fig.}
         \caption{Filtro LCL para o caso monofásico.}
         \label{fig:LCL_geral}
@@ -90,7 +154,9 @@
 
     \begin{figure}[htb]
         \centering{
-            \includegraphics[width=0.9\textwidth]{img/cascade_general}}
+            %\includegraphics[width=0.9\textwidth]{img/cascade_general}}
+            \def\svgwidth{0.9\textwidth}
+            \input{./img/multiloop_geral.pdf_tex}}
         \renewcommand\figurename{Fig.}
         \caption{Diagrama de blocos demonstrando a estrutura geral de controle.}
         \label{fig:estrutura_geral_cascata}
