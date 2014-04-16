@@ -36,7 +36,7 @@
   }%
   \providecommand\rotatebox[2]{#2}%
   \ifx\svgwidth\undefined%
-    \setlength{\unitlength}{511.10750701bp}%
+    \setlength{\unitlength}{412.28167501bp}%
     \ifx\svgscale\undefined%
       \relax%
     \else%
@@ -48,19 +48,16 @@
   \global\let\svgwidth\undefined%
   \global\let\svgscale\undefined%
   \makeatother%
-  \begin{picture}(1,0.23052315)%
+  \begin{picture}(1,0.25792686)%
     \put(0,0){\includegraphics[width=\unitlength]{LCL_geral.pdf}}%
-    \put(0.03172255,0.11131826){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.07241792\unitlength}\centering \tiny $V_{CC}$\end{minipage}}}%
-    \put(0.00798133,0.23165081){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.29196041\unitlength}\centering Inversor\end{minipage}}}%
-    \put(0.24484031,0.22381208){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.12621653\unitlength}\centering \tiny $R_1$\end{minipage}}}%
-    \put(0.34224066,0.22382738){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.06604353\unitlength}\centering \tiny $L_1$\end{minipage}}}%
-    \put(0.58925767,0.22381818){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.08854726\unitlength}\centering \tiny $R_2$\end{minipage}}}%
-    \put(0.66415274,0.22381208){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.0733817\unitlength}\centering \tiny $L_2$\end{minipage}}}%
-    \put(0.76082554,0.22381818){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.09099331\unitlength}\centering \tiny $R_g$\end{minipage}}}%
-    \put(0.81297692,0.22381819){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.12132441\unitlength}\centering \tiny $L_g$\end{minipage}}}%
-    \put(0.8520932,0.11231073){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.17905927\unitlength}\centering \tiny $v_g$\end{minipage}}}%
-    \put(0.43190301,0.11256295){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.09661924\unitlength}\centering \tiny C\end{minipage}}}%
-    \put(0.06478527,0.16111712){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.11767164\unitlength}\centering $=$\end{minipage}}}%
-    \put(0.1127089,0.0643098){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.14254759\unitlength}\centering $\approx$\end{minipage}}}%
+    \put(0.02781087,0.11908266){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.08977683\unitlength}\centering $u_{\alpha}$\end{minipage}}}%
+    \put(0.06382503,0.25854176){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.15647122\unitlength}\centering $R_1$\end{minipage}}}%
+    \put(0.18457269,0.25856073){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.08187448\unitlength}\centering $L_1$\end{minipage}}}%
+    \put(0.49080082,0.25854933){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.10977245\unitlength}\centering $R_2$\end{minipage}}}%
+    \put(0.58364859,0.25854177){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.09097164\unitlength}\centering $L_2$\end{minipage}}}%
+    \put(0.70349431,0.25854933){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.11280483\unitlength}\centering $R_g$\end{minipage}}}%
+    \put(0.76814662,0.25854934){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.15040644\unitlength}\centering $L_g$\end{minipage}}}%
+    \put(0.81941129,0.12031303){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.22198061\unitlength}\centering $v_{\alpha}$\end{minipage}}}%
+    \put(0.29572753,0.12062571){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.11977932\unitlength}\centering C\end{minipage}}}%
   \end{picture}%
 \endgroup%
