@@ -10,7 +10,7 @@
 
 	A tensão fornecida pelo sistema elétrico de potência é idealmente senoidal e
 	balanceada, com correntes de linha senoidais, amplitude e frequência fixas e
-	fator de potência unitário. Durante a operação real do sistema, no entanto,
+	fatorde potência unitário. Durante a operação real do sistema, no entanto,
 	é difícil manter as condições ideais. As divergências do padrão são classificadas
 	como problemas de qualidade de energia e, por se tratarem de problemas, devem
 	ser corrigidas.
@@ -205,33 +205,32 @@
     \end{figure}
 
     Dessa forma, tem-se:
-
-    \begin{equation*}
-        Z_i = L_1s +R_1
-    \end{equation*}
-
-    \begin{equation*}
-        Z_g = (L_2 + L_g)s + R_2 + R_g
-    \end{equation*}
-
-    \begin{equation*}
-        Z_0 = \frac{1}{Cs} + R_d
-    \end{equation*}
+    %
+    \begin{equation}
+    	\begin{split}
+	        Z_i & = L_1s +R_1 \text{,} \\
+	        Z_g & = (L_2 + L_g)s + R_2 + R_g \text{,} \\
+	        Z_0 & = \frac{1}{Cs} + R_d \text{.}
+	    \end{split}
+    \end{equation}
 
     Pode-se definir então, as seguintes funções de transferência:
-
+    %
     \begin{equation}
-        G_{V_i-I_1}(s) = \frac{I_1(s)}{V_i(s)} = \frac{Z_g + Z_0}{Z_iZ_g + Z_iZ_0 + Z_gZ_0}
+        G_{V_i-I_1}(s) = \frac{I_1(s)}{V_i(s)} = \frac{Z_g + Z_0}{Z_iZ_g
+        	+ Z_iZ_0 + Z_gZ_0} \text{,}
         \label{eq:G_v_i1}
     \end{equation}
-
+    %
     \begin{equation}
-        G_{V_i-I_2}(s) = \frac{I_2(s)}{V_i(s)} = \frac{Z_0}{Z_iZ_g + Z_iZ_0 + Z_gZ_0}
+        G_{V_i-I_2}(s) = \frac{I_2(s)}{V_i(s)} = \frac{Z_0}{Z_iZ_g
+        	+ Z_iZ_0 + Z_gZ_0} \text{,}
         \label{eq:G_v_i2}
     \end{equation}
-
+    %
     \begin{equation}
         G_{I_1-I_2}(s) = \frac{I_2(s)}{I_1(s)} = \frac{Z_0}{Z_g + Z_0}
+        	 \text{.}
         \label{eq:G_i1_i2}
     \end{equation}
 
@@ -239,13 +238,15 @@
     e~(\ref{eq:G_v_i2}) de forma a considerar apenas um indutor
     $L = L_1 + L_2 + L_g$. Negligenciando a resistência série do indutor,
     e considerando $\alpha = \frac{L_1}{L}$, têm-se:
-
+    %
     \begin{equation}
-        G_{V_i-I_1}(s) = \frac{I_1(s)}{V_i(s)} = \frac{(1-\alpha)LCs^2+R_dCs+1}{\alpha(1-\alpha)L^2Cs^3+R_dLCs^2+Ls}
+        G_{V_i-I_1}(s) = \frac{I_1(s)}{V_i(s)} =
+        	\frac{(1-\alpha)LCs^2+R_dCs+1}{\alpha(1-\alpha)L^2Cs^3+R_dLCs^2+Ls} \text{,}
     \end{equation}
-
+    %
     \begin{equation}
-        G_{V_i-I_2}(s) = \frac{I_2(s)}{V_i(s)} = \frac{R_dCs+1}{\alpha(1-\alpha)L^2Cs^3+R_dLCs^2+Ls}
+        G_{V_i-I_2}(s) = \frac{I_2(s)}{V_i(s)} =
+        	\frac{R_dCs+1}{\alpha(1-\alpha)L^2Cs^3+R_dLCs^2+Ls}  \text{.}
         \label{eq:G_v_i2_2}
     \end{equation}
 
@@ -356,33 +357,29 @@
 
     As funções de transferência da tensão $v_c$ e da corrente $i_c$ do
     capacitor em relação à razão cíclica $d$ são dadas por:
-
+    %
     \begin{equation}
         \frac{v_c}{d} = \frac{\frac{2V_{DC}}{L_1} \frac{1}{C}
-        	\left( s + \frac{R_2}{L_2} \right)}{s^3 + a_2 s^2 + a_1 s + a_0}
+        	\left( s + \frac{R_2}{L_2} \right)}{s^3 + a_2 s^2 + a_1 s + a_0} \text{,}
         \label{eq:vc}
     \end{equation}
-
+    %
     \begin{equation}
         \frac{i_c}{d} = \frac{\frac{2V_{DC}}{L_1} s
-        	\left( s + \frac{R_2}{L_2} \right)}{s^3 + a_2 s^2 + a_1 s + a_0}
+        	\left( s + \frac{R_2}{L_2} \right)}{s^3 + a_2 s^2 + a_1 s + a_0} \text{,}
         \label{eq:ic}
     \end{equation}
-
-    Com
-
-    \begin{equation*}
-        a_2 = \frac{R_1}{L_1} + \frac{R_2}{L_2}
-    \end{equation*}
-
-    \begin{equation*}
-        a_1 = \frac{1}{L_1 L_2} \left( R_1 R_2 + \frac{L_1 + L_2}{C} \right)
-    \end{equation*}
-
-    \begin{equation*}
-        a_0 = \frac{R_1 + R_2}{C L_1 L_2}
-    \end{equation*}
-
+    %
+    com
+    %
+    \begin{equation}
+    	\begin{split}
+	        a_2 & = \frac{R_1}{L_1} + \frac{R_2}{L_2} \text{,} \\
+	        a_1 & = \frac{1}{L_1 L_2} \left( R_1 R_2
+	        	+ \frac{L_1 + L_2}{C} \right) \text{,} \\
+	        a_0 & = \frac{R_1 + R_2}{C L_1 L_2} \text{.}
+	    \end{split}
+    \end{equation}
 
     A Fig.~\ref{fig:rlocus_vc} mostra o lugar das raízes para a função de
     transferência (\ref{eq:vc}).

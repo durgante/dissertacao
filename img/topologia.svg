@@ -14,7 +14,7 @@
    id="svg4676"
    version="1.1"
    inkscape:version="0.48.4 r9939"
-   sodipodi:docname="topologia.svg">
+   sodipodi:docname="topologia.pdf">
   <defs
      id="defs4678" />
   <sodipodi:namedview
@@ -24,9 +24,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="3.959798"
-     inkscape:cx="451.95518"
-     inkscape:cy="967.55003"
+     inkscape:zoom="1.4"
+     inkscape:cx="399.81675"
+     inkscape:cy="914.40306"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -51,6 +51,10 @@
        orientation="0,1"
        position="285.96227,1003.5314"
        id="guide3330" />
+    <sodipodi:guide
+       orientation="1,0"
+       position="372.22631,947.71633"
+       id="guide3343" />
   </sodipodi:namedview>
   <metadata
      id="metadata4681">
@@ -60,7 +64,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title />
+        <dc:title></dc:title>
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -659,7 +663,7 @@
        style="fill:#f7f6f4;fill-opacity:1;stroke:none"
        id="rect8079"
        width="325.3161"
-       height="229.73344"
+       height="250.88101"
        x="206.11226"
        y="26.722471" />
     <g
@@ -1864,7 +1868,7 @@
        xml:space="preserve"
        id="flowRoot3350"
        style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
-       transform="translate(9.710655,52.90674)"><flowRegion
+       transform="translate(9.710685,49.118668)"><flowRegion
          id="flowRegion3352"><rect
            id="rect3354"
            width="66.670067"
@@ -1884,7 +1888,19 @@
            x="322.36493"
            y="80.595436" /></flowRegion><flowPara
          id="flowPara3364"
-         style="font-size:8px;text-align:center;text-anchor:middle">c</flowPara></flowRoot>  </g>
+         style="font-size:8px;text-align:center;text-anchor:middle">c</flowPara></flowRoot>    <flowRoot
+       xml:space="preserve"
+       id="flowRoot3345"
+       style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       transform="translate(9.116935,2.1465741)"><flowRegion
+         id="flowRegion3347"><rect
+           id="rect3349"
+           width="47.905575"
+           height="18.94907"
+           x="339.15872"
+           y="247.27061" /></flowRegion><flowPara
+         id="flowPara3351"
+         style="font-size:8px;font-weight:normal;text-align:center;text-anchor:middle;-inkscape-font-specification:Sans">$0$</flowPara></flowRoot>  </g>
   <g
      inkscape:groupmode="layer"
      id="layer2"

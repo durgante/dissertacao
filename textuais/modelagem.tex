@@ -15,70 +15,81 @@
     implementação digital.
 
 
-\section{Modelo Dinâmico em Coordenadas \emph{abc}}
+\section{Modelo em Espaço de Estados - Coordenadas \emph{abc}}
 
     Considere um conversor trifásico conectado à rede elétrica via filtro LCL
-    e a rede elétrica como sendo uma fonte de tensão trifásica alternada
-    equilibrada com uma impedância série equivalente com característica indutiva.
+    conforme a Fig.~\ref{fig:LCL_topologia_2}. Considere ainda a rede elétrica
+    como sendo uma fonte de tensão trifásica alternada equilibrada com uma
+    impedância série equivalente com característica indutiva.
+
+    \begin{figure}[htb]
+        \centering{
+            %\includegraphics[width=0.9\textwidth]{img/topologia}}
+            \def\svgwidth{\textwidth}
+            \input{./img/topologia.pdf_tex}}
+        \renewcommand\figurename{Fig.}
+        \caption{Topologia do filtro LCL.}
+        \label{fig:LCL_topologia_2}
+    \end{figure}
 
     A partir das leis de Kirchhoff pode-se obter:
     %
-    \begin{equation*}
+    \begin{equation}
         u_{ab}(t) = R_1 i_{a1}(t) + L_1 \frac{d}{dt} i_{a1}(t) + v_{an}(t)
             - v_{bn}(t) - L_1 \frac{d}{dt} i_{b1}(t) - R_1 i_{b1}(t) \text{,}
-    \end{equation*}
+    \end{equation}
     %
-    \begin{equation*}
+    \begin{equation}
         u_{bc}(t) = R_1 i_{b1}(t) + L_1 \frac{d}{dt} i_{b1}(t) + v_{bn}(t)
             - v_{cn}(t) - L_1 \frac{d}{dt} i_{c1}(t) - R_1 i_{c1}(t) \text{,}
-    \end{equation*}
+    \end{equation}
     %
-    \begin{equation*}
+    \begin{equation}
         i_{a1}(t) + i_{b1}(t) + i_{c1}(t) = 0 \implies \frac{d}{dt} i_{a1}(t)
             + \frac{d}{dt} i_{b1}(t) + \frac{d}{dt} i_{c1}(t) = 0 \text{.}
-    \end{equation*}
+    \end{equation}
 
     Além disso, das tensões nos capacitores:
     %
-    \begin{equation*}
+    \begin{equation}
         C \frac{d}{dt} v_{an}(t) = i_{a1}(t) - i_{a2}(t) \text{,}
-    \end{equation*}
+    \end{equation}
     %
-    \begin{equation*}
+    \begin{equation}
         C \frac{d}{dt} v_{bn}(t) = i_{b1}(t) - i_{b2}(t) \text{,}
-    \end{equation*}
+    \end{equation}
     %
-    \begin{equation*}
+    \begin{equation}
         C \frac{d}{dt} v_{an}(t) + C \frac{d}{dt} v_{bn}(t) +
             C \frac{d}{dt} v_{cn}(t) = 0 \text{.}
-    \end{equation*}
+    \end{equation}
 
     E das correntes do lado da rede:
     %
-    \begin{equation*}
+    \begin{equation}
         v_{ab}(t) = R_2 i_{a2}(t) + L_2 \frac{d}{dt} i_{a2}(t) + v_a(t) - v_b(t)
             - L_2 \frac{d}{dt} i_{b2}(t) - R_2 i_{b2}(t) \text{,}
-    \end{equation*}
+    \end{equation}
     %
-    \begin{equation*}
+    \begin{equation}
         v_{bc}(t) = R_2 i_{b2}(t) + L_2 \frac{d}{dt} i_{b2}(t) + v_b(t) - v_c(t)
             - L_2 \frac{d}{dt} i_{c2}(t) - R_2 i_{c2}(t) \text{,}
-    \end{equation*}
+    \end{equation}
     %
-    \begin{equation*}
+    \begin{equation}
         i_{a2}(t) + i_{b2}(t) + i_{c2}(t) = 0 \implies \frac{d}{dt} i_{a2}(t) +
             \frac{d}{dt} i_{b2}(t) + \frac{d}{dt} i_{c2}(t) = 0 \text{.}
-    \end{equation*}
+    \end{equation}
 
     É possível escrever esse modelo em forma matricial,
     %
-    \begin{equation*}
+    \begin{equation}
         \begin{split}
             \mathbf{L} \frac{d}{dt} \mathbf{x}_{abc}(t) & = \mathbf{Ax}_{abc}(t) +
                 \mathbf{Bu}_{Labc}(t) + \mathbf{Fv}_{abc}(t) \\
             \mathbf{y}(t) & = \mathbf{C}_{abc} \mathbf{x}_{abc}(t) \text{,}
         \end{split}
-    \end{equation*}
+    \end{equation}
     %
     na qual as variáveis de saída podem ser tanto as correntes do lado do conversor
     quanto as correntes do lado da rede. A escolha é feita através da matriz
@@ -89,18 +100,18 @@
     Pode-se simplificar o modelo multiplicando por $\mathbf{L}^{-1}$ dos dois
     lados da igualdade, obtendo
     %
-    \begin{equation*}
+    \begin{equation}
         \begin{split}
             \frac{d}{dt} \mathbf{x}_{abc}(t) & = \mathbf{A}_{abc} \mathbf{x}_{abc}(t) +
                 \mathbf{Bu}_{Labc}(t) + \mathbf{F}_{abc} \mathbf{v}_{abc}(t) \\
             \mathbf{y}(t) & = \mathbf{C}_{abc} \mathbf{x}_{abc}(t) \text{.}
         \end{split}
-    \end{equation*}
+    \end{equation}
 
     É necessário representar o vetor de tensões do conversor $\mathbf{u}_{Labc}(t)$ em
     grandezas de fase, o que implica na transformação
     %
-    \begin{equation*}
+    \begin{equation}
         \mathbf{u}_{Labc}(t) = \left[
             \begin{array}{ccc}
                 1 &           -1 & \phantom{-}0 \\[0.3em]
@@ -108,17 +119,17 @@
                 1 & \phantom{-}1 & \phantom{-}1
             \end{array}
         \right] \mathbf{u}_{abc}(t) = \mathbf{T}_{FL} \mathbf{u}_{abc}(t)
-    \end{equation*}
+    \end{equation}
 
     Dessa forma, obtem-se
     %
-    \begin{equation*}
+    \begin{equation}
         \begin{split}
             \frac{d}{dt} \mathbf{x}_{abc}(t) & = \mathbf{A}_{abc} \mathbf{x}_{abc}(t) +
                 \mathbf{BT}_{FL} \mathbf{u}_{abc}(t) + \mathbf{F}_{abc} \mathbf{v}_{abc}(t) \\
             \mathbf{y}(t) & = \mathbf{C}_{abc} \mathbf{x}_{abc}(t) \text{,}
         \end{split}
-    \end{equation*}
+    \end{equation}
     %
     que é equivalente a
     %
@@ -135,7 +146,7 @@
     de cada fase, o que dificulda a sua utilização em sistemas de controle. Devido à
     isso, uma transformação para desacoplamento é apresentada na seção seguinte.
 
-    \section{Modelo Dinâmico em Coordenadas $\alpha \beta 0$}
+\section{Modelo em Espaço de Estados - Coordenadas $\alpha \beta 0$}
 
     A representação de sistemas elétricos trifásicos é objeto de estudos desde o
     início de sua utilização, no começo do século XX. Dentre as primeiras contribuições
@@ -166,12 +177,12 @@
     Utilizando essa transformação, qualquer parâmetro em coordenadas $abc$ pode ser
     transcrito em coordenadas $\alpha \beta 0$, e vice versa
     %
-    \begin{equation*}
+    \begin{equation}
         \mathbf{T}_{\alpha \beta 0} \mathbf{x}_{abc} = \mathbf{x}_{\alpha \beta 0}
         \iff
         \mathbf{T}_{\alpha \beta 0}^{-1} \mathbf{x}_{\alpha \beta 0} = \mathbf{x}_{abc}
         \text{.}
-    \end{equation*}
+    \end{equation}
 
     No projeto de controladores para sistemas elétricos trifásicos, é usual levar em
     consideração essa transformação e modelar o sistema para o caso monofásico, projetando
@@ -195,16 +206,16 @@
     Visto que a transformação (\ref{eq:alpha_beta_0}) é invariante no tempo, ela pode ser
     aplicada ao modelo (\ref{eq:LCL_abc_espaco_estados}). Dessa forma, tem-se que
     %
-    \begin{equation*}
+    \begin{equation}
         \begin{split}
             \mathbf{T}_{\alpha \beta 0} \frac{d}{dt} \mathbf{x}_{abc}(t) & =
                 \mathbf{T}_{\alpha \beta 0} \mathbf{A}_{abc} \mathbf{x}_{abc}(t) +
                 \mathbf{T}_{\alpha \beta 0} \mathbf{B}_{abc} \mathbf{u}_{abc}(t) +
-                \mathbf{T}_{\alpha \beta 0} \mathbf{F}_{abc} \mathbf{v}_{abc}(t) + \\
+                \mathbf{T}_{\alpha \beta 0} \mathbf{F}_{abc} \mathbf{v}_{abc}(t) \\
             \mathbf{T}_{\alpha \beta 0} \mathbf{y}_{abc}(t) & = \mathbf{T}_{\alpha \beta 0}
                 \mathbf{C}_{abc} \mathbf{x}_{abc}(t) \text{,}
         \end{split}
-    \end{equation*}
+    \end{equation}
     %
     isto é,
     %
@@ -213,7 +224,7 @@
             \frac{d}{dt} \mathbf{x}_{\alpha \beta 0}(t) & =
                 \mathbf{A}_{\alpha \beta 0} \mathbf{x}_{\alpha \beta 0}(t) +
                 \mathbf{B}_{\alpha \beta 0} \mathbf{u}_{\alpha \beta 0}(t) +
-                \mathbf{F}_{\alpha \beta 0} \mathbf{v}_{\alpha \beta 0}(t) + \\
+                \mathbf{F}_{\alpha \beta 0} \mathbf{v}_{\alpha \beta 0}(t) \\
             \mathbf{y}_{\alpha \beta 0}(t) & = \mathbf{C}_{\alpha \beta 0}
                 \mathbf{x}_{\alpha \beta 0}(t) \text{.}
         \end{split}
@@ -225,7 +236,7 @@
     eixo $0$ pode ser desconsiderado, já que não há caminho para circulação de corrente
     de sequência zero.
 
-    \section{Modelo em Função de Transferência}
+\section{Modelo em Função de Transferência}
 
     Uma forma conveniente de modelar o sistema é através de impedâncias
     complexas~\cite{ref:XU}. As indutâncias e a capacitância do filtro podem ser
@@ -246,23 +257,23 @@
     $v_g$ pode ser desprezada na obtenção do modelo, visto que é um distúrbio exógeno que
     deve ser rejeitado pelo controlador adaptativo.
 
-    A Fig.~\ref{fig:estrutura_geral_cascata} demonstra a estrutura de controle utilizada.
+    % A Fig.~\ref{fig:estrutura_geral_cascata} demonstra a estrutura de controle utilizada.
 
-    \begin{figure}[htb]
-        \centering{
-            %\includegraphics[width=0.9\textwidth]{img/cascade_general}}
-            \def\svgwidth{0.9\textwidth}
-            \input{./img/multiloop_geral.pdf_tex}}
-        \renewcommand\figurename{Fig.}
-        \caption{Diagrama de blocos demonstrando a estrutura geral de controle.}
-        \label{fig:estrutura_geral_cascata}
-    \end{figure}
+    % \begin{figure}[htb]
+    %     \centering{
+    %         %\includegraphics[width=0.9\textwidth]{img/cascade_general}}
+    %         \def\svgwidth{0.9\textwidth}
+    %         \input{./img/multiloop_geral.pdf_tex}}
+    %     \renewcommand\figurename{Fig.}
+    %     \caption{Diagrama de blocos demonstrando a estrutura geral de controle.}
+    %     \label{fig:estrutura_geral_cascata}
+    % \end{figure}
 
-    Observa-se que $U_p$ indica a variável de controle intermediária utilizada para
-    implementar a malha interna e realizar o amortecimento ativo da ressonância do filtro,
-    podendo ser $V_C$ ou $I_C$. O controlador adaptativo na malha externa gera a referência
-    $U$ para a malha interna, que por sua vez gera a ação de controle $U_c$ implementada
-    via PWM.
+    % Observa-se que $U_p$ indica a variável de controle intermediária utilizada para
+    % implementar a malha interna e realizar o amortecimento ativo da ressonância do filtro,
+    % podendo ser $V_C$ ou $I_C$. O controlador adaptativo na malha externa gera a referência
+    % $U$ para a malha interna, que por sua vez gera a ação de controle $U_c$ implementada
+    % via PWM.
 
     Considerando a estrutura da Fig.~\ref{fig:LCL_geral} e desprezando o distúrbio da
     rede $v_g$, obtém-se as seguintes expressões a partir das leis de Kirchhoff
@@ -304,14 +315,14 @@
     %
     onde $T_s$ é o período de amostragem e
     %
-    \begin{equation*}
+    \begin{equation}
         K_1 = \frac{T_s}{L1 + L2 + Lg} \text{,}
-    \end{equation*}
+    \end{equation}
     %
-    \begin{equation*}
+    \begin{equation}
         \omega_n = \sqrt{\frac{ L_1 + L_2 + L_g }{ L_1 C \left( L_2 + L_g \right)}}
         \text{.}
-    \end{equation*}
+    \end{equation}
 
     No caso em que a variável intermediária é a tensão do capacitor $V_C$, para
     relacionar $I_2$ com $V_C$ é necessário discretizar a equação~(\ref{eq:vc_uc})
