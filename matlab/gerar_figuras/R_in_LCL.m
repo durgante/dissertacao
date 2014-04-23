@@ -81,22 +81,35 @@ MAG_1 = squeeze(MAG_1);
 MAG_2 = squeeze(MAG_2);
 MAG_3 = squeeze(MAG_3);
 
+%Plot colorido? 1=sim 0=não
+cor=0;
+
+%Exportar? 1=sim 0=não
+exportar=1;
+
+if cor==0
+    cor1=[1/3, 1/3, 1/3];
+    cor2=[2/3, 2/3, 2/3];
+    cor3=[0, 0, 0];
+else
+  cor1=rand(1, 3);
+  cor2=rand(1, 3);
+  cor3=rand(1, 3);
+end
+
 %Plot básico
 hold off
 plot(t, MAG_1, 'LineWidth', 1.5, ...
                'LineStyle', '-', ...
-               'Color', [0, 0, 0]);
-               %'Color', rand(1,3));
+               'Color', cor3);
 hold on
 plot(t, MAG_2, 'LineWidth', 1.5, ...
                'LineStyle', '--', ...
-               'Color', [0.3, 0.3, 0.3]);
-               %'Color', rand(1,3));
+               'Color', cor1);
                
 plot(t, MAG_3, 'LineWidth', 1.5, ...
                'LineStyle', '-.', ...
-               'Color', [0.6, 0.6, 0.6]);
-               %'Color', rand(1,3));
+               'Color', cor2);
 
 %Mudança de escala do eixo X para logaritmica
 set(gca, 'XScale', 'log');
@@ -159,5 +172,8 @@ set(gca, 'Units','normalized',... %
 
 %% Imprime figura
 
-cleanfigure
-matlab2tikz('R_in_LCL.tex', 'width', '0.8\textwidth', 'interpretTickLabelAsTex', true, 'encoding', 'UTF-8');
+if exportar==1
+    cleanfigure
+    matlab2tikz('./gerar_figuras/R_in_LCL.tex', 'width', '0.8\textwidth', ...
+        'interpretTickLabelAsTex', true, 'encoding', 'UTF-8');
+end

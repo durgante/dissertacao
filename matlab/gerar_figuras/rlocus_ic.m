@@ -62,13 +62,25 @@ passo=0.01;
 K=0:passo:pontos*passo;
 
 close all
-% cor1=rand(1, 3);
-% cor2=rand(1, 3);
-% cor3=rand(1, 3);
-cor1=[1/3, 1/3, 1/3];
-cor2=[2/3, 2/3, 2/3];
-cor3=[0, 0, 0];
 
+%Plot colorido? 1=sim 0=não
+cor=0;
+
+%Exportar? 1=sim 0=não
+exportar=1;
+
+if cor==0
+    cor1=[1/3, 1/3, 1/3];
+    cor2=[2/3, 2/3, 2/3];
+    cor3=[0, 0, 0];
+else
+  cor1=rand(1, 3);
+  cor2=rand(1, 3);
+  cor3=rand(1, 3);
+end
+
+%Os laços for separam o vetor de polos em dois vetores, cada um contendo os
+%valores dos polos diferentes
 R = rlocus(ic, K);
 n=1;
 for i=1:2:length(K)
@@ -86,7 +98,7 @@ plot(real(R1), imag(R1), 'LineWidth', 1.5, ...
                          'MarkerSize', 8, ...
                          'Color', cor1);
 hold on
-grid on
+sgrid
 
 plot(real(R2), imag(R2), 'LineWidth', 1.5, ...
                          'LineStyle', 'x', ...
@@ -153,11 +165,14 @@ set(gca, 'Units','normalized',... %
 
 %% Imprime figura
 
-cleanfigure
-axoptions={'scaled y ticks = false',...
-           ...'y tick label style={/pgf/number format/.cd, fixed, fixed zerofill,precision=3}'};
-           'y tick label style={/pgf/number format/.cd, fixed, fixed zerofill, precision=0}',...
-           'scaled x ticks = false',...
-           'x tick label style={/pgf/number format/.cd, fixed, fixed zerofill, precision=0}'};
-matlab2tikz('rlocus_ic.tex', 'width', '0.8\textwidth', ...
-            'interpretTickLabelAsTex', true, 'encoding', 'UTF-8', 'extraAxisOptions', axoptions);
+
+if exportar==1
+    cleanfigure
+    axoptions={'scaled y ticks = false',...
+               ...'y tick label style={/pgf/number format/.cd, fixed, fixed zerofill,precision=3}'};
+               'y tick label style={/pgf/number format/.cd, fixed, fixed zerofill, precision=0}',...
+               'scaled x ticks = false',...
+               'x tick label style={/pgf/number format/.cd, fixed, fixed zerofill, precision=0}'};
+    matlab2tikz('./gerar_figuras/rlocus_ic.tex', 'width', '0.8\textwidth', ...
+                'interpretTickLabelAsTex', true, 'encoding', 'UTF-8', 'extraAxisOptions', axoptions);
+end

@@ -356,4 +356,36 @@
     \end{equation}
 
 
+\section{Efeitos da Discretização}
+
+    Plantas de fase mínima, ou seja, aquelas que apresentam zeros apenas no
+    semi-plano esquerdo do plano $s$, permitem que os efeitos de zeros indesejados
+    sejam cancelados pela alocação de pólos do controlador. Isso é impossível,
+    no entanto, no caso de plantas de fase não-mínima, visto que a alocação de
+    pólos do controlador no semi-plano esquerdo resulta em instabilidade.
+
+    Por isso, é importante observar que a discretização de um sistema pode implicar
+    em problemas do ponto de vista de controle. Mesmo uma planta de fase mínima em
+    tempo contínuo pode apresentar zeros de fase não-mínima após a discretização.
+    De fato, de uma forma mais geral, plantas em tempo contínuo com grau relativo
+    $n \ge 2$ apresentam zeros de discretização \cite{ref:ASTROM}. Esse é o caso
+    do filtro LCL quando a variável controlada é a corrente do lado da rede.
+
+    As figuras \ref{fig:pzmap_ic_vc}.\subref{fig:pzmap_ic} e
+    \ref{fig:pzmap_ic_vc}.\subref{fig:pzmap_vc} apresentam o diagrama de pólos
+    e zeros para o filtro LCL e demonstram esse efeito.
+
+    \begin{figure}[htb]
+        \centering
+        \subfloat[Corrente do capacitor.]{\label{fig:pzmap_ic}
+            {\input{./img/pzmap_ic.tex}}}\\
+        \subfloat[Tensão do capacitor.]{\label{fig:pzmap_vc}
+            {\input{./img/pzmap_vc.tex}}}
+        \renewcommand\figurename{Fig.}
+        \caption{Diagrama de pólos e zeros para o filtro LCL para ambas escolhas
+            de variável intermediária.}
+        \label{fig:pzmap_ic_vc}
+    \end{figure}
+
+
 %FIM---------------------------------------------------------------------------

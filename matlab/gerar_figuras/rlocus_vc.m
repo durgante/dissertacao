@@ -61,12 +61,22 @@ passo=0.01;
 K=0:passo:pontos*passo;
 
 close all
-% cor1=rand(1, 3);
-% cor2=rand(1, 3);
-% cor3=rand(1, 3);
-cor1=[1/3, 1/3, 1/3];
-cor2=[2/3, 2/3, 2/3];
-cor3=[0, 0, 0];
+
+%Plot colorido? 1=sim 0=não
+cor=0;
+
+%Exportar? 1=sim 0=não
+exportar=0;
+
+if cor==0
+    cor1=[1/3, 1/3, 1/3];
+    cor2=[2/3, 2/3, 2/3];
+    cor3=[0, 0, 0];
+else
+  cor1=rand(1, 3);
+  cor2=rand(1, 3);
+  cor3=rand(1, 3);
+end
 
 R = rlocus(vc, K);
 
@@ -161,5 +171,7 @@ set(gca, 'Units','normalized',... %
 
 %% Imprime figura
 
-cleanfigure
-matlab2tikz('rlocus_vc.tex', 'width', '0.8\textwidth', 'interpretTickLabelAsTex', true, 'encoding', 'UTF-8');
+if exportar==1
+    cleanfigure
+    matlab2tikz('/gerar_figuras/rlocus_vc.tex', 'width', '0.8\textwidth', 'interpretTickLabelAsTex', true, 'encoding', 'UTF-8');
+end
