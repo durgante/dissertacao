@@ -9,7 +9,7 @@
 % 
 %
 % defining custom colors
-\definecolor{mycolor1}{rgb}{0.33333,0.33333,0.33333}%
+\definecolor{mycolor1}{rgb}{0.66667,0.66667,0.66667}%
 %
 \begin{tikzpicture}
 
@@ -27,7 +27,9 @@ ymax=12000,
 ytick={-10000,-5000,0,5000,10000},
 yticklabels={{$-1$},{$-0.5$},{$0$},{$0.5$},{$1$}},
 ylabel={Eixo Imaginário},
-ymajorgrids
+ymajorgrids,
+axis x line*=bottom,
+axis y line*=left
 ]
 \addplot [color=mycolor1,line width=1.5pt,mark size=4.0pt,only marks,mark=x,mark options={solid},forget plot]
   table[row sep=crcr]{-0	5000\\
@@ -56,7 +58,7 @@ ymajorgrids
 -0	11832.1595661992\\
 -0	12041.5945787923\\
 };
-\addplot [color=white!50!mycolor1,line width=1.5pt,mark size=4.0pt,only marks,mark=x,mark options={solid},forget plot]
+\addplot [color=black!50!mycolor1,line width=1.5pt,mark size=4.0pt,only marks,mark=x,mark options={solid},forget plot]
   table[row sep=crcr]{0	-5000\\
 0	-5477.22557505166\\
 0	-5916.07978309962\\
