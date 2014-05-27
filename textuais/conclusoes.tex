@@ -1,0 +1,77 @@
+%TITULO------------------------------------------------------------------------
+
+%==============================================================================
+\chapter{Conclusões}\label{conclusoes}
+%==============================================================================
+
+\section{Sugestões para Trabalhos Futuros}
+
+    O desempenho das estratégias de Controle Multimalha depende muito da sintonização dos controladores no laço interno e externo. Existem métodos de sintonização baseados em resposta em frequência, mas estes são tediosos de aplicar devido à necessidade de cálculos via tentativa e erro. O método proposto por~\cite{ref:KRISHNA} apresenta gráficos de sintonização, que predizem a configuração do controlador primário. Este método, no entanto, é limitado à configurações PI/P e ao modelo de primeira ordem mais tempo morto (FOPDT) em uma gama limitada de parâmetros.
+
+    O procedimento de projeto utilizado neste trabalho é conforme o apresentado por~\cite{ref:LEE}. Este procedimento prevê dois passos para o projeto de controladores multimalha: primeiramente, o controlador secundário é sintonizado com base no modelo dinâmico do processo interno. Posteriormente, o controlador primário é sintonizado com base no modelo dinâmico do processo externo. O método é analítico e elimina o processo de tentativa e erro.
+
+    A estrutura geral considerada para análise é a dada na
+    Fig.~\ref{fig:multiloop_lee}. É importante deixar claro que a estrutura é do tipo de controle por modelo interno (\emph{Internal Model Control - IMC}).
+
+    \begin{figure}[htb]
+        \centering{
+            }%\includegraphics[width=0.9\textwidth]{img/multiloop_generalizado_lee}}
+        \renewcommand\figurename{Fig.}
+        \caption{Estrutura geral de sistema de Controle Multimalha.}
+        \label{fig:multiloop_lee}
+    \end{figure}
+
+    Considerando que $\sim$$p_2 = p_2$ e que $\sim$$P_p = q_2 p_2 p_1$, as funções de tranferência de malha fechada para os laços interno e externo são:
+
+    \begin{equation}
+        y_2 = q_2 p_2 r_2 + \left( 1- q_2 p_2 \right) p_{d2} d_2
+    \end{equation}
+
+    \begin{equation}
+        y_1 = p_2 q_2 p_1 r_1 + \left( 1 - p_2 q_2 \right) p_1 \left(
+            1 - p_2 q_2 p_1 q_1 \right) p_{d2} d_2 + \left( 1 - p_2 q_2 p_1 q_1
+            \right) p_{d1} d_1
+    \end{equation}
+
+    O primeiro passo do procedimento é o projeto do controlador secundário. Esse controlador deve ser projetado para rejeitar rapidamente distúrbios que entrem na malha interna. Devido a isto, a variável secundária deve seguir sua referência o mais rápido possível.
+
+    Para análise, considere um modelo geral da planta da malha interna:
+
+    \begin{equation}
+        p_2(s) = p_{2m}(s) p_{2a}(s)
+    \end{equation}
+
+    Esse modelo é dividido em duas partes: $p_{2m}$, a parte do modelo que é invertida pelo controlador, e $p_{2a}$, a porção do modelo não invertida pelo controlador, e que possui zeros no semiplano direito e atrasos de tempo.
+
+    Para obter uma boa resposta de uma planta instável, ou que seja estável mas com pólos próximos a zero, o controlador da malha secundária deve satisfazer às seguintes condições:
+
+    \begin{itemize}
+        \item Se a planta $p_2$ tiver pólos instáveis
+        	${up_1}^2$, ${up_2}^2$, ..., então $q_2$ deve ter zeros em
+        	${up_1}^2$, ${up_2}^2$, ...
+        \item Se a planta $p_{d2}$ tiver polos instáveis
+        	${dup_1}^2$, ${dup_2}^2$, ... ou pólos próximos à zero, então
+        	$1 - p_2 q_2$ deve ter zeros em ${dup_1}^2$, ${dup_2}^2$, ...
+        	ou nos pólos próximos a zero.
+    \end{itemize}
+
+    O controlador $q_2$ é projetado da seguinte forma:
+
+    \begin{equation}
+        q_2 = {p_{2m}}^{-1} f_2
+    \end{equation}
+
+    Dessa forma, a primeira condição é satisfeita automaticamente, pois ${p_{2m}}^{-1}$ é o inverso da parcela da planta que contém pólos instáveis. Para satisfazer a segunda condição, é necessário projetar o filtro $f_2$, como segue:
+
+    \begin{equation}
+        f_2 = \frac{\sum_{i=1}^{m} \alpha_i s^i + 1}{(\lambda_2 s + 1)^{2m}}
+        \label{eq:filtro_f2}
+    \end{equation}
+
+    Os valores de $\alpha$ em~(\ref{eq:filtro_f2}) são determinados de forma a cancelar os pólos instáveis de $p_{d2}$, e $m$ é o número de pólos cancelados. A equação (\ref{eq:filtro_f2}) é um filtro com constante de tempo $\lambda$ ajustável.
+
+    O controlador da malha externa será projetado através de controle adaptativo, descrito na próxima seção.
+
+
+
+%FIM---------------------------------------------------------------------------

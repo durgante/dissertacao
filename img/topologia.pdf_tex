@@ -1,0 +1,72 @@
+%% Creator: Inkscape 0.48.3.1, www.inkscape.org
+%% PDF/EPS/PS + LaTeX output extension by Johan Engelen, 2010
+%% Accompanies image file 'topologia.pdf' (pdf, eps, ps)
+%%
+%% To include the image in your LaTeX document, write
+%%   \input{<filename>.pdf_tex}
+%%  instead of
+%%   \includegraphics{<filename>.pdf}
+%% To scale the image, write
+%%   \def\svgwidth{<desired width>}
+%%   \input{<filename>.pdf_tex}
+%%  instead of
+%%   \includegraphics[width=<desired width>]{<filename>.pdf}
+%%
+%% Images with a different path to the parent latex file can
+%% be accessed with the `import' package (which may need to be
+%% installed) using
+%%   \usepackage{import}
+%% in the preamble, and then including the image with
+%%   \import{<path to file>}{<filename>.pdf_tex}
+%% Alternatively, one can specify
+%%   \graphicspath{{<path to file>/}}
+%% 
+%% For more information, please see info/svg-inkscape on CTAN:
+%%   http://tug.ctan.org/tex-archive/info/svg-inkscape
+%%
+\begingroup%
+  \makeatletter%
+  \providecommand\color[2][]{%
+    \errmessage{(Inkscape) Color is used for the text in Inkscape, but the package 'color.sty' is not loaded}%
+    \renewcommand\color[2][]{}%
+  }%
+  \providecommand\transparent[1]{%
+    \errmessage{(Inkscape) Transparency is used (non-zero) for the text in Inkscape, but the package 'transparent.sty' is not loaded}%
+    \renewcommand\transparent[1]{}%
+  }%
+  \providecommand\rotatebox[2]{#2}%
+  \ifx\svgwidth\undefined%
+    \setlength{\unitlength}{582.19330876bp}%
+    \ifx\svgscale\undefined%
+      \relax%
+    \else%
+      \setlength{\unitlength}{\unitlength * \real{\svgscale}}%
+    \fi%
+  \else%
+    \setlength{\unitlength}{\svgwidth}%
+  \fi%
+  \global\let\svgwidth\undefined%
+  \global\let\svgscale\undefined%
+  \makeatother%
+  \begin{picture}(1,0.39098091)%
+    \put(0,0){\includegraphics[width=\unitlength]{topologia.pdf}}%
+    \put(0.02760385,0.2506266){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.06357569\unitlength}\centering \tiny $V_{CC}$\end{minipage}}}%
+    \put(0.0443292,0.39197088){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.25631204\unitlength}\centering Inversor\end{minipage}}}%
+    \put(0.42864494,0.36929712){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.13301502\unitlength}\centering Filtro LCL\end{minipage}}}%
+    \put(0.26661119,0.32124041){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.11080549\unitlength}\centering \tiny $R_1$\end{minipage}}}%
+    \put(0.35211895,0.32125387){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.05797962\unitlength}\centering \tiny $L_1$\end{minipage}}}%
+    \put(0.56897519,0.32210597){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.07773564\unitlength}\centering \tiny $R_2$\end{minipage}}}%
+    \put(0.63472557,0.32210061){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.0644218\unitlength}\centering \tiny $L_2$\end{minipage}}}%
+    \put(0.71959462,0.3212458){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.07988303\unitlength}\centering \tiny $R_g$\end{minipage}}}%
+    \put(0.76537832,0.32124578){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.1065107\unitlength}\centering \tiny $L_g$\end{minipage}}}%
+    \put(0.79728276,0.18064751){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.15719613\unitlength}\centering \tiny $V_c$\end{minipage}}}%
+    \put(0.89272682,0.18063926){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.05542293\unitlength}\centering \tiny $V_b$\end{minipage}}}%
+    \put(0.9388401,0.18064939){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.05299343\unitlength}\centering \tiny $V_a$\end{minipage}}}%
+    \put(0.38612648,0.14684544){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.08482203\unitlength}\centering \tiny C\end{minipage}}}%
+    \put(0.39979923,0.09726896){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.05497335\unitlength}\centering \tiny $R_d$\end{minipage}}}%
+    \put(0.49595187,0.30834058){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.09681752\unitlength}\centering a\end{minipage}}}%
+    \put(0.45384858,0.26880294){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.09161227\unitlength}\centering b\end{minipage}}}%
+    \put(0.40887556,0.21831208){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.0921328\unitlength}\centering c\end{minipage}}}%
+    \put(0.46673983,0.03873118){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.06582772\unitlength}\centering $0$\end{minipage}}}%
+  \end{picture}%
+\endgroup%

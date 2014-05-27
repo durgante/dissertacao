@@ -1,0 +1,421 @@
+
+%CLASSE------------------------------------------------------------------------
+
+% verso e anverso:
+\documentclass[12pt,openright,twoside,a4paper,english,french,spanish,
+                sumario=tradicional,brazil]{abntex2}
+
+% apenas verso:
+% \documentclass[12pt,oneside,a4paper,english,french,spanish,brazil]{abntex2}
+
+
+%PACOTES-----------------------------------------------------------------------
+
+% ---
+% Pacotes fundamentais
+% ---
+\usepackage{lmodern}			       % Usa a fonte Latin Modern
+\usepackage[T1]{fontenc}		     % Selecao de codigos de fonte.
+\usepackage[utf8]{inputenc}		   % Codificacao do documento (conversão automática dos acentos)
+\usepackage{lastpage}			       % Usado pela Ficha catalográfica
+\usepackage{indentfirst}		     % Indenta o primeiro parágrafo de cada seção.
+\usepackage{color}				       % Controle das cores
+\usepackage{graphicx}            % Inclusão de gráficos
+\usepackage{microtype}           % PDF fica melhor
+\usepackage{cmap}                % Mapear caracteres especiais no PDF
+\usepackage{pgfplots}
+% ---
+
+% ---
+% Demais pacotes
+% ---
+\usepackage{ae}                  % Melhora as fontes com latin1 e fontenc
+\usepackage{aecompl}             % Complemento do {ae}
+\usepackage{amsmath, amsfonts, amssymb, amsthm} % Mat. avançada
+\usepackage{multirow}            % Para criar tabelas
+%\usepackage{subcaption}          % NÃO PODE JUNTO COM MEMOIR Criar figuras com a) b) c) etc
+% usar http://tex.stackexchange.com/questions/48837/subcaption-package-incompatible-with-memoir-class
+%\usepackage[scaled=0.92]{helvet} % Usado em conjunto com o mtpro2
+\usepackage{subfig}
+\usepackage{caption}
+\usepackage[lite]{mtpro2}        % Fonte matemática melhorada
+\usepackage{array}               % Tabelas
+\newcolumntype{L}{>{\centering\arraybackslash}m{0.55\linewidth}}
+
+% ---
+% Pacotes de citações
+% ---
+\usepackage[brazilian,hyperpageref]{backref} % Paginas com as citações na bibl
+\usepackage[alf]{abntex2cite}	   % Citações padrão ABNT
+
+% ---
+% CONFIGURAÇÕES DE PACOTES
+% ---
+
+% ---
+% Configurações do pacote backref
+% Usado sem a opção hyperpageref de backref
+\renewcommand{\backrefpagesname}{Citado na(s) página(s):~}
+% Texto padrão antes do número das páginas
+\renewcommand{\backref}{}
+% Define os textos da citação
+\renewcommand*{\backrefalt}[4]{
+	\ifcase #1 %
+		Nenhuma citação no texto.%
+	\or
+		Citado na página #2.%
+	\else
+		Citado #1 vezes nas páginas #2.%
+	\fi}%
+% ---
+
+% ---
+% Configurações dos pacotes matemáticos
+% Definindo um operador para o seno
+\newcommand{\sen}{\operatorname{sen}}
+\newtheorem{teorema}{Teorema}[section]
+\graphicspath{{img/}}
+\pgfplotsset{compat=newest}
+\pgfplotsset{plot coordinates/math parser=false}
+% ---
+
+% ---
+% Informações de dados para CAPA e FOLHA DE ROSTO
+% ---
+\titulo{Controle de Corrente em Conversores\\ Conectados à Rede Elétrica Utilizando Controladores Multimalha}
+\autor{Marcelo Hahn Durgante}
+\local{Alegrete, RS}
+\data{20 de Abril de 2014}
+\orientador{Prof. Dr. Márcio Stefanello}
+\coorientador{}
+\instituicao{%
+  Universidade Federal do Pampa -- Unipampa
+  \par
+  Curso de Engenharia Elétrica
+  \par
+  Programa de Pós-Graduação}
+\tipotrabalho{Dissertação (Mestrado)}
+% O preambulo deve conter o tipo do trabalho, o objetivo,
+% o nome da instituição e a área de concentração
+\preambulo{Dissertação apresentada ao Curso de Mestrado do Programa de Pós-Graduação em
+  Engenharia Elétrica, Área de Concentração em Controle de Sistemas, da Universidade Federal
+  do Pampa (Unipampa, RS), como requisito parcial para obtenção do grau de
+  \textbf{Mestre em Engenharia Elétrica}.}
+% ---
+
+
+% ---
+% Configurações de aparência do PDF final
+
+% alterando o aspecto da cor azul
+\definecolor{blue}{RGB}{41,5,195}
+
+
+% informações do PDF
+\makeatletter
+\hypersetup{
+     	%pagebackref=true,
+		pdftitle={\@title},
+		pdfauthor={\@author},
+    	pdfsubject={\imprimirpreambulo},
+	    pdfcreator={LaTeX with abnTeX2},
+		pdfkeywords={Controle Multimalha}{Controle Adaptativo}{Conexão de Conversores na Rede}
+      {Rejeição de Distúrbios}{Incerteza Paramétrica},
+		colorlinks=true,       		% false: boxed links; true: colored links
+    	linkcolor=black,          	% color of internal links
+    	citecolor=black,        		% color of links to bibliography
+    	filecolor=magenta,      		% color of file links
+		urlcolor=black,
+		bookmarksdepth=4
+}
+\makeatother
+% ---
+
+% ---
+% Espaçamentos entre linhas e parágrafos
+% ---
+
+% O tamanho do parágrafo é dado por:
+\setlength{\parindent}{1.3cm}
+
+% Controle do espaçamento entre um parágrafo e outro:
+\setlength{\parskip}{0.2cm}  % tente também \onelineskip
+
+% ---
+% compila o indice
+% ---
+\makeindex
+% ---
+
+
+%TEXTO-------------------------------------------------------------------------
+
+\begin{document}
+
+% Retira espaço extra obsoleto entre as frases.
+\frenchspacing
+
+% ----------------------------------------------------------
+% ELEMENTOS PRÉ-TEXTUAIS
+% ----------------------------------------------------------
+% \pretextual
+
+% ---
+% Capa
+% ---
+\imprimircapa
+% ---
+
+% ---
+% Folha de rosto
+% (o * indica que haverá a ficha bibliográfica)
+% ---
+\imprimirfolhaderosto*
+% ---
+
+% ---
+% Inserir a ficha bibliografica
+% ---
+
+% Isto é um exemplo de Ficha Catalográfica, ou ``Dados internacionais de
+% catalogação-na-publicação''. Você pode utilizar este modelo como referência.
+% Porém, provavelmente a biblioteca da sua universidade lhe fornecerá um PDF
+% com a ficha catalográfica definitiva após a defesa do trabalho. Quando estiver
+% com o documento, salve-o como PDF no diretório do seu projeto e substitua todo
+% o conteúdo de implementação deste arquivo pelo comando abaixo:
+%
+% \begin{fichacatalografica}
+%     \includepdf{fig_ficha_catalografica.pdf}
+% \end{fichacatalografica}
+\begin{fichacatalografica}
+  \input{pretextuais/ficha_catalografica}
+\end{fichacatalografica}
+% ---
+
+% ---
+% Inserir folha de aprovação
+% ---
+
+% Isto é um exemplo de Folha de aprovação, elemento obrigatório da NBR
+% 14724/2011 (seção 4.2.1.3). Você pode utilizar este modelo até a aprovação
+% do trabalho. Após isso, substitua todo o conteúdo deste arquivo por uma
+% imagem da página assinada pela banca com o comando abaixo:
+%
+% \includepdf{folhadeaprovacao_final.pdf}
+%
+\begin{folhadeaprovacao}
+  \input{pretextuais/folha_de_aprovacao}
+\end{folhadeaprovacao}
+% ---
+
+% ---
+% Dedicatória
+% ---
+\begin{dedicatoria}
+%  \input{pretextuais/dedicatoria}
+\end{dedicatoria}
+% ---
+
+% ---
+% Agradecimentos
+% ---
+\begin{agradecimentos}
+%  \input{pretextuais/agradecimentos}
+\end{agradecimentos}
+% ---
+
+% ---
+% Epígrafe
+% ---
+\begin{epigrafe}
+%  \input{pretextuais/epigrafe}
+\end{epigrafe}
+% ---
+
+% ---
+% RESUMOS
+% ---
+
+% resumo em português
+\begin{resumo}
+ \input{pretextuais/resumo}
+\end{resumo}
+
+% resumo em inglês
+\begin{resumo}[Abstract]
+ \begin{otherlanguage*}{english}
+  \input{pretextuais/abstract}
+ \end{otherlanguage*}
+\end{resumo}
+% ---
+
+% ---
+% inserir lista de ilustrações
+% ---
+\pdfbookmark[0]{\listfigurename}{lof}
+\listoffigures*
+\cleardoublepage
+% ---
+
+% ---
+% inserir lista de tabelas
+% ---
+\pdfbookmark[0]{\listtablename}{lot}
+\listoftables*
+\cleardoublepage
+% ---
+
+% ---
+% inserir lista de abreviaturas e siglas
+% ---
+\begin{siglas}
+ \item[THD]  Distorção Harmônica Total (do inglês \emph{Total Harmonic Distortion})
+ \item[FAP]  Filtro Ativo de Potência
+ \item[DSP]  Processador Digital de Sinal (do inglês \emph{Digital Signal Processor})
+ \item[LCL]  Filtro composto por dois indutores e um capacitor
+ \item[PI]   Proporcional-Integral
+ \item[PLL]  Malha de Captura de Fase
+ \item[MRAC] Controle Adaptativo por Modelo de Referência (do inglês \emph{
+    Model Reference Adaptive Control})
+\end{siglas}
+% ---
+
+% ---
+% inserir lista de símbolos
+% ---
+\begin{simbolos}
+ \item[$ \Gamma $] Letra grega Gama
+ \item[$ \Lambda $] Lambda
+ \item[$ \zeta $] Letra grega minúscula zeta
+ \item[$ \in $] Pertence
+\end{simbolos}
+% ---
+
+% ---
+% inserir o sumario
+% ---
+\pdfbookmark[0]{\contentsname}{toc}
+\tableofcontents*
+\cleardoublepage
+% ---
+
+
+
+% ----------------------------------------------------------
+% ELEMENTOS TEXTUAIS
+% ----------------------------------------------------------
+\textual
+
+% ----------------------------------------------------------
+% Introdução
+% ----------------------------------------------------------
+%\chapter*[Introdução]{Introdução}
+%\addcontentsline{toc}{chapter}{Introdução}
+
+\input{textuais/introducao}
+
+
+% ----------------------------------------------------------
+% PARTE - preparação da pesquisa
+% ----------------------------------------------------------
+%\part{Preparação da pesquisa}
+
+% ----------------------------------------------------------
+% Parte de revisão de literatura
+% ----------------------------------------------------------
+
+%\input{textuais/revisao_bibliografica}
+
+% ----------------------------------------------------------
+% Resultados
+% ----------------------------------------------------------
+%\part{Resultados}
+
+\input{textuais/modelagem}
+\input{textuais/controle_adaptativo}
+\input{textuais/imc}
+\input{textuais/resultados}
+
+% ---
+% Finaliza a parte no bookmark do PDF, para que se inicie o bookmark na raiz
+% ---
+%\bookmarksetup{startatroot}%
+\phantompart
+% ---
+
+% ---
+% Conclusão
+% ---
+%\chapter*[Conclusão]{Conclusão}
+%\addcontentsline{toc}{chapter}{Conclusão}
+\input{textuais/conclusoes}
+
+
+
+% ----------------------------------------------------------
+% ELEMENTOS PÓS-TEXTUAIS
+% ----------------------------------------------------------
+\postextual
+
+
+% ----------------------------------------------------------
+% Referências bibliográficas
+% ----------------------------------------------------------
+\bibliography{bibliografia}
+
+% ----------------------------------------------------------
+% Glossário
+% ----------------------------------------------------------
+%
+% Consulte o manual da classe abntex2 para orientações sobre o glossário.
+%
+%\glossary
+
+% ----------------------------------------------------------
+% Apêndices
+% ----------------------------------------------------------
+
+% ---
+% Inicia os apêndices
+% ---
+%\begin{apendicesenv}
+
+% Imprime uma página indicando o início dos apêndices
+%\partapendices
+
+% ----------------------------------------------------------
+%\chapter{Quisque libero justo}
+% ----------------------------------------------------------
+
+%\end{apendicesenv}
+% ---
+
+
+% ----------------------------------------------------------
+% Anexos
+% ----------------------------------------------------------
+
+% ---
+% Inicia os anexos
+% ---
+
+\phantompart
+
+\begin{anexosenv}
+
+% Imprime uma página indicando o início dos anexos
+%\partanexos
+
+\input{postextuais/anexo}
+\input{textuais/provas_matematicas}
+
+\end{anexosenv}
+
+%---------------------------------------------------------------------
+% INDICE REMISSIVO
+%---------------------------------------------------------------------
+
+\phantompart
+\printindex
+
+\end{document}

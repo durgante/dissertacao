@@ -1,0 +1,95 @@
+%% Opções do Gráfico
+
+%Plot colorido? 1=sim 0=não
+colorido=0;
+
+%Exportar para formato .tex? 1=sim 0=não
+exportar=0;
+
+
+%% Dados para plotar
+
+%Chama o script que inicializa os parametros do filtro LCL
+parametros_filtro_LCL;
+
+alfa= L1/L;
+
+Gvi_i1= ((1-alfa)*L*C*s^2 + Rd*C*s + 1) ...
+    /(alfa*(1-alfa)*L^2*C*s^3 + Rd*L*C*s^2 + L*s);
+
+Gvi_i2= (Rd*C*s + 1) ...
+    /(alfa*(1-alfa)*L^2*C*s^3 + Rd*L*C*s^2 + L*s);
+
+C=0;
+Gvi_i2_C0= (Rd*C*s + 1) ...
+    /(alfa*(1-alfa)*L^2*C*s^3 + Rd*L*C*s^2 + L*s);
+
+
+%Prepara dados para plotar
+
+%Gera frequências espaçadas logaritmicamente
+t=logspace(3, 5, 2000);
+
+%Pega magnitudes das duas funções
+[MAG_1, PHASE_1] = bode(Gvi_i2, t);
+[MAG_2, PHASE_2] = bode(Gvi_i2_C0, t);
+
+%Prepara magnitudes para o plot
+MAG_1 = 20*log10(MAG_1);
+MAG_2 = 20*log10(MAG_2);
+MAG_1 = squeeze(MAG_1);
+MAG_2 = squeeze(MAG_2);
+
+%% Plot
+
+%Define cores do gráfico (primeiro argumento=1 -> gráfico colorido; =0
+% gráfico em tons de cinza; segundo argumento = número de cores necessário)
+cor=define_cor(colorido, 3);
+
+%Plot básico
+close all
+figure
+hold on
+
+plot(t, MAG_2, 'LineWidth', 1.5, ...
+               'LineStyle', '--', ...
+               'Color', cor(2, 1:3));
+
+plot(t, MAG_1, 'LineWidth', 1.5, ...
+               'LineStyle', '-', ...
+               'Color', cor(3, 1:3));
+
+%Mudança de escala do eixo X para logaritmica
+set(gca, 'XScale', 'log');
+
+%Escolha dos pontos marcados do eixo Y
+set(gca, 'YTick', [-60 -40 -20 0 20]);
+set(gca, 'XTick', [10^3 10^3.5 10^4]);
+set(gca, 'XTickLabel', {'$10^{3}$', '$10^{3.5}$', '$10^{4}$'});
+
+%Escolha dos limites dos eixos X e Y
+set(gca, 'XLim', [10^3 10^(4.35)]);
+set(gca, 'YLim', [-70 35]);
+
+%Labels
+ylabel('Magnitude (dB)');
+xlabel('Frequência (rad/s)');
+title('');
+legend(...
+    'Filtro LCL', ...
+    'Filtro L', 'location', 'NE');
+
+%% Define dimensões do gráfico
+% (argumento=1 -> figuras normais; argumento=0 -> figuras compridas)
+ajuste_fino(1);
+
+%% Imprime figura
+
+if exportar==1
+    %Limpa a figura para exportar
+    cleanfigure
+    
+    %Exporta
+    matlab2tikz('./gerar_figuras/L_vs_LCL.tex', 'width', '0.8\textwidth', ...
+        'encoding', 'UTF-8');
+end
