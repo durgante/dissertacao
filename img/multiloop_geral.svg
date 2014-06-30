@@ -14,7 +14,7 @@
    id="svg3117"
    version="1.1"
    inkscape:version="0.48.4 r9939"
-   sodipodi:docname="multiloop_geral.pdf">
+   sodipodi:docname="multiloop_geral.svg">
   <defs
      id="defs3119" />
   <sodipodi:namedview
@@ -35,9 +35,9 @@
      inkscape:snap-bbox="true"
      inkscape:snap-object-midpoints="true"
      inkscape:object-nodes="true"
-     inkscape:window-width="1600"
-     inkscape:window-height="838"
-     inkscape:window-x="-8"
+     inkscape:window-width="1538"
+     inkscape:window-height="878"
+     inkscape:window-x="54"
      inkscape:window-y="-8"
      inkscape:window-maximized="1"
      inkscape:snap-bbox-edge-midpoints="true">
@@ -145,6 +145,10 @@
        orientation="1,0"
        position="-31.076855,501.11596"
        id="guide4928" />
+    <sodipodi:guide
+       orientation="1,0"
+       position="101.35927,501.11596"
+       id="guide3795" />
   </sodipodi:namedview>
   <metadata
      id="metadata3122">
@@ -154,7 +158,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -253,7 +257,7 @@
        id="g4361-2">
       <path
          transform="matrix(1,0,0,-1,-727.91588,1096.7794)"
-         d="m 1367.1909,744.41718 a 28.637823,28.637823 0 1 1 -57.2756,0 28.637823,28.637823 0 1 1 57.2756,0 z"
+         d="m 1367.1909,744.41718 c 0,15.81623 -12.8216,28.63782 -28.6378,28.63782 -15.8162,0 -28.6378,-12.82159 -28.6378,-28.63782 0,-15.81624 12.8216,-28.63783 28.6378,-28.63783 15.8162,0 28.6378,12.82159 28.6378,28.63783 z"
          sodipodi:ry="28.637823"
          sodipodi:rx="28.637823"
          sodipodi:cy="744.41718"
@@ -305,7 +309,7 @@
        id="g4361-2-6">
       <path
          transform="matrix(1,0,0,-1,-727.91588,1096.7794)"
-         d="m 1367.1909,744.41718 a 28.637823,28.637823 0 1 1 -57.2756,0 28.637823,28.637823 0 1 1 57.2756,0 z"
+         d="m 1367.1909,744.41718 c 0,15.81623 -12.8216,28.63782 -28.6378,28.63782 -15.8162,0 -28.6378,-12.82159 -28.6378,-28.63782 0,-15.81624 12.8216,-28.63783 28.6378,-28.63783 15.8162,0 28.6378,12.82159 28.6378,28.63783 z"
          sodipodi:ry="28.637823"
          sodipodi:rx="28.637823"
          sodipodi:cy="744.41718"
@@ -619,7 +623,7 @@
        id="g4361-2-9">
       <path
          transform="matrix(1,0,0,-1,-727.91588,1096.7794)"
-         d="m 1367.1909,744.41718 a 28.637823,28.637823 0 1 1 -57.2756,0 28.637823,28.637823 0 1 1 57.2756,0 z"
+         d="m 1367.1909,744.41718 c 0,15.81623 -12.8216,28.63782 -28.6378,28.63782 -15.8162,0 -28.6378,-12.82159 -28.6378,-28.63782 0,-15.81624 12.8216,-28.63783 28.6378,-28.63783 15.8162,0 28.6378,12.82159 28.6378,28.63783 z"
          sodipodi:ry="28.637823"
          sodipodi:rx="28.637823"
          sodipodi:cy="744.41718"
@@ -653,5 +657,17 @@
        d="m 559.50967,551.24621 0,118.25885 -515.379404,0 0,-72.32145"
        id="path4926"
        inkscape:connector-curvature="0" />
-  </g>
+    <flowRoot
+       xml:space="preserve"
+       id="flowRoot3787"
+       style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       transform="translate(-14.29698,195.23854)"><flowRegion
+         id="flowRegion3789"><rect
+           id="rect3791"
+           width="417.19299"
+           height="197.9899"
+           x="-92.934036"
+           y="316.97113" /></flowRegion><flowPara
+         id="flowPara3793"
+         style="font-size:16px;text-align:center;text-anchor:middle">${U_p}^*$</flowPara></flowRoot>  </g>
 </svg>

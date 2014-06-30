@@ -1,8 +1,8 @@
-%TITULO------------------------------------------------------------------------
+%TITULO-------------------------------------------------------------------
 
-%==============================================================================
+%=========================================================================
 \chapter{Resultados}\label{resultados}
-%==============================================================================
+%=========================================================================
 
     A comprovação da teoria desenvolvida nos capítulos anteriores é feita através da demonstração de resultados de simulação e experimentais. As simulações são feitas utilizando o software \textsc{Matlab}, da empresa \textit{MathWorks}$^\circledR$. Mais especificamente, o \textit{toolbox} Simulink é o componente central para realizar as simulações. O filtro \textit{LCL} é descrito como uma função de transferência, o conversor e a fonte são simulados usando modelos disponíveis no Simulink. Dessa forma, a modelagem desenvolvida no Capítulo~\ref{modelagem} é utilizada.
 
@@ -11,8 +11,8 @@
     \begin{figure}[htb]
         \centering{
             %\includegraphics[width=0.9\textwidth]{img/topologia}}
-            \def\svgwidth{\textwidth}
-            \input{./img/logo.pdf_tex}}
+            \def\svgwidth{0.9\textwidth}
+            \input{./img/bancada.pdf_tex}}
         \renewcommand\figurename{Fig.}
         \caption{Diagrama que representa os elementos da bancada.}
         \label{fig:topologia_bancada}
@@ -36,8 +36,18 @@
 
 	A Fig.~\ref{fig:i2_simulacao} apresenta a corrente da rede em comparação com a referência. No instante $t_1$ ocorre inversão de fase na referência. No instante $t_2$ é aplicado um degrau de amplitude na referência. No instante $t_3$ é realizada uma variação na indutância da rede.
 
+	\begin{figure}[htb]
+        \centering{
+            %\includegraphics[width=0.9\textwidth]{img/topologia}}
+            \def\svgwidth{0.6\textwidth}
+            \input{./img/logo.pdf_tex}}
+        \renewcommand\figurename{Fig.}
+        \caption{Corrente da rede $i_2$ em relação à referência.}
+        \label{fig:i2_simulacao}
+    \end{figure}
+
 \section{Resultados Experimentais}
 
 
 
-%FIM---------------------------------------------------------------------------
+%FIM----------------------------------------------------------------------

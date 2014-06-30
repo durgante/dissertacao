@@ -65,5 +65,6 @@
     \put(0.8740436,0.4099271){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.10691487\unitlength}\centering $V_g$\end{minipage}}}%
     \put(0.34425833,0.11083557){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.24537564\unitlength}\centering Malha Interna\end{minipage}}}%
     \put(0.34384657,0.03209199){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.24621673\unitlength}\centering Malha Externa\end{minipage}}}%
+    \put(0.10272758,0.22068707){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.37170114\unitlength}\centering ${U_p}^*$\end{minipage}}}%
   \end{picture}%
 \endgroup%

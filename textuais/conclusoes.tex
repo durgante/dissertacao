@@ -1,8 +1,8 @@
-%TITULO------------------------------------------------------------------------
+%TITULO-------------------------------------------------------------------
 
-%==============================================================================
+%=========================================================================
 \chapter{Conclusões}\label{conclusoes}
-%==============================================================================
+%=========================================================================
 
 \section{Sugestões para Trabalhos Futuros}
 
@@ -21,8 +21,7 @@
         \label{fig:multiloop_lee}
     \end{figure}
 
-    Considerando que $\sim$$p_2 = p_2$ e que $\sim$$P_p = q_2 p_2 p_1$, as funções de
-    tranferência de malha fechada para os laços interno e externo são:
+    Considerando que $\sim$$p_2 = p_2$ e que $\sim$$P_p = q_2 p_2 p_1$, as funções de tranferência de malha fechada para os laços interno e externo são:
 
     \begin{equation}
         y_2 = q_2 p_2 r_2 + \left( 1- q_2 p_2 \right) p_{d2} d_2
@@ -65,7 +64,8 @@
     Dessa forma, a primeira condição é satisfeita automaticamente, pois ${p_{2m}}^{-1}$ é o inverso da parcela da planta que contém pólos instáveis. Para satisfazer a segunda condição, é necessário projetar o filtro $f_2$, como segue:
 
     \begin{equation}
-        f_2 = \frac{\sum_{i=1}^{m} \alpha_i s^i + 1}{(\lambda_2 s + 1)^{2m}}
+        f_2 = \frac{\sum_{i=1}^{m}
+        	\alpha_i s^i + 1}{(\lambda_2 s + 1)^{2m}}
         \label{eq:filtro_f2}
     \end{equation}
 
@@ -74,4 +74,4 @@
     O controlador da malha externa será projetado através de controle adaptativo, descrito na próxima seção.
 
 
-%FIM---------------------------------------------------------------------------
+%FIM----------------------------------------------------------------------
