@@ -270,22 +270,22 @@
     No caso em que a variável intermediária é a tensão do capacitor $V_C$, para relacionar $I_2$ com $V_C$ é necessário discretizar a equação~(\ref{eq:vc_uc})
     %
     \begin{equation}
-        G_{id}(z) = \frac{2 \sen^2 \left( \omega_n \frac{T_s}{2} \right)}{L_1 C \omega_n^2}
+        G_{id_{vc}}(z) = \frac{2 \sen^2 \left( \omega_n \frac{T_s}{2} \right)}{L_1 C \omega_n^2}
             \frac{z+1}{z \left( z^2 - \cos \left( \omega_n T_s \right) z + 1 \right)}
             \text{.}
     \end{equation}
 
-    Dessa forma, a relação $G_{od}$ entre $I_2$ e $V_C$ é
+    Dessa forma, a relação $G_{od_{vc}}$ entre $I_2$ e $V_C$ é
     %
     \begin{equation}
-        G_{od}(z) = \frac{I_2}{V_C} = \frac{G_d}{G_{id}} \text{.}
+        G_{od_{vc}}(z) = \frac{I_2}{V_C} = \frac{G_d}{G_{id_{vc}}} \text{.}
         \label{eq:god_i2_vc}
     \end{equation}
 
     De forma semelhante, no caso em que a variável intermediária é a corrente do capacitor $I_C$, para relacionar $I_2$ com $I_C$ é necessário discretizar a equação~(\ref{eq:ic_uc})
     %
     \begin{equation}
-        G_{id}(z) = \frac{\sen \left( \omega_n T_s \right)}{\omega_n L_1}
+        G_{id_{ic}}(z) = \frac{\sen \left( \omega_n T_s \right)}{\omega_n L_1}
             \frac{z-1}{z \left( z^2 - \cos \left( \omega_n T_s \right) z + 1 \right)}
             \text{,}
     \end{equation}
@@ -293,7 +293,7 @@
     e assim
     %
     \begin{equation}
-        G_{od}(z) = \frac{I_2}{I_C} = \frac{G_d}{G_{id}} \text{.}
+        G_{od_{ic}}(z) = \frac{I_2}{I_C} = \frac{G_d}{G_{id_{ic}}} \text{.}
         \label{eq:god_i2_ic}
     \end{equation}
 

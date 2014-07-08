@@ -27,7 +27,21 @@
 
 \section{Malha Interna}
 
-    A modelagem desenvolvida separa a planta em duas partes: $G_{id}$ pertence à malha interna, e $G_{od}$ pertence à malha externa. Esta forma de modelagem permite isolar a incerteza paramétrica em $G_{od}$, de forma que o controlador projetado para a malha interna trata de uma planta com parâmetros conhecidos e projetados. Dessa forma, pode-se utilizar controladores convencionais para realizar o amortecimento ativo.
+    A modelagem desenvolvida separa a planta em duas partes: $G_{id}$ pertence à malha interna, e $G_{od}$ pertence à malha externa, conforme pode ser visto na Fig.~\ref{fig:LCL_discreto}.
+
+    \begin{figure}[htb]
+        \centering{
+            \def\svgwidth{\textwidth}
+            \input{./img/multiloop_geral.pdf_tex}}
+        \renewcommand\figurename{Fig.}
+        \caption{Diagrama de blocos para o filtro LCL em modelo discreto.}
+        \label{fig:LCL_discreto}
+    \end{figure}
+
+    %
+    %Esta forma de modelagem permite isolar a incerteza paramétrica em $G_{od}$, de forma que o controlador projetado para a malha interna trata de uma planta com parâmetros conhecidos e projetados.
+    %
+    Isso permite que controladores diferentes sejam projetados para resolver partes do problema de controle. O controlador da malha interna, por exemplo, será responsável por amortecer a ressonância do filtro \emph{LCL} sem se preocupar com a incerteza paramétrica devida à rede elétrica. Dessa forma, pode-se utilizar controladores convencionais para realizar o amortecimento ativo.
 
     É conhecido da literatura que, no caso específico de um filtro LCL, é suficiente para a realização do amortecimento da ressonância do filtro a utilização de um controlador proporcional, quando a variável intermediária escolhida é a corrente do capacitor, e de um controlador proporcional-derivativo, quando a variável intermediária escolhida é a tensão do capacitor~\cite{ref:DANNEHL}. O critério de escolha para a variável intermediária varia de acordo com a aplicação e a topologia~\cite{ref:POH}.
 
@@ -51,7 +65,7 @@
     \end{table}
 
 
-\subsection{Projeto para $U_p = V_C$}
+\subsection{Projeto para tensão do capacitor como variável intermediária}
 
     Considerando o controlador da malha interna $C_i(z)$ como sendo proporcional-derivativo, tem-se sua expressão:
     %
@@ -79,7 +93,7 @@
     A partir da Fig.~\ref{fig:rlocus_vc_2} se pode escolher $K_P+K_D = 3$ para máximo amortecimento, escolha que resulta em $K_P = 0,3$ e $K_D = 2,7$.
 
 
-\subsection{Projeto para $U_p = I_C$}
+\subsection{Projeto para corrente do capacitor como variável intermediária}
 
     Considerando o controlador da malha interna $C_i(z)$ como sendo do tipo proporcional, sua expressão é dada por:
     %
@@ -143,18 +157,7 @@
     % %
     % com $T_s$ sendo a frequência de amostragem, $z$ o operador de discretização associado à Transformada $\mathcal{Z}$ e $\omega_0 = 1 / \sqrt{L_c C}$.
 
-    Para análise, considere a estrutura da Fig.~\ref{fig:LCL_discreto}.
-    %
-    \begin{figure}[htb]
-        \centering{
-            \def\svgwidth{\textwidth}
-            \input{./img/multiloop_geral.pdf_tex}}
-        \renewcommand\figurename{Fig.}
-        \caption{Diagrama de blocos para o filtro LCL em modelo discreto.}
-        \label{fig:LCL_discreto}
-    \end{figure}
-
-    Em um primeiro momento, desconsidera-se o distúrbio de tensão da rede $V_g$ e projeta-se a ação de controle $U \equiv U_p$ para o caso de parâmetros conhecidos. %De (\ref{eq:g_2_discreta}) obtem-se a equação de diferença
+    Para análise, considere a estrutura da Fig.~\ref{fig:LCL_discreto}. Em um primeiro momento, desconsidera-se o distúrbio de tensão da rede $V_g$ e projeta-se a ação de controle $U \equiv U_p$ para o caso de parâmetros conhecidos. %De (\ref{eq:g_2_discreta}) obtem-se a equação de diferença
     De (\ref{eq:god_i2_vc}) ou de (\ref{eq:god_i2_ic}) obtem-se a equação de diferença
     %
     \begin{equation}

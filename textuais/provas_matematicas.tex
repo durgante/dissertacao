@@ -33,7 +33,7 @@
 
     O objetivo do Controle por Modelo de Referência ou MRC (do inglês \emph{Model Reference Control}) é determinar a entrada $u$ da planta de forma que sua saída $y$ rastreie a saída do modelo de referência $y_m$ tão próximo quanto possível, desde que mantendo os sinais de malha fechada limitados.
 
-    É necessário definir uma Lei de Controle e uma Lei de Adaptação Paramétrica para projetar a entrada $u$ da planta.
+    %É necessário definir uma Lei de Controle e uma Lei de Adaptação Paramétrica para projetar a entrada $u$ da planta.
 
     Caso existam incertezas paramétricas, utiliza-se uma técnica de controle adaptativo que resulta no Controlador Adaptativo por Modelo de Referência ou MRAC (do inglês \emph{Model Reference Adaptive Control}). É necessário definir uma Lei de Controle e uma Lei de Adaptação Paramétrica para projetar a entrada $u$ da planta. No caso de plantas com dinâmicas não-modeladas, é necessário modificar a lei de adaptação paramétrica de forma a garantir a robustez do controlador. Neste caso, diz-se que o controlador é MRAC robusto.
 
@@ -73,7 +73,8 @@
 
     \begin{figure}[htb]
         \centering{
-            }%\includegraphics[width=0.9\textwidth]{img/adaptive_block_diagram}}
+            \def\svgwidth{0.9\textwidth}
+            \input{./img/diagrama_blocos_adaptativo.pdf_tex}}
         \renewcommand\figurename{Fig.}
         \caption{Estrutura do controlador MRAC.}
         \label{fig:cascata}
