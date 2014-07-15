@@ -6,300 +6,300 @@
 
 	Em aplicações onde o desempenho é um requisito importante, o controle multimalha, também chamado de controle em cascata, apresenta vantagens significativas. Essa estratégia propõe que uma variável seja criada para detectar a presença de distúrbios antes que esses afetem a variável controlada. Dessa forma, não é necessário esperar que a variável controlada se desvie do ponto fixo para começar uma ação corretiva, como acontece no controle por realimentação simples. Ao perceber a presença do distúrbio, a ação corretiva começa imediatamente, de forma que o desvio sofrido pela variável controlada tende a ser reduzido.
 
-    É necessário, no entanto, que a variável escolhida para ser a \emph{variável intermediária} responda mais rapidamente a variações no distúrbio e na variável manipulada do que a variável controlada. Isso faz sentido devido ao fato de que quanto mais rápido a variável intermediária responder ao distúrbio, mais rápido a ação corretiva será iniciada e menor será o desvio do ponto fixo que a variável controlada sofrerá. De fato, quanto mais rápido a variável intermediária responder, melhor.
+  É necessário, no entanto, que a variável escolhida para ser a \emph{variável intermediária} responda mais rapidamente a variações no distúrbio e na variável manipulada do que a variável controlada. Isso faz sentido devido ao fato de que quanto mais rápido a variável intermediária responder ao distúrbio, mais rápido a ação corretiva será iniciada e menor será o desvio do ponto fixo que a variável controlada sofrerá. De fato, quanto mais rápido a variável intermediária responder, melhor.
 
-    A Fig.~\ref{fig:realimentacao_vs_cascata} apresenta uma comparação de desempenho do controle da temperatura de um reator quando ocorre uma variação de $25\,^{\circ}\mathrm{C}$ na temperatura de entrada do reagente. A linha cheia representa o controle multimalha, e a linha tracejada representa o controle por realimentação simples.
+  A Fig.~\ref{fig:realimentacao_vs_cascata} apresenta uma comparação de desempenho do controle da temperatura de um reator quando ocorre uma variação de $25\,^{\circ}\mathrm{C}$ na temperatura de entrada do reagente. A linha cheia representa o controle multimalha, e a linha tracejada representa o controle por realimentação simples.
 
-    \begin{figure}[htb]
-        \centering{
-            \def\svgwidth{0.6\textwidth}
-            \input{./img/realimentacao_vs_cascata.pdf_tex}}
-        \renewcommand\figurename{Fig.}
-        \caption{Comparação de desempenho entre realimentação simples e controle em cascata.}
-        \label{fig:realimentacao_vs_cascata}
-    \end{figure}
+  \begin{figure}[htb]
+    \centering{
+      \def\svgwidth{0.6\textwidth}
+      \input{./img/realimentacao_vs_cascata.pdf_tex}}
+    \renewcommand\figurename{Fig.}
+    \caption{Comparação de desempenho entre realimentação simples e controle em cascata.}
+    \label{fig:realimentacao_vs_cascata}
+  \end{figure}
 
-    É possível desenvolver controladores com qualquer número de malhas aninhadas em cascata. É importante observar apenas o fato de que a malha mais externa gera a referência para a malha imediatamente interna em relação a ela. Dessa forma, a variável intermediária escolhida para a malha externa deve responder mais rápido ao distúrbio do que a variável intermediária escolhida para a malha interna.
+  É possível desenvolver controladores com qualquer número de malhas aninhadas em cascata. É importante observar apenas o fato de que a malha mais externa gera a referência para a malha imediatamente interna em relação a ela. Dessa forma, a variável intermediária escolhida para a malha externa deve responder mais rápido ao distúrbio do que a variável intermediária escolhida para a malha interna.
 
-    Na prática, é comum observar controladores com duas ou três malhas aninhadas. Além do quesito desempenho, outros fatores podem levar à utilização de controladores multimalha. Como é o caso deste trabalho, a separação do modelo em duas partes simplifica a abordagem de controle, devido ao fato de a malha interna fazer o amortecimento ativo da ressonância do filtro, e a malha externa tratar da incerteza paramétrica inerente à rede elétrica.
+  Na prática, é comum observar controladores com duas ou três malhas aninhadas. Além do quesito desempenho, outros fatores podem levar à utilização de controladores multimalha. Como é o caso deste trabalho, a separação do modelo em duas partes simplifica a abordagem de controle, devido ao fato de a malha interna fazer o amortecimento ativo da ressonância do filtro, e a malha externa tratar da incerteza paramétrica inerente à rede elétrica.
 
-    O projeto deste controlador divide-se então em uma malha interna e uma malha externa, conforme a seguir.
+  O projeto deste controlador divide-se então em uma malha interna e uma malha externa, conforme a seguir.
 
 \section{Malha Interna}
 
-    A modelagem desenvolvida separa a planta em duas partes: $G_{id}$ pertence à malha interna, e $G_{od}$ pertence à malha externa, conforme pode ser visto na Fig.~\ref{fig:LCL_discreto}.
+  A modelagem desenvolvida separa a planta em duas partes: $G_{id}$ pertence à malha interna, e $G_{od}$ pertence à malha externa, conforme pode ser visto na Fig.~\ref{fig:LCL_discreto}.
 
-    \begin{figure}[htb]
-        \centering{
-            \def\svgwidth{\textwidth}
-            \input{./img/multiloop_geral.pdf_tex}}
-        \renewcommand\figurename{Fig.}
-        \caption{Diagrama de blocos para o filtro LCL em modelo discreto.}
-        \label{fig:LCL_discreto}
-    \end{figure}
+  \begin{figure}[htb]
+    \centering{
+      \def\svgwidth{\textwidth}
+      \input{./img/multiloop_geral.pdf_tex}}
+    \renewcommand\figurename{Fig.}
+    \caption{Diagrama de blocos para o filtro LCL em modelo discreto.}
+    \label{fig:LCL_discreto}
+  \end{figure}
 
-    %
-    %Esta forma de modelagem permite isolar a incerteza paramétrica em $G_{od}$, de forma que o controlador projetado para a malha interna trata de uma planta com parâmetros conhecidos e projetados.
-    %
-    Isso permite que controladores diferentes sejam projetados para resolver partes do problema de controle. O controlador da malha interna, por exemplo, será responsável por amortecer a ressonância do filtro \emph{LCL} sem se preocupar com a incerteza paramétrica devida à rede elétrica. Dessa forma, pode-se utilizar controladores convencionais para realizar o amortecimento ativo.
+  %
+  %Esta forma de modelagem permite isolar a incerteza paramétrica em $G_{od}$, de forma que o controlador projetado para a malha interna trata de uma planta com parâmetros conhecidos e projetados.
+  %
+  Isso permite que controladores diferentes sejam projetados para resolver partes do problema de controle. O controlador da malha interna, por exemplo, será responsável por amortecer a ressonância do filtro \emph{LCL} sem se preocupar com a incerteza paramétrica devida à rede elétrica. Dessa forma, pode-se utilizar controladores convencionais para realizar o amortecimento ativo.
 
-    É conhecido da literatura que, no caso específico de um filtro LCL, é suficiente para a realização do amortecimento da ressonância do filtro a utilização de um controlador proporcional, quando a variável intermediária escolhida é a corrente do capacitor, e de um controlador proporcional-derivativo, quando a variável intermediária escolhida é a tensão do capacitor~\cite{ref:DANNEHL}. O critério de escolha para a variável intermediária varia de acordo com a aplicação e a topologia~\cite{ref:POH}.
+  É conhecido da literatura que, no caso específico de um filtro LCL, é suficiente para a realização do amortecimento da ressonância do filtro a utilização de um controlador proporcional, quando a variável intermediária escolhida é a corrente do capacitor, e de um controlador proporcional-derivativo, quando a variável intermediária escolhida é a tensão do capacitor~\cite{ref:DANNEHL}. O critério de escolha para a variável intermediária varia de acordo com a aplicação e a topologia~\cite{ref:POH}.
 
-    Levando isso em consideração, neste trabalho um controlador proporcional é projetado para o caso da variável intermediária ser a corrente do capacitor, e um controlador proporcional-derivativo é projetado para o caso da variável intermediária ser a tensão do capacitor. O projeto de ambos leva em consideração os parâmetros listados na Tabela~\ref{tab:sim_parameters}.
+  Levando isso em consideração, neste trabalho um controlador proporcional é projetado para o caso da variável intermediária ser a corrente do capacitor, e um controlador proporcional-derivativo é projetado para o caso da variável intermediária ser a tensão do capacitor.
+  %O projeto de ambos leva em consideração os parâmetros listados na Tabela~\ref{tab:sim_parameters}.
 
-    \begin{table}[htb]
-        \renewcommand{\arraystretch}{1.35}
-        \setlength{\tabcolsep}{1.2mm}
-        \caption{Parâmetros do sistema utilizados no projeto.}
-        \label{tab:sim_parameters}
-        \centering
-        \begin{tabular}{l l l l}
-            \hline
-            \multicolumn{1}{c}{Parâmetro} & \multicolumn{1}{c}{Valor} &
-            \multicolumn{1}{c}{Parâmetro} & \multicolumn{1}{c}{Valor} \\
-            \hline
-            $L_1$ &  $2$mH     &  $L_2$      &  $2$mH    \\
-            $C$   &  $40\mu$F  & Frequência de Amostragem ($f_s = 1/T_s$) &  $12$kHz  \\
-            \hline
-        \end{tabular}
-    \end{table}
-
+  % \begin{table}[htb]
+  %   \renewcommand{\arraystretch}{1.35}
+  %   \setlength{\tabcolsep}{1.2mm}
+  %   \caption{Parâmetros do sistema utilizados no projeto.}
+  %   \label{tab:sim_parameters}
+  %   \centering
+  %   \begin{tabular}{l l l l}
+  %     \hline
+  %     \multicolumn{1}{c}{Parâmetro} & \multicolumn{1}{c}{Valor} &
+  %     \multicolumn{1}{c}{Parâmetro} & \multicolumn{1}{c}{Valor} \\
+  %     \hline
+  %     $L_1$ &  $2$mH     &  $L_2$      &  $2$mH    \\
+  %     $C$   &  $40\mu$F  & Frequência de Amostragem ($f_s = 1/T_s$) &  $12$kHz  \\
+  %     \hline
+  %   \end{tabular}
+  % \end{table}
 
 \subsection{Projeto para tensão do capacitor como variável intermediária}
 
-    Considerando o controlador da malha interna $C_i(z)$ como sendo proporcional-derivativo, tem-se sua expressão:
-    %
-    \begin{equation}
-        C_i(z) = \left( K_P + K_D \right) \frac{z- \frac{K_D}{K_P+K_D}}{z}
-    \end{equation}
+  Considerando o controlador da malha interna $C_i(z)$ como sendo proporcional-derivativo, tem-se sua expressão:
+  %
+  \begin{equation}
+    C_i(z) = \left( K_P + K_D \right) \frac{z- \frac{K_D}{K_P+K_D}}{z}
+  \end{equation}
 
-    Em uma aplicação prática, o atraso de tempo associado à implementação digital limita o ganho do controlador, de forma que se deve projetar o zero visando maximizar o amortecimento.
-    %
-    \begin{equation}
-        z = \frac{K_D}{K_P+K_D} > 1
-    \end{equation}
+  Em uma aplicação prática, o atraso de tempo associado à implementação digital limita o ganho do controlador, de forma que se deve projetar o zero visando maximizar o amortecimento.
+  %
+  \begin{equation}
+    z = \frac{K_D}{K_P+K_D} > 1
+  \end{equation}
 
-    Essa escolha, no entanto, resulta em um sistema de fase não-mínima, uma característica que viola o requisito principal para o funcionamento do controlador da malha externa. Assim sendo, o zero é projetado em $z=0,9$ e é utilizado um traçado do lugar das raízes para projetar o ganho $K_P+K_D$.
+  Essa escolha, no entanto, resulta em um sistema de fase não-mínima, uma característica que viola o requisito principal para o funcionamento do controlador da malha externa. Assim sendo, o zero é projetado em $z=0,9$ e é utilizado um traçado do lugar das raízes para projetar o ganho $K_P+K_D$.
 
-    \begin{figure}[htb]
-        \centering{
-            \def\svgwidth{0.9\textwidth}
-            \input{./img/rlocus_controlador_pd.tex}}
-        \renewcommand\figurename{Fig.}
-        \caption{Lugar das raízes para o controlador proporcional-derivativo.}
-        \label{fig:rlocus_vc_2}
-    \end{figure}
+  \begin{figure}[htb]
+    \centering{
+      \def\svgwidth{0.9\textwidth}
+      \input{./img/rlocus_controlador_pd.tex}}
+    \renewcommand\figurename{Fig.}
+    \caption{Lugar das raízes para o controlador proporcional-derivativo.}
+    \label{fig:rlocus_vc_2}
+  \end{figure}
 
-    A partir da Fig.~\ref{fig:rlocus_vc_2} se pode escolher $K_P+K_D = 3$ para máximo amortecimento, escolha que resulta em $K_P = 0,3$ e $K_D = 2,7$.
+  A partir da Fig.~\ref{fig:rlocus_vc_2} se pode escolher $K_P+K_D = 3$ para máximo amortecimento, escolha que resulta em $K_P = 0,3$ e $K_D = 2,7$.
 
 
 \subsection{Projeto para corrente do capacitor como variável intermediária}
 
-    Considerando o controlador da malha interna $C_i(z)$ como sendo do tipo proporcional, sua expressão é dada por:
-    %
-    \begin{equation}
-        C_i(z) = K_P
-    \end{equation}
+  Considerando o controlador da malha interna $C_i(z)$ como sendo do tipo proporcional, sua expressão é dada por:
+  %
+  \begin{equation}
+    C_i(z) = K_P
+  \end{equation}
 
-    Tendo como referência a função de transferência de malha fechada $I_C/U$, que pode ser vista na Fig.~\ref{fig:LCL_discreto} fazendo $U_p = I_C$, observa-se que sua equação característica é:
-    %
-    \begin{equation}
-        z^3 - 2 \cos \left( \omega_n T_s \right) z^2 + \left( 1 + K_P K_{id} \right) z - K_P K_{id} = 0
-    \end{equation}
-    %
-    com
-    %
-    \begin{equation}
-        K_{id} = \frac{\sin(\omega_n T_s)}{\omega_n L_1}
-    \end{equation}
+  Tendo como referência a função de transferência de malha fechada $I_C/U$, que pode ser vista na Fig.~\ref{fig:LCL_discreto} fazendo $U_p = I_C$, observa-se que sua equação característica é:
+  %
+  \begin{equation}
+    z^3 - 2 \cos \left( \omega_n T_s \right) z^2 + \left( 1 + K_P K_{id} \right) z - K_P K_{id} = 0
+  \end{equation}
+  %
+  com
+  %
+  \begin{equation}
+    K_{id} = \frac{\sin(\omega_n T_s)}{\omega_n L_1}
+  \end{equation}
 
-    Através do critério de estabilidade de Routh-Hurwitz, pode-se projetar o ganho $K_P$
-    %
-    \begin{equation}
-        \overline{K_P} = \frac{2 \cos \left( \omega_n T_s \right) - 1}
-            {\sen \left( \omega_n T_s \right)} \omega_n L_1
-    \end{equation}
-    %
-    onde $\overline{K_P}$ representa o limite superior para o valor de $K_P$.
+  Através do critério de estabilidade de Routh-Hurwitz, pode-se projetar o ganho $K_P$
+  %
+  \begin{equation}
+    \overline{K_P} = \frac{2 \cos \left( \omega_n T_s \right) - 1}
+      {\sen \left( \omega_n T_s \right)} \omega_n L_1
+  \end{equation}
+  %
+  onde $\overline{K_P}$ representa o limite superior para o valor de $K_P$.
 
-    \begin{figure}[htb]
-        \centering{
-            \def\svgwidth{\textwidth}
-            \input{./img/rlocus_controlador_p.tex}}
-        \renewcommand\figurename{Fig.}
-        \caption{Lugar das raízes para o controlador proporcional.}
-        \label{fig:rlocus_ic_2}
-    \end{figure}
+  \begin{figure}[htb]
+    \centering{
+      \def\svgwidth{\textwidth}
+      \input{./img/rlocus_controlador_p.tex}}
+    \renewcommand\figurename{Fig.}
+    \caption{Lugar das raízes para o controlador proporcional.}
+    \label{fig:rlocus_ic_2}
+  \end{figure}
 
-    A Fig.~\ref{fig:rlocus_ic_2} apresenta o lugar das raízes para o controlador proporcional. O valor de máximo amortecimento obtido é quando $K_P = 8$.
+  A Fig.~\ref{fig:rlocus_ic_2} apresenta o lugar das raízes para o controlador proporcional. O valor de máximo amortecimento obtido é quando $K_P = 8$.
 
 
 \section{Malha Externa}
 
-    Para este projeto, assume-se um alto desempenho no rastreamento de referência da malha interna. O controlador da malha externa é do tipo adaptativo por modelo de referência (\emph{MRAC}), controla a corrente da rede e gera a referência ${U_p}^*$ para a malha interna.
+  Para este projeto, assume-se um alto desempenho no rastreamento de referência da malha interna. O controlador da malha externa é do tipo adaptativo por modelo de referência (\emph{MRAC}), controla a corrente da rede e gera a referência ${U_p}^*$ para a malha interna.
 
-    O desenvolvimento apresentado nesta seção é realizado em tempo discreto. Assim, o modelo discreto da planta do laço externo, $G_{od}(z)$, da planta do laço interno, $G_{id}(z)$, da planta do distúrbio externo $G_{do}(z)$ e da planta do distúrbio interno $G_{di}(z)$ são dados conforme desenvolvido na Seção~\ref{modelagem}.
-    % %
-    % \begin{equation}
-    %     G_1(z) = \frac{1 - \cos(\omega_0 T_s)}{T_s} \frac{z + 1}{z^2 - 2z
-    %         \cos(\omega_0 T_s) + 1} \text{,}
-    % \end{equation}
-    % %
-    % \begin{equation}
-    %     F_1(z) = \frac{\text{sen}(\omega_0 T_s)}{C \omega_0} \frac{z - 1}
-    %         {z^2 - 2z \cos(\omega_0 T_s) + 1} \text{,}
-    % \end{equation}
-    % %
-    % \begin{equation}
-    %     G_2(z) = F_2(z) = \frac{T_s / L_g}{z - 1} \text{,}
-    %     \label{eq:g_2_discreta}
-    % \end{equation}
-    % %
-    % com $T_s$ sendo a frequência de amostragem, $z$ o operador de discretização associado à Transformada $\mathcal{Z}$ e $\omega_0 = 1 / \sqrt{L_c C}$.
+  O desenvolvimento apresentado nesta seção é realizado em tempo discreto. Assim, o modelo discreto da planta do laço externo, $G_{od}(z)$, da planta do laço interno, $G_{id}(z)$, da planta do distúrbio externo $G_{do}(z)$ e da planta do distúrbio interno $G_{di}(z)$ são dados conforme desenvolvido na Seção~\ref{modelagem}.
+  % %
+  % \begin{equation}
+  %     G_1(z) = \frac{1 - \cos(\omega_0 T_s)}{T_s} \frac{z + 1}{z^2 - 2z
+  %         \cos(\omega_0 T_s) + 1} \text{,}
+  % \end{equation}
+  % %
+  % \begin{equation}
+  %     F_1(z) = \frac{\text{sen}(\omega_0 T_s)}{C \omega_0} \frac{z - 1}
+  %         {z^2 - 2z \cos(\omega_0 T_s) + 1} \text{,}
+  % \end{equation}
+  % %
+  % \begin{equation}
+  %     G_2(z) = F_2(z) = \frac{T_s / L_g}{z - 1} \text{,}
+  %     \label{eq:g_2_discreta}
+  % \end{equation}
+  % %
+  % com $T_s$ sendo a frequência de amostragem, $z$ o operador de discretização associado à Transformada $\mathcal{Z}$ e $\omega_0 = 1 / \sqrt{L_c C}$.
 
-    Para análise, considere a estrutura da Fig.~\ref{fig:LCL_discreto}. Em um primeiro momento, desconsidera-se o distúrbio de tensão da rede $V_g$ e projeta-se a ação de controle $U \equiv U_p$ para o caso de parâmetros conhecidos. %De (\ref{eq:g_2_discreta}) obtem-se a equação de diferença
-    De (\ref{eq:god_i2_vc}) ou de (\ref{eq:god_i2_ic}) obtem-se a equação de diferença
-    %
-    \begin{equation}
-        I_2 (k + 1) = I_2 (k) + b_p U (k) \text{,}
-        \label{eq:diferenca}
-    \end{equation}
-    %
-    com $b_p = T_s / L_g$.
+  Para análise, considere a estrutura da Fig.~\ref{fig:LCL_discreto}. Em um primeiro momento, desconsidera-se o distúrbio de tensão da rede $V_g$ e projeta-se a ação de controle $U \equiv U_p$ para o caso de parâmetros conhecidos. %De (\ref{eq:g_2_discreta}) obtem-se a equação de diferença
+  De (\ref{eq:god_i2_vc}) ou de (\ref{eq:god_i2_ic}) obtem-se a equação de diferença
+  %
+  \begin{equation}
+    I_2 (k + 1) = I_2 (k) + b_p U (k) \text{,}
+    \label{eq:diferenca}
+  \end{equation}
+  %
+  com $b_p = T_s / L_g$.
 
-    O desafio do \emph{MRAC} é projetar o controlador de forma que a saída da planta siga assintoticamente a saída de um modelo de referência. Como a planta e o modelo de referência devem ser de mesma ordem, tem-se o modelo de referência
-    %
-    \begin{equation}
-        I_{2m}(k + 1) = a_m I_{2m}(k) + b_m {I_2}^* (k) \text{,}
-        \label{eq:modelo_referencia}
-    \end{equation}
-    %
-    com $| a_m | \le 1$ para estabilidade.
+  O desafio do \emph{MRAC} é projetar o controlador de forma que a saída da planta siga assintoticamente a saída de um modelo de referência. Como a planta e o modelo de referência devem ser de mesma ordem, tem-se o modelo de referência
+  %
+  \begin{equation}
+    I_{2m}(k + 1) = a_m I_{2m}(k) + b_m {I_2}^* (k) \text{,}
+    \label{eq:modelo_referencia}
+  \end{equation}
+  %
+  com $| a_m | \le 1$ para estabilidade.
 
-    Se a lei de controle for estabelecida como sendo
-    %
-    \begin{equation}
-        U (k) = {\theta_1}^* I_2 (k) + {\theta_2}^* {I_2}^* (k) \text{,}
-    \end{equation}
-    %
-    com
-    %
-    \begin{equation}
-        \begin{split}
-            {\theta_1}^* & = \frac{a_m - 1}{b_p} \text{,}\\
-            {\theta_2}^* & = \frac{b_m}{b_p} \text{,}
-        \end{split}
-        \label{eq:ganhos}
-    \end{equation}
-    %
-    então tem-se
-    %
-    \begin{equation}
-        I_2 (k + 1) = a_m I_2 (k) + b_m {I_2}^* (k) \text{,}
-    \end{equation}
-    %
-    o que implica que $I_{2m} = I_2$, casando a planta de malha fechada com o modelo de referência. Entretanto, como o parâmetro $L_g$ é incerto, não se pode calcular os ganhos do controlador dados por (\ref{eq:ganhos}). Para lidar com esta incerteza, a lei de controle é estabelecida como sendo
-    %
-    \begin{equation}
-        U (k) = \theta_1 (k) I_2 (k) + \theta_2 (k) {I_2}^* (k) \text{,}
-        \label{eq:controle_incerteza}
-    \end{equation}
-    %
-    onde $\theta_1$ e $\theta_2$ são estimados adaptativamente.
+  Se a lei de controle for estabelecida como sendo
+  %
+  \begin{equation}
+    U (k) = {\theta_1}^* I_2 (k) + {\theta_2}^* {I_2}^* (k) \text{,}
+  \end{equation}
+  %
+  com
+  %
+  \begin{equation}
+    \begin{split}
+      {\theta_1}^* & = \frac{a_m - 1}{b_p} \text{,}\\
+      {\theta_2}^* & = \frac{b_m}{b_p} \text{,}
+    \end{split}
+    \label{eq:ganhos}
+  \end{equation}
+  %
+  então tem-se
+  %
+  \begin{equation}
+    I_2 (k + 1) = a_m I_2 (k) + b_m {I_2}^* (k) \text{,}
+  \end{equation}
+  %
+  o que implica que $I_{2m} = I_2$, casando a planta de malha fechada com o modelo de referência. Entretanto, como o parâmetro $L_g$ é incerto, não se pode calcular os ganhos do controlador dados por (\ref{eq:ganhos}). Para lidar com esta incerteza, a lei de controle é estabelecida como sendo
+  %
+  \begin{equation}
+    U (k) = \theta_1 (k) I_2 (k) + \theta_2 (k) {I_2}^* (k) \text{,}
+    \label{eq:controle_incerteza}
+  \end{equation}
+  %
+  onde $\theta_1$ e $\theta_2$ são estimados adaptativamente.
 
-    Para projetar o algoritmo adaptativo, escreve-se a equação de rastreamento do erro. Substituindo (\ref{eq:controle_incerteza}) em (\ref{eq:diferenca}) a malha fechada pode ser escrita como
-    %
-    \begin{equation}
-        \begin{split}
-        I_2 (k + 1) &= I_2 (k) + b_p \left( {\theta_1}^* I_2 (k) + {\theta_2}^* {I_2}^*
-            (k) \right)\\
-            &\qquad {}+ b_p \left( (\theta_1 (k) - {\theta_1}^*) I_2 (k) + ( \theta_2 (k)
-            - {\theta_2}^*) {I_2}^* (k) \right) \text{.}
-        \end{split}
-        \label{eq:malha_fechada}
-    \end{equation}
+  Para projetar o algoritmo adaptativo, escreve-se a equação de rastreamento do erro. Substituindo (\ref{eq:controle_incerteza}) em (\ref{eq:diferenca}) a malha fechada pode ser escrita como
+  %
+  \begin{equation}
+    \begin{split}
+      I_2 (k + 1) &= I_2 (k) + b_p \left( {\theta_1}^* I_2 (k) + {\theta_2}^* {I_2}^*
+      (k) \right)\\
+      &\qquad {}+ b_p \left( (\theta_1 (k) - {\theta_1}^*) I_2 (k) + ( \theta_2 (k)
+      - {\theta_2}^*) {I_2}^* (k) \right) \text{.}
+    \end{split}
+    \label{eq:malha_fechada}
+  \end{equation}
 
-    Utilizando (\ref{eq:modelo_referencia}) e (\ref{eq:malha_fechada}) o erro de rastreamento $e = I_2 - I_{2m}$ é dado por
-    %
-    \begin{equation}
-        e (k+1) = a_m e(k) + b_p \phi^T (k) \omega (k) \text{,}
-        \label{eq:erro_rastreamento}
-    \end{equation}
-    %
-    onde $\phi (k) = {\left[ \begin{matrix} \theta_1 (k) - {\theta_1}^* & \theta_2 (k) - {\theta_2}^*
-    \end{matrix} \right]}^T$ e
-    %
-    \begin{equation}
-        \omega (k) = {\left[ \begin{matrix} I_2 (k) & {I_2}^* (k) \end{matrix} \right]}^T \text{.}
-        \label{eq:omega_k}
-    \end{equation}
+  Utilizando (\ref{eq:modelo_referencia}) e (\ref{eq:malha_fechada}) o erro de rastreamento $e = I_2 - I_{2m}$ é dado por
+  %
+  \begin{equation}
+    e (k+1) = a_m e(k) + b_p \phi^T (k) \omega (k) \text{,}
+    \label{eq:erro_rastreamento}
+  \end{equation}
+  %
+  onde $\phi (k) = {\left[ \begin{matrix} \theta_1 (k) - {\theta_1}^* & \theta_2 (k) - {\theta_2}^*
+  \end{matrix} \right]}^T$ e
+  %
+  \begin{equation}
+    \omega (k) = {\left[ \begin{matrix} I_2 (k) & {I_2}^* (k) \end{matrix} \right]}^T \text{.}
+    \label{eq:omega_k}
+  \end{equation}
 
-    Definindo $\zeta (k) = b_m / (z - a_m) \omega (k)$ e utilizando (\ref{eq:erro_rastreamento}) pode-se escrever a função de transferência
-    %
-    \begin{equation}
-        e(k) = \rho^* \left( \frac{b_m}{z - a_m} \left[ \theta^T (k) \omega (k) \right]
-            - {\theta^*}^T \zeta (k) \right) \text{,}
-        \label{eq:erro_ft}
-    \end{equation}
-    %
-    onde $\rho^* = b_p / b_m$.
+  Definindo $\zeta (k) = b_m / (z - a_m) \omega (k)$ e utilizando (\ref{eq:erro_rastreamento}) pode-se escrever a função de transferência
+  %
+  \begin{equation}
+    e(k) = \rho^* \left( \frac{b_m}{z - a_m} \left[ \theta^T (k) \omega (k) \right]
+      - {\theta^*}^T \zeta (k) \right) \text{,}
+    \label{eq:erro_ft}
+  \end{equation}
+  %
+  onde $\rho^* = b_p / b_m$.
 
-    Observa-se que (\ref{eq:erro_ft}) não pode ser usado em uma lei adaptativa para o parâmetro $\theta (k)$ devido ao desconhecimento de $\rho^*$ e $\theta^*$. Para resolver este problema, o erro de estimação é definido como
-    %
-    \begin{equation}
-        \epsilon (k) = e (k) - \rho(k) \left( \frac{b_m}{z - a_m} \left[ \theta^T (k) \omega(k)
-            \right] - \theta^T (k) \zeta(k) \right) \text{.}
-        \label{eq:erro_estimacao}
-    \end{equation}
+  Observa-se que (\ref{eq:erro_ft}) não pode ser usado em uma lei adaptativa para o parâmetro $\theta (k)$ devido ao desconhecimento de $\rho^*$ e $\theta^*$. Para resolver este problema, o erro de estimação é definido como
+  %
+  \begin{equation}
+    \epsilon (k) = e (k) - \rho(k) \left( \frac{b_m}{z - a_m} \left[ \theta^T (k) \omega(k)
+      \right] - \theta^T (k) \zeta(k) \right) \text{.}
+    \label{eq:erro_estimacao}
+  \end{equation}
 
-    Substituindo (\ref{eq:erro_ft}) em (\ref{eq:erro_estimacao}) e adicionando o termo $-\rho^* \theta^T (k) \zeta (k) + \rho^* (k) \theta^T (k) \zeta(k)$, tem-se
-    %
-    \begin{equation}
-        \epsilon(k) = \rho^* \phi^T(k) \zeta(k) + \tilde{\rho}(k) \xi(k) \text{,}
-        \label{eq:epsilon_k}
-    \end{equation}
-    %
-    onde $\tilde{\rho}(k) = \rho(k) - \rho^*$ e $\xi(k) = \theta^T(k) \zeta(k) - b_m / (z - a_m)[\theta^T \omega](k)$.
+  Substituindo (\ref{eq:erro_ft}) em (\ref{eq:erro_estimacao}) e adicionando o termo $-\rho^* \theta^T (k) \zeta (k) + \rho^* (k) \theta^T (k) \zeta(k)$, tem-se
+  %
+  \begin{equation}
+    \epsilon(k) = \rho^* \phi^T(k) \zeta(k) + \tilde{\rho}(k) \xi(k) \text{,}
+    \label{eq:epsilon_k}
+  \end{equation}
+  %
+  onde $\tilde{\rho}(k) = \rho(k) - \rho^*$ e $\xi(k) = \theta^T(k) \zeta(k) - b_m / (z - a_m)[\theta^T \omega](k)$.
 
-    Da teoria de controle, a função definida positiva
-    %
-    \begin{equation}
-        V = |\rho^*| \phi^T \Gamma^{-1} \phi + \gamma^{-1} {\tilde{\rho}}^2
-        \label{eq:funcao_positiva}
-    \end{equation}
-    %
-    que envolve os erros paramétricos, pode ser minimizada definindo as seguintes regras adaptativas para $\theta$ e $\rho$:
-    %
-    \begin{subequations}
-        \begin{align}
-            \theta(k + 1) & = \theta(k) - \text{sgn}(\rho^*)\frac{\Gamma \epsilon(k)\zeta(k)}{m^2(k)} \text{,}\\
-            \rho(k + 1) & = \rho(k) - \frac{\gamma \epsilon(k) \xi(k)}{m^2(k)} \text{,}
-        \end{align}
-        \label{eq:regras_adaptativas}
-    \end{subequations}
-    %
-    onde $\text{sgn}(\rho^*)$ denota o sinal do parâmetro fixo $\rho^*$, $0 < \gamma < 2$, $0 < \Gamma = \Gamma^T < 2/\rho_0 I_{dim \theta}$, $\rho_0 \geq |b_p / b_m|$ sendo $I_{dim \theta}$ a matriz identidade de mesma dimensão do vetor $\theta$. Em (\ref{eq:regras_adaptativas}) o sinal de normalização $m$ é dado por
-    %
-    \begin{equation}
-        m(k) = \sqrt{1 + \zeta^T(k) \zeta(k) + \xi^2(k)} \text{.}
-    \end{equation}
+  Da teoria de controle, a função definida positiva
+  %
+  \begin{equation}
+    V = |\rho^*| \phi^T \Gamma^{-1} \phi + \gamma^{-1} {\tilde{\rho}}^2
+    \label{eq:funcao_positiva}
+  \end{equation}
+  %
+  que envolve os erros paramétricos, pode ser minimizada definindo as seguintes regras adaptativas para $\theta$ e $\rho$:
+  %
+  \begin{subequations}
+    \begin{align}
+      \theta(k + 1) & = \theta(k) - \text{sgn}(\rho^*)\frac{\Gamma \epsilon(k)\zeta(k)}{m^2(k)} \text{,}\\
+      \rho(k + 1) & = \rho(k) - \frac{\gamma \epsilon(k) \xi(k)}{m^2(k)} \text{,}
+    \end{align}
+    \label{eq:regras_adaptativas}
+  \end{subequations}
+  %
+  onde $\text{sgn}(\rho^*)$ denota o sinal do parâmetro fixo $\rho^*$, $0 < \gamma < 2$, $0 < \Gamma = \Gamma^T < 2/\rho_0 I_{dim \theta}$, $\rho_0 \geq |b_p / b_m|$ sendo $I_{dim \theta}$ a matriz identidade de mesma dimensão do vetor $\theta$. Em (\ref{eq:regras_adaptativas}) o sinal de normalização $m$ é dado por
+  %
+  \begin{equation}
+    m(k) = \sqrt{1 + \zeta^T(k) \zeta(k) + \xi^2(k)} \text{.}
+  \end{equation}
 
-    É possível provar que utilizando (\ref{eq:epsilon_k}), (\ref{eq:funcao_positiva}) e (\ref{eq:regras_adaptativas}) tem-se
-    %
-    \begin{equation}
-        V(k + 1) - V(k) \leq -c \frac{\epsilon^2(k)}{m^2(k)} \text{,}
-    \end{equation}
-    %
-    com $c > 0$, o que implica na convergência do erro de estimação $\epsilon$ para zero e na convergência de $\theta$ e $\rho$ para um valor limitado, como em \cite{ref:TAO}.
+  É possível provar que utilizando (\ref{eq:epsilon_k}), (\ref{eq:funcao_positiva}) e (\ref{eq:regras_adaptativas}) tem-se
+  %
+  \begin{equation}
+    V(k + 1) - V(k) \leq -c \frac{\epsilon^2(k)}{m^2(k)} \text{,}
+  \end{equation}
+  %
+  com $c > 0$, o que implica na convergência do erro de estimação $\epsilon$ para zero e na convergência de $\theta$ e $\rho$ para um valor limitado, como em \cite{ref:TAO}.
 
-    Como evidenciado pela Fig.~\ref{fig:LCL_discreto}, percebe-se que a corrente da rede $I_2$ está sujeita a um distúrbio exógeno de tensão da rede $V_g$. Para compensar este efeito, pode-se aumentar o vetor (\ref{eq:omega_k}) de forma que
-    %
-    \begin{equation}
-        {U_p}^* = \theta_1(k) I_2(k) + \theta_2(k) {I_2}^*(k)+
-            \theta_3(k) \text{sen}(\omega_{g1}t) + \theta_4(k) \cos(\omega_{g1} t) \text{.}
-    \end{equation}
+  Como evidenciado pela Fig.~\ref{fig:LCL_discreto}, percebe-se que a corrente da rede $I_2$ está sujeita a um distúrbio exógeno de tensão da rede $V_g$. Para compensar este efeito, pode-se aumentar o vetor (\ref{eq:omega_k}) de forma que
+  %
+  \begin{equation}
+    {U_p}^* = \theta_1(k) I_2(k) + \theta_2(k) {I_2}^*(k)+
+      \theta_3(k) \text{sen}(\omega_{g1}t) + \theta_4(k) \cos(\omega_{g1} t) \text{.}
+  \end{equation}
 
-    A prova de estabilidade detalhada cobrindo o caso do vetor (\ref{eq:omega_k}) aumentado é conforme consta no Anexo~\ref{provas}.
+  A prova de estabilidade detalhada cobrindo o caso do vetor (\ref{eq:omega_k}) aumentado é conforme consta no Anexo~\ref{provas}.
 
 
 

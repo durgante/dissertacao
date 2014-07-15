@@ -1,0 +1,9 @@
+
+\DescribeMacro{\printindex}\DescribeMacro{\index}
+O índice, elemento opcional da ABNT NBR 14724:2011, deve ser elabora conforme a ABNT NBR 6034 e pode ser produzido por meio da macro |\printindex|, que imprime as páginas nas quais as macros |\index|\marg{palavra a ser indexada} apareceram.
+
+Para que as macros |\printindex| e |\index| funcionem, é preciso utilizar o compilador
+\textsf{MakeIndex}\footnote{\url{http://www.tex.ac.uk/ctan/indexing/makeindex/}}.
+
+
+\StopEventually{\PrintIndex}

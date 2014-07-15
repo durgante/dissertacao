@@ -4,31 +4,29 @@
 
 Este é o README do meu projeto de dissertação de mestrado!
 
-
 TODO
 ----
 
-
-+ Refazer figuras:
-	* Refazer as figuras para que fiquem todas vetoriais.
-	OK Ler a documentação para criação de figuras uniformes;
-	OK Ler a documentação para criação de figuras com Inkscape, provavelmente é melhor
-		exportar do Inkscape e sobrescrever texto com o Latex;
-
 + Descrever melhor a modelagem.
-	* Adicionar comentários sobre os efeitos da discretização (surgimento do zero de
-		amostragem);
+	* Reescrever a descrição da planta. É preciso mencionar, na modelagem, que a planta é escrita na forma de uma parte com dinâmica conhecida mais uma parte com dinâmicas não-modeladas. Isso é descrito no anexo, é necessário escrever na modelagem também. É preciso descrever o que é variável intermediária com bastante precisão;
+	* É preciso escrever a expressão para os filtros do distúrbio Vg;
+	OK Adicionar comentários sobre os efeitos da discretização (surgimento do zero de	amostragem);
 	OK Adicionar modelagem no tempo contínuo;
 	OK Adicionar modelagem em espaço de estados (vale a pena?);
 
 + Resolver os problemas da Introdução.
-	* A folha revisada pelo Márcio ainda contém alterações que precisam ser
-		realizadas;
+	* A folha revisada pelo Márcio ainda contém alterações que precisam ser realizadas;
 	* Citar o artigo do Holmes em outra parte;
 	OK Encontrar uma referência para citar códigos de redes (ou não citar);
 		Por enquanto não será citado.
 	* O artigo do Gervasio já foi citado, falta comentá-lo;
 	* Resolver a questão da expressão "estruturas de controle específicas".
+
+OK Refazer figuras:
+	OK Editar a figura do anexo de provas matemáticas, r, u e y devem ser escritos como equações, para que fiquem iguais ao texto;
+	OK Refazer as figuras para que fiquem todas vetoriais.
+	OK Ler a documentação para criação de figuras uniformes;
+	OK Ler a documentação para criação de figuras com Inkscape, provavelmente é melhor exportar do Inkscape e sobrescrever texto com o Latex;
 
 OK Montar um cronograma, o tempo está se esgotando e é preciso priorizar tarefas;
 		Novo cronograma contém apenas uma linha: FAZER TUDO PRA ONTEM!

@@ -50,14 +50,14 @@
   \makeatother%
   \begin{picture}(1,0.37699706)%
     \put(0,0){\includegraphics[width=\unitlength]{diagrama_blocos_adaptativo.pdf}}%
-    \put(0.00688861,0.35538945){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.07347816\unitlength}\centering r\end{minipage}}}%
+    \put(0.00688861,0.35538945){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.07347816\unitlength}\centering $r$\end{minipage}}}%
     \put(0.23645394,0.34149053){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.08967904\unitlength}\centering $\sum$\end{minipage}}}%
     \put(0.19713671,0.25363277){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.42262746\unitlength}\centering $\theta_1^T\frac{\alpha(s)}{\Lambda(s)}$\end{minipage}}}%
     \put(0.33145693,0.16178771){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.58173601\unitlength}\centering $\theta_2^T\frac{\alpha(s)}{\Lambda(s)}$\end{minipage}}}%
     \put(0.703447,0.06266583){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.15611223\unitlength}\centering $\theta_3$\end{minipage}}}%
     \put(0.05520507,0.33881141){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.17224068\unitlength}\centering $\theta_4$\end{minipage}}}%
-    \put(0.3642932,0.35540405){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.08825555\unitlength}\centering u\end{minipage}}}%
-    \put(0.88274359,0.35538946){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.05234061\unitlength}\centering y\end{minipage}}}%
+    \put(0.3642932,0.35540405){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.08825555\unitlength}\centering $u$\end{minipage}}}%
+    \put(0.88274359,0.35538946){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.05234061\unitlength}\centering $y$\end{minipage}}}%
     \put(0.56908763,0.33897296){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.10676077\unitlength}\centering $G(s)$\end{minipage}}}%
   \end{picture}%
 \endgroup%
