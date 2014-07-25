@@ -81,9 +81,9 @@ ylabel('Magnitude (dB)');
 xlabel('Frequência (rad/s)');
 title('');
 legend(...
-    'R_d = 0\Omega', ...
+    'R_d = 10\Omega', ...
     'R_d = 2\Omega', ...
-    'R_d = 10\Omega', 'location', 'NE');
+    'R_d = 0\Omega', 'location', 'NE');
     
 
 %% Define dimensões do gráfico
@@ -97,6 +97,6 @@ if exportar==1
     cleanfigure
     
     %Exporta
-    matlab2tikz('./gerar_figuras/R_in_LCL.tex', 'width', '0.8\textwidth', ...
+    matlab2tikz('./R_in_LCL.tex', 'width', '0.8\textwidth', ...
         'interpretTickLabelAsTex', true, 'encoding', 'UTF-8');
 end

@@ -90,33 +90,99 @@
   \end{table}
 
   %separar em três figuras, uma pra inversão de fase, outra pra degrau de amplitude e outra pra variação da indutância
-  A Fig.~\ref{fig:i2_simulacao_inv_fase} apresenta a corrente da rede em comparação com a referência. No instante $t_1 = \pi s$ ocorre inversão de fase na referência. A Fig.~\ref{fig:i2_simulacao_degrau} apresenta, no instante $t_2$, um degrau de amplitude aplicado à referência. Na Fig.~\ref{fig:i2_simulacao_L_rede} apresenta uma variação na indutância da rede no instante $t_3$.
+  A Fig.~\ref{fig:i2_sim_ini} apresenta a corrente da rede em comparação com a referência. No instante $t_1 = \pi s$ ocorre inversão de fase na referência. A Fig.~\ref{fig:i2_simulacao_degrau} apresenta, no instante $t_2$, um degrau de amplitude aplicado à referência. Na Fig.~\ref{fig:i2_simulacao_L_rede} apresenta uma variação na indutância da rede no instante $t_3$.
 
-	\begin{figure}[htb]
+	\begin{figure}[!htb]
     \centering
-      \def\svgwidth{0.8\textwidth}
-      \input{./img/logo.pdf_tex}
+      \def\svgwidth{\textwidth}
+      \input{./img/i2_sim_ini.tex}
     \renewcommand\figurename{Fig.}
-    \caption{Inversão de fases na referência.}
-    \label{fig:i2_simulacao_inv_fase}
+    \caption{Comparação da corrente da rede com a referência.}
+    \label{fig:i2_sim_ini}
   \end{figure}
 
-  \begin{figure}[htb]
-    \centering
-      \def\svgwidth{0.8\textwidth}
-      \input{./img/logo.pdf_tex}
-    \renewcommand\figurename{Fig.}
-    \caption{Degrau de amplitude na referência.}
+  % \begin{figure}[!htb]
+  %   \centering
+  %     \def\svgwidth{\textwidth}
+  %     \input{./img/i2_sim_step.tex}
+  %   \renewcommand\figurename{Fig.}
+  %   \caption{Resposta da corrente da rede ao degrau na referência.}
+  %   \label{fig:i2_simulacao_degrau}
+  % \end{figure}
+
+  %\noindent
+  \begin{minipage}{\textwidth}
+    %\centering
+    \makebox[\textwidth]{
+      \centering
+      \def\svgwidth{\textwidth}
+      \input{./img/i2_sim_step.tex}}
+    %\renewcommand\figurename{Fig.}
+    \captionof{figure}{Resposta da corrente da rede ao degrau na referência.}
     \label{fig:i2_simulacao_degrau}
+  \end{minipage}
+
+  \begin{figure}[!htb]
+    \centering
+      \def\svgwidth{\textwidth}
+      \input{./img/i2_sim_phase.tex}
+    \renewcommand\figurename{Fig.}
+    \caption{Resposta da corrente da rede à inversão de fase na referência.}
+    \label{fig:i2_simulacao_fase}
   \end{figure}
 
-  \begin{figure}[htb]
+  \begin{figure}[!htb]
     \centering
-      \def\svgwidth{0.8\textwidth}
-      \input{./img/logo.pdf_tex}
+      \def\svgwidth{\textwidth}
+      \input{./img/i2_sim_short.tex}
     \renewcommand\figurename{Fig.}
-    \caption{Variação da indutância da rede.}
+    \caption{Resposta da corrente da rede a um curto-circuito na fase A.}
+    \label{fig:i2_simulacao_curto}
+  \end{figure}
+
+  \begin{figure}[!htb]
+    \centering
+      \def\svgwidth{\textwidth}
+      \input{./img/i2_sim_Lg.tex}
+    \renewcommand\figurename{Fig.}
+    \caption{Resposta da corrente da rede à variação abrupta da indutância da rede.}
     \label{fig:i2_simulacao_L_rede}
+  \end{figure}
+
+  \begin{figure}[!h]
+    \centering
+      \def\svgwidth{\textwidth}
+      \input{./img/up_sim_ini.tex}
+    \renewcommand\figurename{Fig.}
+    \caption{Ação de controle na inicialização do sistema.}
+    \label{fig:up_simulacao_ini}
+  \end{figure}
+
+  \begin{figure}[!h]
+    \centering
+      \def\svgwidth{\textwidth}
+      \input{./img/up_sim_Lg.tex}
+    \renewcommand\figurename{Fig.}
+    \caption{Ação de controle na presença de variação da indutância da rede.}
+    \label{fig:up_simulacao_Lg}
+  \end{figure}
+
+  \begin{figure}[!h]
+    \centering
+      \def\svgwidth{\textwidth}
+      \input{./img/up_sim_phase.tex}
+    \renewcommand\figurename{Fig.}
+    \caption{Ação de controle na presença de inversão de fase na referência.}
+    \label{fig:up_simulacao_phase}
+  \end{figure}
+
+  \begin{figure}[!h]
+    \centering
+      \def\svgwidth{\textwidth}
+      \input{./img/up_sim_short.tex}
+    \renewcommand\figurename{Fig.}
+    \caption{Ação de controle na presença de curto-circuito na fase A.}
+    \label{fig:up_simulacao_short}
   \end{figure}
 
   %incluir figura mostrando a convergência dos thetas

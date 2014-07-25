@@ -4602,10 +4602,10 @@ static void init_dsm_address_info(SFc3_iC_3ph_MR2InstanceStruct *chartInstance)
 /* SFunction Glue Code */
 void sf_c3_iC_3ph_MR2_get_check_sum(mxArray *plhs[])
 {
-  ((real_T *)mxGetPr((plhs[0])))[0] = (real_T)(2376849859U);
-  ((real_T *)mxGetPr((plhs[0])))[1] = (real_T)(1121493562U);
-  ((real_T *)mxGetPr((plhs[0])))[2] = (real_T)(376033707U);
-  ((real_T *)mxGetPr((plhs[0])))[3] = (real_T)(732286106U);
+  ((real_T *)mxGetPr((plhs[0])))[0] = (real_T)(2754058126U);
+  ((real_T *)mxGetPr((plhs[0])))[1] = (real_T)(3063565593U);
+  ((real_T *)mxGetPr((plhs[0])))[2] = (real_T)(2262280046U);
+  ((real_T *)mxGetPr((plhs[0])))[3] = (real_T)(2711952625U);
 }
 
 mxArray *sf_c3_iC_3ph_MR2_get_autoinheritance_info(void)
@@ -4617,7 +4617,7 @@ mxArray *sf_c3_iC_3ph_MR2_get_autoinheritance_info(void)
     autoinheritanceFields);
 
   {
-    mxArray *mxChecksum = mxCreateString("3zL14pFcFSfhfFeWqhw6x");
+    mxArray *mxChecksum = mxCreateString("1Ap4tqjv4qiC1C1R5atucC");
     mxSetField(mxAutoinheritanceInfo,0,"checksum",mxChecksum);
   }
 
@@ -4786,9 +4786,9 @@ static const mxArray *sf_get_sim_state_info_c3_iC_3ph_MR2(void)
 
   mxArray *mxInfo = mxCreateStructMatrix(1, 1, 2, infoFields);
   const char *infoEncStr[] = {
-    "100 S1x10'type','srcId','name','auxInfo'{{M[1],M[16],T\"theta_Beta\",},{M[1],M[5],T\"up_beta\",},{M[4],M[0],T\"P\",S'l','i','p'{{M1x2[3323 3324],M[0],}}},{M[4],M[0],T\"eta_k_1\",S'l','i','p'{{M1x2[2305 2312],M[0],}}},{M[4],M[0],T\"eta_k_2\",S'l','i','p'{{M1x2[2394 2401],M[0],}}},{M[4],M[0],T\"eta_k_3\",S'l','i','p'{{M1x2[2483 2490],M[0],}}},{M[4],M[0],T\"gama2\",S'l','i','p'{{M1x2[4526 4531],M[0],}}},{M[4],M[0],T\"i2m_k_1\",S'l','i','p'{{M1x2[2572 2579],M[0],}}},{M[4],M[0],T\"i2m_k_2\",S'l','i','p'{{M1x2[2632 2639],M[0],}}},{M[4],M[0],T\"i2m_k_3\",S'l','i','p'{{M1x2[2692 2699],M[0],}}}}",
-    "100 S1x10'type','srcId','name','auxInfo'{{M[4],M[0],T\"i2ref_k_1\",S'l','i','p'{{M1x2[2752 2761],M[0],}}},{M[4],M[0],T\"i2ref_k_2\",S'l','i','p'{{M1x2[2818 2827],M[0],}}},{M[4],M[0],T\"i2ref_k_3\",S'l','i','p'{{M1x2[2884 2893],M[0],}}},{M[4],M[0],T\"m2\",S'l','i','p'{{M1x2[3170 3172],M[0],}}},{M[4],M[0],T\"omega_k\",S'l','i','p'{{M1x2[1931 1938],M[0],}}},{M[4],M[0],T\"omega_k_1\",S'l','i','p'{{M1x2[2020 2029],M[0],}}},{M[4],M[0],T\"omega_k_2\",S'l','i','p'{{M1x2[2115 2124],M[0],}}},{M[4],M[0],T\"omega_k_3\",S'l','i','p'{{M1x2[2210 2219],M[0],}}},{M[4],M[0],T\"rho_k\",S'l','i','p'{{M1x2[3112 3117],M[0],}}},{M[4],M[0],T\"theta_k\",S'l','i','p'{{M1x2[1207 1214],M[0],}}}}",
-    "100 S1x6'type','srcId','name','auxInfo'{{M[4],M[0],T\"u_k_1\",S'l','i','p'{{M1x2[3215 3220],M[0],}}},{M[4],M[0],T\"u_k_2\",S'l','i','p'{{M1x2[3269 3274],M[0],}}},{M[4],M[0],T\"v_k_1\",S'l','i','p'{{M1x2[2950 2955],M[0],}}},{M[4],M[0],T\"v_k_2\",S'l','i','p'{{M1x2[3004 3009],M[0],}}},{M[4],M[0],T\"v_k_3\",S'l','i','p'{{M1x2[3058 3063],M[0],}}},{M[8],M[0],T\"is_active_c3_iC_3ph_MR2\",}}"
+    "100 S1x10'type','srcId','name','auxInfo'{{M[1],M[16],T\"theta_Beta\",},{M[1],M[5],T\"up_beta\",},{M[4],M[0],T\"P\",S'l','i','p'{{M1x2[3324 3325],M[0],}}},{M[4],M[0],T\"eta_k_1\",S'l','i','p'{{M1x2[2306 2313],M[0],}}},{M[4],M[0],T\"eta_k_2\",S'l','i','p'{{M1x2[2395 2402],M[0],}}},{M[4],M[0],T\"eta_k_3\",S'l','i','p'{{M1x2[2484 2491],M[0],}}},{M[4],M[0],T\"gama2\",S'l','i','p'{{M1x2[4527 4532],M[0],}}},{M[4],M[0],T\"i2m_k_1\",S'l','i','p'{{M1x2[2573 2580],M[0],}}},{M[4],M[0],T\"i2m_k_2\",S'l','i','p'{{M1x2[2633 2640],M[0],}}},{M[4],M[0],T\"i2m_k_3\",S'l','i','p'{{M1x2[2693 2700],M[0],}}}}",
+    "100 S1x10'type','srcId','name','auxInfo'{{M[4],M[0],T\"i2ref_k_1\",S'l','i','p'{{M1x2[2753 2762],M[0],}}},{M[4],M[0],T\"i2ref_k_2\",S'l','i','p'{{M1x2[2819 2828],M[0],}}},{M[4],M[0],T\"i2ref_k_3\",S'l','i','p'{{M1x2[2885 2894],M[0],}}},{M[4],M[0],T\"m2\",S'l','i','p'{{M1x2[3171 3173],M[0],}}},{M[4],M[0],T\"omega_k\",S'l','i','p'{{M1x2[1932 1939],M[0],}}},{M[4],M[0],T\"omega_k_1\",S'l','i','p'{{M1x2[2021 2030],M[0],}}},{M[4],M[0],T\"omega_k_2\",S'l','i','p'{{M1x2[2116 2125],M[0],}}},{M[4],M[0],T\"omega_k_3\",S'l','i','p'{{M1x2[2211 2220],M[0],}}},{M[4],M[0],T\"rho_k\",S'l','i','p'{{M1x2[3113 3118],M[0],}}},{M[4],M[0],T\"theta_k\",S'l','i','p'{{M1x2[1208 1215],M[0],}}}}",
+    "100 S1x6'type','srcId','name','auxInfo'{{M[4],M[0],T\"u_k_1\",S'l','i','p'{{M1x2[3216 3221],M[0],}}},{M[4],M[0],T\"u_k_2\",S'l','i','p'{{M1x2[3270 3275],M[0],}}},{M[4],M[0],T\"v_k_1\",S'l','i','p'{{M1x2[2951 2956],M[0],}}},{M[4],M[0],T\"v_k_2\",S'l','i','p'{{M1x2[3005 3010],M[0],}}},{M[4],M[0],T\"v_k_3\",S'l','i','p'{{M1x2[3059 3064],M[0],}}},{M[8],M[0],T\"is_active_c3_iC_3ph_MR2\",}}"
   };
 
   mxArray *mxVarInfo = sf_mex_decode_encoded_mx_struct_array(infoEncStr, 26, 10);
@@ -4858,32 +4858,32 @@ static void chart_debug_initialization(SimStruct *S, unsigned int
 
         /* Initialization of MATLAB Function Model Coverage */
         _SFD_CV_INIT_EML(0,1,1,25,0,0,0,0,0,0);
-        _SFD_CV_INIT_EML_FCN(0,0,"eML_blk_kernel",0,-1,7048);
-        _SFD_CV_INIT_EML_IF(0,1,0,1216,1235,-1,1918);
-        _SFD_CV_INIT_EML_IF(0,1,1,1940,1959,-1,2007);
-        _SFD_CV_INIT_EML_IF(0,1,2,2031,2052,-1,2102);
-        _SFD_CV_INIT_EML_IF(0,1,3,2126,2147,-1,2197);
-        _SFD_CV_INIT_EML_IF(0,1,4,2221,2242,-1,2292);
-        _SFD_CV_INIT_EML_IF(0,1,5,2314,2333,-1,2381);
-        _SFD_CV_INIT_EML_IF(0,1,6,2403,2422,-1,2470);
-        _SFD_CV_INIT_EML_IF(0,1,7,2492,2511,-1,2559);
-        _SFD_CV_INIT_EML_IF(0,1,8,2581,2600,-1,2619);
-        _SFD_CV_INIT_EML_IF(0,1,9,2641,2660,-1,2679);
-        _SFD_CV_INIT_EML_IF(0,1,10,2701,2720,-1,2739);
-        _SFD_CV_INIT_EML_IF(0,1,11,2763,2784,-1,2805);
-        _SFD_CV_INIT_EML_IF(0,1,12,2829,2850,-1,2871);
-        _SFD_CV_INIT_EML_IF(0,1,13,2895,2916,-1,2937);
-        _SFD_CV_INIT_EML_IF(0,1,14,2957,2974,-1,2991);
-        _SFD_CV_INIT_EML_IF(0,1,15,3011,3028,-1,3045);
-        _SFD_CV_INIT_EML_IF(0,1,16,3065,3082,-1,3099);
-        _SFD_CV_INIT_EML_IF(0,1,17,3119,3136,-1,3157);
-        _SFD_CV_INIT_EML_IF(0,1,18,3174,3188,-1,3202);
-        _SFD_CV_INIT_EML_IF(0,1,19,3222,3239,-1,3256);
-        _SFD_CV_INIT_EML_IF(0,1,20,3276,3293,-1,3310);
-        _SFD_CV_INIT_EML_IF(0,1,21,3326,3339,-1,4513);
-        _SFD_CV_INIT_EML_IF(0,1,22,4533,4550,-1,4600);
-        _SFD_CV_INIT_EML_IF(0,1,23,5864,5874,5917,5968);
-        _SFD_CV_INIT_EML_IF(0,1,24,6322,6332,6386,6447);
+        _SFD_CV_INIT_EML_FCN(0,0,"eML_blk_kernel",0,-1,7049);
+        _SFD_CV_INIT_EML_IF(0,1,0,1217,1236,-1,1919);
+        _SFD_CV_INIT_EML_IF(0,1,1,1941,1960,-1,2008);
+        _SFD_CV_INIT_EML_IF(0,1,2,2032,2053,-1,2103);
+        _SFD_CV_INIT_EML_IF(0,1,3,2127,2148,-1,2198);
+        _SFD_CV_INIT_EML_IF(0,1,4,2222,2243,-1,2293);
+        _SFD_CV_INIT_EML_IF(0,1,5,2315,2334,-1,2382);
+        _SFD_CV_INIT_EML_IF(0,1,6,2404,2423,-1,2471);
+        _SFD_CV_INIT_EML_IF(0,1,7,2493,2512,-1,2560);
+        _SFD_CV_INIT_EML_IF(0,1,8,2582,2601,-1,2620);
+        _SFD_CV_INIT_EML_IF(0,1,9,2642,2661,-1,2680);
+        _SFD_CV_INIT_EML_IF(0,1,10,2702,2721,-1,2740);
+        _SFD_CV_INIT_EML_IF(0,1,11,2764,2785,-1,2806);
+        _SFD_CV_INIT_EML_IF(0,1,12,2830,2851,-1,2872);
+        _SFD_CV_INIT_EML_IF(0,1,13,2896,2917,-1,2938);
+        _SFD_CV_INIT_EML_IF(0,1,14,2958,2975,-1,2992);
+        _SFD_CV_INIT_EML_IF(0,1,15,3012,3029,-1,3046);
+        _SFD_CV_INIT_EML_IF(0,1,16,3066,3083,-1,3100);
+        _SFD_CV_INIT_EML_IF(0,1,17,3120,3137,-1,3158);
+        _SFD_CV_INIT_EML_IF(0,1,18,3175,3189,-1,3203);
+        _SFD_CV_INIT_EML_IF(0,1,19,3223,3240,-1,3257);
+        _SFD_CV_INIT_EML_IF(0,1,20,3277,3294,-1,3311);
+        _SFD_CV_INIT_EML_IF(0,1,21,3327,3340,-1,4514);
+        _SFD_CV_INIT_EML_IF(0,1,22,4534,4551,-1,4601);
+        _SFD_CV_INIT_EML_IF(0,1,23,5865,5875,5918,5969);
+        _SFD_CV_INIT_EML_IF(0,1,24,6323,6333,6387,6448);
         _SFD_TRANS_COV_WTS(0,0,0,1,0);
         if (chartAlreadyPresent==0) {
           _SFD_TRANS_COV_MAPS(0,
@@ -4948,7 +4948,7 @@ static void chart_debug_initialization(SimStruct *S, unsigned int
 
 static const char* sf_get_instance_specialization()
 {
-  return "f7XhuTiCRsjdm6p4KD1LtB";
+  return "OGuMqyW5qSUQDOQtVt6veF";
 }
 
 static void sf_opaque_initialize_c3_iC_3ph_MR2(void *chartInstanceVar)
@@ -5106,10 +5106,10 @@ static void mdlSetWorkWidths_c3_iC_3ph_MR2(SimStruct *S)
   }
 
   ssSetOptions(S,ssGetOptions(S)|SS_OPTION_WORKS_WITH_CODE_REUSE);
-  ssSetChecksum0(S,(2776802587U));
-  ssSetChecksum1(S,(2229932019U));
-  ssSetChecksum2(S,(3769531778U));
-  ssSetChecksum3(S,(3911815228U));
+  ssSetChecksum0(S,(2301714436U));
+  ssSetChecksum1(S,(742673578U));
+  ssSetChecksum2(S,(348268662U));
+  ssSetChecksum3(S,(1880735847U));
   ssSetmdlDerivatives(S, NULL);
   ssSetExplicitFCSSCtrl(S,1);
 }

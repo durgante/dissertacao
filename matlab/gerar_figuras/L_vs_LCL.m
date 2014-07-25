@@ -76,8 +76,8 @@ ylabel('Magnitude (dB)');
 xlabel('Frequência (rad/s)');
 title('');
 legend(...
-    'Filtro LCL', ...
-    'Filtro L', 'location', 'NE');
+    'Filtro L', ...
+    'Filtro LCL', 'location', 'NE');
 
 %% Define dimensões do gráfico
 % (argumento=1 -> figuras normais; argumento=0 -> figuras compridas)
@@ -90,6 +90,6 @@ if exportar==1
     cleanfigure
     
     %Exporta
-    matlab2tikz('./gerar_figuras/L_vs_LCL.tex', 'width', '0.8\textwidth', ...
+    matlab2tikz('./L_vs_LCL.tex', 'width', '0.8\textwidth', ...
         'encoding', 'UTF-8');
 end

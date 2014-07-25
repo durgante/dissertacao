@@ -17,7 +17,6 @@
 \usepackage{lmodern}			  % Usa a fonte Latin Modern
 \usepackage[T1]{fontenc}		% Selecao de codigos de fonte.
 \usepackage[utf8]{inputenc} % Codificacao do documento
-\usepackage{lastpage}			  % Usado pela Ficha catalográfica
 \usepackage{indentfirst}		% Indenta o primeiro parágrafo de cada seção.
 \usepackage{color}				  % Controle das cores
 \usepackage{graphicx}       % Inclusão de gráficos
@@ -41,7 +40,8 @@
 % Pacotes de citações
 % ---
 \usepackage[brazilian,hyperpageref]{backref} %Páginas citadas na bibl.
-\usepackage[alf]{abntex2cite} % Citações padrão ABNT
+\usepackage[alf]{abntex2cite}         % Citações padrão ABNT
+\usepackage{lastpage}                 % Usado pela Ficha catalográfica
 
 % ---
 % CONFIGURAÇÕES DE PACOTES
@@ -72,6 +72,13 @@
 \graphicspath{{img/}}
 \pgfplotsset{compat=newest}
 \pgfplotsset{plot coordinates/math parser=false}
+\addto\captionsbrazil{\renewcommand{\figurename}{Fig.}}
+%\usepgfplotslibrary{external}
+%\usetikzlibrary{external}
+%\tikzexternalize
+%\usetikzlibrary{external}
+%\tikzset{external/system call={latex \tikzexternalcheckshellescape -halt-on-error -interaction=batchmode -jobname "\image" "\texsource"}}
+%\tikzexternalize[shell escape=-enable-write18]
 % ---
 
 % ---
@@ -108,8 +115,9 @@
 
 % informações do PDF
 \makeatletter
-\hypersetup{
+{\hypersetup{
      	%pagebackref=true,
+      unicode=true,
 		pdftitle={\@title},
 		pdfauthor={\@author},
     	pdfsubject={\imprimirpreambulo},
@@ -264,6 +272,7 @@
  \item[PI]   Proporcional-Integral
  \item[PLL]  Malha de Captura de Fase
  \item[MRAC] Controle Adaptativo por Modelo de Referência (do inglês \emph{Model Reference Adaptive Control})
+ \item[IMC] Controle por Modelo Interno (do inglês \emph{Internal Model Control})
 \end{siglas}
 % ---
 
@@ -320,7 +329,7 @@
 
 \input{textuais/modelagem}
 \input{textuais/controle_adaptativo}
-\input{textuais/imc}
+%\input{textuais/imc}
 \input{textuais/resultados}
 
 % ---

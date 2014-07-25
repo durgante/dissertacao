@@ -2,17 +2,29 @@
 clear all
 
 Ts=1/12000;
-Ts1=Ts/1000;
+Ts1=Ts/10;
+%VCC=1200;
 VCC=1200;
 Vg=311;
 z=tf('z', Ts);
 s=tf('s');
 
+Vg_teste=0;
+
+%Referência
 excitacao_persistente=0;
-flag_time=60/60;
-ref_phaseInv_time=200/60;
-ref_step_time=400/60;
-param_change_time=600/60;
+ref_phaseInv_time=60/60;
+ref_step_time=60/60;
+
+%Chaveamentos na potência
+param_change_time=60/60;
+init_time=60/60;
+
+%Outros
+flag_time=0/60;
+short_ON_time=60/60;
+short_OFF_time=61/60;
+R_init=10;
 
 %Definição dos valores projetados dos elementos do filtro
 L1ideal=2e-3;

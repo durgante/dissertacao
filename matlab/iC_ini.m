@@ -19,6 +19,8 @@ init_time=60/60;
 
 %Outros
 flag_time=60/60;
+short_ON_time=60/60;
+short_OFF_time=61/60;
 R_init=10;
 
 %Definição dos valores projetados dos elementos do filtro
