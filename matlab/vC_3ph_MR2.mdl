@@ -6,7 +6,7 @@ Model {
     NumRootInports	    0
     NumRootOutports	    0
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.194"
+    ComputedModelVersion    "1.195"
     NumModelReferences	    0
     NumTestPointedSignals   0
   }
@@ -29,7 +29,7 @@ Model {
   "Checksum;PhysicalModelingProducts"
   DSRTSU_INTERNAL_RTI_VER "390"
   DSRTSU_INTERNAL_RTI_TYPE "rti1103"
-  PhysicalModelingChecksum "1726528532"
+  PhysicalModelingChecksum "3420617418"
   PhysicalModelingParameterChecksum "3647103670"
   PhysicalModelingProducts "Power_System_Blocks"
   Created		  "Mon Aug 19 14:09:14 2013"
@@ -38,9 +38,9 @@ Model {
   ModifiedByFormat	  "%<Auto>"
   LastModifiedBy	  "marcelodurgante"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Thu Jul 24 15:02:47 2014"
-  RTWModifiedTimeStamp	  328094385
-  ModelVersionFormat	  "1.%<AutoIncrement:194>"
+  LastModifiedDate	  "Thu Jul 31 15:10:26 2014"
+  RTWModifiedTimeStamp	  328720221
+  ModelVersionFormat	  "1.%<AutoIncrement:195>"
   ConfigurationManager	  "None"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
@@ -6613,29 +6613,6 @@ Model {
 	    DstPort		    1
 	  }
 	}
-	Line {
-	  LineType		  "Connection"
-	  SrcBlock		  "Line 1\n(300 km)"
-	  SrcPort		  LConn1
-	  Points		  [-25, 0; 0, -15]
-	  DstBlock		  "Three-Phase\nTransformer\n(Two Windings)"
-	  DstPort		  RConn1
-	}
-	Line {
-	  LineType		  "Connection"
-	  SrcBlock		  "Line 1\n(300 km)"
-	  SrcPort		  LConn3
-	  Points		  [-25, 0; 0, 15]
-	  DstBlock		  "Three-Phase\nTransformer\n(Two Windings)"
-	  DstPort		  RConn3
-	}
-	Line {
-	  LineType		  "Connection"
-	  SrcBlock		  "Line 1\n(300 km)"
-	  SrcPort		  LConn2
-	  DstBlock		  "Three-Phase\nTransformer\n(Two Windings)"
-	  DstPort		  RConn2
-	}
 	Annotation {
 	  SID			  "296"
 	  Name			  "Timers:"
@@ -7808,7 +7785,7 @@ Model {
       Ports		      []
       Position		      [30, 30, 153, 75]
       Priority		      "1"
-      LibraryVersion	      "*1.2119"
+      LibraryVersion	      "1.2119"
       UserDataPersistent      on
       UserData		      "DataTag0"
       FontName		      "Verdana"

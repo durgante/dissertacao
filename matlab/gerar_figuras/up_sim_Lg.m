@@ -110,6 +110,10 @@ for i=1:subplotsx
             %Escolha dos limites dos eixos X e Y
             set(gca, 'XLim', [X_ini X_end]);
             set(gca, 'YLim', [-900 900]);
+            
+            %Grid
+            grid on
+            box on
 
             %Labels
             ylabel('U_a (V)');
@@ -139,6 +143,10 @@ for i=1:subplotsx
             %Escolha dos limites dos eixos X e Y
             set(gca, 'XLim', [X_ini X_end]);
             set(gca, 'YLim', [-600 600]);
+            
+            %Grid
+            grid on
+            box on
 
             %Labels
             ylabel('U_b (V)');
@@ -168,6 +176,10 @@ for i=1:subplotsx
             %Escolha dos limites dos eixos X e Y
             set(gca, 'XLim', [X_ini X_end]);
             set(gca, 'YLim', [-600 600]);
+            
+            %Grid
+            grid on
+            box on
 
             %Labels
             ylabel('U_c (V)');

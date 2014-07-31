@@ -69,12 +69,16 @@ set(gca, 'XScale', 'log');
 
 %Escolha dos pontos marcados nos eixos
 set(gca, 'YTick', [-20 0 20 40 60]);
-set(gca, 'XTick', [10^3 10^3.5 10^4]);
-set(gca, 'XTickLabel', {'$10^{3}$', '$10^{3.5}$', '$10^{4}$'});
+%set(gca, 'XTick', [10^3 10^3.5 10^4]);
+%set(gca, 'XTickLabel', {'$10^{3}$', '$10^{3.5}$', '$10^{4}$'});
 
 %Escolha dos limites dos eixos X e Y
 set(gca, 'XLim', [10^3 10^(4.1)]);
 set(gca, 'YLim', [-30 70]);
+
+%Grid
+grid on
+box on
 
 %Labels
 ylabel('Magnitude (dB)');

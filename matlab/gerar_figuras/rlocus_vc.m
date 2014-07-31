@@ -82,6 +82,9 @@ set(gca, 'XTick', [-1 -0.5 0 0.5 1]);
 set(gca, 'YTick', [-10^4 -0.5*10^4 0 0.5*10^4 10^4]);
 set(gca, 'YTickLabel', {'$-1$', '$-0.5$', '$0$', '$0.5$', '$1$'});
 
+%Grid
+box on
+
 %Labels
 ylabel('Eixo Imaginário');
 xlabel('Eixo Real');
@@ -105,6 +108,6 @@ if exportar==1
     cleanfigure
     
     %Exporta
-    matlab2tikz('./gerar_figuras/rlocus_vc.tex', 'width', '0.8\textwidth', ...
+    matlab2tikz('./rlocus_vc.tex', 'width', '0.8\textwidth', ...
         'interpretTickLabelAsTex', true, 'encoding', 'UTF-8');
 end

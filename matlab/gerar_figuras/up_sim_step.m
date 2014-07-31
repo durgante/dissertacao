@@ -16,15 +16,15 @@ figura_normal=1;
 parametros_filtro_LCL;
 
 %Carrega variáveis para serem plotadas
-load('sim_ini.mat');
+load('sim_step.mat');
 
 %% Preparação do Plot
 
 %Define cores do gráfico (primeiro argumento=1 -> gráfico colorido; =0
 % gráfico em tons de cinza; segundo argumento = número de cores necessário)
-cor1=define_cor(colorido, 2);
-cor2=define_cor(colorido, 2);
-cor3=define_cor(colorido, 2);
+cor1=define_cor(colorido, 1);
+cor2=define_cor(colorido, 1);
+cor3=define_cor(colorido, 1);
 
 %Definições do gráfico
 %Define a razão áurea
@@ -34,11 +34,11 @@ scale=20;
 
 %Tamanho dos vetores e que parte plotar
 tamanho=size(t);
-inicio=1;
-final=4001;
+inicio=2000;
+final=8001;
 passo=5;
-X_ini=0/60;
-X_end=2/60;
+X_ini=1/60;
+X_end=4/60;
 
 %Determina as proporções em função do tipo de figura
 if figura_normal
@@ -56,7 +56,7 @@ subplotsx=1;
 %Número de linhas para acomodar subplots
 subplotsy=3;
 %Espaço sobrando na esquerda da janela de plot
-leftedge=2;
+leftedge=2.5;
 %Espaço sobrando na direita da janela de plot
 rightedge=0.5;
 %Espaço sobrando na parte de cima da janela de plot
@@ -94,88 +94,100 @@ for i=1:subplotsx
         ax=axes('position',sub_pos{i,ii},'XGrid','off','XMinorGrid','off','FontSize',fontsize,'Box','on','Layer','top');
         if ii==3
             hold on
-            plot(t(inicio:passo:final), i2ref_a(inicio:passo:final), 'LineWidth', 1.5, ...
-                           'LineStyle', '--', ...
+            plot(t(inicio:passo:final), up_a(inicio:passo:final), 'LineWidth', 1.5, ...
+                           'LineStyle', '-', ...
                            'Color', cor1(1, 1:3));
 
-            plot(t(inicio:passo:final), i2_a(inicio:passo:final), 'LineWidth', 1.5, ...
-                           'LineStyle', '-', ...
-                           'Color', cor1(2, 1:3));
+            %plot(t(inicio:passo:final), i2_a(inicio:passo:final), 'LineWidth', 1.5, ...
+            %               'LineStyle', '-', ...
+            %               'Color', cor1(2, 1:3));
 
             %Escolha dos pontos marcados do eixo Y
-            set(gca, 'YTick', [-10 0 10 20]);
-            set(gca, 'XTick', [0/60 1/60 2/60]);
+            set(gca, 'YTick', [-500 0 500]);
+            set(gca, 'XTick', [0/60 1/60 2/60 3/60 4/60]);
             set(gca, 'XTickLabel', {''});
 
             %Escolha dos limites dos eixos X e Y
             set(gca, 'XLim', [X_ini X_end]);
-            set(gca, 'YLim', [-15 25]);
+            set(gca, 'YLim', [-900 900]);
+            
+            %Grid
+            grid on
+            box on
 
             %Labels
-            ylabel('{i2_a}^* \times i2_a (A)');
+            ylabel('U_a (V)');
             %xlabel('tempo (ciclos)');
             title('');
-            legend(...
-                '{i2_a}^*', ...
-                'i2_a', 'location', 'NE');
+            %legend(...
+            %    '{i2_a}^*', ...
+            %    'i2_a', 'location', 'NE');
             hold off
         end
 
         if ii==2
             hold on
-            plot(t(inicio:passo:final), i2ref_b(inicio:passo:final), 'LineWidth', 1.5, ...
-                           'LineStyle', '--', ...
+            plot(t(inicio:passo:final), up_b(inicio:passo:final), 'LineWidth', 1.5, ...
+                           'LineStyle', '-', ...
                            'Color', cor2(1, 1:3));
 
-            plot(t(inicio:passo:final), i2_b(inicio:passo:final), 'LineWidth', 1.5, ...
-                           'LineStyle', '-', ...
-                           'Color', cor2(2, 1:3));
+            %plot(t(inicio:passo:final), i2_b(inicio:passo:final), 'LineWidth', 1.5, ...
+            %               'LineStyle', '-', ...
+            %               'Color', cor2(2, 1:3));
 
             %Escolha dos pontos marcados do eixo Y
-            set(gca, 'YTick', [-10 10 30 50]);
-            set(gca, 'XTick', [0/60 1/60 2/60]);
+            set(gca, 'YTick', [-500 0 500]);
+            set(gca, 'XTick', [0/60 1/60 2/60 3/60 4/60]);
             set(gca, 'XTickLabel', {''});
 
             %Escolha dos limites dos eixos X e Y
             set(gca, 'XLim', [X_ini X_end]);
-            set(gca, 'YLim', [-15 50]);
+            set(gca, 'YLim', [-900 900]);
+            
+            %Grid
+            grid on
+            box on
 
             %Labels
-            ylabel('{i2_b}* \times i2_b (A)');
+            ylabel('U_b (V)');
             %xlabel('tempo (ciclos)');
             title('');
-            legend(...
-                '{i2_b}^*', ...
-                'i2_b', 'location', 'NE');
+            %legend(...
+            %    '{i2_b}^*', ...
+            %    'i2_b', 'location', 'NE');
             hold off
         end
 
         if ii==1
             hold on
-            plot(t(inicio:passo:final), i2ref_c(inicio:passo:final), 'LineWidth', 1.5, ...
-                           'LineStyle', '--', ...
+            plot(t(inicio:passo:final), up_c(inicio:passo:final), 'LineWidth', 1.5, ...
+                           'LineStyle', '-', ...
                            'Color', cor3(1, 1:3));
 
-            plot(t(inicio:passo:final), i2_c(inicio:passo:final), 'LineWidth', 1.5, ...
-                           'LineStyle', '-', ...
-                           'Color', cor3(2, 1:3));
+            %plot(t(inicio:passo:final), i2_c(inicio:passo:final), 'LineWidth', 1.5, ...
+            %               'LineStyle', '-', ...
+            %               'Color', cor3(2, 1:3));
 
             %Escolha dos pontos marcados do eixo Y
-            set(gca, 'YTick', [-30 -10 10]);
-            set(gca, 'XTick', [0/60 1/60 2/60]);
-            set(gca, 'XTickLabel', {'0', '1', '2'});
+            set(gca, 'YTick', [-500 0 500]);
+            set(gca, 'XTick', [0/60 1/60 2/60 3/60 4/60]);
+            set(gca, 'XTickLabel', {'0', '1', '2', '3', '4'});
 
             %Escolha dos limites dos eixos X e Y
             set(gca, 'XLim', [X_ini X_end]);
-            set(gca, 'YLim', [-45 15]);
+            set(gca, 'YLim', [-900 900]);
+            
+            %Grid
+            grid on
+            box on
 
             %Labels
-            ylabel('{i2_c}^* \times i2_c (A)');
+            ylabel('U_c (V)');
             xlabel('tempo (ciclos)');
             title('');
-            legend(...
-                '{i2_c}^*', ...
-                'i2_c', 'location', 'SE');
+            %legend(...
+            %    '{i2_c}^*', ...
+            %    'i2_c', 'location', 'SE');
             hold off
         end
 
@@ -194,6 +206,6 @@ if exportar==1
             'legend style={font=\footnotesize}'};
 
     %Exporta
-    matlab2tikz('./i2_sim_ini.tex', 'width', '0.8\textwidth', ...
+    matlab2tikz('./up_sim_step.tex', 'width', '0.8\textwidth', ...
         'encoding', 'UTF-8', 'extraAxisOptions', axoptions);
 end

@@ -67,6 +67,8 @@ typedef struct {
   boolean_T c2_m2_not_empty;
   real_T c2_vc_k_1;
   boolean_T c2_vc_k_1_not_empty;
+  real_T c2_vc_k_2;
+  boolean_T c2_vc_k_2_not_empty;
   real_T c2_u_k_1;
   boolean_T c2_u_k_1_not_empty;
   real_T c2_u_k_2;

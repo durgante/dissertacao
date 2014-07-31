@@ -4,7 +4,7 @@
 colorido=0;
 
 %Exportar para formato .tex? 1=sim 0=não
-exportar=1;
+exportar=0;
 
 
 %% Dados para plotar
@@ -122,6 +122,9 @@ set(gca, 'YTick', [-1 0 1]);
 set(gca, 'XLim', [-1.9 1.9]);
 set(gca, 'YLim', [-1.1 1.1]);
 
+%Grid
+box on
+
 %Labels
 ylabel('Eixo Imaginário');
 xlabel('Eixo Real');
@@ -147,6 +150,6 @@ if exportar==1
                'x tick label style={/pgf/number format/.cd, fixed, fixed zerofill, precision=0}'};
     
     %Exporta
-    matlab2tikz('./gerar_figuras/rlocus_controlador_pd.tex', 'width', '0.8\textwidth', ...
+    matlab2tikz('./rlocus_controlador_pd.tex', 'width', '0.8\textwidth', ...
                 'interpretTickLabelAsTex', true, 'encoding', 'UTF-8', 'extraAxisOptions', axoptions);
 end

@@ -6,7 +6,7 @@ Model {
     NumRootInports	    0
     NumRootOutports	    0
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.415"
+    ComputedModelVersion    "1.449"
     NumModelReferences	    0
     NumTestPointedSignals   0
   }
@@ -38,9 +38,9 @@ Model {
   ModifiedByFormat	  "%<Auto>"
   LastModifiedBy	  "marcelodurgante"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Thu Jul 24 17:19:39 2014"
-  RTWModifiedTimeStamp	  328111316
-  ModelVersionFormat	  "1.%<AutoIncrement:415>"
+  LastModifiedDate	  "Thu Jul 31 17:02:07 2014"
+  RTWModifiedTimeStamp	  328720329
+  ModelVersionFormat	  "1.%<AutoIncrement:449>"
   ConfigurationManager	  "None"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
@@ -124,7 +124,7 @@ Model {
 	  $ObjectID		  2
 	  Version		  "1.12.0"
 	  StartTime		  "0.0"
-	  StopTime		  "30/60"
+	  StopTime		  "20/60"
 	  AbsTol		  "auto"
 	  FixedStep		  "Ts1"
 	  InitialStep		  "auto"
@@ -916,6 +916,13 @@ Model {
       BusSelectionMode	      off
     }
     Block {
+      BlockType		      Display
+      Format		      "short"
+      Decimation	      "10"
+      Floating		      off
+      SampleTime	      "-1"
+    }
+    Block {
       BlockType		      From
       IconDisplay	      "Tag"
       TagVisibility	      "local"
@@ -1101,7 +1108,7 @@ Model {
   }
   System {
     Name		    "vC_1ph_MR2"
-    Location		    [64, 74, 1598, 879]
+    Location		    [64, 82, 1598, 871]
     Open		    on
     ModelBrowserVisibility  off
     ModelBrowserWidth	    200
@@ -1115,7 +1122,7 @@ Model {
     ShowPageBoundaries	    off
     ZoomFactor		    "100"
     ReportName		    "simulink-default.rpt"
-    SIDHighWatermark	    "534"
+    SIDHighWatermark	    "537"
     Block {
       BlockType		      Clock
       Name		      "Clock"
@@ -1412,6 +1419,17 @@ Model {
 	  }
 	}
 	Block {
+	  BlockType		  Display
+	  Name			  "Display"
+	  SID			  "537"
+	  Ports			  [1]
+	  Position		  [740, 247, 890, 553]
+	  ZOrder		  -1
+	  Format		  "long"
+	  Decimation		  "1"
+	  Lockdown		  off
+	}
+	Block {
 	  BlockType		  Step
 	  Name			  "Flag"
 	  SID			  "49"
@@ -1705,8 +1723,16 @@ Model {
 	Line {
 	  SrcBlock		  "Controlador Adaptativo Alpha"
 	  SrcPort		  2
-	  DstBlock		  "To Workspace"
-	  DstPort		  1
+	  Points		  [15, 0]
+	  Branch {
+	    DstBlock		    "To Workspace"
+	    DstPort		    1
+	  }
+	  Branch {
+	    Points		    [0, 260]
+	    DstBlock		    "Display"
+	    DstPort		    1
+	  }
 	}
 	Line {
 	  SrcBlock		  "i2ref_a"
@@ -3244,57 +3270,58 @@ Stateflow {
       "%Demais elementos\nTs=1/12000;\nw=sqrt((L1+L2)/(L1*L2*C));\n\n%Kp é a multiplicação do ganho do controlador da m"
       "alha interna(kp), do\n%ganho da planta(ki) e do ganho da malha externa(kod)\nkp_kd=3;\n%Kp=0.156891976007044;\nK"
       "p=0.001792815465831;\n\n%polos do modelo de referência:\np1=0.2;\np2=0.2;\n\nkm=(1-p1)*(1-p2);\n\n%constantes ->"
-      " gamaD < (1-gama)*km/kp\ngamaD=0.01;\ngama=0.99;\n\ndelta0=0.99;\n\n%% Variáveis Persistentes e Inicializações\n"
-      "\npersistent theta_k;\nif isempty(theta_k)\n    %COM compensação para vg\n    %theta_k=[-0.3106; -0.2728; 0.0368"
-      "; -0.2369; -0.422; -0.2775; -0.7979; 1.786; -0.0008; 0.0003];\n    %theta_k=[-0.3106; -0.2728; 0.0368; -0.2369; "
-      "-0.422; -0.2775; -0.7979; 1.786; 1; 0];\n    %theta_k=[-0.40085038; -0.36853743; -0.064251891; -0.4277604154; -0"
-      ".61214672; -0.46675405; -0.98929343; 1.76426551; 0.17164080; 0.11598547];\n    %theta_k=[0;0;0;0;0;0; -0.9892934"
-      "3; 1.76426551; 0.17164080; 0.11598547];\n    %theta_k=[-0.071151848470510; -0.470549298500393; -0.99332355765534"
-      "5; 1.762541193804541; 0.118014567931226; 0.108368323169129];\n    %theta_k=[-0.46; -0.58; -1.74; 1.73; 0.2; 0.03"
-      "];\n    theta_k=[1; -3.39; -0.18; 12.72; 1; 0];\nend\n\npersistent omega_k;\nif isempty(omega_k)\n    %COM vg\n "
-      "   omega_k=[0; 0; 0; 0; 0; 0];\nend\n\npersistent omega_k_1;\nif isempty(omega_k_1)\n    %COM vg\n    omega_k_1="
-      "[0; 0; 0; 0; 0; 0];\nend\n\npersistent omega_k_2;\nif isempty(omega_k_2)\n    %COM vg\n    omega_k_2=[0; 0; 0; 0"
-      "; 0; 0];\nend\n\npersistent omega_k_3;\nif isempty(omega_k_3)\n    %COM vg\n    omega_k_3=[0; 0; 0; 0; 0; 0];\ne"
-      "nd\n\npersistent eta_k_1;\nif isempty(eta_k_1)\n    %COM vg\n    eta_k_1=[0; 0; 0; 0; 0; 0];\nend\n\npersistent "
-      "eta_k_2;\nif isempty(eta_k_2)\n    %COM vg\n    eta_k_2=[0; 0; 0; 0; 0; 0];\nend\n\npersistent eta_k_3;\nif isem"
-      "pty(eta_k_3)\n    %COM vg\n    eta_k_3=[0; 0; 0; 0; 0; 0];\nend\n\npersistent i2m_k_1;\nif isempty(i2m_k_1)\n   "
-      " i2m_k_1=0;\nend\n\npersistent i2m_k_2;\nif isempty(i2m_k_2)\n    i2m_k_2=0;\nend\n\npersistent i2m_k_3;\nif ise"
-      "mpty(i2m_k_3)\n    i2m_k_3=0;\nend\n\npersistent i2ref_k_1;\nif isempty(i2ref_k_1)\n    i2ref_k_1=0;\nend\n\nper"
-      "sistent i2ref_k_2;\nif isempty(i2ref_k_2)\n    i2ref_k_2=0;\nend\n\npersistent i2ref_k_3;\nif isempty(i2ref_k_3)"
-      "\n    i2ref_k_3=0;\nend\n\npersistent v_k_1;\nif isempty(v_k_1)\n    v_k_1=0;\nend\n\npersistent v_k_2;\nif isem"
-      "pty(v_k_2)\n    v_k_2=0;\nend\n\npersistent v_k_3;\nif isempty(v_k_3)\n    v_k_3=0;\nend\n\npersistent rho_k;\ni"
-      "f isempty(rho_k)\n    rho_k=Kp/km;\nend\n\npersistent m2;\nif isempty(m2)\n    m2=1;\nend\n\npersistent vc_k_1;\n"
-      "if isempty(vc_k_1)\n    vc_k_1=0;\nend\n\npersistent u_k_1;\nif isempty(u_k_1)\n    u_k_1=0;\nend\n\npersistent "
-      "u_k_2;\nif isempty(u_k_2)\n    u_k_2=0;\nend\n\npersistent P;\nif isempty(P)\n    %P=[0.002225441018075 -0.00225"
-      "8665319558 -1.129332659782590e-004 -0.003793046611769; ...\n    %    -0.002258665319558 0.149747822133961 -0.042"
-      "512608892738 0.002487914954665; ...\n    %    -1.129332659782590e-004 -0.042512608892738 0.997874369555398 1.243"
-      "957477280539e-004; ...\n    %    -0.003793046611769 0.002487914954665 1.243957477280538e-004 0.754190018333160];"
-      "\n    %P=[0.009712540165252   -0.000020445335620  -0.000026266935611  -0.000037334327242 -0.001161097577207  -0."
-      "000971095497459; ...\n    %   -0.000020445335620   0.009977400822109  -0.000022631160072  -0.000009984284241 -0."
-      "000310511239892   0.000028021469709; ...\n    %   -0.000026266935611  -0.000022631160072   0.009976301443788  -0"
-      ".000009972563160 -0.000310146714255   0.000019062507239; ...\n    %   -0.000037334327242  -0.000009984284241  -0"
-      ".000009972563160   0.009989966652248 -0.000312037115068   0.000004936266851; ...\n    %   -0.001161097577207  -0"
-      ".000310511239892  -0.000310146714255  -0.000312037115068 0.000295645721395   0.000153517899078; ...\n    %   -0."
-      "000971095497459   0.000028021469709   0.000019062507239   0.000004936266851 0.000153517899078   0.00017176784304"
-      "3];\n\n    P=gamaD*eye(6);\nend\n\npersistent gama2;\nif isempty(gama2)\n    %gama2=0.997899999973786;\n    gama"
-      "2=gama;\nend\n\n\n%% Cálculos\n\n%Ação de controle\nomega_k(3)= i2_k;\nomega_k(4)= i2ref_k;\n\n%COM vg\nomega_k("
-      "5)= 311*sin(2*pi*60*t);\nomega_k(6)= 311*cos(2*pi*60*t);\n%omega_k(5)= 0;\n%omega_k(6)= 0;\n\nu_k= theta_k'*omeg"
-      "a_k;\n\n%inserindo o controlador proporcional no bloco do adaptativo\nup_alpha= kp_kd*(u_k - vc_k) - kp_kd*(u_k_"
-      "1 - vc_k_1);\n\neta_k= (p1+p2)*eta_k_1 - p1*p2*eta_k_2 + (1-p1)*(1-p2)*omega_k_2;\n\ni2m_k= (p1+p2)*i2m_k_1 - p1"
-      "*p2*i2m_k_2 + (1-p1)*(1-p2)*i2ref_k_2;\n\ne1_k= i2_k - i2m_k;\n\nv_k= (p1+p2)*v_k_1 - p1*p2*v_k_2 + (1-p1)*(1-p2"
-      ")*u_k_2;\n\nq_k= theta_k'*eta_k;\n\ne2_k= -v_k+q_k;\n\nea_k= e1_k+rho_k*e2_k;\n\neta2_k = eta_k;\neta2_k(5) = 0;"
-      "\neta2_k(6) = 0;\n\nif flag==1\n    %m2_k= 0.01*eta_k'*eta_k + e2_k^2 + m2;\n    m2_k= 0.1*eta2_k'*eta2_k + e2_k"
-      "^2 + m2;\nelse\n    %m2_k= eta_k'*eta_k + e2_k^2 + m2;\n    m2_k= 0.01*eta2_k'*eta2_k + e2_k^2 + m2;\nend\n%m2_k"
-      "= m2 + (1+eta_k'*P*eta_k) + gama2*e2_k^2;\nm = m2_k;\n\nP= P - (P*eta_k*eta_k'*P)/m2_k;\ngama2= gama2 - (gama2^2"
-      "*e2_k^2)/(m2_k^2);\n\n%Pout=P;\n%gama_out=gama2;\n\n%% Atualização\n\n%calcula theta(k+1)\ntheta_k = theta_k - ("
-      "gamaD*ea_k/m2_k)*eta_k;\n%theta_k = theta_k - (P*ea_k/m2_k)*eta_k;\ntheta_alpha = theta_k;\n\n%calcula rho(k+1)\n"
-      "rho_k= rho_k - (gama*ea_k*e2_k)/m2_k;\n\nif flag==1\n    %m2 = delta0*(m2 - 1) + abs(u_k) + abs(i2_k) + 1;\n    "
-      "m2 = delta0*(m2 - 1) + abs(u_k) + abs(i2_k) + 1;\nelse\n    %m2 = delta0*(m2 - 1) + abs(u_k)^2 + abs(i2_k)^2 + 1"
-      ";\n    m2 = delta0*(m2 - 1) + abs(u_k) + abs(i2_k) + 1;\nend\n\nomega_k_3=omega_k_2;\nomega_k_2=omega_k_1;\nomeg"
-      "a_k_1=omega_k;\n\nomega_k(1)=0*omega_k(1) + 1*u_k;\nomega_k(2)=0*omega_k(2) + 1*i2_k;\n\neta_k_3=eta_k_2;\neta_k"
-      "_2=eta_k_1;\neta_k_1=eta_k;\n\ni2ref_k_3 = i2ref_k_2;\ni2ref_k_2 = i2ref_k_1;\ni2ref_k_1 = i2ref_k;\n\ni2m_k_3=i"
-      "2m_k_2;\ni2m_k_2=i2m_k_1;\ni2m_k_1=i2m_k;\n\nv_k_3=v_k_2;\nv_k_2=v_k_1;\nv_k_1=v_k;\n\nu_k_2=u_k_1;\nu_k_1=u_k;\n"
-      "\nvc_k_1=vc_k;\n\nend"
+      " gamaD < (1-gama)*km/kp\n%gamaD=0.01;\ngamaD=0.0098;\ngama=0.99;\n\ndelta0=0.99;\n\n%% Variáveis Persistentes e "
+      "Inicializações\n\npersistent theta_k;\nif isempty(theta_k)\n    %COM compensação para vg\n    %theta_k=[-0.3106;"
+      " -0.2728; 0.0368; -0.2369; -0.422; -0.2775; -0.7979; 1.786; -0.0008; 0.0003];\n    %theta_k=[-0.3106; -0.2728; 0"
+      ".0368; -0.2369; -0.422; -0.2775; -0.7979; 1.786; 1; 0];\n    %theta_k=[-0.40085038; -0.36853743; -0.064251891; -"
+      "0.4277604154; -0.61214672; -0.46675405; -0.98929343; 1.76426551; 0.17164080; 0.11598547];\n    %theta_k=[0;0;0;0"
+      ";0;0; -0.98929343; 1.76426551; 0.17164080; 0.11598547];\n    %theta_k=[-0.071151848470510; -0.470549298500393; -"
+      "0.993323557655345; 1.762541193804541; 0.118014567931226; 0.108368323169129];\n    %theta_k=[-0.46; -0.58; -1.74;"
+      " 1.73; 0.2; 0.03];\n    %theta_k=[1; -3.39; -0.18; 12.72; 1; 0];\n    theta_k=[0.4226; -3.4222; -0.2133; 12.7376"
+      "; 0; 0];\nend\n\npersistent omega_k;\nif isempty(omega_k)\n    %COM vg\n    omega_k=[0; 0; 0; 0; 0; 0];\nend\n\n"
+      "persistent omega_k_1;\nif isempty(omega_k_1)\n    %COM vg\n    omega_k_1=[0; 0; 0; 0; 0; 0];\nend\n\npersistent "
+      "omega_k_2;\nif isempty(omega_k_2)\n    %COM vg\n    omega_k_2=[0; 0; 0; 0; 0; 0];\nend\n\npersistent omega_k_3;\n"
+      "if isempty(omega_k_3)\n    %COM vg\n    omega_k_3=[0; 0; 0; 0; 0; 0];\nend\n\npersistent eta_k_1;\nif isempty(et"
+      "a_k_1)\n    %COM vg\n    eta_k_1=[0; 0; 0; 0; 0; 0];\nend\n\npersistent eta_k_2;\nif isempty(eta_k_2)\n    %COM "
+      "vg\n    eta_k_2=[0; 0; 0; 0; 0; 0];\nend\n\npersistent eta_k_3;\nif isempty(eta_k_3)\n    %COM vg\n    eta_k_3=["
+      "0; 0; 0; 0; 0; 0];\nend\n\npersistent i2m_k_1;\nif isempty(i2m_k_1)\n    i2m_k_1=0;\nend\n\npersistent i2m_k_2;\n"
+      "if isempty(i2m_k_2)\n    i2m_k_2=0;\nend\n\npersistent i2m_k_3;\nif isempty(i2m_k_3)\n    i2m_k_3=0;\nend\n\nper"
+      "sistent i2ref_k_1;\nif isempty(i2ref_k_1)\n    i2ref_k_1=0;\nend\n\npersistent i2ref_k_2;\nif isempty(i2ref_k_2)"
+      "\n    i2ref_k_2=0;\nend\n\npersistent i2ref_k_3;\nif isempty(i2ref_k_3)\n    i2ref_k_3=0;\nend\n\npersistent v_k"
+      "_1;\nif isempty(v_k_1)\n    v_k_1=0;\nend\n\npersistent v_k_2;\nif isempty(v_k_2)\n    v_k_2=0;\nend\n\npersiste"
+      "nt v_k_3;\nif isempty(v_k_3)\n    v_k_3=0;\nend\n\npersistent rho_k;\nif isempty(rho_k)\n    rho_k=Kp/km;\nend\n"
+      "\npersistent m2;\nif isempty(m2)\n    m2=1;\nend\n\npersistent vc_k_1;\nif isempty(vc_k_1)\n    vc_k_1=0;\nend\n"
+      "\npersistent vc_k_2;\nif isempty(vc_k_2)\n    vc_k_2=0;\nend\n\npersistent u_k_1;\nif isempty(u_k_1)\n    u_k_1="
+      "0;\nend\n\npersistent u_k_2;\nif isempty(u_k_2)\n    u_k_2=0;\nend\n\npersistent P;\nif isempty(P)\n    %P=[0.00"
+      "2225441018075 -0.002258665319558 -1.129332659782590e-004 -0.003793046611769; ...\n    %    -0.002258665319558 0."
+      "149747822133961 -0.042512608892738 0.002487914954665; ...\n    %    -1.129332659782590e-004 -0.042512608892738 0"
+      ".997874369555398 1.243957477280539e-004; ...\n    %    -0.003793046611769 0.002487914954665 1.243957477280538e-0"
+      "04 0.754190018333160];\n    %P=[0.009712540165252   -0.000020445335620  -0.000026266935611  -0.000037334327242 -"
+      "0.001161097577207  -0.000971095497459; ...\n    %   -0.000020445335620   0.009977400822109  -0.000022631160072  "
+      "-0.000009984284241 -0.000310511239892   0.000028021469709; ...\n    %   -0.000026266935611  -0.000022631160072  "
+      " 0.009976301443788  -0.000009972563160 -0.000310146714255   0.000019062507239; ...\n    %   -0.000037334327242  "
+      "-0.000009984284241  -0.000009972563160   0.009989966652248 -0.000312037115068   0.000004936266851; ...\n    %   "
+      "-0.001161097577207  -0.000310511239892  -0.000310146714255  -0.000312037115068 0.000295645721395   0.00015351789"
+      "9078; ...\n    %   -0.000971095497459   0.000028021469709   0.000019062507239   0.000004936266851 0.000153517899"
+      "078   0.000171767843043];\n\n    P=gamaD*eye(6);\nend\n\npersistent gama2;\nif isempty(gama2)\n    %gama2=0.9978"
+      "99999973786;\n    gama2=gama;\nend\n\n\n%% Cálculos\n\n%Ação de controle\nomega_k(3)= i2_k;\nomega_k(4)= i2ref_k"
+      ";\n\n%COM vg\n%omega_k(5)= 311*sin(2*pi*60*t);\n%omega_k(6)= 311*cos(2*pi*60*t);\nomega_k(5)= 0;\nomega_k(6)= 0;"
+      "\n\nu_k= theta_k'*omega_k;\n\n%inserindo o controlador proporcional no bloco do adaptativo\nup_alpha= kp_kd*(u_k"
+      " - vc_k) - kp_kd*(u_k_1 - vc_k_1);\n\neta_k= (p1+p2)*eta_k_1 - p1*p2*eta_k_2 + (1-p1)*(1-p2)*omega_k_2;\n\ni2m_k"
+      "= (p1+p2)*i2m_k_1 - p1*p2*i2m_k_2 + (1-p1)*(1-p2)*i2ref_k_2;\n\ne1_k= i2_k - i2m_k;\n\nv_k= (p1+p2)*v_k_1 - p1*p"
+      "2*v_k_2 + (1-p1)*(1-p2)*u_k_2;\n\nq_k= theta_k'*eta_k;\n\ne2_k= -v_k+q_k;\n\nea_k= e1_k+rho_k*e2_k;\n\neta2_k = "
+      "eta_k;\neta2_k(5) = 0;\neta2_k(6) = 0;\n\nif flag==1\n    %m2_k= 0.01*eta_k'*eta_k + e2_k^2 + m2;\n    m2_k= 0.1"
+      "*eta2_k'*eta2_k + e2_k^2 + m2;\nelse\n    %m2_k= eta_k'*eta_k + e2_k^2 + m2;\n    m2_k= 0.01*eta2_k'*eta2_k + e2"
+      "_k^2 + m2;\nend\n%m2_k= m2 + (1+eta_k'*P*eta_k) + gama2*e2_k^2;\nm = m2_k;\n\nP= P - (P*eta_k*eta_k'*P)/m2_k;\ng"
+      "ama2= gama2 - (gama2^2*e2_k^2)/(m2_k^2);\n\n%Pout=P;\n%gama_out=gama2;\n\n%% Atualização\n\n%calcula theta(k+1)\n"
+      "theta_k = theta_k - (gamaD*ea_k/m2_k)*eta_k;\n%theta_k = theta_k - (P*ea_k/m2_k)*eta_k;\ntheta_alpha = theta_k;\n"
+      "\n%calcula rho(k+1)\nrho_k= rho_k - (gama*ea_k*e2_k)/m2_k;\n\nif flag==1\n    %m2 = delta0*(m2 - 1) + abs(u_k) +"
+      " abs(i2_k) + 1;\n    m2 = delta0*(m2 - 1) + abs(u_k) + abs(i2_k) + 1;\nelse\n    %m2 = delta0*(m2 - 1) + abs(u_k"
+      ")^2 + abs(i2_k)^2 + 1;\n    m2 = delta0*(m2 - 1) + abs(u_k) + abs(i2_k) + 1;\nend\n\nomega_k_3=omega_k_2;\nomega"
+      "_k_2=omega_k_1;\nomega_k_1=omega_k;\n\nomega_k(1)=0*omega_k(1) + 1*u_k;\nomega_k(2)=0*omega_k(2) + 1*i2_k;\n\net"
+      "a_k_3=eta_k_2;\neta_k_2=eta_k_1;\neta_k_1=eta_k;\n\ni2ref_k_3 = i2ref_k_2;\ni2ref_k_2 = i2ref_k_1;\ni2ref_k_1 = "
+      "i2ref_k;\n\ni2m_k_3=i2m_k_2;\ni2m_k_2=i2m_k_1;\ni2m_k_1=i2m_k;\n\nv_k_3=v_k_2;\nv_k_2=v_k_1;\nv_k_1=v_k;\n\nu_k_"
+      "2=u_k_1;\nu_k_1=u_k;\n\nvc_k_2=vc_k_1;\nvc_k_1=vc_k;\n\nend"
       editorLayout	      "100 M4x1[10 5 700 500]"
     }
   }

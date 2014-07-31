@@ -24,14 +24,14 @@
 load('resultados_3.mat');
 nome=resultados_3;
 
-close all;
+%close all;
 
 %o que printar?
-acaodecontrole=1;
-i2vsi2m=1;
+acaodecontrole=0;
+i2vsi2m=0;
 thetas=1;
-correntecapacitor=1;
-normalizador=1;
+correntecapacitor=0;
+normalizador=0;
 
 if acaodecontrole>0
 %Ação de Controle

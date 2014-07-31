@@ -116,6 +116,9 @@ set(gca, 'YTick', [-1 0 1]);
 set(gca, 'XLim', [-4 1.2]);
 set(gca, 'YLim', [-1.4 1.4]);
 
+%Box
+box on
+
 %Labels
 ylabel('Eixo Imaginário');
 xlabel('Eixo Real');
@@ -132,6 +135,6 @@ if exportar==1
     cleanfigure
 
     %Exporta
-    matlab2tikz('./gerar_figuras/pzmap_ic.tex', 'width', '0.8\textwidth', ...
+    matlab2tikz('./pzmap_ic.tex', 'width', '0.8\textwidth', ...
             'interpretTickLabelAsTex', true, 'encoding', 'UTF-8');
 end

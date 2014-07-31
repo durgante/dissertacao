@@ -9,7 +9,7 @@ Vg=311;
 z=tf('z', Ts);
 s=tf('s');
 
-Vg_teste=0;
+Vg_teste=311;
 
 %Referência
 excitacao_persistente=0;

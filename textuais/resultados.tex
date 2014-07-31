@@ -4,10 +4,10 @@
 \chapter{Resultados}\label{resultados}
 %=========================================================================
 
-  A comprovação da teoria desenvolvida nos capítulos anteriores é feita através da demonstração de resultados de simulação e experimentais. As simulações são feitas utilizando o software \textsc{Matlab}, da empresa \textit{MathWorks}$^\circledR$. Mais especificamente, o \textit{toolbox} Simulink é o componente central para realização das simulações. O filtro \textit{LCL} é descrito como uma função de transferência conforme o Capítulo~\ref{modelagem}, o conversor e a fonte são simulados usando modelos disponíveis no Simulink. A plataforma \textsc{dSpace} serve como uma interface entre o circuito real e o \textsc{Matlab}, dispondo de $n_{ADs}$ conversores analógico-digitais (\emph{AD}) de $n$ bits e $n_{DAs}$ conversores digitais-analógicos (\emph{DA}) de $n$ bits, através dos quais são adquiridas as medidas feitas em tempo real no circuito. A plataforma se encarrega de disponibilizar as medidas adquiridas em um bloco do Simulink, permitindo que sejam utilizadas diretamente no cálculo da ação de controle. Uma vez computada, a ação de controle é transcrita em comando de acionamento das chaves do conversor e então enviada via \emph{DA} para o conversor.
+  A comprovação da teoria desenvolvida nos capítulos anteriores é feita através da demonstração de resultados de simulação e experimentais. As simulações são feitas utilizando o software \textsc{Matlab}, da empresa \textit{MathWorks}$^\circledR$. Mais especificamente, o \textit{toolbox} Simulink é o componente central para realização das simulações. O filtro \textit{LCL} é descrito como uma função de transferência conforme o Capítulo~\ref{modelagem}, o conversor e a fonte são simulados usando modelos disponíveis no Simulink. A plataforma \textsc{dSpace} serve como uma interface entre o circuito real e o \textsc{Matlab}, dispondo de $n_{ADs}$ conversores analógico-digitais (\emph{AD}) de $n$ bits e $n_{DAs}$ conversores digitais-analógicos (\emph{DA}) de $n$ bits, através dos quais são adquiridas as medidas feitas em tempo real no circuito. Acompanha a plataforma o programa \emph{ControlDesk}, que permite a criação de instrumentos virtuais para apresentação e armazenamento das leituras dos ADs. Uma vez computada, a ação de controle é transcrita em comando de acionamento das chaves do conversor e então enviada via \emph{DA} para o conversor.
 
-  Os resultados experimentais são obtidos utilizando uma bancada composta por uma fonte \textit{modelo}, um conversor \textsc{Semikron} \textit{modelo} com $n V$ de tensão e $n A$ de corrente nominais. A interface \textsc{dSpace} utilizada é o modelo \textit{modelo}. O processador que a unidade possui é um \emph{DSP} - do inglês \emph{Digital Signal Processor} modelo $modelo$ com uma unidade de lógica e aritmética de ponto flutuante de $n$ bits. As medidas da tensão e corrente do capacitor, bem como da corrente do lado da rede foram feitas utilizando sensores de Efeito Hall. A ação de controle é modulada por largura de pulso e enviada para o \emph{DSP} via um bloco específico da plataforma no \emph{Simulink}. A Fig.~\ref{fig:topologia_bancada} apresenta a disposição dos elementos da bancada.
-
+  Os resultados experimentais são obtidos utilizando uma bancada composta por uma fonte \textit{modelo}, um conversor \textsc{Semikron} \textit{modelo} com $n V$ de tensão e $n A$ de corrente nominais. A interface \textsc{dSpace} utilizada é o modelo \textit{modelo}. O processador que a unidade possui é um \emph{DSP} - do inglês \emph{Digital Signal Processor} modelo $modelo$ com uma unidade de lógica e aritmética de ponto flutuante de $n$ bits. As medidas corrente do capacitor e da corrente do lado da rede foram feitas utilizando sensores de Efeito Hall. A Fig.~\ref{fig:topologia_bancada} apresenta a disposição dos elementos da bancada.
+  %
   \begin{figure}[htb]
     \centering{
       %\includegraphics[width=0.9\textwidth]{img/topologia}}
@@ -36,19 +36,18 @@
   %apresentar os valores de inicialização dos thetas
   %comentar sobre o sinal de normalização m^2
 
-  O Simulink dispõe de muitos blocos cujos modelos matemáticos são geralmente aceitos como precisos o suficiente para representar elementos do mundo real. Por isso, os modelos de conversor, linha de transmissão, transformador e fonte são utilizados neste trabalho para representar o comportamento de elementos reais.
+  O Simulink dispõe de muitos blocos cujos modelos matemáticos são geralmente aceitos como precisos o suficiente para representar elementos do mundo real. Por isso, os modelos da linha de transmissão, transformador e fonte são utilizados neste trabalho para representar o comportamento de elementos reais.
 
 	A ação de controle é implementada na simulação via código escrito em linguagem própria do \textsc{Matlab}, chamada \textit{linguagem .m}. Existe um bloco no Simulink chamado \textit{Subsystem}, que recebe sinais de entrada e permite que esses sinais sejam manipulados via código para gerarem sinais de saída. Este bloco é utilizado para implementar a ação de controle projetada nos capítulos anteriores.
 
 	Como a simulação é implementada em tempo discreto, os principais passos realizados são os seguintes:
-
+  %
 	\begin{enumerate}
 		\item \textit{Inicialização}: no início da simulação, são carregados os valores iniciais para as variáveis;
 		\item \textit{Amostragem das variáveis}: as variáveis são amostradas para a realização dos cálculos preliminares da ação de controle;
     \item \textit{Conversão de coordenadas $abc$ para $\alpha \beta 0$}: é aplicada a transformação de desacoplamento nas variáveis;
 		\item \textit{Cálculo da ação de controle}: a ação de controle é calculada e o estado atual das variáveis é armazenado como sendo o estado anterior para a próxima iteração da simulação;
-    \item \textit{Acionamento do conversor}: a ação de controle é modulada por largura de pulso e as chaves do conversor são acionadas;
-		\item \textit{Geração da saída}: são feitas as medidas da corrente e tensão do capacitor, e da corrente do lado da rede.
+    \item \textit{Acionamento do conversor}: a ação de controle é modulada por largura de pulso e as chaves do conversor são acionadas.
 	\end{enumerate}
 
   O projeto do controlador é conforme o Capítulo~\ref{controle}. O modelo de referência projetado é da forma
@@ -60,14 +59,14 @@
   %
   com $p_1 = p_2 = 0,2$.
 
-	A Tabela~\ref{tab:parametros_projeto} resume os demais parâmetros utilizados no projeto. Os valores de inicialização dos parâmetros são baseadas nos valores ideais, ou seja, aqueles que fazem com que os valores dos ganhos adaptativos $\theta$ sejam $\theta^*$ (valores para a condição de casamento). Os valores de inicialização dos ganhos adaptativos, neste caso, são dados por \ref{eq:theta_ini}.
+	A Tabela~\ref{tab:parametros_projeto} resume os demais parâmetros utilizados no projeto. Os valores de inicialização dos parâmetros são baseadas nos valores ideais, ou seja, aqueles que fazem com que os valores dos ganhos adaptativos $\theta$ sejam $\theta^*$ (valores para a condição de casamento). Os valores de inicialização dos ganhos adaptativos, neste caso, são dados por \ref{eq:theta_sim}.
   %
   \begin{equation}
     \begin{split}
       \theta^T & = \left[ \begin{matrix} -0,03, & -0,36, & -0,57, & -0,01 & 0,16 & 0,02 \end{matrix} \right]\text{ e}\\
       \omega & = {\left[ \begin{matrix} 0 & 0 & 0 & 0 & 0 & 0 \end{matrix} \right]}^T\text{.}
     \end{split}
-    \label{eq:theta_ini}
+    \label{eq:theta_sim}
   \end{equation}
 
   \begin{table}[htb]
@@ -81,114 +80,382 @@
       \multicolumn{1}{c}{Parâmetro} & \multicolumn{1}{c}{Valor} &
       \multicolumn{1}{c}{Parâmetro} & \multicolumn{1}{c}{Valor} \\
       \hline
-      $L_1$      & $2$mH    & $L_2$         & $2$mH  \\
-      $C$        & $40\mu$F & $f_s = 1/T_s$ & $12$kHz\\
-      $\gamma_d$ & $0,0098$ & $\gamma$      & $0,99$ \\
-      $\delta_0$ & $0,8$    &               & \\
+      $L_1$      & $2$mH    & $L_2$         & $2$mH   \\
+      $C$        & $40\mu$F & $f_s = 1/T_s$ & $12$kHz \\
+      $\gamma_d$ & $0,0098$ & $\gamma$      & $0,99$  \\
+      $\delta_0$ & $0,8$    & $K_P$         & $8$     \\
       \hline
     \end{tabular}
   \end{table}
 
-  %separar em três figuras, uma pra inversão de fase, outra pra degrau de amplitude e outra pra variação da indutância
-  A Fig.~\ref{fig:i2_sim_ini} apresenta a corrente da rede em comparação com a referência. No instante $t_1 = \pi s$ ocorre inversão de fase na referência. A Fig.~\ref{fig:i2_simulacao_degrau} apresenta, no instante $t_2$, um degrau de amplitude aplicado à referência. Na Fig.~\ref{fig:i2_simulacao_L_rede} apresenta uma variação na indutância da rede no instante $t_3$.
+  As Fig.~\ref{fig:i2_sim_ini}-\ref{fig:thetas_sim_ini} apresentam o comportamento do sistema na inicialização. A Fig.~\ref{fig:i2_sim_ini} apresenta a comparação da corrente da rede $i_2$ com a referência ${i_2}^*$. A Fig.~\ref{fig:up_sim_ini} apresenta o comportamento da ação de controle $up$ durante a inicialização, e a Fig.~\ref{fig:thetas_sim_ini} demonstra o comportamento dos ganhos adaptativos $\theta$ na inicialização.
 
 	\begin{figure}[!htb]
     \centering
       \def\svgwidth{\textwidth}
       \input{./img/i2_sim_ini.tex}
     \renewcommand\figurename{Fig.}
-    \caption{Comparação da corrente da rede com a referência.}
+    \caption{Comportamento da corrente da rede $i_2$ na inicialização do sistema.}
     \label{fig:i2_sim_ini}
   \end{figure}
 
-  % \begin{figure}[!htb]
-  %   \centering
-  %     \def\svgwidth{\textwidth}
-  %     \input{./img/i2_sim_step.tex}
-  %   \renewcommand\figurename{Fig.}
-  %   \caption{Resposta da corrente da rede ao degrau na referência.}
-  %   \label{fig:i2_simulacao_degrau}
-  % \end{figure}
+  \newpage
 
-  %\noindent
+  \vfill
+  \noindent
   \begin{minipage}{\textwidth}
-    %\centering
+    \makebox[\textwidth]{
+      \centering
+      \def\svgwidth{\textwidth}
+      \input{./img/up_sim_ini.tex}}
+    \captionof{figure}{Comportamento da ação de controle na inicialização do sistema.}
+    \label{fig:up_sim_ini}
+  \end{minipage}
+
+  \vfill
+  \noindent
+  \begin{minipage}{\textwidth}
+    \makebox[\textwidth]{
+      \centering
+      \def\svgwidth{\textwidth}
+      \input{./img/theta_sim_ini.tex}}
+    \captionof{figure}{Comportamento dos ganhos adaptativos $\theta$ na inicialização do sistema.}
+    \label{fig:thetas_sim_ini}
+  \end{minipage}
+
+  \newpage
+
+  As Fig.~\ref{fig:i2_sim_step}-\ref{fig:thetas_sim_step} apresentam a reação dos parâmetros do sistema a um degrau na referência no instante $t=2$ ciclos. A Fig.~\ref{fig:i2_sim_step} apresenta a corrente da rede $i_2$, a Fig.~\ref{fig:up_sim_step} apresenta a ação de controle $up$, e a Fig.~\ref{fig:thetas_sim_step} apresenta o comportamento dos ganhos adaptativos $\theta$.
+
+  \vfill
+  \noindent
+  \begin{minipage}{\textwidth}
     \makebox[\textwidth]{
       \centering
       \def\svgwidth{\textwidth}
       \input{./img/i2_sim_step.tex}}
-    %\renewcommand\figurename{Fig.}
     \captionof{figure}{Resposta da corrente da rede ao degrau na referência.}
-    \label{fig:i2_simulacao_degrau}
+    \label{fig:i2_sim_step}
   \end{minipage}
 
-  \begin{figure}[!htb]
-    \centering
-      \def\svgwidth{\textwidth}
-      \input{./img/i2_sim_phase.tex}
-    \renewcommand\figurename{Fig.}
-    \caption{Resposta da corrente da rede à inversão de fase na referência.}
-    \label{fig:i2_simulacao_fase}
-  \end{figure}
+  \vfill
 
-  \begin{figure}[!htb]
-    \centering
-      \def\svgwidth{\textwidth}
-      \input{./img/i2_sim_short.tex}
-    \renewcommand\figurename{Fig.}
-    \caption{Resposta da corrente da rede a um curto-circuito na fase A.}
-    \label{fig:i2_simulacao_curto}
-  \end{figure}
+  \newpage
 
-  \begin{figure}[!htb]
-    \centering
+  \vfill
+  \noindent
+  \begin{minipage}{\textwidth}
+    \makebox[\textwidth]{
+      \centering
       \def\svgwidth{\textwidth}
-      \input{./img/i2_sim_Lg.tex}
-    \renewcommand\figurename{Fig.}
-    \caption{Resposta da corrente da rede à variação abrupta da indutância da rede.}
-    \label{fig:i2_simulacao_L_rede}
-  \end{figure}
+      \input{./img/up_sim_step.tex}}
+    \captionof{figure}{Resposta da ação de controle ao degrau na referência.}
+    \label{fig:up_sim_step}
+  \end{minipage}
 
-  \begin{figure}[!h]
-    \centering
+  \vfill
+  \noindent
+  \begin{minipage}{\textwidth}
+    \makebox[\textwidth]{
+      \centering
       \def\svgwidth{\textwidth}
-      \input{./img/up_sim_ini.tex}
-    \renewcommand\figurename{Fig.}
-    \caption{Ação de controle na inicialização do sistema.}
-    \label{fig:up_simulacao_ini}
-  \end{figure}
+      \input{./img/theta_sim_step.tex}}
+    \captionof{figure}{Resposta dos ganhos adaptativos $\theta$ ao degrau na referência.}
+    \label{fig:thetas_sim_step}
+  \end{minipage}
+  \vfill
 
-  \begin{figure}[!h]
-    \centering
-      \def\svgwidth{\textwidth}
-      \input{./img/up_sim_Lg.tex}
-    \renewcommand\figurename{Fig.}
-    \caption{Ação de controle na presença de variação da indutância da rede.}
-    \label{fig:up_simulacao_Lg}
-  \end{figure}
+  \newpage
 
-  \begin{figure}[!h]
-    \centering
-      \def\svgwidth{\textwidth}
-      \input{./img/up_sim_phase.tex}
-    \renewcommand\figurename{Fig.}
-    \caption{Ação de controle na presença de inversão de fase na referência.}
-    \label{fig:up_simulacao_phase}
-  \end{figure}
+  As Fig.~\ref{fig:i2_sim_phase}-\ref{fig:thetas_sim_phase} apresentam a reação dos parâmetros do sistema à inversão de fase na referência no instante $t=2$ ciclos. A Fig.~\ref{fig:i2_sim_phase} apresenta a corrente da rede $i_2$, a Fig.~\ref{fig:up_sim_phase} apresenta a ação de controle $up$, e a Fig.~\ref{fig:thetas_sim_phase} apresenta o comportamento dos ganhos adaptativos $\theta$.
 
-  \begin{figure}[!h]
-    \centering
+  \vfill
+  \noindent
+  \begin{minipage}{\textwidth}
+    \makebox[\textwidth]{
+      \centering
       \def\svgwidth{\textwidth}
-      \input{./img/up_sim_short.tex}
-    \renewcommand\figurename{Fig.}
-    \caption{Ação de controle na presença de curto-circuito na fase A.}
-    \label{fig:up_simulacao_short}
-  \end{figure}
+      \input{./img/i2_sim_phase.tex}}
+    \captionof{figure}{Resposta da corrente da rede à inversão de fase na referência.}
+    \label{fig:i2_sim_phase}
+  \end{minipage}
+  \vfill
+
+  \newpage
+
+  \vfill
+  \noindent
+  \begin{minipage}{\textwidth}
+    \makebox[\textwidth]{
+      \centering
+      \def\svgwidth{\textwidth}
+      \input{./img/up_sim_phase.tex}}
+    \captionof{figure}{Ação de controle na presença de inversão de fase na referência.}
+    \label{fig:up_sim_phase}
+  \end{minipage}
+
+  \vfill
+  \noindent
+  \begin{minipage}{\textwidth}
+    \makebox[\textwidth]{
+      \centering
+      \def\svgwidth{\textwidth}
+      \input{./img/theta_sim_phase.tex}}
+    \captionof{figure}{Comportamento dos ganhos adaptativos $\theta$ mediante a inversão de fase na referência.}
+    \label{fig:thetas_sim_phase}
+  \end{minipage}
+  \vfill
+
+  \newpage
+
+  As Fig.~\ref{fig:i2_sim_short}-\ref{fig:thetas_sim_short} apresentam a reação dos parâmetros do sistema a um curto-circuito na fase $a$ no instante $t=2$ ciclos. A Fig.~\ref{fig:i2_sim_short} apresenta a corrente da rede $i_2$, a Fig.~\ref{fig:up_sim_short} apresenta a ação de controle $up$, e a Fig.~\ref{fig:thetas_sim_short} apresenta o comportamento dos ganhos adaptativos $\theta$.
+
+  \vfill
+  \noindent
+  \begin{minipage}{\textwidth}
+    \makebox[\textwidth]{
+      \centering
+      \def\svgwidth{\textwidth}
+      \input{./img/i2_sim_short.tex}}
+    \captionof{figure}{Resposta da corrente da rede a um curto-circuito na fase $a$.}
+    \label{fig:i2_sim_short}
+  \end{minipage}
+
+  \vfill
+
+  \newpage
+
+  \vfill
+  \noindent
+  \begin{minipage}{\textwidth}
+    \makebox[\textwidth]{
+      \centering
+      \def\svgwidth{\textwidth}
+      \input{./img/up_sim_short.tex}}
+    \captionof{figure}{Ação de controle na presença de curto-circuito na fase $a$.}
+    \label{fig:up_sim_short}
+  \end{minipage}
+
+  \vfill
+  \noindent
+  \begin{minipage}{\textwidth}
+    \makebox[\textwidth]{
+      \centering
+      \def\svgwidth{\textwidth}
+      \input{./img/theta_sim_short.tex}}
+    \captionof{figure}{Resposta dos ganhos adaptativos $\theta$ ao curto-circuito na fase $a$.}
+    \label{fig:thetas_sim_short}
+  \end{minipage}
+  \vfill
+
+  \newpage
+
+  As Fig.~\ref{fig:i2_sim_Lg}-\ref{fig:thetas_sim_Lg} apresentam a reação dos parâmetros do sistema a uma variação abrupta na indutância da rede $L_g$ no instante $t=2$ ciclos. A Fig.~\ref{fig:i2_sim_Lg} apresenta a corrente da rede $i_2$, a Fig.~\ref{fig:up_sim_Lg} apresenta a ação de controle $up$, e a Fig.~\ref{fig:thetas_sim_Lg} apresenta o comportamento dos ganhos adaptativos $\theta$.
+
+  \vfill
+  \noindent
+  \begin{minipage}{\textwidth}
+    \makebox[\textwidth]{
+      \centering
+      \def\svgwidth{\textwidth}
+      \input{./img/i2_sim_Lg.tex}}
+    \captionof{figure}{Resposta da corrente da rede à variação abrupta da indutância $L_g$.}
+    \label{fig:i2_sim_Lg}
+  \end{minipage}
+  \vfill
+
+  \newpage
+
+  \vfill
+  \noindent
+  \begin{minipage}{\textwidth}
+    \makebox[\textwidth]{
+      \centering
+      \def\svgwidth{\textwidth}
+      \input{./img/up_sim_Lg.tex}}
+    \captionof{figure}{Ação de controle na presença de variação abrupta da indutância da rede $L_g$.}
+    \label{fig:up_sim_Lg}
+  \end{minipage}
+
+  \vfill
+  \noindent
+  \begin{minipage}{\textwidth}
+    \makebox[\textwidth]{
+      \centering
+      \def\svgwidth{\textwidth}
+      \input{./img/theta_sim_Lg.tex}}
+    \captionof{figure}{Resposta dos ganhos adaptativos $\theta$ à variação abrupta da indutância da rede $L_g$.}
+    \label{fig:thetas_sim_Lg}
+  \end{minipage}
+
+  \vfill
+
+  \newpage
 
   %incluir figura mostrando a convergência dos thetas
   %incluir figura mostrando a parcela do vetor w referente a rejeição do distúrbio de tensão da rede
 
 \section{Resultados Experimentais}
+
+  Os resultados experimentais foram obtidos utilizando os parâmetros da Tabela~\ref{tab:parametros_experimento}. Os parâmetros são diferentes daqueles usados na etapa de simulação em função dos componentes (indutores e capacitor) disponíveis no laboratório. Os valores de inicialização dos ganhos adaptativos são conforme~\ref{eq:theta_exp}, e o modelo de referência é dado por~\ref{eq:wm_exp}.
+  %
+  \begin{equation}
+    \begin{split}
+      \theta^T = \left[ \begin{matrix} 0, & 0, & -1,36, & 1,36 \end{matrix} \right]\\
+      \omega = {\left[ \begin{matrix} 0 & 0 & 0 & 0 \end{matrix} \right]}^T
+    \end{split}
+    \label{eq:theta_exp}
+  \end{equation}
+  %
+  \begin{equation}
+    W_m(z) = \frac{(1-p_1)(1-p_2)}{(z-p_1)(z-p_2)}\text{,}
+    \label{eq:wm_exp}
+  \end{equation}
+  %
+  com $p_1 = p_2 = 0,5$.
+
+  \begin{table}[htb]
+    \renewcommand{\arraystretch}{1.35}
+    \setlength{\tabcolsep}{1.2mm}
+    \caption{Valores dos parâmetros do sistema utilizados no experimento.}
+    \label{tab:parametros_experimento}
+    \centering
+    \begin{tabular}{l l l l}
+      \hline
+      \multicolumn{1}{c}{Parâmetro} & \multicolumn{1}{c}{Valor} &
+      \multicolumn{1}{c}{Parâmetro} & \multicolumn{1}{c}{Valor} \\
+      \hline
+      $L_1$      & $1$mH    & $L_2$         & $0,5$mH \\
+      $C$        & $40\mu$F & $f_s = 1/T_s$ & $12$kHz \\
+      $\gamma_d$ & $0,01$   & $\gamma$      & $0,95$  \\
+      $\delta_0$ & $0,98$   & $K_P$         & $3,35$  \\
+      \hline
+    \end{tabular}
+  \end{table}
+
+  Devido às condições da bancada disponível no laboratório, não foi possível realizar um ensaio conectando o conversor à rede elétrica. Realizou-se, no entanto, um ensaio com os terminais do filtro que seriam conectados à rede elétrica em curto-circuito. Além disso, considerando a teoria de Componentes Simétricas e a transformação de Clarke, apresentadas no capítulo~\ref{modelagem}, é suficiente ensaiar um sistema monofásico para comprovação experimental. Os resultados experimentais obtidos neste trabalho, portanto, foram para um sistema monofásico com os terminais do filtro curto-circuitados.
+
+  A plataforma \textsc{dSpace} apresenta como principal vantagem o fato de que se encarrega de converter o código escrito em linguagem \emph{.m} do \textsc{Matlab} para linguagem \emph{c} utilizada pelo DSP, permitindo que o projetista trabalhe com uma linguagem de mais alto nível. Dessa forma, o procedimento para realização do experimento utilizando a plataforma \textsc{dSpace} é composto pelos passos a seguir:
+  %
+  \begin{enumerate}
+    \item \textit{Simulação}: o sistema é simulado utilizando os blocos do Simulink para representar os elementos reais;
+    \item \textit{Ajuste}: a simulação é ajustada para comunicar com a plataforma \textsc{dSpace}. Isso é feito incluindo blocos de uma biblioteca específica da plataforma no Simulink. São necessários um bloco que representa os ADs, disponibilizando em sua saída a medida das grandezas reais do sistema, e um bloco que recebe a ação de controle em forma de PWM para acionamento das chaves do conversor. Dessa forma, a simulação fica reduzida a apenas o bloco do controlador e os blocos da plataforma;
+    \item \textit{Carregamento}: uma vez que o \textsc{Matlab} está configurado para trabalhar junto com a \textsc{dSpace}, basta iniciar a simulação configurada para execução \emph{em tempo real} para que a plataforma transforme o arquivo de simulação em código para o DSP;
+    \item \textit{Experimento}: o início da simulação no \textsc{Matlab} em tempo real dará início ao experimento. Nesta etapa, é interessante que o programa \emph{ControlDesk} esteja em execução com instrumentos virtuais preparados para visualizar a leitura das variáveis de interesse.
+  \end{enumerate}
+
+  %comentar sobre os resultados mostrados a seguir
+
+  \vfill
+  \noindent
+  \begin{minipage}{\textwidth}
+    \makebox[\textwidth]{
+      \centering
+      \def\svgwidth{\textwidth}
+      \input{./img/i2_exp_ini.tex}}
+    \captionof{figure}{Comparação entre a saída do modelo de referência e a corrente medida na inicialização do sistema.}
+    \label{fig:i2_exp_ini}
+  \end{minipage}
+
+  \vfill
+
+  \noindent
+  \begin{minipage}{\textwidth}
+    \makebox[\textwidth]{
+      \centering
+      \def\svgwidth{\textwidth}
+      \input{./img/i2_exp_phase.tex}}
+    \captionof{figure}{Resposta da corrente da rede à inversão de fase na referência.}
+    \label{fig:i2_exp_phase}
+  \end{minipage}
+  \vfill
+
+  \newpage
+
+  \vspace{\fill}
+  \noindent
+  \begin{minipage}{\textwidth}
+    \makebox[\textwidth]{
+      \centering
+      \def\svgwidth{\textwidth}
+      \input{./img/i2_exp_Lg.tex}}
+    \captionof{figure}{Resposta da corrente da rede à variação abrupta da indutância.}
+    \label{fig:i2_exp_Lg}
+  \end{minipage}
+
+  \vspace{\fill}
+
+  \noindent
+  \begin{minipage}{\textwidth}
+    \makebox[\textwidth]{
+      \centering
+      \def\svgwidth{\textwidth}
+      \input{./img/up_exp_Lg.tex}}
+    \captionof{figure}{Resposta da ação de controle à variação abrupta da indutância.}
+    \label{fig:up_exp_Lg}
+  \end{minipage}
+  \vspace{\fill}
+
+  \newpage
+
+  \noindent
+  \begin{minipage}{\textwidth}
+    \makebox[\textwidth]{
+      \centering
+      \def\svgwidth{\textwidth}
+      \input{./img/theta_exp_Lg.tex}}
+    \captionof{figure}{Variação dos ganhos $\theta$ devido à variação na indutância da rede.}
+    \label{fig:theta_exp_Lg}
+  \end{minipage}
+
+  \noindent
+  \begin{minipage}{\textwidth}
+    \makebox[\textwidth]{
+      \centering
+      \def\svgwidth{\textwidth}
+      \input{./img/m_exp_Lg.tex}}
+    \captionof{figure}{Resposta do normalizador à variação abrupta da indutância.}
+    \label{fig:m_exp_Lg}
+  \end{minipage}
+
+  \noindent
+  \begin{minipage}{\textwidth}
+    \makebox[\textwidth]{
+      \centering
+      \def\svgwidth{\textwidth}
+      \input{./img/i2_exp_Lg_permanente.tex}}
+    \captionof{figure}{Regime permanente após o transitório de variação de indutância da rede.}
+    \label{fig:i2_exp_Lg_permanente}
+  \end{minipage}
+
+  \vfill
+  \noindent
+  \begin{minipage}{\textwidth}
+    \makebox[\textwidth]{
+      \centering
+      \def\svgwidth{\textwidth}
+      \input{./img/up_exp_Lg_permanente.tex}}
+    \captionof{figure}{Ação de controle no regime permanente após a variação da indutância da rede.}
+    \label{fig:up_exp_Lg_permanente}
+  \end{minipage}
+  \vfill
+
+  \noindent
+  \begin{minipage}{\textwidth}
+    \makebox[\textwidth]{
+      \centering
+      \def\svgwidth{\textwidth}
+      \input{./img/m_exp_Lg_permanente.tex}}
+    \captionof{figure}{Normalizador no regime permanente após a variação da indutância da rede.}
+    \label{fig:m_exp_Lg_permanente}
+  \end{minipage}
+  \vfill
+
+  %mostrar figura e comentar do normalizador. A entrada do normalizador é TODOS os sinais que estão envolvidos no controlador adaptativo. Mostrar que um controlador adaptativo é estável é mostrar que todos os sinais que estão envolvidos no algoritmo são limitados. Dessa forma, o normalizador é um ótimo indicativo de que o controlador é estável, visto que mostra que os sinais internos são limitados.
+
+  %mostrar a ação de controle nos mesmos instantes em que se mostra a corrente.
+
+  %adicionar grid em todas as figuras
 
 
 

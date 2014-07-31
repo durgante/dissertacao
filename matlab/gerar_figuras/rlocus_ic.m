@@ -83,6 +83,9 @@ set(gca, 'YTick', [-5000 -2500 0 2500 5000]);
 set(gca, 'XLim', [-10^4 0.2*10^4]);
 set(gca, 'YLim', [-5500 5500]);
 
+%Grid
+box on
+
 %Labels
 ylabel('Eixo Imaginário');
 xlabel('Eixo Real');
@@ -108,6 +111,6 @@ if exportar==1
                'x tick label style={/pgf/number format/.cd, fixed, fixed zerofill, precision=0}'};
     
     %Exporta
-    matlab2tikz('./gerar_figuras/rlocus_ic.tex', 'width', '0.8\textwidth', ...
+    matlab2tikz('./rlocus_ic.tex', 'width', '0.8\textwidth', ...
                 'interpretTickLabelAsTex', true, 'encoding', 'UTF-8', 'extraAxisOptions', axoptions);
 end

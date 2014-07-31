@@ -4,7 +4,7 @@
 colorido=0;
 
 %Exportar para formato .tex? 1=sim 0=não
-exportar=1;
+exportar=0;
 
 %Figura tamanho normal ou comprida? 1=normal 0=comprida
 figura_normal=1;
@@ -110,6 +110,10 @@ for i=1:subplotsx
             %Escolha dos limites dos eixos X e Y
             set(gca, 'XLim', [X_ini X_end]);
             set(gca, 'YLim', [-25 25]);
+            
+            %Grid
+            grid on
+            box on
 
             %Labels
             ylabel('{i2_a}^* \times i2_a (A)');
@@ -139,6 +143,10 @@ for i=1:subplotsx
             %Escolha dos limites dos eixos X e Y
             set(gca, 'XLim', [X_ini X_end]);
             set(gca, 'YLim', [-25 25]);
+            
+            %Grid
+            grid on
+            box on
 
             %Labels
             ylabel('{i2_b}* \times i2_b (A)');
@@ -168,6 +176,10 @@ for i=1:subplotsx
             %Escolha dos limites dos eixos X e Y
             set(gca, 'XLim', [X_ini X_end]);
             set(gca, 'YLim', [-25 25]);
+            
+            %Grid
+            grid on
+            box on
 
             %Labels
             ylabel('{i2_c}^* \times i2_c (A)');
