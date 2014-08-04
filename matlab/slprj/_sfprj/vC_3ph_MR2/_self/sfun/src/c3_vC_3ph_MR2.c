@@ -256,7 +256,7 @@ static void c3_bc_emlrt_marshallIn(SFc3_vC_3ph_MR2InstanceStruct *chartInstance,
   const mxArray *c3_u, const emlrtMsgIdentifier *c3_parentId, real_T c3_y[6]);
 static void c3_ab_sf_marshallIn(void *chartInstanceVoid, const mxArray
   *c3_mxArrayInData, const char_T *c3_varName, void *c3_outData);
-static void c3_info_helper(c3_ResolvedFunctionInfo c3_info[56]);
+static void c3_info_helper(c3_ResolvedFunctionInfo c3_info[52]);
 static real_T c3_sqrt(SFc3_vC_3ph_MR2InstanceStruct *chartInstance, real_T c3_x);
 static void c3_eml_error(SFc3_vC_3ph_MR2InstanceStruct *chartInstance);
 static void c3_eml_scalar_eg(SFc3_vC_3ph_MR2InstanceStruct *chartInstance);
@@ -995,7 +995,7 @@ static void c3_chartstep_c3_vC_3ph_MR2(SFc3_vC_3ph_MR2InstanceStruct
   real_T c3_theta_beta[6];
   real_T c3_m;
   int32_T c3_i21;
-  static real_T c3_dv10[6] = { 1.0, -3.39, -0.18, 12.72, 0.0, 1.0 };
+  static real_T c3_dv10[6] = { 0.9704, -1.0142, 2.2764, 16.1476, 0.0, 0.0 };
 
   int32_T c3_i22;
   int32_T c3_i23;
@@ -1009,18 +1009,6 @@ static void c3_chartstep_c3_vC_3ph_MR2(SFc3_vC_3ph_MR2InstanceStruct
     0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0098, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0098,
     0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0098, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0098 };
 
-  real_T c3_b;
-  real_T c3_y;
-  real_T c3_x;
-  real_T c3_b_x;
-  real_T c3_b_b;
-  real_T c3_b_y;
-  real_T c3_c_b;
-  real_T c3_c_y;
-  real_T c3_c_x;
-  real_T c3_d_x;
-  real_T c3_d_b;
-  real_T c3_d_y;
   int32_T c3_i30;
   real_T c3_f_hoistedGlobal[6];
   int32_T c3_i31;
@@ -1029,12 +1017,12 @@ static void c3_chartstep_c3_vC_3ph_MR2(SFc3_vC_3ph_MR2InstanceStruct
   real_T c3_a[6];
   int32_T c3_k;
   int32_T c3_b_k;
-  real_T c3_e_b;
-  real_T c3_e_y;
+  real_T c3_b;
+  real_T c3_y;
   real_T c3_h_hoistedGlobal;
   real_T c3_i_hoistedGlobal;
-  real_T c3_f_b;
-  real_T c3_f_y;
+  real_T c3_b_b;
+  real_T c3_b_y;
   int32_T c3_i33;
   int32_T c3_i34;
   int32_T c3_i35;
@@ -1044,23 +1032,23 @@ static void c3_chartstep_c3_vC_3ph_MR2(SFc3_vC_3ph_MR2InstanceStruct
   int32_T c3_i38;
   int32_T c3_i39;
   real_T c3_k_hoistedGlobal;
+  real_T c3_c_b;
+  real_T c3_c_y;
+  real_T c3_l_hoistedGlobal;
+  real_T c3_d_b;
+  real_T c3_d_y;
+  real_T c3_m_hoistedGlobal;
+  real_T c3_e_b;
+  real_T c3_e_y;
+  real_T c3_n_hoistedGlobal;
+  real_T c3_f_b;
+  real_T c3_f_y;
+  real_T c3_o_hoistedGlobal;
   real_T c3_g_b;
   real_T c3_g_y;
-  real_T c3_l_hoistedGlobal;
+  real_T c3_p_hoistedGlobal;
   real_T c3_h_b;
   real_T c3_h_y;
-  real_T c3_m_hoistedGlobal;
-  real_T c3_i_b;
-  real_T c3_i_y;
-  real_T c3_n_hoistedGlobal;
-  real_T c3_j_b;
-  real_T c3_j_y;
-  real_T c3_o_hoistedGlobal;
-  real_T c3_k_b;
-  real_T c3_k_y;
-  real_T c3_p_hoistedGlobal;
-  real_T c3_l_b;
-  real_T c3_l_y;
   int32_T c3_i40;
   int32_T c3_i41;
   int32_T c3_i42;
@@ -1068,19 +1056,19 @@ static void c3_chartstep_c3_vC_3ph_MR2(SFc3_vC_3ph_MR2InstanceStruct
   int32_T c3_d_k;
   real_T c3_q_hoistedGlobal;
   real_T c3_b_a;
-  real_T c3_m_b;
-  real_T c3_m_y;
+  real_T c3_i_b;
+  real_T c3_i_y;
   int32_T c3_i43;
   int32_T c3_i44;
   int32_T c3_i45;
   int32_T c3_i46;
-  real_T c3_n_y;
+  real_T c3_j_y;
   int32_T c3_e_k;
   int32_T c3_f_k;
   int32_T c3_i47;
   int32_T c3_i48;
   int32_T c3_i49;
-  real_T c3_o_y;
+  real_T c3_k_y;
   int32_T c3_g_k;
   int32_T c3_h_k;
   int32_T c3_i50;
@@ -1095,78 +1083,78 @@ static void c3_chartstep_c3_vC_3ph_MR2(SFc3_vC_3ph_MR2InstanceStruct
   int32_T c3_i57;
   int32_T c3_i58;
   int32_T c3_i59;
-  real_T c3_p_y[36];
+  real_T c3_l_y[36];
   int32_T c3_i60;
   int32_T c3_i61;
   int32_T c3_i62;
   int32_T c3_i63;
-  real_T c3_q_y[36];
+  real_T c3_m_y[36];
   int32_T c3_i64;
   int32_T c3_i65;
   real_T c3_B;
-  real_T c3_r_y;
-  real_T c3_s_y;
+  real_T c3_n_y;
+  real_T c3_o_y;
   int32_T c3_i66;
   int32_T c3_i67;
   real_T c3_t_hoistedGlobal;
   real_T c3_u_hoistedGlobal;
   real_T c3_c_a;
-  real_T c3_n_b;
-  real_T c3_t_y;
+  real_T c3_j_b;
+  real_T c3_p_y;
   real_T c3_A;
   real_T c3_b_B;
-  real_T c3_e_x;
-  real_T c3_u_y;
-  real_T c3_f_x;
-  real_T c3_v_y;
-  real_T c3_w_y;
+  real_T c3_x;
+  real_T c3_q_y;
+  real_T c3_b_x;
+  real_T c3_r_y;
+  real_T c3_s_y;
   int32_T c3_i68;
-  real_T c3_o_b;
-  real_T c3_x_y;
+  real_T c3_k_b;
+  real_T c3_t_y;
   real_T c3_b_A;
   real_T c3_c_B;
-  real_T c3_g_x;
-  real_T c3_y_y;
-  real_T c3_h_x;
-  real_T c3_ab_y;
-  real_T c3_bb_y;
+  real_T c3_c_x;
+  real_T c3_u_y;
+  real_T c3_d_x;
+  real_T c3_v_y;
+  real_T c3_w_y;
   real_T c3_d_a;
   int32_T c3_i69;
   int32_T c3_i70;
   int32_T c3_i71;
   int32_T c3_i72;
   real_T c3_v_hoistedGlobal;
-  real_T c3_p_b;
-  real_T c3_cb_y;
+  real_T c3_l_b;
+  real_T c3_x_y;
   real_T c3_e_a;
-  real_T c3_q_b;
-  real_T c3_db_y;
+  real_T c3_m_b;
+  real_T c3_y_y;
   real_T c3_c_A;
   real_T c3_d_B;
-  real_T c3_i_x;
-  real_T c3_eb_y;
-  real_T c3_j_x;
-  real_T c3_fb_y;
-  real_T c3_gb_y;
+  real_T c3_e_x;
+  real_T c3_ab_y;
+  real_T c3_f_x;
+  real_T c3_bb_y;
+  real_T c3_cb_y;
   real_T c3_w_hoistedGlobal;
-  real_T c3_r_b;
-  real_T c3_hb_y;
+  real_T c3_n_b;
+  real_T c3_db_y;
   real_T c3_x_hoistedGlobal;
-  real_T c3_s_b;
-  real_T c3_ib_y;
+  real_T c3_o_b;
+  real_T c3_eb_y;
   int32_T c3_i73;
   int32_T c3_i74;
   int32_T c3_i75;
   int32_T c3_i76;
-  real_T c3_t_b;
-  real_T c3_jb_y;
-  real_T c3_u_b;
-  real_T c3_kb_y;
+  real_T c3_p_b;
+  real_T c3_fb_y;
+  real_T c3_q_b;
+  real_T c3_gb_y;
   int32_T c3_i77;
-  real_T c3_v_b;
-  real_T c3_lb_y;
-  real_T c3_w_b;
-  real_T c3_mb_y;
+  real_T c3_r_b;
+  real_T c3_hb_y;
+  real_T c3_s_b;
+  real_T c3_ib_y;
   int32_T c3_i78;
   int32_T c3_i79;
   int32_T c3_i80;
@@ -1599,24 +1587,10 @@ static void c3_chartstep_c3_vC_3ph_MR2(SFc3_vC_3ph_MR2InstanceStruct
   chartInstance->c3_omega_k[2] = c3_i2_k;
   _SFD_EML_CALL(0U, chartInstance->c3_sfEvent, 215U);
   chartInstance->c3_omega_k[3] = c3_i2ref_k;
-  _SFD_EML_CALL(0U, chartInstance->c3_sfEvent, 218U);
-  c3_b = c3_t;
-  c3_y = 376.99111843077515 * c3_b;
-  c3_x = c3_y;
-  c3_b_x = c3_x;
-  c3_b_x = muDoubleScalarSin(c3_b_x);
-  c3_b_b = c3_b_x;
-  c3_b_y = 311.0 * c3_b_b;
-  chartInstance->c3_omega_k[4] = c3_b_y;
-  _SFD_EML_CALL(0U, chartInstance->c3_sfEvent, 219U);
-  c3_c_b = c3_t;
-  c3_c_y = 376.99111843077515 * c3_c_b;
-  c3_c_x = c3_c_y;
-  c3_d_x = c3_c_x;
-  c3_d_x = muDoubleScalarCos(c3_d_x);
-  c3_d_b = c3_d_x;
-  c3_d_y = 311.0 * c3_d_b;
-  chartInstance->c3_omega_k[5] = c3_d_y;
+  _SFD_EML_CALL(0U, chartInstance->c3_sfEvent, 220U);
+  chartInstance->c3_omega_k[4] = 0.0;
+  _SFD_EML_CALL(0U, chartInstance->c3_sfEvent, 221U);
+  chartInstance->c3_omega_k[5] = 0.0;
   _SFD_EML_CALL(0U, chartInstance->c3_sfEvent, 223U);
   for (c3_i30 = 0; c3_i30 < 6; c3_i30++) {
     c3_f_hoistedGlobal[c3_i30] = chartInstance->c3_theta_k[c3_i30];
@@ -1643,13 +1617,13 @@ static void c3_chartstep_c3_vC_3ph_MR2(SFc3_vC_3ph_MR2InstanceStruct
   }
 
   _SFD_EML_CALL(0U, chartInstance->c3_sfEvent, 226U);
-  c3_e_b = c3_u_k - c3_vc_k;
-  c3_e_y = 3.0 * c3_e_b;
+  c3_b = c3_u_k - c3_vc_k;
+  c3_y = 3.0 * c3_b;
   c3_h_hoistedGlobal = chartInstance->c3_u_k_1;
   c3_i_hoistedGlobal = chartInstance->c3_vc_k_1;
-  c3_f_b = c3_h_hoistedGlobal - c3_i_hoistedGlobal;
-  c3_f_y = 3.0 * c3_f_b;
-  c3_up_beta = c3_e_y - c3_f_y;
+  c3_b_b = c3_h_hoistedGlobal - c3_i_hoistedGlobal;
+  c3_b_y = 3.0 * c3_b_b;
+  c3_up_beta = c3_y - c3_b_y;
   _SFD_EML_CALL(0U, chartInstance->c3_sfEvent, 228U);
   for (c3_i33 = 0; c3_i33 < 6; c3_i33++) {
     c3_f_hoistedGlobal[c3_i33] = chartInstance->c3_eta_k_1[c3_i33];
@@ -1682,28 +1656,28 @@ static void c3_chartstep_c3_vC_3ph_MR2(SFc3_vC_3ph_MR2InstanceStruct
 
   _SFD_EML_CALL(0U, chartInstance->c3_sfEvent, 230U);
   c3_k_hoistedGlobal = chartInstance->c3_i2m_k_1;
-  c3_g_b = c3_k_hoistedGlobal;
-  c3_g_y = 0.4 * c3_g_b;
+  c3_c_b = c3_k_hoistedGlobal;
+  c3_c_y = 0.4 * c3_c_b;
   c3_l_hoistedGlobal = chartInstance->c3_i2m_k_2;
-  c3_h_b = c3_l_hoistedGlobal;
-  c3_h_y = 0.040000000000000008 * c3_h_b;
+  c3_d_b = c3_l_hoistedGlobal;
+  c3_d_y = 0.040000000000000008 * c3_d_b;
   c3_m_hoistedGlobal = chartInstance->c3_i2ref_k_2;
-  c3_i_b = c3_m_hoistedGlobal;
-  c3_i_y = 0.64000000000000012 * c3_i_b;
-  c3_i2m_k = (c3_g_y - c3_h_y) + c3_i_y;
+  c3_e_b = c3_m_hoistedGlobal;
+  c3_e_y = 0.64000000000000012 * c3_e_b;
+  c3_i2m_k = (c3_c_y - c3_d_y) + c3_e_y;
   _SFD_EML_CALL(0U, chartInstance->c3_sfEvent, 232U);
   c3_e1_k = c3_i2_k - c3_i2m_k;
   _SFD_EML_CALL(0U, chartInstance->c3_sfEvent, 234U);
   c3_n_hoistedGlobal = chartInstance->c3_v_k_1;
-  c3_j_b = c3_n_hoistedGlobal;
-  c3_j_y = 0.4 * c3_j_b;
+  c3_f_b = c3_n_hoistedGlobal;
+  c3_f_y = 0.4 * c3_f_b;
   c3_o_hoistedGlobal = chartInstance->c3_v_k_2;
-  c3_k_b = c3_o_hoistedGlobal;
-  c3_k_y = 0.040000000000000008 * c3_k_b;
+  c3_g_b = c3_o_hoistedGlobal;
+  c3_g_y = 0.040000000000000008 * c3_g_b;
   c3_p_hoistedGlobal = chartInstance->c3_u_k_2;
-  c3_l_b = c3_p_hoistedGlobal;
-  c3_l_y = 0.64000000000000012 * c3_l_b;
-  c3_v_k = (c3_j_y - c3_k_y) + c3_l_y;
+  c3_h_b = c3_p_hoistedGlobal;
+  c3_h_y = 0.64000000000000012 * c3_h_b;
+  c3_v_k = (c3_f_y - c3_g_y) + c3_h_y;
   _SFD_EML_CALL(0U, chartInstance->c3_sfEvent, 236U);
   for (c3_i40 = 0; c3_i40 < 6; c3_i40++) {
     c3_f_hoistedGlobal[c3_i40] = chartInstance->c3_theta_k[c3_i40];
@@ -1734,9 +1708,9 @@ static void c3_chartstep_c3_vC_3ph_MR2(SFc3_vC_3ph_MR2InstanceStruct
   _SFD_EML_CALL(0U, chartInstance->c3_sfEvent, 240U);
   c3_q_hoistedGlobal = chartInstance->c3_rho_k;
   c3_b_a = c3_q_hoistedGlobal;
-  c3_m_b = c3_e2_k;
-  c3_m_y = c3_b_a * c3_m_b;
-  c3_ea_k = c3_e1_k + c3_m_y;
+  c3_i_b = c3_e2_k;
+  c3_i_y = c3_b_a * c3_i_b;
+  c3_ea_k = c3_e1_k + c3_i_y;
   _SFD_EML_CALL(0U, chartInstance->c3_sfEvent, 242U);
   for (c3_i43 = 0; c3_i43 < 6; c3_i43++) {
     c3_eta2_k[c3_i43] = c3_eta_k[c3_i43];
@@ -1763,17 +1737,17 @@ static void c3_chartstep_c3_vC_3ph_MR2(SFc3_vC_3ph_MR2InstanceStruct
 
     c3_b_eml_scalar_eg(chartInstance);
     c3_b_eml_scalar_eg(chartInstance);
-    c3_n_y = 0.0;
+    c3_j_y = 0.0;
     c3_eml_int_forloop_overflow_check(chartInstance);
     for (c3_e_k = 1; c3_e_k < 7; c3_e_k++) {
       c3_f_k = c3_e_k;
-      c3_n_y += c3_a[_SFD_EML_ARRAY_BOUNDS_CHECK("", (int32_T)_SFD_INTEGER_CHECK
+      c3_j_y += c3_a[_SFD_EML_ARRAY_BOUNDS_CHECK("", (int32_T)_SFD_INTEGER_CHECK
         ("", (real_T)c3_f_k), 1, 6, 1, 0) - 1] *
         c3_j_hoistedGlobal[_SFD_EML_ARRAY_BOUNDS_CHECK("", (int32_T)
         _SFD_INTEGER_CHECK("", (real_T)c3_f_k), 1, 6, 1, 0) - 1];
     }
 
-    c3_m2_k = (c3_n_y + c3_mpower(chartInstance, c3_e2_k)) +
+    c3_m2_k = (c3_j_y + c3_mpower(chartInstance, c3_e2_k)) +
       chartInstance->c3_m2;
   } else {
     _SFD_EML_CALL(0U, chartInstance->c3_sfEvent, 251U);
@@ -1791,17 +1765,17 @@ static void c3_chartstep_c3_vC_3ph_MR2(SFc3_vC_3ph_MR2InstanceStruct
 
     c3_b_eml_scalar_eg(chartInstance);
     c3_b_eml_scalar_eg(chartInstance);
-    c3_o_y = 0.0;
+    c3_k_y = 0.0;
     c3_eml_int_forloop_overflow_check(chartInstance);
     for (c3_g_k = 1; c3_g_k < 7; c3_g_k++) {
       c3_h_k = c3_g_k;
-      c3_o_y += c3_a[_SFD_EML_ARRAY_BOUNDS_CHECK("", (int32_T)_SFD_INTEGER_CHECK
+      c3_k_y += c3_a[_SFD_EML_ARRAY_BOUNDS_CHECK("", (int32_T)_SFD_INTEGER_CHECK
         ("", (real_T)c3_h_k), 1, 6, 1, 0) - 1] *
         c3_j_hoistedGlobal[_SFD_EML_ARRAY_BOUNDS_CHECK("", (int32_T)
         _SFD_INTEGER_CHECK("", (real_T)c3_h_k), 1, 6, 1, 0) - 1];
     }
 
-    c3_m2_k = (c3_o_y + c3_mpower(chartInstance, c3_e2_k)) +
+    c3_m2_k = (c3_k_y + c3_mpower(chartInstance, c3_e2_k)) +
       chartInstance->c3_m2;
   }
 
@@ -1839,7 +1813,7 @@ static void c3_chartstep_c3_vC_3ph_MR2(SFc3_vC_3ph_MR2InstanceStruct
   c3_i57 = 0;
   for (c3_i58 = 0; c3_i58 < 6; c3_i58++) {
     for (c3_i59 = 0; c3_i59 < 6; c3_i59++) {
-      c3_p_y[c3_i59 + c3_i57] = c3_g_hoistedGlobal[c3_i59] * c3_a[c3_i58];
+      c3_l_y[c3_i59 + c3_i57] = c3_g_hoistedGlobal[c3_i59] * c3_a[c3_i58];
     }
 
     c3_i57 += 6;
@@ -1854,10 +1828,10 @@ static void c3_chartstep_c3_vC_3ph_MR2(SFc3_vC_3ph_MR2InstanceStruct
   for (c3_i61 = 0; c3_i61 < 6; c3_i61++) {
     c3_i62 = 0;
     for (c3_i63 = 0; c3_i63 < 6; c3_i63++) {
-      c3_q_y[c3_i62 + c3_i61] = 0.0;
+      c3_m_y[c3_i62 + c3_i61] = 0.0;
       c3_i64 = 0;
       for (c3_i65 = 0; c3_i65 < 6; c3_i65++) {
-        c3_q_y[c3_i62 + c3_i61] += c3_p_y[c3_i64 + c3_i61] *
+        c3_m_y[c3_i62 + c3_i61] += c3_l_y[c3_i64 + c3_i61] *
           c3_s_hoistedGlobal[c3_i65 + c3_i62];
         c3_i64 += 6;
       }
@@ -1867,45 +1841,45 @@ static void c3_chartstep_c3_vC_3ph_MR2(SFc3_vC_3ph_MR2InstanceStruct
   }
 
   c3_B = c3_m2_k;
-  c3_r_y = c3_B;
-  c3_s_y = c3_r_y;
+  c3_n_y = c3_B;
+  c3_o_y = c3_n_y;
   for (c3_i66 = 0; c3_i66 < 36; c3_i66++) {
-    c3_q_y[c3_i66] /= c3_s_y;
+    c3_m_y[c3_i66] /= c3_o_y;
   }
 
   for (c3_i67 = 0; c3_i67 < 36; c3_i67++) {
-    chartInstance->c3_P[c3_i67] = c3_r_hoistedGlobal[c3_i67] - c3_q_y[c3_i67];
+    chartInstance->c3_P[c3_i67] = c3_r_hoistedGlobal[c3_i67] - c3_m_y[c3_i67];
   }
 
   _SFD_EML_CALL(0U, chartInstance->c3_sfEvent, 257);
   c3_t_hoistedGlobal = chartInstance->c3_gama2;
   c3_u_hoistedGlobal = chartInstance->c3_gama2;
   c3_c_a = c3_mpower(chartInstance, c3_u_hoistedGlobal);
-  c3_n_b = c3_mpower(chartInstance, c3_e2_k);
-  c3_t_y = c3_c_a * c3_n_b;
-  c3_A = c3_t_y;
+  c3_j_b = c3_mpower(chartInstance, c3_e2_k);
+  c3_p_y = c3_c_a * c3_j_b;
+  c3_A = c3_p_y;
   c3_b_B = c3_mpower(chartInstance, c3_m2_k);
-  c3_e_x = c3_A;
-  c3_u_y = c3_b_B;
-  c3_f_x = c3_e_x;
-  c3_v_y = c3_u_y;
-  c3_w_y = c3_f_x / c3_v_y;
-  chartInstance->c3_gama2 = c3_t_hoistedGlobal - c3_w_y;
+  c3_x = c3_A;
+  c3_q_y = c3_b_B;
+  c3_b_x = c3_x;
+  c3_r_y = c3_q_y;
+  c3_s_y = c3_b_x / c3_r_y;
+  chartInstance->c3_gama2 = c3_t_hoistedGlobal - c3_s_y;
   _SFD_EML_CALL(0U, chartInstance->c3_sfEvent, 265);
   for (c3_i68 = 0; c3_i68 < 6; c3_i68++) {
     c3_f_hoistedGlobal[c3_i68] = chartInstance->c3_theta_k[c3_i68];
   }
 
-  c3_o_b = c3_ea_k;
-  c3_x_y = 0.0098 * c3_o_b;
-  c3_b_A = c3_x_y;
+  c3_k_b = c3_ea_k;
+  c3_t_y = 0.0098 * c3_k_b;
+  c3_b_A = c3_t_y;
   c3_c_B = c3_m2_k;
-  c3_g_x = c3_b_A;
-  c3_y_y = c3_c_B;
-  c3_h_x = c3_g_x;
-  c3_ab_y = c3_y_y;
-  c3_bb_y = c3_h_x / c3_ab_y;
-  c3_d_a = c3_bb_y;
+  c3_c_x = c3_b_A;
+  c3_u_y = c3_c_B;
+  c3_d_x = c3_c_x;
+  c3_v_y = c3_u_y;
+  c3_w_y = c3_d_x / c3_v_y;
+  c3_d_a = c3_w_y;
   for (c3_i69 = 0; c3_i69 < 6; c3_i69++) {
     c3_j_hoistedGlobal[c3_i69] = c3_eta_k[c3_i69];
   }
@@ -1926,33 +1900,33 @@ static void c3_chartstep_c3_vC_3ph_MR2(SFc3_vC_3ph_MR2InstanceStruct
 
   _SFD_EML_CALL(0U, chartInstance->c3_sfEvent, 270);
   c3_v_hoistedGlobal = chartInstance->c3_rho_k;
-  c3_p_b = c3_ea_k;
-  c3_cb_y = 0.99 * c3_p_b;
-  c3_e_a = c3_cb_y;
-  c3_q_b = c3_e2_k;
-  c3_db_y = c3_e_a * c3_q_b;
-  c3_c_A = c3_db_y;
+  c3_l_b = c3_ea_k;
+  c3_x_y = 0.99 * c3_l_b;
+  c3_e_a = c3_x_y;
+  c3_m_b = c3_e2_k;
+  c3_y_y = c3_e_a * c3_m_b;
+  c3_c_A = c3_y_y;
   c3_d_B = c3_m2_k;
-  c3_i_x = c3_c_A;
-  c3_eb_y = c3_d_B;
-  c3_j_x = c3_i_x;
-  c3_fb_y = c3_eb_y;
-  c3_gb_y = c3_j_x / c3_fb_y;
-  chartInstance->c3_rho_k = c3_v_hoistedGlobal - c3_gb_y;
+  c3_e_x = c3_c_A;
+  c3_ab_y = c3_d_B;
+  c3_f_x = c3_e_x;
+  c3_bb_y = c3_ab_y;
+  c3_cb_y = c3_f_x / c3_bb_y;
+  chartInstance->c3_rho_k = c3_v_hoistedGlobal - c3_cb_y;
   _SFD_EML_CALL(0U, chartInstance->c3_sfEvent, 272);
   if (CV_EML_IF(0, 1, 25, c3_flag == 1.0)) {
     _SFD_EML_CALL(0U, chartInstance->c3_sfEvent, 274);
     c3_w_hoistedGlobal = chartInstance->c3_m2;
-    c3_r_b = c3_w_hoistedGlobal - 1.0;
-    c3_hb_y = 0.8 * c3_r_b;
-    chartInstance->c3_m2 = ((c3_hb_y + c3_abs(chartInstance, c3_u_k)) + c3_abs
+    c3_n_b = c3_w_hoistedGlobal - 1.0;
+    c3_db_y = 0.8 * c3_n_b;
+    chartInstance->c3_m2 = ((c3_db_y + c3_abs(chartInstance, c3_u_k)) + c3_abs
       (chartInstance, c3_i2_k)) + 1.0;
   } else {
     _SFD_EML_CALL(0U, chartInstance->c3_sfEvent, 277);
     c3_x_hoistedGlobal = chartInstance->c3_m2;
-    c3_s_b = c3_x_hoistedGlobal - 1.0;
-    c3_ib_y = 0.8 * c3_s_b;
-    chartInstance->c3_m2 = ((c3_ib_y + c3_abs(chartInstance, c3_u_k)) + c3_abs
+    c3_o_b = c3_x_hoistedGlobal - 1.0;
+    c3_eb_y = 0.8 * c3_o_b;
+    chartInstance->c3_m2 = ((c3_eb_y + c3_abs(chartInstance, c3_u_k)) + c3_abs
       (chartInstance, c3_i2_k)) + 1.0;
   }
 
@@ -1976,21 +1950,21 @@ static void c3_chartstep_c3_vC_3ph_MR2(SFc3_vC_3ph_MR2InstanceStruct
     c3_f_hoistedGlobal[c3_i76] = chartInstance->c3_omega_k[c3_i76];
   }
 
-  c3_t_b = c3_f_hoistedGlobal[0];
-  c3_jb_y = 0.0 * c3_t_b;
-  c3_u_b = c3_u_k;
-  c3_kb_y = c3_u_b;
-  chartInstance->c3_omega_k[0] = c3_jb_y + c3_kb_y;
+  c3_p_b = c3_f_hoistedGlobal[0];
+  c3_fb_y = 0.0 * c3_p_b;
+  c3_q_b = c3_u_k;
+  c3_gb_y = c3_q_b;
+  chartInstance->c3_omega_k[0] = c3_fb_y + c3_gb_y;
   _SFD_EML_CALL(0U, chartInstance->c3_sfEvent, 285);
   for (c3_i77 = 0; c3_i77 < 6; c3_i77++) {
     c3_f_hoistedGlobal[c3_i77] = chartInstance->c3_omega_k[c3_i77];
   }
 
-  c3_v_b = c3_f_hoistedGlobal[1];
-  c3_lb_y = 0.0 * c3_v_b;
-  c3_w_b = c3_i2_k;
-  c3_mb_y = c3_w_b;
-  chartInstance->c3_omega_k[1] = c3_lb_y + c3_mb_y;
+  c3_r_b = c3_f_hoistedGlobal[1];
+  c3_hb_y = 0.0 * c3_r_b;
+  c3_s_b = c3_i2_k;
+  c3_ib_y = c3_s_b;
+  chartInstance->c3_omega_k[1] = c3_hb_y + c3_ib_y;
   _SFD_EML_CALL(0U, chartInstance->c3_sfEvent, 287);
   for (c3_i78 = 0; c3_i78 < 6; c3_i78++) {
     chartInstance->c3_eta_k_3[c3_i78] = chartInstance->c3_eta_k_2[c3_i78];
@@ -4011,15 +3985,15 @@ static void c3_ab_sf_marshallIn(void *chartInstanceVoid, const mxArray
 const mxArray *sf_c3_vC_3ph_MR2_get_eml_resolved_functions_info(void)
 {
   const mxArray *c3_nameCaptureInfo;
-  c3_ResolvedFunctionInfo c3_info[56];
+  c3_ResolvedFunctionInfo c3_info[52];
   const mxArray *c3_m0 = NULL;
   int32_T c3_i128;
   c3_ResolvedFunctionInfo *c3_r0;
   c3_nameCaptureInfo = NULL;
   c3_nameCaptureInfo = NULL;
   c3_info_helper(c3_info);
-  sf_mex_assign(&c3_m0, sf_mex_createstruct("nameCaptureInfo", 1, 56), FALSE);
-  for (c3_i128 = 0; c3_i128 < 56; c3_i128++) {
+  sf_mex_assign(&c3_m0, sf_mex_createstruct("nameCaptureInfo", 1, 52), FALSE);
+  for (c3_i128 = 0; c3_i128 < 52; c3_i128++) {
     c3_r0 = &c3_info[c3_i128];
     sf_mex_addfield(c3_m0, sf_mex_create("nameCaptureInfo", c3_r0->context, 15,
       0U, 0U, 0U, 2, 1, strlen(c3_r0->context)), "context", "nameCaptureInfo",
@@ -4047,7 +4021,7 @@ const mxArray *sf_c3_vC_3ph_MR2_get_eml_resolved_functions_info(void)
   return c3_nameCaptureInfo;
 }
 
-static void c3_info_helper(c3_ResolvedFunctionInfo c3_info[56])
+static void c3_info_helper(c3_ResolvedFunctionInfo c3_info[52])
 {
   c3_info[0].context = "";
   c3_info[0].name = "mtimes";
@@ -4275,136 +4249,138 @@ static void c3_info_helper(c3_ResolvedFunctionInfo c3_info[56])
   c3_info[22].fileTimeHi = 0U;
   c3_info[22].mFileTimeLo = 0U;
   c3_info[22].mFileTimeHi = 0U;
-  c3_info[23].context = "";
-  c3_info[23].name = "sin";
-  c3_info[23].dominantType = "double";
+  c3_info[23].context =
+    "[ILXE]C:/Program Files/MATLAB/R2012a/toolbox/eml/lib/matlab/ops/mtimes.m";
+  c3_info[23].name = "eml_index_class";
+  c3_info[23].dominantType = "";
   c3_info[23].resolved =
-    "[ILXE]C:/Program Files/MATLAB/R2012a/toolbox/eml/lib/matlab/elfun/sin.m";
-  c3_info[23].fileTimeLo = 1286825950U;
+    "[ILXE]C:/Program Files/MATLAB/R2012a/toolbox/eml/lib/matlab/eml/eml_index_class.m";
+  c3_info[23].fileTimeLo = 1286825978U;
   c3_info[23].fileTimeHi = 0U;
   c3_info[23].mFileTimeLo = 0U;
   c3_info[23].mFileTimeHi = 0U;
   c3_info[24].context =
-    "[ILXE]C:/Program Files/MATLAB/R2012a/toolbox/eml/lib/matlab/elfun/sin.m";
-  c3_info[24].name = "eml_scalar_sin";
+    "[ILXE]C:/Program Files/MATLAB/R2012a/toolbox/eml/lib/matlab/ops/mtimes.m";
+  c3_info[24].name = "eml_scalar_eg";
   c3_info[24].dominantType = "double";
   c3_info[24].resolved =
-    "[ILXE]C:/Program Files/MATLAB/R2012a/toolbox/eml/lib/matlab/elfun/eml_scalar_sin.m";
-  c3_info[24].fileTimeLo = 1286825936U;
+    "[ILXE]C:/Program Files/MATLAB/R2012a/toolbox/eml/lib/matlab/eml/eml_scalar_eg.m";
+  c3_info[24].fileTimeLo = 1286825996U;
   c3_info[24].fileTimeHi = 0U;
   c3_info[24].mFileTimeLo = 0U;
   c3_info[24].mFileTimeHi = 0U;
-  c3_info[25].context = "";
-  c3_info[25].name = "cos";
-  c3_info[25].dominantType = "double";
+  c3_info[25].context =
+    "[ILXE]C:/Program Files/MATLAB/R2012a/toolbox/eml/lib/matlab/ops/mtimes.m";
+  c3_info[25].name = "eml_xdotu";
+  c3_info[25].dominantType = "int32";
   c3_info[25].resolved =
-    "[ILXE]C:/Program Files/MATLAB/R2012a/toolbox/eml/lib/matlab/elfun/cos.m";
-  c3_info[25].fileTimeLo = 1286825906U;
+    "[ILXE]C:/Program Files/MATLAB/R2012a/toolbox/eml/lib/matlab/eml/blas/eml_xdotu.m";
+  c3_info[25].fileTimeLo = 1299080372U;
   c3_info[25].fileTimeHi = 0U;
   c3_info[25].mFileTimeLo = 0U;
   c3_info[25].mFileTimeHi = 0U;
   c3_info[26].context =
-    "[ILXE]C:/Program Files/MATLAB/R2012a/toolbox/eml/lib/matlab/elfun/cos.m";
-  c3_info[26].name = "eml_scalar_cos";
-  c3_info[26].dominantType = "double";
+    "[ILXE]C:/Program Files/MATLAB/R2012a/toolbox/eml/lib/matlab/eml/blas/eml_xdotu.m";
+  c3_info[26].name = "eml_blas_inline";
+  c3_info[26].dominantType = "";
   c3_info[26].resolved =
-    "[ILXE]C:/Program Files/MATLAB/R2012a/toolbox/eml/lib/matlab/elfun/eml_scalar_cos.m";
-  c3_info[26].fileTimeLo = 1286825922U;
+    "[ILXE]C:/Program Files/MATLAB/R2012a/toolbox/eml/lib/matlab/eml/blas/eml_blas_inline.m";
+  c3_info[26].fileTimeLo = 1299080368U;
   c3_info[26].fileTimeHi = 0U;
   c3_info[26].mFileTimeLo = 0U;
   c3_info[26].mFileTimeHi = 0U;
   c3_info[27].context =
-    "[ILXE]C:/Program Files/MATLAB/R2012a/toolbox/eml/lib/matlab/ops/mtimes.m";
-  c3_info[27].name = "eml_index_class";
-  c3_info[27].dominantType = "";
+    "[ILXE]C:/Program Files/MATLAB/R2012a/toolbox/eml/lib/matlab/eml/blas/eml_xdotu.m";
+  c3_info[27].name = "eml_xdot";
+  c3_info[27].dominantType = "int32";
   c3_info[27].resolved =
-    "[ILXE]C:/Program Files/MATLAB/R2012a/toolbox/eml/lib/matlab/eml/eml_index_class.m";
-  c3_info[27].fileTimeLo = 1286825978U;
+    "[ILXE]C:/Program Files/MATLAB/R2012a/toolbox/eml/lib/matlab/eml/blas/eml_xdot.m";
+  c3_info[27].fileTimeLo = 1299080372U;
   c3_info[27].fileTimeHi = 0U;
   c3_info[27].mFileTimeLo = 0U;
   c3_info[27].mFileTimeHi = 0U;
   c3_info[28].context =
-    "[ILXE]C:/Program Files/MATLAB/R2012a/toolbox/eml/lib/matlab/ops/mtimes.m";
-  c3_info[28].name = "eml_scalar_eg";
-  c3_info[28].dominantType = "double";
+    "[ILXE]C:/Program Files/MATLAB/R2012a/toolbox/eml/lib/matlab/eml/blas/eml_xdot.m";
+  c3_info[28].name = "eml_blas_inline";
+  c3_info[28].dominantType = "";
   c3_info[28].resolved =
-    "[ILXE]C:/Program Files/MATLAB/R2012a/toolbox/eml/lib/matlab/eml/eml_scalar_eg.m";
-  c3_info[28].fileTimeLo = 1286825996U;
+    "[ILXE]C:/Program Files/MATLAB/R2012a/toolbox/eml/lib/matlab/eml/blas/eml_blas_inline.m";
+  c3_info[28].fileTimeLo = 1299080368U;
   c3_info[28].fileTimeHi = 0U;
   c3_info[28].mFileTimeLo = 0U;
   c3_info[28].mFileTimeHi = 0U;
   c3_info[29].context =
-    "[ILXE]C:/Program Files/MATLAB/R2012a/toolbox/eml/lib/matlab/ops/mtimes.m";
-  c3_info[29].name = "eml_xdotu";
+    "[ILXE]C:/Program Files/MATLAB/R2012a/toolbox/eml/lib/matlab/eml/blas/external/eml_blas_xdot.m";
+  c3_info[29].name = "eml_refblas_xdot";
   c3_info[29].dominantType = "int32";
   c3_info[29].resolved =
-    "[ILXE]C:/Program Files/MATLAB/R2012a/toolbox/eml/lib/matlab/eml/blas/eml_xdotu.m";
+    "[ILXE]C:/Program Files/MATLAB/R2012a/toolbox/eml/lib/matlab/eml/blas/refblas/eml_refblas_xdot.m";
   c3_info[29].fileTimeLo = 1299080372U;
   c3_info[29].fileTimeHi = 0U;
   c3_info[29].mFileTimeLo = 0U;
   c3_info[29].mFileTimeHi = 0U;
   c3_info[30].context =
-    "[ILXE]C:/Program Files/MATLAB/R2012a/toolbox/eml/lib/matlab/eml/blas/eml_xdotu.m";
-  c3_info[30].name = "eml_blas_inline";
-  c3_info[30].dominantType = "";
+    "[ILXE]C:/Program Files/MATLAB/R2012a/toolbox/eml/lib/matlab/eml/blas/refblas/eml_refblas_xdot.m";
+  c3_info[30].name = "eml_refblas_xdotx";
+  c3_info[30].dominantType = "int32";
   c3_info[30].resolved =
-    "[ILXE]C:/Program Files/MATLAB/R2012a/toolbox/eml/lib/matlab/eml/blas/eml_blas_inline.m";
-  c3_info[30].fileTimeLo = 1299080368U;
+    "[ILXE]C:/Program Files/MATLAB/R2012a/toolbox/eml/lib/matlab/eml/blas/refblas/eml_refblas_xdotx.m";
+  c3_info[30].fileTimeLo = 1299080374U;
   c3_info[30].fileTimeHi = 0U;
   c3_info[30].mFileTimeLo = 0U;
   c3_info[30].mFileTimeHi = 0U;
   c3_info[31].context =
-    "[ILXE]C:/Program Files/MATLAB/R2012a/toolbox/eml/lib/matlab/eml/blas/eml_xdotu.m";
-  c3_info[31].name = "eml_xdot";
-  c3_info[31].dominantType = "int32";
+    "[ILXE]C:/Program Files/MATLAB/R2012a/toolbox/eml/lib/matlab/eml/blas/refblas/eml_refblas_xdotx.m";
+  c3_info[31].name = "eml_scalar_eg";
+  c3_info[31].dominantType = "double";
   c3_info[31].resolved =
-    "[ILXE]C:/Program Files/MATLAB/R2012a/toolbox/eml/lib/matlab/eml/blas/eml_xdot.m";
-  c3_info[31].fileTimeLo = 1299080372U;
+    "[ILXE]C:/Program Files/MATLAB/R2012a/toolbox/eml/lib/matlab/eml/eml_scalar_eg.m";
+  c3_info[31].fileTimeLo = 1286825996U;
   c3_info[31].fileTimeHi = 0U;
   c3_info[31].mFileTimeLo = 0U;
   c3_info[31].mFileTimeHi = 0U;
   c3_info[32].context =
-    "[ILXE]C:/Program Files/MATLAB/R2012a/toolbox/eml/lib/matlab/eml/blas/eml_xdot.m";
-  c3_info[32].name = "eml_blas_inline";
+    "[ILXE]C:/Program Files/MATLAB/R2012a/toolbox/eml/lib/matlab/eml/blas/refblas/eml_refblas_xdotx.m";
+  c3_info[32].name = "eml_index_class";
   c3_info[32].dominantType = "";
   c3_info[32].resolved =
-    "[ILXE]C:/Program Files/MATLAB/R2012a/toolbox/eml/lib/matlab/eml/blas/eml_blas_inline.m";
-  c3_info[32].fileTimeLo = 1299080368U;
+    "[ILXE]C:/Program Files/MATLAB/R2012a/toolbox/eml/lib/matlab/eml/eml_index_class.m";
+  c3_info[32].fileTimeLo = 1286825978U;
   c3_info[32].fileTimeHi = 0U;
   c3_info[32].mFileTimeLo = 0U;
   c3_info[32].mFileTimeHi = 0U;
   c3_info[33].context =
-    "[ILXE]C:/Program Files/MATLAB/R2012a/toolbox/eml/lib/matlab/eml/blas/external/eml_blas_xdot.m";
-  c3_info[33].name = "eml_refblas_xdot";
+    "[ILXE]C:/Program Files/MATLAB/R2012a/toolbox/eml/lib/matlab/eml/blas/refblas/eml_refblas_xdotx.m";
+  c3_info[33].name = "eml_index_minus";
   c3_info[33].dominantType = "int32";
   c3_info[33].resolved =
-    "[ILXE]C:/Program Files/MATLAB/R2012a/toolbox/eml/lib/matlab/eml/blas/refblas/eml_refblas_xdot.m";
-  c3_info[33].fileTimeLo = 1299080372U;
+    "[ILXE]C:/Program Files/MATLAB/R2012a/toolbox/eml/lib/matlab/eml/eml_index_minus.m";
+  c3_info[33].fileTimeLo = 1286825978U;
   c3_info[33].fileTimeHi = 0U;
   c3_info[33].mFileTimeLo = 0U;
   c3_info[33].mFileTimeHi = 0U;
   c3_info[34].context =
-    "[ILXE]C:/Program Files/MATLAB/R2012a/toolbox/eml/lib/matlab/eml/blas/refblas/eml_refblas_xdot.m";
-  c3_info[34].name = "eml_refblas_xdotx";
-  c3_info[34].dominantType = "int32";
+    "[ILXE]C:/Program Files/MATLAB/R2012a/toolbox/eml/lib/matlab/eml/eml_index_minus.m";
+  c3_info[34].name = "eml_index_class";
+  c3_info[34].dominantType = "";
   c3_info[34].resolved =
-    "[ILXE]C:/Program Files/MATLAB/R2012a/toolbox/eml/lib/matlab/eml/blas/refblas/eml_refblas_xdotx.m";
-  c3_info[34].fileTimeLo = 1299080374U;
+    "[ILXE]C:/Program Files/MATLAB/R2012a/toolbox/eml/lib/matlab/eml/eml_index_class.m";
+  c3_info[34].fileTimeLo = 1286825978U;
   c3_info[34].fileTimeHi = 0U;
   c3_info[34].mFileTimeLo = 0U;
   c3_info[34].mFileTimeHi = 0U;
   c3_info[35].context =
     "[ILXE]C:/Program Files/MATLAB/R2012a/toolbox/eml/lib/matlab/eml/blas/refblas/eml_refblas_xdotx.m";
-  c3_info[35].name = "eml_scalar_eg";
-  c3_info[35].dominantType = "double";
+  c3_info[35].name = "eml_index_times";
+  c3_info[35].dominantType = "int32";
   c3_info[35].resolved =
-    "[ILXE]C:/Program Files/MATLAB/R2012a/toolbox/eml/lib/matlab/eml/eml_scalar_eg.m";
-  c3_info[35].fileTimeLo = 1286825996U;
+    "[ILXE]C:/Program Files/MATLAB/R2012a/toolbox/eml/lib/matlab/eml/eml_index_times.m";
+  c3_info[35].fileTimeLo = 1286825980U;
   c3_info[35].fileTimeHi = 0U;
   c3_info[35].mFileTimeLo = 0U;
   c3_info[35].mFileTimeHi = 0U;
   c3_info[36].context =
-    "[ILXE]C:/Program Files/MATLAB/R2012a/toolbox/eml/lib/matlab/eml/blas/refblas/eml_refblas_xdotx.m";
+    "[ILXE]C:/Program Files/MATLAB/R2012a/toolbox/eml/lib/matlab/eml/eml_index_times.m";
   c3_info[36].name = "eml_index_class";
   c3_info[36].dominantType = "";
   c3_info[36].resolved =
@@ -4415,16 +4391,16 @@ static void c3_info_helper(c3_ResolvedFunctionInfo c3_info[56])
   c3_info[36].mFileTimeHi = 0U;
   c3_info[37].context =
     "[ILXE]C:/Program Files/MATLAB/R2012a/toolbox/eml/lib/matlab/eml/blas/refblas/eml_refblas_xdotx.m";
-  c3_info[37].name = "eml_index_minus";
+  c3_info[37].name = "eml_index_plus";
   c3_info[37].dominantType = "int32";
   c3_info[37].resolved =
-    "[ILXE]C:/Program Files/MATLAB/R2012a/toolbox/eml/lib/matlab/eml/eml_index_minus.m";
+    "[ILXE]C:/Program Files/MATLAB/R2012a/toolbox/eml/lib/matlab/eml/eml_index_plus.m";
   c3_info[37].fileTimeLo = 1286825978U;
   c3_info[37].fileTimeHi = 0U;
   c3_info[37].mFileTimeLo = 0U;
   c3_info[37].mFileTimeHi = 0U;
   c3_info[38].context =
-    "[ILXE]C:/Program Files/MATLAB/R2012a/toolbox/eml/lib/matlab/eml/eml_index_minus.m";
+    "[ILXE]C:/Program Files/MATLAB/R2012a/toolbox/eml/lib/matlab/eml/eml_index_plus.m";
   c3_info[38].name = "eml_index_class";
   c3_info[38].dominantType = "";
   c3_info[38].resolved =
@@ -4435,172 +4411,132 @@ static void c3_info_helper(c3_ResolvedFunctionInfo c3_info[56])
   c3_info[38].mFileTimeHi = 0U;
   c3_info[39].context =
     "[ILXE]C:/Program Files/MATLAB/R2012a/toolbox/eml/lib/matlab/eml/blas/refblas/eml_refblas_xdotx.m";
-  c3_info[39].name = "eml_index_times";
-  c3_info[39].dominantType = "int32";
+  c3_info[39].name = "eml_int_forloop_overflow_check";
+  c3_info[39].dominantType = "";
   c3_info[39].resolved =
-    "[ILXE]C:/Program Files/MATLAB/R2012a/toolbox/eml/lib/matlab/eml/eml_index_times.m";
-  c3_info[39].fileTimeLo = 1286825980U;
+    "[ILXE]C:/Program Files/MATLAB/R2012a/toolbox/eml/lib/matlab/eml/eml_int_forloop_overflow_check.m";
+  c3_info[39].fileTimeLo = 1311262516U;
   c3_info[39].fileTimeHi = 0U;
   c3_info[39].mFileTimeLo = 0U;
   c3_info[39].mFileTimeHi = 0U;
-  c3_info[40].context =
-    "[ILXE]C:/Program Files/MATLAB/R2012a/toolbox/eml/lib/matlab/eml/eml_index_times.m";
-  c3_info[40].name = "eml_index_class";
-  c3_info[40].dominantType = "";
+  c3_info[40].context = "";
+  c3_info[40].name = "mpower";
+  c3_info[40].dominantType = "double";
   c3_info[40].resolved =
-    "[ILXE]C:/Program Files/MATLAB/R2012a/toolbox/eml/lib/matlab/eml/eml_index_class.m";
-  c3_info[40].fileTimeLo = 1286825978U;
+    "[ILXE]C:/Program Files/MATLAB/R2012a/toolbox/eml/lib/matlab/ops/mpower.m";
+  c3_info[40].fileTimeLo = 1286826042U;
   c3_info[40].fileTimeHi = 0U;
   c3_info[40].mFileTimeLo = 0U;
   c3_info[40].mFileTimeHi = 0U;
   c3_info[41].context =
-    "[ILXE]C:/Program Files/MATLAB/R2012a/toolbox/eml/lib/matlab/eml/blas/refblas/eml_refblas_xdotx.m";
-  c3_info[41].name = "eml_index_plus";
-  c3_info[41].dominantType = "int32";
+    "[ILXE]C:/Program Files/MATLAB/R2012a/toolbox/eml/lib/matlab/ops/mpower.m";
+  c3_info[41].name = "power";
+  c3_info[41].dominantType = "double";
   c3_info[41].resolved =
-    "[ILXE]C:/Program Files/MATLAB/R2012a/toolbox/eml/lib/matlab/eml/eml_index_plus.m";
-  c3_info[41].fileTimeLo = 1286825978U;
+    "[ILXE]C:/Program Files/MATLAB/R2012a/toolbox/eml/lib/matlab/ops/power.m";
+  c3_info[41].fileTimeLo = 1307658440U;
   c3_info[41].fileTimeHi = 0U;
   c3_info[41].mFileTimeLo = 0U;
   c3_info[41].mFileTimeHi = 0U;
   c3_info[42].context =
-    "[ILXE]C:/Program Files/MATLAB/R2012a/toolbox/eml/lib/matlab/eml/eml_index_plus.m";
-  c3_info[42].name = "eml_index_class";
-  c3_info[42].dominantType = "";
+    "[ILXE]C:/Program Files/MATLAB/R2012a/toolbox/eml/lib/matlab/ops/power.m";
+  c3_info[42].name = "eml_scalar_eg";
+  c3_info[42].dominantType = "double";
   c3_info[42].resolved =
-    "[ILXE]C:/Program Files/MATLAB/R2012a/toolbox/eml/lib/matlab/eml/eml_index_class.m";
-  c3_info[42].fileTimeLo = 1286825978U;
+    "[ILXE]C:/Program Files/MATLAB/R2012a/toolbox/eml/lib/matlab/eml/eml_scalar_eg.m";
+  c3_info[42].fileTimeLo = 1286825996U;
   c3_info[42].fileTimeHi = 0U;
   c3_info[42].mFileTimeLo = 0U;
   c3_info[42].mFileTimeHi = 0U;
   c3_info[43].context =
-    "[ILXE]C:/Program Files/MATLAB/R2012a/toolbox/eml/lib/matlab/eml/blas/refblas/eml_refblas_xdotx.m";
-  c3_info[43].name = "eml_int_forloop_overflow_check";
-  c3_info[43].dominantType = "";
+    "[ILXE]C:/Program Files/MATLAB/R2012a/toolbox/eml/lib/matlab/ops/power.m";
+  c3_info[43].name = "eml_scalexp_alloc";
+  c3_info[43].dominantType = "double";
   c3_info[43].resolved =
-    "[ILXE]C:/Program Files/MATLAB/R2012a/toolbox/eml/lib/matlab/eml/eml_int_forloop_overflow_check.m";
-  c3_info[43].fileTimeLo = 1311262516U;
+    "[ILXE]C:/Program Files/MATLAB/R2012a/toolbox/eml/lib/matlab/eml/eml_scalexp_alloc.m";
+  c3_info[43].fileTimeLo = 1286825996U;
   c3_info[43].fileTimeHi = 0U;
   c3_info[43].mFileTimeLo = 0U;
   c3_info[43].mFileTimeHi = 0U;
-  c3_info[44].context = "";
-  c3_info[44].name = "mpower";
+  c3_info[44].context =
+    "[ILXE]C:/Program Files/MATLAB/R2012a/toolbox/eml/lib/matlab/ops/power.m";
+  c3_info[44].name = "eml_scalar_floor";
   c3_info[44].dominantType = "double";
   c3_info[44].resolved =
-    "[ILXE]C:/Program Files/MATLAB/R2012a/toolbox/eml/lib/matlab/ops/mpower.m";
-  c3_info[44].fileTimeLo = 1286826042U;
+    "[ILXE]C:/Program Files/MATLAB/R2012a/toolbox/eml/lib/matlab/elfun/eml_scalar_floor.m";
+  c3_info[44].fileTimeLo = 1286825926U;
   c3_info[44].fileTimeHi = 0U;
   c3_info[44].mFileTimeLo = 0U;
   c3_info[44].mFileTimeHi = 0U;
   c3_info[45].context =
-    "[ILXE]C:/Program Files/MATLAB/R2012a/toolbox/eml/lib/matlab/ops/mpower.m";
-  c3_info[45].name = "power";
-  c3_info[45].dominantType = "double";
+    "[ILXE]C:/Program Files/MATLAB/R2012a/toolbox/eml/lib/matlab/ops/mtimes.m";
+  c3_info[45].name = "eml_xgemm";
+  c3_info[45].dominantType = "int32";
   c3_info[45].resolved =
-    "[ILXE]C:/Program Files/MATLAB/R2012a/toolbox/eml/lib/matlab/ops/power.m";
-  c3_info[45].fileTimeLo = 1307658440U;
+    "[ILXE]C:/Program Files/MATLAB/R2012a/toolbox/eml/lib/matlab/eml/blas/eml_xgemm.m";
+  c3_info[45].fileTimeLo = 1299080372U;
   c3_info[45].fileTimeHi = 0U;
   c3_info[45].mFileTimeLo = 0U;
   c3_info[45].mFileTimeHi = 0U;
   c3_info[46].context =
-    "[ILXE]C:/Program Files/MATLAB/R2012a/toolbox/eml/lib/matlab/ops/power.m";
-  c3_info[46].name = "eml_scalar_eg";
-  c3_info[46].dominantType = "double";
+    "[ILXE]C:/Program Files/MATLAB/R2012a/toolbox/eml/lib/matlab/eml/blas/eml_xgemm.m";
+  c3_info[46].name = "eml_blas_inline";
+  c3_info[46].dominantType = "";
   c3_info[46].resolved =
-    "[ILXE]C:/Program Files/MATLAB/R2012a/toolbox/eml/lib/matlab/eml/eml_scalar_eg.m";
-  c3_info[46].fileTimeLo = 1286825996U;
+    "[ILXE]C:/Program Files/MATLAB/R2012a/toolbox/eml/lib/matlab/eml/blas/eml_blas_inline.m";
+  c3_info[46].fileTimeLo = 1299080368U;
   c3_info[46].fileTimeHi = 0U;
   c3_info[46].mFileTimeLo = 0U;
   c3_info[46].mFileTimeHi = 0U;
   c3_info[47].context =
-    "[ILXE]C:/Program Files/MATLAB/R2012a/toolbox/eml/lib/matlab/ops/power.m";
-  c3_info[47].name = "eml_scalexp_alloc";
+    "[ILXE]C:/Program Files/MATLAB/R2012a/toolbox/eml/lib/matlab/eml/blas/external/eml_blas_xgemm.m!below_threshold";
+  c3_info[47].name = "mtimes";
   c3_info[47].dominantType = "double";
   c3_info[47].resolved =
-    "[ILXE]C:/Program Files/MATLAB/R2012a/toolbox/eml/lib/matlab/eml/eml_scalexp_alloc.m";
-  c3_info[47].fileTimeLo = 1286825996U;
+    "[ILXE]C:/Program Files/MATLAB/R2012a/toolbox/eml/lib/matlab/ops/mtimes.m";
+  c3_info[47].fileTimeLo = 1289523292U;
   c3_info[47].fileTimeHi = 0U;
   c3_info[47].mFileTimeLo = 0U;
   c3_info[47].mFileTimeHi = 0U;
   c3_info[48].context =
-    "[ILXE]C:/Program Files/MATLAB/R2012a/toolbox/eml/lib/matlab/ops/power.m";
-  c3_info[48].name = "eml_scalar_floor";
+    "[ILXE]C:/Program Files/MATLAB/R2012a/toolbox/eml/lib/matlab/eml/blas/external/eml_blas_xgemm.m";
+  c3_info[48].name = "eml_scalar_eg";
   c3_info[48].dominantType = "double";
   c3_info[48].resolved =
-    "[ILXE]C:/Program Files/MATLAB/R2012a/toolbox/eml/lib/matlab/elfun/eml_scalar_floor.m";
-  c3_info[48].fileTimeLo = 1286825926U;
+    "[ILXE]C:/Program Files/MATLAB/R2012a/toolbox/eml/lib/matlab/eml/eml_scalar_eg.m";
+  c3_info[48].fileTimeLo = 1286825996U;
   c3_info[48].fileTimeHi = 0U;
   c3_info[48].mFileTimeLo = 0U;
   c3_info[48].mFileTimeHi = 0U;
   c3_info[49].context =
-    "[ILXE]C:/Program Files/MATLAB/R2012a/toolbox/eml/lib/matlab/ops/mtimes.m";
-  c3_info[49].name = "eml_xgemm";
+    "[ILXE]C:/Program Files/MATLAB/R2012a/toolbox/eml/lib/matlab/eml/blas/external/eml_blas_xgemm.m";
+  c3_info[49].name = "eml_refblas_xgemm";
   c3_info[49].dominantType = "int32";
   c3_info[49].resolved =
-    "[ILXE]C:/Program Files/MATLAB/R2012a/toolbox/eml/lib/matlab/eml/blas/eml_xgemm.m";
-  c3_info[49].fileTimeLo = 1299080372U;
+    "[ILXE]C:/Program Files/MATLAB/R2012a/toolbox/eml/lib/matlab/eml/blas/refblas/eml_refblas_xgemm.m";
+  c3_info[49].fileTimeLo = 1299080374U;
   c3_info[49].fileTimeHi = 0U;
   c3_info[49].mFileTimeLo = 0U;
   c3_info[49].mFileTimeHi = 0U;
-  c3_info[50].context =
-    "[ILXE]C:/Program Files/MATLAB/R2012a/toolbox/eml/lib/matlab/eml/blas/eml_xgemm.m";
-  c3_info[50].name = "eml_blas_inline";
-  c3_info[50].dominantType = "";
+  c3_info[50].context = "";
+  c3_info[50].name = "abs";
+  c3_info[50].dominantType = "double";
   c3_info[50].resolved =
-    "[ILXE]C:/Program Files/MATLAB/R2012a/toolbox/eml/lib/matlab/eml/blas/eml_blas_inline.m";
-  c3_info[50].fileTimeLo = 1299080368U;
+    "[ILXE]C:/Program Files/MATLAB/R2012a/toolbox/eml/lib/matlab/elfun/abs.m";
+  c3_info[50].fileTimeLo = 1286825894U;
   c3_info[50].fileTimeHi = 0U;
   c3_info[50].mFileTimeLo = 0U;
   c3_info[50].mFileTimeHi = 0U;
   c3_info[51].context =
-    "[ILXE]C:/Program Files/MATLAB/R2012a/toolbox/eml/lib/matlab/eml/blas/external/eml_blas_xgemm.m!below_threshold";
-  c3_info[51].name = "mtimes";
+    "[ILXE]C:/Program Files/MATLAB/R2012a/toolbox/eml/lib/matlab/elfun/abs.m";
+  c3_info[51].name = "eml_scalar_abs";
   c3_info[51].dominantType = "double";
   c3_info[51].resolved =
-    "[ILXE]C:/Program Files/MATLAB/R2012a/toolbox/eml/lib/matlab/ops/mtimes.m";
-  c3_info[51].fileTimeLo = 1289523292U;
+    "[ILXE]C:/Program Files/MATLAB/R2012a/toolbox/eml/lib/matlab/elfun/eml_scalar_abs.m";
+  c3_info[51].fileTimeLo = 1286825912U;
   c3_info[51].fileTimeHi = 0U;
   c3_info[51].mFileTimeLo = 0U;
   c3_info[51].mFileTimeHi = 0U;
-  c3_info[52].context =
-    "[ILXE]C:/Program Files/MATLAB/R2012a/toolbox/eml/lib/matlab/eml/blas/external/eml_blas_xgemm.m";
-  c3_info[52].name = "eml_scalar_eg";
-  c3_info[52].dominantType = "double";
-  c3_info[52].resolved =
-    "[ILXE]C:/Program Files/MATLAB/R2012a/toolbox/eml/lib/matlab/eml/eml_scalar_eg.m";
-  c3_info[52].fileTimeLo = 1286825996U;
-  c3_info[52].fileTimeHi = 0U;
-  c3_info[52].mFileTimeLo = 0U;
-  c3_info[52].mFileTimeHi = 0U;
-  c3_info[53].context =
-    "[ILXE]C:/Program Files/MATLAB/R2012a/toolbox/eml/lib/matlab/eml/blas/external/eml_blas_xgemm.m";
-  c3_info[53].name = "eml_refblas_xgemm";
-  c3_info[53].dominantType = "int32";
-  c3_info[53].resolved =
-    "[ILXE]C:/Program Files/MATLAB/R2012a/toolbox/eml/lib/matlab/eml/blas/refblas/eml_refblas_xgemm.m";
-  c3_info[53].fileTimeLo = 1299080374U;
-  c3_info[53].fileTimeHi = 0U;
-  c3_info[53].mFileTimeLo = 0U;
-  c3_info[53].mFileTimeHi = 0U;
-  c3_info[54].context = "";
-  c3_info[54].name = "abs";
-  c3_info[54].dominantType = "double";
-  c3_info[54].resolved =
-    "[ILXE]C:/Program Files/MATLAB/R2012a/toolbox/eml/lib/matlab/elfun/abs.m";
-  c3_info[54].fileTimeLo = 1286825894U;
-  c3_info[54].fileTimeHi = 0U;
-  c3_info[54].mFileTimeLo = 0U;
-  c3_info[54].mFileTimeHi = 0U;
-  c3_info[55].context =
-    "[ILXE]C:/Program Files/MATLAB/R2012a/toolbox/eml/lib/matlab/elfun/abs.m";
-  c3_info[55].name = "eml_scalar_abs";
-  c3_info[55].dominantType = "double";
-  c3_info[55].resolved =
-    "[ILXE]C:/Program Files/MATLAB/R2012a/toolbox/eml/lib/matlab/elfun/eml_scalar_abs.m";
-  c3_info[55].fileTimeLo = 1286825912U;
-  c3_info[55].fileTimeHi = 0U;
-  c3_info[55].mFileTimeLo = 0U;
-  c3_info[55].mFileTimeHi = 0U;
 }
 
 static real_T c3_sqrt(SFc3_vC_3ph_MR2InstanceStruct *chartInstance, real_T c3_x)
@@ -4757,10 +4693,10 @@ static void init_dsm_address_info(SFc3_vC_3ph_MR2InstanceStruct *chartInstance)
 /* SFunction Glue Code */
 void sf_c3_vC_3ph_MR2_get_check_sum(mxArray *plhs[])
 {
-  ((real_T *)mxGetPr((plhs[0])))[0] = (real_T)(2638226334U);
-  ((real_T *)mxGetPr((plhs[0])))[1] = (real_T)(3734700068U);
-  ((real_T *)mxGetPr((plhs[0])))[2] = (real_T)(4277431718U);
-  ((real_T *)mxGetPr((plhs[0])))[3] = (real_T)(3003034602U);
+  ((real_T *)mxGetPr((plhs[0])))[0] = (real_T)(3211062478U);
+  ((real_T *)mxGetPr((plhs[0])))[1] = (real_T)(2857128797U);
+  ((real_T *)mxGetPr((plhs[0])))[2] = (real_T)(1504938587U);
+  ((real_T *)mxGetPr((plhs[0])))[3] = (real_T)(2429946559U);
 }
 
 mxArray *sf_c3_vC_3ph_MR2_get_autoinheritance_info(void)
@@ -4772,7 +4708,7 @@ mxArray *sf_c3_vC_3ph_MR2_get_autoinheritance_info(void)
     autoinheritanceFields);
 
   {
-    mxArray *mxChecksum = mxCreateString("aV2dpD36O7GWkaiCZLO6oB");
+    mxArray *mxChecksum = mxCreateString("gUOO9aMr60NYv3Usa49RVD");
     mxSetField(mxAutoinheritanceInfo,0,"checksum",mxChecksum);
   }
 
@@ -4960,9 +4896,9 @@ static const mxArray *sf_get_sim_state_info_c3_vC_3ph_MR2(void)
 
   mxArray *mxInfo = mxCreateStructMatrix(1, 1, 2, infoFields);
   const char *infoEncStr[] = {
-    "100 S1x10'type','srcId','name','auxInfo'{{M[1],M[16],T\"m\",},{M[1],M[15],T\"theta_beta\",},{M[1],M[5],T\"up_beta\",},{M[4],M[0],T\"P\",S'l','i','p'{{M1x2[3359 3360],M[0],}}},{M[4],M[0],T\"eta_k_1\",S'l','i','p'{{M1x2[2284 2291],M[0],}}},{M[4],M[0],T\"eta_k_2\",S'l','i','p'{{M1x2[2373 2380],M[0],}}},{M[4],M[0],T\"eta_k_3\",S'l','i','p'{{M1x2[2462 2469],M[0],}}},{M[4],M[0],T\"gama2\",S'l','i','p'{{M1x2[4562 4567],M[0],}}},{M[4],M[0],T\"i2m_k_1\",S'l','i','p'{{M1x2[2551 2558],M[0],}}},{M[4],M[0],T\"i2m_k_2\",S'l','i','p'{{M1x2[2611 2618],M[0],}}}}",
-    "100 S1x10'type','srcId','name','auxInfo'{{M[4],M[0],T\"i2m_k_3\",S'l','i','p'{{M1x2[2671 2678],M[0],}}},{M[4],M[0],T\"i2ref_k_1\",S'l','i','p'{{M1x2[2731 2740],M[0],}}},{M[4],M[0],T\"i2ref_k_2\",S'l','i','p'{{M1x2[2797 2806],M[0],}}},{M[4],M[0],T\"i2ref_k_3\",S'l','i','p'{{M1x2[2863 2872],M[0],}}},{M[4],M[0],T\"m2\",S'l','i','p'{{M1x2[3149 3151],M[0],}}},{M[4],M[0],T\"omega_k\",S'l','i','p'{{M1x2[1910 1917],M[0],}}},{M[4],M[0],T\"omega_k_1\",S'l','i','p'{{M1x2[1999 2008],M[0],}}},{M[4],M[0],T\"omega_k_2\",S'l','i','p'{{M1x2[2094 2103],M[0],}}},{M[4],M[0],T\"omega_k_3\",S'l','i','p'{{M1x2[2189 2198],M[0],}}},{M[4],M[0],T\"rho_k\",S'l','i','p'{{M1x2[3091 3096],M[0],}}}}",
-    "100 S1x8'type','srcId','name','auxInfo'{{M[4],M[0],T\"theta_k\",S'l','i','p'{{M1x2[1196 1203],M[0],}}},{M[4],M[0],T\"u_k_1\",S'l','i','p'{{M1x2[3251 3256],M[0],}}},{M[4],M[0],T\"u_k_2\",S'l','i','p'{{M1x2[3305 3310],M[0],}}},{M[4],M[0],T\"v_k_1\",S'l','i','p'{{M1x2[2929 2934],M[0],}}},{M[4],M[0],T\"v_k_2\",S'l','i','p'{{M1x2[2983 2988],M[0],}}},{M[4],M[0],T\"v_k_3\",S'l','i','p'{{M1x2[3037 3042],M[0],}}},{M[4],M[0],T\"vc_k_1\",S'l','i','p'{{M1x2[3194 3200],M[0],}}},{M[8],M[0],T\"is_active_c3_vC_3ph_MR2\",}}"
+    "100 S1x10'type','srcId','name','auxInfo'{{M[1],M[16],T\"m\",},{M[1],M[15],T\"theta_beta\",},{M[1],M[5],T\"up_beta\",},{M[4],M[0],T\"P\",S'l','i','p'{{M1x2[3369 3370],M[0],}}},{M[4],M[0],T\"eta_k_1\",S'l','i','p'{{M1x2[2294 2301],M[0],}}},{M[4],M[0],T\"eta_k_2\",S'l','i','p'{{M1x2[2383 2390],M[0],}}},{M[4],M[0],T\"eta_k_3\",S'l','i','p'{{M1x2[2472 2479],M[0],}}},{M[4],M[0],T\"gama2\",S'l','i','p'{{M1x2[4572 4577],M[0],}}},{M[4],M[0],T\"i2m_k_1\",S'l','i','p'{{M1x2[2561 2568],M[0],}}},{M[4],M[0],T\"i2m_k_2\",S'l','i','p'{{M1x2[2621 2628],M[0],}}}}",
+    "100 S1x10'type','srcId','name','auxInfo'{{M[4],M[0],T\"i2m_k_3\",S'l','i','p'{{M1x2[2681 2688],M[0],}}},{M[4],M[0],T\"i2ref_k_1\",S'l','i','p'{{M1x2[2741 2750],M[0],}}},{M[4],M[0],T\"i2ref_k_2\",S'l','i','p'{{M1x2[2807 2816],M[0],}}},{M[4],M[0],T\"i2ref_k_3\",S'l','i','p'{{M1x2[2873 2882],M[0],}}},{M[4],M[0],T\"m2\",S'l','i','p'{{M1x2[3159 3161],M[0],}}},{M[4],M[0],T\"omega_k\",S'l','i','p'{{M1x2[1920 1927],M[0],}}},{M[4],M[0],T\"omega_k_1\",S'l','i','p'{{M1x2[2009 2018],M[0],}}},{M[4],M[0],T\"omega_k_2\",S'l','i','p'{{M1x2[2104 2113],M[0],}}},{M[4],M[0],T\"omega_k_3\",S'l','i','p'{{M1x2[2199 2208],M[0],}}},{M[4],M[0],T\"rho_k\",S'l','i','p'{{M1x2[3101 3106],M[0],}}}}",
+    "100 S1x8'type','srcId','name','auxInfo'{{M[4],M[0],T\"theta_k\",S'l','i','p'{{M1x2[1196 1203],M[0],}}},{M[4],M[0],T\"u_k_1\",S'l','i','p'{{M1x2[3261 3266],M[0],}}},{M[4],M[0],T\"u_k_2\",S'l','i','p'{{M1x2[3315 3320],M[0],}}},{M[4],M[0],T\"v_k_1\",S'l','i','p'{{M1x2[2939 2944],M[0],}}},{M[4],M[0],T\"v_k_2\",S'l','i','p'{{M1x2[2993 2998],M[0],}}},{M[4],M[0],T\"v_k_3\",S'l','i','p'{{M1x2[3047 3052],M[0],}}},{M[4],M[0],T\"vc_k_1\",S'l','i','p'{{M1x2[3204 3210],M[0],}}},{M[8],M[0],T\"is_active_c3_vC_3ph_MR2\",}}"
   };
 
   mxArray *mxVarInfo = sf_mex_decode_encoded_mx_struct_array(infoEncStr, 28, 10);
@@ -5033,33 +4969,33 @@ static void chart_debug_initialization(SimStruct *S, unsigned int
 
         /* Initialization of MATLAB Function Model Coverage */
         _SFD_CV_INIT_EML(0,1,1,26,0,0,0,0,0,0);
-        _SFD_CV_INIT_EML_FCN(0,0,"eML_blk_kernel",0,-1,6449);
-        _SFD_CV_INIT_EML_IF(0,1,0,1205,1224,-1,1897);
-        _SFD_CV_INIT_EML_IF(0,1,1,1919,1938,-1,1986);
-        _SFD_CV_INIT_EML_IF(0,1,2,2010,2031,-1,2081);
-        _SFD_CV_INIT_EML_IF(0,1,3,2105,2126,-1,2176);
-        _SFD_CV_INIT_EML_IF(0,1,4,2200,2221,-1,2271);
-        _SFD_CV_INIT_EML_IF(0,1,5,2293,2312,-1,2360);
-        _SFD_CV_INIT_EML_IF(0,1,6,2382,2401,-1,2449);
-        _SFD_CV_INIT_EML_IF(0,1,7,2471,2490,-1,2538);
-        _SFD_CV_INIT_EML_IF(0,1,8,2560,2579,-1,2598);
-        _SFD_CV_INIT_EML_IF(0,1,9,2620,2639,-1,2658);
-        _SFD_CV_INIT_EML_IF(0,1,10,2680,2699,-1,2718);
-        _SFD_CV_INIT_EML_IF(0,1,11,2742,2763,-1,2784);
-        _SFD_CV_INIT_EML_IF(0,1,12,2808,2829,-1,2850);
-        _SFD_CV_INIT_EML_IF(0,1,13,2874,2895,-1,2916);
-        _SFD_CV_INIT_EML_IF(0,1,14,2936,2953,-1,2970);
-        _SFD_CV_INIT_EML_IF(0,1,15,2990,3007,-1,3024);
-        _SFD_CV_INIT_EML_IF(0,1,16,3044,3061,-1,3078);
-        _SFD_CV_INIT_EML_IF(0,1,17,3098,3115,-1,3136);
-        _SFD_CV_INIT_EML_IF(0,1,18,3153,3167,-1,3181);
-        _SFD_CV_INIT_EML_IF(0,1,19,3202,3220,-1,3238);
-        _SFD_CV_INIT_EML_IF(0,1,20,3258,3275,-1,3292);
-        _SFD_CV_INIT_EML_IF(0,1,21,3312,3329,-1,3346);
-        _SFD_CV_INIT_EML_IF(0,1,22,3362,3375,-1,4549);
-        _SFD_CV_INIT_EML_IF(0,1,23,4569,4586,-1,4636);
-        _SFD_CV_INIT_EML_IF(0,1,24,5277,5287,5376,5468);
-        _SFD_CV_INIT_EML_IF(0,1,25,5832,5842,5950,6069);
+        _SFD_CV_INIT_EML_FCN(0,0,"eML_blk_kernel",0,-1,6459);
+        _SFD_CV_INIT_EML_IF(0,1,0,1205,1224,-1,1907);
+        _SFD_CV_INIT_EML_IF(0,1,1,1929,1948,-1,1996);
+        _SFD_CV_INIT_EML_IF(0,1,2,2020,2041,-1,2091);
+        _SFD_CV_INIT_EML_IF(0,1,3,2115,2136,-1,2186);
+        _SFD_CV_INIT_EML_IF(0,1,4,2210,2231,-1,2281);
+        _SFD_CV_INIT_EML_IF(0,1,5,2303,2322,-1,2370);
+        _SFD_CV_INIT_EML_IF(0,1,6,2392,2411,-1,2459);
+        _SFD_CV_INIT_EML_IF(0,1,7,2481,2500,-1,2548);
+        _SFD_CV_INIT_EML_IF(0,1,8,2570,2589,-1,2608);
+        _SFD_CV_INIT_EML_IF(0,1,9,2630,2649,-1,2668);
+        _SFD_CV_INIT_EML_IF(0,1,10,2690,2709,-1,2728);
+        _SFD_CV_INIT_EML_IF(0,1,11,2752,2773,-1,2794);
+        _SFD_CV_INIT_EML_IF(0,1,12,2818,2839,-1,2860);
+        _SFD_CV_INIT_EML_IF(0,1,13,2884,2905,-1,2926);
+        _SFD_CV_INIT_EML_IF(0,1,14,2946,2963,-1,2980);
+        _SFD_CV_INIT_EML_IF(0,1,15,3000,3017,-1,3034);
+        _SFD_CV_INIT_EML_IF(0,1,16,3054,3071,-1,3088);
+        _SFD_CV_INIT_EML_IF(0,1,17,3108,3125,-1,3146);
+        _SFD_CV_INIT_EML_IF(0,1,18,3163,3177,-1,3191);
+        _SFD_CV_INIT_EML_IF(0,1,19,3212,3230,-1,3248);
+        _SFD_CV_INIT_EML_IF(0,1,20,3268,3285,-1,3302);
+        _SFD_CV_INIT_EML_IF(0,1,21,3322,3339,-1,3356);
+        _SFD_CV_INIT_EML_IF(0,1,22,3372,3385,-1,4559);
+        _SFD_CV_INIT_EML_IF(0,1,23,4579,4596,-1,4646);
+        _SFD_CV_INIT_EML_IF(0,1,24,5287,5297,5386,5478);
+        _SFD_CV_INIT_EML_IF(0,1,25,5842,5852,5960,6079);
         _SFD_TRANS_COV_WTS(0,0,0,1,0);
         if (chartAlreadyPresent==0) {
           _SFD_TRANS_COV_MAPS(0,
@@ -5130,7 +5066,7 @@ static void chart_debug_initialization(SimStruct *S, unsigned int
 
 static const char* sf_get_instance_specialization()
 {
-  return "0VKE0Y6T0nKqoANTiqu15C";
+  return "sXffp0GnsjagiwRB98JQ5C";
 }
 
 static void sf_opaque_initialize_c3_vC_3ph_MR2(void *chartInstanceVar)
@@ -5288,10 +5224,10 @@ static void mdlSetWorkWidths_c3_vC_3ph_MR2(SimStruct *S)
   }
 
   ssSetOptions(S,ssGetOptions(S)|SS_OPTION_WORKS_WITH_CODE_REUSE);
-  ssSetChecksum0(S,(2802527667U));
-  ssSetChecksum1(S,(665987887U));
-  ssSetChecksum2(S,(1936442399U));
-  ssSetChecksum3(S,(1955877507U));
+  ssSetChecksum0(S,(2278724599U));
+  ssSetChecksum1(S,(777451770U));
+  ssSetChecksum2(S,(474379015U));
+  ssSetChecksum3(S,(2736115010U));
   ssSetmdlDerivatives(S, NULL);
   ssSetExplicitFCSSCtrl(S,1);
 }

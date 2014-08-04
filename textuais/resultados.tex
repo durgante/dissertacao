@@ -59,7 +59,9 @@
   %
   com $p_1 = p_2 = 0,2$.
 
-	A Tabela~\ref{tab:parametros_projeto} resume os demais parâmetros utilizados no projeto. Os valores de inicialização dos parâmetros são baseadas nos valores ideais, ou seja, aqueles que fazem com que os valores dos ganhos adaptativos $\theta$ sejam $\theta^*$ (valores para a condição de casamento). Os valores de inicialização dos ganhos adaptativos, neste caso, são dados por \ref{eq:theta_sim}.
+  \subsection{Resultados para corrente do capacitor como variável intermediária}
+
+	A Tabela~\ref{tab:parametros_projeto} resume os parâmetros utilizados no projeto. Os valores de inicialização são baseadas nos valores ideais, ou seja, aqueles que fazem com que os valores dos ganhos adaptativos $\theta$ sejam $\theta^*$ (valores para a condição de casamento). Os valores de inicialização dos ganhos adaptativos, neste caso, são dados por \ref{eq:theta_sim}.
   %
   \begin{equation}
     \begin{split}
@@ -89,6 +91,9 @@
   \end{table}
 
   As Fig.~\ref{fig:i2_sim_ini}-\ref{fig:thetas_sim_ini} apresentam o comportamento do sistema na inicialização. A Fig.~\ref{fig:i2_sim_ini} apresenta a comparação da corrente da rede $i_2$ com a referência ${i_2}^*$. A Fig.~\ref{fig:up_sim_ini} apresenta o comportamento da ação de controle $up$ durante a inicialização, e a Fig.~\ref{fig:thetas_sim_ini} demonstra o comportamento dos ganhos adaptativos $\theta$ na inicialização.
+
+  %incluir figura mostrando a convergência dos thetas
+  %incluir figura mostrando a parcela do vetor w referente a rejeição do distúrbio de tensão da rede
 
 	\begin{figure}[!htb]
     \centering
@@ -292,8 +297,71 @@
 
   \newpage
 
-  %incluir figura mostrando a convergência dos thetas
-  %incluir figura mostrando a parcela do vetor w referente a rejeição do distúrbio de tensão da rede
+  \subsection{Resultados para tensão do capacitor como variável intermediária}
+
+  No caso em que se usa a tensão do capacitor como variável intermediária, os resultados de simulação obtidos foram para um ensaio de curto-circuito do filtro. Neste caso, como não há o distúrbio da rede para ser compensado, apenas quatro ganhos adaptativos são suficientes para controlar o sistema.
+
+  A Tabela~\ref{tab:parametros_projeto_vc} resume os parâmetros utilizados no projeto. Os valores de inicialização são baseadas nos valores ideais, ou seja, aqueles que fazem com que os valores dos ganhos adaptativos $\theta$ sejam $\theta^*$ (valores para a condição de casamento). Os valores de inicialização dos ganhos adaptativos, neste caso, são dados por \ref{eq:theta_sim_vc}.
+  %
+  \begin{equation}
+    \begin{split}
+      \theta^T & = \left[ \begin{matrix} 0,97, & -1,07, & 2,22, & 16,03 \end{matrix} \right]\text{ e}\\
+      \omega & = {\left[ \begin{matrix} 0 & 0 & 0 & 0 \end{matrix} \right]}^T\text{.}
+    \end{split}
+    \label{eq:theta_sim_vc}
+  \end{equation}
+
+  \begin{table}[htb]
+    \renewcommand{\arraystretch}{1.35}
+    \setlength{\tabcolsep}{1.2mm}
+    \caption{Valores dos parâmetros do sistema utilizados no projeto.}
+    \label{tab:parametros_projeto_vc}
+    \centering
+    \begin{tabular}{l l l l}
+      \hline
+      \multicolumn{1}{c}{Parâmetro} & \multicolumn{1}{c}{Valor} &
+      \multicolumn{1}{c}{Parâmetro} & \multicolumn{1}{c}{Valor} \\
+      \hline
+      $L_1$      & $2$mH    & $L_2$         & $2$mH   \\
+      $C$        & $40\mu$F & $f_s = 1/T_s$ & $12$kHz \\
+      $\gamma_d$ & $0,0098$ & $\gamma$      & $0,99$  \\
+      $\delta_0$ & $0,8$    & $K_P*K_D$     & $3$     \\
+      \hline
+    \end{tabular}
+  \end{table}
+
+  As Fig.~\ref{fig:i2_sim_ini_vc}-\ref{fig:thetas_sim_ini_vc} apresentam o comportamento do sistema na inicialização. A Fig.~\ref{fig:i2_sim_ini_vc} apresenta a comparação da corrente da rede $i_2$ com a referência ${i_2}^*$. A Fig.~\ref{fig:up_sim_ini_vc} apresenta o comportamento da ação de controle $up$ durante a inicialização, e a Fig.~\ref{fig:thetas_sim_ini_vc} demonstra o comportamento dos ganhos adaptativos $\theta$ na inicialização.
+
+  \noindent
+  \begin{minipage}{\textwidth}
+    \makebox[\textwidth]{
+      \centering
+      \def\svgwidth{\textwidth}
+      \input{./img/logo.pdf_tex}}
+    \captionof{figure}{Comportamento da corrente da rede $i_2$ na inicialização do sistema.}
+    \label{fig:i2_sim_ini_vc}
+  \end{minipage}
+
+  \noindent
+  \begin{minipage}{\textwidth}
+    \makebox[\textwidth]{
+      \centering
+      \def\svgwidth{\textwidth}
+      \input{./img/logo.pdf_tex}}
+    \captionof{figure}{Comportamento da ação de controle $u_p$ na inicialização do sistema.}
+    \label{fig:up_sim_ini_vc}
+  \end{minipage}
+
+  \noindent
+  \begin{minipage}{\textwidth}
+    \makebox[\textwidth]{
+      \centering
+      \def\svgwidth{\textwidth}
+      \input{./img/logo.pdf_tex}}
+    \captionof{figure}{Resposta dos ganhos adaptativos $\theta$ na inicialização do sistema.}
+    \label{fig:thetas_sim_ini_vc}
+  \end{minipage}
+
 
 \section{Resultados Experimentais}
 
