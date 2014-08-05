@@ -6,7 +6,7 @@ Model {
     NumRootInports	    0
     NumRootOutports	    0
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.343"
+    ComputedModelVersion    "1.379"
     NumModelReferences	    0
     NumTestPointedSignals   0
   }
@@ -38,9 +38,9 @@ Model {
   ModifiedByFormat	  "%<Auto>"
   LastModifiedBy	  "marcelodurgante"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Mon Aug 04 17:38:37 2014"
-  RTWModifiedTimeStamp	  329050718
-  ModelVersionFormat	  "1.%<AutoIncrement:343>"
+  LastModifiedDate	  "Tue Aug 05 17:43:44 2014"
+  RTWModifiedTimeStamp	  329129731
+  ModelVersionFormat	  "1.%<AutoIncrement:379>"
   ConfigurationManager	  "None"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
@@ -124,7 +124,7 @@ Model {
 	  $ObjectID		  2
 	  Version		  "1.12.0"
 	  StartTime		  "0.0"
-	  StopTime		  "500/60"
+	  StopTime		  "400/60"
 	  AbsTol		  "auto"
 	  FixedStep		  "Ts1"
 	  InitialStep		  "auto"
@@ -1154,7 +1154,7 @@ Model {
   }
   System {
     Name		    "vC_3ph_MR2"
-    Location		    [2, 74, 1598, 862]
+    Location		    [2, 82, 1582, 854]
     Open		    on
     ModelBrowserVisibility  off
     ModelBrowserWidth	    200
@@ -2424,7 +2424,7 @@ Model {
 	  ZOrder		  -50
 	  ShowName		  off
 	  Floating		  off
-	  Location		  [1, 48, 1601, 899]
+	  Location		  [5, 43, 1605, 894]
 	  Open			  off
 	  NumInputPorts		  "1"
 	  ZoomMode		  "yonly"
@@ -2444,7 +2444,7 @@ Model {
 	  }
 	  ShowLegends		  off
 	  YMin			  "0"
-	  YMax			  "2750"
+	  YMax			  "4500"
 	  SaveName		  "ScopeData1"
 	  DataFormat		  "StructureWithTime"
 	  LimitDataPoints	  off
@@ -2478,8 +2478,8 @@ Model {
 	    MarkerStyles	    "none|none|none|none|none|none"
 	  }
 	  ShowLegends		  off
-	  YMin			  "-350"
-	  YMax			  "350"
+	  YMin			  "-800"
+	  YMax			  "800"
 	  SaveName		  "ScopeData2"
 	  DataFormat		  "StructureWithTime"
 	  LimitDataPoints	  off
@@ -2529,7 +2529,7 @@ Model {
 	  Name			  "abc to alpha-beta-zero"
 	  SID			  "52"
 	  Ports			  [3, 3]
-	  Position		  [145, 121, 305, 189]
+	  Position		  [125, 121, 285, 189]
 	  BackgroundColor	  "yellow"
 	  ShowName		  off
 	  LibraryVersion	  "1.32"
@@ -3453,7 +3453,7 @@ Model {
 	Line {
 	  SrcBlock		  "abc to alpha-beta-zero"
 	  SrcPort		  1
-	  Points		  [5, 0; 0, -20]
+	  Points		  [25, 0; 0, -20]
 	  DstBlock		  "Goto8"
 	  DstPort		  1
 	}
@@ -3466,7 +3466,7 @@ Model {
 	Line {
 	  SrcBlock		  "abc to alpha-beta-zero"
 	  SrcPort		  3
-	  Points		  [5, 0; 0, 20]
+	  Points		  [25, 0; 0, 20]
 	  DstBlock		  "Goto10"
 	  DstPort		  1
 	}
@@ -3666,6 +3666,12 @@ Model {
 	}
 	Line {
 	  SrcBlock		  "Controlador Adaptativo 0"
+	  SrcPort		  3
+	  DstBlock		  "Scope4"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "Controlador Adaptativo 0"
 	  SrcPort		  1
 	  Points		  [5, 0]
 	  Branch {
@@ -3677,12 +3683,6 @@ Model {
 	    DstBlock		    "Scope5"
 	    DstPort		    1
 	  }
-	}
-	Line {
-	  SrcBlock		  "Controlador Adaptativo 0"
-	  SrcPort		  3
-	  DstBlock		  "Scope4"
-	  DstPort		  1
 	}
       }
     }
@@ -3702,7 +3702,7 @@ Model {
       MaskHideContents	      off
       System {
 	Name			"Conversor + Filtro"
-	Location		[2, 74, 1598, 862]
+	Location		[2, 82, 1582, 854]
 	Open			on
 	ModelBrowserVisibility	off
 	ModelBrowserWidth	200
@@ -6890,7 +6890,7 @@ Model {
       BlockType		      Goto
       Name		      "Goto10"
       SID		      "251"
-      Position		      [660, 100, 700, 130]
+      Position		      [660, 95, 700, 125]
       BackgroundColor	      "lightBlue"
       ShowName		      off
       GotoTag		      "up_a"
@@ -7118,7 +7118,7 @@ Model {
       MaskHideContents	      off
       System {
 	Name			"Referência"
-	Location		[2, 74, 1581, 879]
+	Location		[2, 82, 1565, 871]
 	Open			on
 	ModelBrowserVisibility	off
 	ModelBrowserWidth	200
@@ -8136,7 +8136,6 @@ Model {
     Line {
       SrcBlock		      "Controlador"
       SrcPort		      1
-      Points		      [0, 5]
       DstBlock		      "Goto10"
       DstPort		      1
     }
@@ -8525,7 +8524,7 @@ Stateflow {
       "0.064251891; -0.4277604154; -0.61214672; -0.46675405; -0.98929343; 1.76426551; 0.17164080; 0.11598547];\n    %th"
       "eta_k=[0;0;0;0;0;0; -0.98929343; 1.76426551; 0.17164080; 0.11598547];\n    %theta_k=[-0.071151848470510; -0.4705"
       "49298500393; -0.993323557655345; 1.762541193804541; 0.118014567931226; 0.108368323169129];\n    %theta_k=[-0.46;"
-      " -0.58; -1.74; 1.73; 0.2; 0.03];\n    theta_k=[0.9704; -1.0084; 2.2842; 16.1277; 0; 0];\nend\n\npersistent omega"
+      " -0.58; -1.74; 1.73; 0.2; 0.03];\n    theta_k=[0.9704; -1.0143; 2.2791; 16.1382; 0; 0];\nend\n\npersistent omega"
       "_k;\nif isempty(omega_k)\n    %COM vg\n    omega_k=[0; 0; 0; 0; 0; 0];\nend\n\npersistent omega_k_1;\nif isempty"
       "(omega_k_1)\n    %COM vg\n    omega_k_1=[0; 0; 0; 0; 0; 0];\nend\n\npersistent omega_k_2;\nif isempty(omega_k_2)"
       "\n    %COM vg\n    omega_k_2=[0; 0; 0; 0; 0; 0];\nend\n\npersistent omega_k_3;\nif isempty(omega_k_3)\n    %COM "
@@ -8557,18 +8556,18 @@ Stateflow {
       "p_alpha= kp_kd*(u_k - vc_k) - kp_kd*(u_k_1 - vc_k_1);\n\neta_k= (p1+p2)*eta_k_1 - p1*p2*eta_k_2 + (1-p1)*(1-p2)*"
       "omega_k_2;\n\ni2m_k= (p1+p2)*i2m_k_1 - p1*p2*i2m_k_2 + (1-p1)*(1-p2)*i2ref_k_2;\n\ne1_k= i2_k - i2m_k;\n\nv_k= ("
       "p1+p2)*v_k_1 - p1*p2*v_k_2 + (1-p1)*(1-p2)*u_k_2;\n\nq_k= theta_k'*eta_k;\n\ne2_k= -v_k+q_k;\n\nea_k= e1_k+rho_k"
-      "*e2_k;\n\neta2_k = eta_k;\neta2_k(5) = 0;\neta2_k(6) = 0;\n\nif flag==1\n    %m2_k= 0.01*eta_k'*eta_k + e2_k^2 +"
-      " m2;\n    m2_k= 0.1*eta2_k'*eta2_k + e2_k^2 + m2;\nelse\n    %m2_k= eta_k'*eta_k + e2_k^2 + m2;\n    m2_k= 0.01*"
-      "eta2_k'*eta2_k + e2_k^2 + m2;\nend\n%m2_k= m2 + (1+eta_k'*P*eta_k) + gama2*e2_k^2;\nm = m2_k;\n\nP= P - (P*eta_k"
-      "*eta_k'*P)/m2_k;\ngama2= gama2 - (gama2^2*e2_k^2)/(m2_k^2);\n\n%Pout=P;\n%gama_out=gama2;\n\n%% Atualização\n\n%"
-      "calcula theta(k+1)\ntheta_k = theta_k - (gamaD*ea_k/m2_k)*eta_k;\n%theta_k = theta_k - (P*ea_k/m2_k)*eta_k;\nthe"
-      "ta_alpha = theta_k;\n\n%calcula rho(k+1)\nrho_k= rho_k - (gama*ea_k*e2_k)/m2_k;\n\nif flag==1\n    %m2 = delta0*"
-      "(m2 - 1) + abs(u_k) + abs(i2_k) + 1;\n    m2 = delta0*(m2 - 1) + abs(u_k) + abs(i2_k) + 1;\nelse\n    %m2 = delt"
-      "a0*(m2 - 1) + abs(u_k)^2 + abs(i2_k)^2 + 1;\n    m2 = delta0*(m2 - 1) + abs(u_k) + abs(i2_k) + 1;\nend\n\nomega_"
-      "k_3=omega_k_2;\nomega_k_2=omega_k_1;\nomega_k_1=omega_k;\n\nomega_k(1)=0*omega_k(1) + 1*u_k;\nomega_k(2)=0*omega"
-      "_k(2) + 1*i2_k;\n\neta_k_3=eta_k_2;\neta_k_2=eta_k_1;\neta_k_1=eta_k;\n\ni2ref_k_3 = i2ref_k_2;\ni2ref_k_2 = i2r"
-      "ef_k_1;\ni2ref_k_1 = i2ref_k;\n\ni2m_k_3=i2m_k_2;\ni2m_k_2=i2m_k_1;\ni2m_k_1=i2m_k;\n\nv_k_3=v_k_2;\nv_k_2=v_k_1"
-      ";\nv_k_1=v_k;\n\nu_k_2=u_k_1;\nu_k_1=u_k;\n\nvc_k_1=vc_k;\n\nend"
+      "*e2_k;\n\neta2_k = eta_k;\n%eta2_k(5) = 0;\n%eta2_k(6) = 0;\n\nif flag==1\n    %m2_k= 0.01*eta_k'*eta_k + e2_k^2"
+      " + m2;\n    m2_k= 0.1*eta2_k'*eta2_k + e2_k^2 + m2;\nelse\n    %m2_k= eta_k'*eta_k + e2_k^2 + m2;\n    m2_k= 0.0"
+      "1*eta2_k'*eta2_k + e2_k^2 + m2;\nend\n%m2_k= m2 + (1+eta_k'*P*eta_k) + gama2*e2_k^2;\nm = m2_k;\n\nP= P - (P*eta"
+      "_k*eta_k'*P)/m2_k;\ngama2= gama2 - (gama2^2*e2_k^2)/(m2_k^2);\n\n%Pout=P;\n%gama_out=gama2;\n\n%% Atualização\n\n"
+      "%calcula theta(k+1)\ntheta_k = theta_k - (gamaD*ea_k/m2_k)*eta_k;\n%theta_k = theta_k - (P*ea_k/m2_k)*eta_k;\nth"
+      "eta_alpha = theta_k;\n\n%calcula rho(k+1)\nrho_k= rho_k - (gama*ea_k*e2_k)/m2_k;\n\nif flag==1\n    %m2 = delta0"
+      "*(m2 - 1) + abs(u_k) + abs(i2_k) + 1;\n    m2 = delta0*(m2 - 1) + abs(u_k) + abs(i2_k) + 1;\nelse\n    %m2 = del"
+      "ta0*(m2 - 1) + abs(u_k)^2 + abs(i2_k)^2 + 1;\n    m2 = delta0*(m2 - 1) + abs(u_k) + abs(i2_k) + 1;\nend\n\nomega"
+      "_k_3=omega_k_2;\nomega_k_2=omega_k_1;\nomega_k_1=omega_k;\n\nomega_k(1)=0*omega_k(1) + 1*u_k;\nomega_k(2)=0*omeg"
+      "a_k(2) + 1*i2_k;\n\neta_k_3=eta_k_2;\neta_k_2=eta_k_1;\neta_k_1=eta_k;\n\ni2ref_k_3 = i2ref_k_2;\ni2ref_k_2 = i2"
+      "ref_k_1;\ni2ref_k_1 = i2ref_k;\n\ni2m_k_3=i2m_k_2;\ni2m_k_2=i2m_k_1;\ni2m_k_1=i2m_k;\n\nv_k_3=v_k_2;\nv_k_2=v_k_"
+      "1;\nv_k_1=v_k;\n\nu_k_2=u_k_1;\nu_k_1=u_k;\n\nvc_k_1=vc_k;\n\nend"
       editorLayout	      "100 M4x1[10 5 700 500]"
     }
   }
@@ -8834,7 +8833,7 @@ Stateflow {
       ".064251891; -0.4277604154; -0.61214672; -0.46675405; -0.98929343; 1.76426551; 0.17164080; 0.11598547];\n    %the"
       "ta_k=[0;0;0;0;0;0; -0.98929343; 1.76426551; 0.17164080; 0.11598547];\n    %theta_k=[-0.071151848470510; -0.47054"
       "9298500393; -0.993323557655345; 1.762541193804541; 0.118014567931226; 0.108368323169129];\n    %theta_k=[-0.46; "
-      "-0.58; -1.74; 1.73; 0.2; 0.03];\n    theta_k=[0.9704; -1.0142; 2.2764; 16.1476; 0; 0];\nend\n\npersistent omega_"
+      "-0.58; -1.74; 1.73; 0.2; 0.03];\n    theta_k=[0.9704; -1.0277; 2.2629; 16.1727; 0; 0];\nend\n\npersistent omega_"
       "k;\nif isempty(omega_k)\n    %COM vg\n    omega_k=[0; 0; 0; 0; 0; 0];\nend\n\npersistent omega_k_1;\nif isempty("
       "omega_k_1)\n    %COM vg\n    omega_k_1=[0; 0; 0; 0; 0; 0];\nend\n\npersistent omega_k_2;\nif isempty(omega_k_2)\n"
       "    %COM vg\n    omega_k_2=[0; 0; 0; 0; 0; 0];\nend\n\npersistent omega_k_3;\nif isempty(omega_k_3)\n    %COM vg"
@@ -8866,18 +8865,18 @@ Stateflow {
       "eta= kp_kd*(u_k - vc_k) - kp_kd*(u_k_1 - vc_k_1);\n\neta_k= (p1+p2)*eta_k_1 - p1*p2*eta_k_2 + (1-p1)*(1-p2)*omeg"
       "a_k_2;\n\ni2m_k= (p1+p2)*i2m_k_1 - p1*p2*i2m_k_2 + (1-p1)*(1-p2)*i2ref_k_2;\n\ne1_k= i2_k - i2m_k;\n\nv_k= (p1+p"
       "2)*v_k_1 - p1*p2*v_k_2 + (1-p1)*(1-p2)*u_k_2;\n\nq_k= theta_k'*eta_k;\n\ne2_k= -v_k+q_k;\n\nea_k= e1_k+rho_k*e2_"
-      "k;\n\neta2_k = eta_k;\neta2_k(5) = 0;\neta2_k(6) = 0;\n\nif flag==1\n    %m2_k= 0.01*eta_k'*eta_k + e2_k^2 + m2;"
-      "\n    m2_k= 0.1*eta2_k'*eta2_k + e2_k^2 + m2;\nelse\n    %m2_k= eta_k'*eta_k + e2_k^2 + m2;\n    m2_k= 0.01*eta2"
-      "_k'*eta2_k + e2_k^2 + m2;\nend\n%m2_k= m2 + (1+eta_k'*P*eta_k) + gama2*e2_k^2;\nm = m2_k;\n\nP= P - (P*eta_k*eta"
-      "_k'*P)/m2_k;\ngama2= gama2 - (gama2^2*e2_k^2)/(m2_k^2);\n\n%Pout=P;\n%gama_out=gama2;\n\n%% Atualização\n\n%calc"
-      "ula theta(k+1)\ntheta_k = theta_k - (gamaD*ea_k/m2_k)*eta_k;\n%theta_k = theta_k - (P*ea_k/m2_k)*eta_k;\ntheta_b"
-      "eta = theta_k;\n\n%calcula rho(k+1)\nrho_k= rho_k - (gama*ea_k*e2_k)/m2_k;\n\nif flag==1\n    %m2 = delta0*(m2 -"
-      " 1) + abs(u_k) + abs(i2_k) + 1;\n    m2 = delta0*(m2 - 1) + abs(u_k) + abs(i2_k) + 1;\nelse\n    %m2 = delta0*(m"
-      "2 - 1) + abs(u_k)^2 + abs(i2_k)^2 + 1;\n    m2 = delta0*(m2 - 1) + abs(u_k) + abs(i2_k) + 1;\nend\n\nomega_k_3=o"
-      "mega_k_2;\nomega_k_2=omega_k_1;\nomega_k_1=omega_k;\n\nomega_k(1)=0*omega_k(1) + 1*u_k;\nomega_k(2)=0*omega_k(2)"
-      " + 1*i2_k;\n\neta_k_3=eta_k_2;\neta_k_2=eta_k_1;\neta_k_1=eta_k;\n\ni2ref_k_3 = i2ref_k_2;\ni2ref_k_2 = i2ref_k_"
-      "1;\ni2ref_k_1 = i2ref_k;\n\ni2m_k_3=i2m_k_2;\ni2m_k_2=i2m_k_1;\ni2m_k_1=i2m_k;\n\nv_k_3=v_k_2;\nv_k_2=v_k_1;\nv_"
-      "k_1=v_k;\n\nu_k_2=u_k_1;\nu_k_1=u_k;\n\nvc_k_1=vc_k;\n\nend"
+      "k;\n\neta2_k = eta_k;\n%eta2_k(5) = 0;\n%eta2_k(6) = 0;\n\nif flag==1\n    %m2_k= 0.01*eta_k'*eta_k + e2_k^2 + m"
+      "2;\n    m2_k= 0.1*eta2_k'*eta2_k + e2_k^2 + m2;\nelse\n    %m2_k= eta_k'*eta_k + e2_k^2 + m2;\n    m2_k= 0.01*et"
+      "a2_k'*eta2_k + e2_k^2 + m2;\nend\n%m2_k= m2 + (1+eta_k'*P*eta_k) + gama2*e2_k^2;\nm = m2_k;\n\nP= P - (P*eta_k*e"
+      "ta_k'*P)/m2_k;\ngama2= gama2 - (gama2^2*e2_k^2)/(m2_k^2);\n\n%Pout=P;\n%gama_out=gama2;\n\n%% Atualização\n\n%ca"
+      "lcula theta(k+1)\ntheta_k = theta_k - (gamaD*ea_k/m2_k)*eta_k;\n%theta_k = theta_k - (P*ea_k/m2_k)*eta_k;\ntheta"
+      "_beta = theta_k;\n\n%calcula rho(k+1)\nrho_k= rho_k - (gama*ea_k*e2_k)/m2_k;\n\nif flag==1\n    %m2 = delta0*(m2"
+      " - 1) + abs(u_k) + abs(i2_k) + 1;\n    m2 = delta0*(m2 - 1) + abs(u_k) + abs(i2_k) + 1;\nelse\n    %m2 = delta0*"
+      "(m2 - 1) + abs(u_k)^2 + abs(i2_k)^2 + 1;\n    m2 = delta0*(m2 - 1) + abs(u_k) + abs(i2_k) + 1;\nend\n\nomega_k_3"
+      "=omega_k_2;\nomega_k_2=omega_k_1;\nomega_k_1=omega_k;\n\nomega_k(1)=0*omega_k(1) + 1*u_k;\nomega_k(2)=0*omega_k("
+      "2) + 1*i2_k;\n\neta_k_3=eta_k_2;\neta_k_2=eta_k_1;\neta_k_1=eta_k;\n\ni2ref_k_3 = i2ref_k_2;\ni2ref_k_2 = i2ref_"
+      "k_1;\ni2ref_k_1 = i2ref_k;\n\ni2m_k_3=i2m_k_2;\ni2m_k_2=i2m_k_1;\ni2m_k_1=i2m_k;\n\nv_k_3=v_k_2;\nv_k_2=v_k_1;\n"
+      "v_k_1=v_k;\n\nu_k_2=u_k_1;\nu_k_1=u_k;\n\nvc_k_1=vc_k;\n\nend"
       editorLayout	      "100 M4x1[10 5 700 500]"
     }
   }
@@ -9561,7 +9560,7 @@ Stateflow {
       "891; -0.4277604154; -0.61214672; -0.46675405; -0.98929343; 1.76426551; 0.17164080; 0.11598547];\n    %theta_k=[0"
       ";0;0;0;0;0; -0.98929343; 1.76426551; 0.17164080; 0.11598547];\n    %theta_k=[-0.071151848470510; -0.470549298500"
       "393; -0.993323557655345; 1.762541193804541; 0.118014567931226; 0.108368323169129];\n    %theta_k=[-0.46; -0.58; "
-      "-1.74; 1.73; 0.2; 0.03];\n    theta_k=[0.8538; -8.3700; -6.9259; 22.8621; 0; 0];\nend\n\npersistent omega_k;\nif"
+      "-1.74; 1.73; 0.2; 0.03];\n    theta_k=[0.8300; -5.1744; -8.8292; 25.2521; 0; 0];\nend\n\npersistent omega_k;\nif"
       " isempty(omega_k)\n    %COM vg\n    omega_k=[0; 0; 0; 0; 0; 0];\nend\n\npersistent omega_k_1;\nif isempty(omega_"
       "k_1)\n    %COM vg\n    omega_k_1=[0; 0; 0; 0; 0; 0];\nend\n\npersistent omega_k_2;\nif isempty(omega_k_2)\n    %"
       "COM vg\n    omega_k_2=[0; 0; 0; 0; 0; 0];\nend\n\npersistent omega_k_3;\nif isempty(omega_k_3)\n    %COM vg\n   "
@@ -9593,18 +9592,18 @@ Stateflow {
       "_kd*(u_k - vc_k) - kp_kd*(u_k_1 - vc_k_1);\n\neta_k= (p1+p2)*eta_k_1 - p1*p2*eta_k_2 + (1-p1)*(1-p2)*omega_k_2;\n"
       "\ni2m_k= (p1+p2)*i2m_k_1 - p1*p2*i2m_k_2 + (1-p1)*(1-p2)*i2ref_k_2;\n\ne1_k= i2_k - i2m_k;\n\nv_k= (p1+p2)*v_k_1"
       " - p1*p2*v_k_2 + (1-p1)*(1-p2)*u_k_2;\n\nq_k= theta_k'*eta_k;\n\ne2_k= -v_k+q_k;\n\nea_k= e1_k+rho_k*e2_k;\n\net"
-      "a2_k = eta_k;\neta2_k(5) = 0;\neta2_k(6) = 0;\n\nif flag==1\n    %m2_k= 0.01*eta_k'*eta_k + e2_k^2 + m2;\n    m2"
-      "_k= 0.1*eta2_k'*eta2_k + e2_k^2 + m2;\nelse\n    %m2_k= eta_k'*eta_k + e2_k^2 + m2;\n    m2_k= 0.01*eta2_k'*eta2"
-      "_k + e2_k^2 + m2;\nend\n%m2_k= m2 + (1+eta_k'*P*eta_k) + gama2*e2_k^2;\nm = m2_k;\n\nP= P - (P*eta_k*eta_k'*P)/m"
-      "2_k;\ngama2= gama2 - (gama2^2*e2_k^2)/(m2_k^2);\n\n%Pout=P;\n%gama_out=gama2;\n\n%% Atualização\n\n%calcula thet"
-      "a(k+1)\ntheta_k = theta_k - (gamaD*ea_k/m2_k)*eta_k;\n%theta_k = theta_k - (P*ea_k/m2_k)*eta_k;\ntheta_O = theta"
-      "_k;\n\n%calcula rho(k+1)\nrho_k= rho_k - (gama*ea_k*e2_k)/m2_k;\n\nif flag==1\n    %m2 = delta0*(m2 - 1) + abs(u"
-      "_k) + abs(i2_k) + 1;\n    m2 = delta0*(m2 - 1) + abs(u_k) + abs(i2_k) + 1;\nelse\n    %m2 = delta0*(m2 - 1) + ab"
-      "s(u_k)^2 + abs(i2_k)^2 + 1;\n    m2 = delta0*(m2 - 1) + abs(u_k) + abs(i2_k) + 1;\nend\n\nomega_k_3=omega_k_2;\n"
-      "omega_k_2=omega_k_1;\nomega_k_1=omega_k;\n\nomega_k(1)=0*omega_k(1) + 1*u_k;\nomega_k(2)=0*omega_k(2) + 1*i2_k;\n"
-      "\neta_k_3=eta_k_2;\neta_k_2=eta_k_1;\neta_k_1=eta_k;\n\ni2ref_k_3 = i2ref_k_2;\ni2ref_k_2 = i2ref_k_1;\ni2ref_k_"
-      "1 = i2ref_k;\n\ni2m_k_3=i2m_k_2;\ni2m_k_2=i2m_k_1;\ni2m_k_1=i2m_k;\n\nv_k_3=v_k_2;\nv_k_2=v_k_1;\nv_k_1=v_k;\n\n"
-      "u_k_2=u_k_1;\nu_k_1=u_k;\n\nvc_k_1=vc_k;\n\nend"
+      "a2_k = eta_k;\n%eta2_k(5) = 0;\n%eta2_k(6) = 0;\n\nif flag==1\n    %m2_k= 0.01*eta_k'*eta_k + e2_k^2 + m2;\n    "
+      "m2_k= 0.1*eta2_k'*eta2_k + e2_k^2 + m2;\nelse\n    %m2_k= eta_k'*eta_k + e2_k^2 + m2;\n    m2_k= 0.01*eta2_k'*et"
+      "a2_k + e2_k^2 + m2;\nend\n%m2_k= m2 + (1+eta_k'*P*eta_k) + gama2*e2_k^2;\nm = m2_k;\n\nP= P - (P*eta_k*eta_k'*P)"
+      "/m2_k;\ngama2= gama2 - (gama2^2*e2_k^2)/(m2_k^2);\n\n%Pout=P;\n%gama_out=gama2;\n\n%% Atualização\n\n%calcula th"
+      "eta(k+1)\ntheta_k = theta_k - (gamaD*ea_k/m2_k)*eta_k;\n%theta_k = theta_k - (P*ea_k/m2_k)*eta_k;\ntheta_O = the"
+      "ta_k;\n\n%calcula rho(k+1)\nrho_k= rho_k - (gama*ea_k*e2_k)/m2_k;\n\nif flag==1\n    %m2 = delta0*(m2 - 1) + abs"
+      "(u_k) + abs(i2_k) + 1;\n    m2 = delta0*(m2 - 1) + abs(u_k) + abs(i2_k) + 1;\nelse\n    %m2 = delta0*(m2 - 1) + "
+      "abs(u_k)^2 + abs(i2_k)^2 + 1;\n    m2 = delta0*(m2 - 1) + abs(u_k) + abs(i2_k) + 1;\nend\n\nomega_k_3=omega_k_2;"
+      "\nomega_k_2=omega_k_1;\nomega_k_1=omega_k;\n\nomega_k(1)=0*omega_k(1) + 1*u_k;\nomega_k(2)=0*omega_k(2) + 1*i2_k"
+      ";\n\neta_k_3=eta_k_2;\neta_k_2=eta_k_1;\neta_k_1=eta_k;\n\ni2ref_k_3 = i2ref_k_2;\ni2ref_k_2 = i2ref_k_1;\ni2ref"
+      "_k_1 = i2ref_k;\n\ni2m_k_3=i2m_k_2;\ni2m_k_2=i2m_k_1;\ni2m_k_1=i2m_k;\n\nv_k_3=v_k_2;\nv_k_2=v_k_1;\nv_k_1=v_k;\n"
+      "\nu_k_2=u_k_1;\nu_k_1=u_k;\n\nvc_k_1=vc_k;\n\nend"
       editorLayout	      "100 M4x1[10 5 700 500]"
     }
   }

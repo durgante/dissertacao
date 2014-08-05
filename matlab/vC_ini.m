@@ -13,11 +13,11 @@ Vg_teste=0;
 
 %Referência
 excitacao_persistente=1;
-ref_phaseInv_time=600000/60;
-ref_step_time=600000/60;
+ref_phaseInv_time=100000/60;
+ref_step_time=200000/60;
 
 %Chaveamentos na potência
-param_change_time=600000/60;
+param_change_time=5/60;
 init_time=600000/60;
 
 %Outros
