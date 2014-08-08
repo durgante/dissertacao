@@ -90,47 +90,48 @@
     \end{tabular}
   \end{table}
 
-  As Fig.~\ref{fig:i2_sim_ini}-\ref{fig:thetas_sim_ini} apresentam o comportamento do sistema na inicialização. A Fig.~\ref{fig:i2_sim_ini} apresenta a comparação da corrente da rede $i_2$ com a referência ${i_2}^*$. A Fig.~\ref{fig:up_sim_ini} apresenta o comportamento da ação de controle $up$ durante a inicialização, e a Fig.~\ref{fig:thetas_sim_ini} demonstra o comportamento dos ganhos adaptativos $\theta$ na inicialização.
+  As Fig.~\ref{fig:i2_sim_ini}-\ref{fig:thetas_sim_ini} apresentam o comportamento do sistema na inicialização. A Fig.~\ref{fig:i2_sim_ini} apresenta a comparação da corrente da rede $i_2$ com a referência ${i_2}^*$. A Fig.~\ref{fig:up_sim_ini} apresenta o comportamento da ação de controle $U$ durante a inicialização, e a Fig.~\ref{fig:thetas_sim_ini} demonstra o comportamento dos ganhos adaptativos $\theta$ na inicialização.
 
   %incluir figura mostrando a convergência dos thetas
   %incluir figura mostrando a parcela do vetor w referente a rejeição do distúrbio de tensão da rede
 
-	\begin{figure}[!htb]
-    \centering
+  \noindent
+  \begin{minipage}{0.9\textwidth}
+    \makebox[\textwidth]{
+      \centering
       \def\svgwidth{\textwidth}
-      \input{./img/i2_sim_ini.tex}
-    \renewcommand\figurename{Fig.}
-    \caption{Comportamento da corrente da rede $i_2$ na inicialização do sistema.}
-    \label{fig:i2_sim_ini}
-  \end{figure}
+      \input{./img/i2_sim_ini.tex}}
+    \captionof{figure}{Comportamento da corrente da rede $i_2$ na inicialização do sistema quando a variável intermediária é a corrente do capacitor $i_C$.}
+    \label{fig:up_sim_ini}
+  \end{minipage}
 
   \newpage
 
   \vfill
   \noindent
-  \begin{minipage}{\textwidth}
+  \begin{minipage}{0.9\textwidth}
     \makebox[\textwidth]{
       \centering
       \def\svgwidth{\textwidth}
       \input{./img/up_sim_ini.tex}}
-    \captionof{figure}{Comportamento da ação de controle na inicialização do sistema.}
+    \captionof{figure}{Comportamento da ação de controle na inicialização do sistema quando a variável intermediária é a corrente do capacitor $i_C$.}
     \label{fig:up_sim_ini}
   \end{minipage}
 
   \vfill
   \noindent
-  \begin{minipage}{\textwidth}
+  \begin{minipage}{0.9\textwidth}
     \makebox[\textwidth]{
       \centering
       \def\svgwidth{\textwidth}
       \input{./img/theta_sim_ini.tex}}
-    \captionof{figure}{Comportamento dos ganhos adaptativos $\theta$ na inicialização do sistema.}
+    \captionof{figure}{Comportamento dos ganhos adaptativos $\theta$ na inicialização do sistema quando a variável intermediária é a corrente do capacitor $i_C$.}
     \label{fig:thetas_sim_ini}
   \end{minipage}
 
   \newpage
 
-  As Fig.~\ref{fig:i2_sim_step}-\ref{fig:thetas_sim_step} apresentam a reação dos parâmetros do sistema a um degrau na referência no instante $t=2$ ciclos. A Fig.~\ref{fig:i2_sim_step} apresenta a corrente da rede $i_2$, a Fig.~\ref{fig:up_sim_step} apresenta a ação de controle $up$, e a Fig.~\ref{fig:thetas_sim_step} apresenta o comportamento dos ganhos adaptativos $\theta$.
+  As Fig.~\ref{fig:i2_sim_step}-\ref{fig:thetas_sim_step} apresentam a reação dos parâmetros do sistema a um degrau na referência no instante $t=2$ ciclos. A Fig.~\ref{fig:i2_sim_step} apresenta a corrente da rede $i_2$, a Fig.~\ref{fig:up_sim_step} apresenta a ação de controle $U$, e a Fig.~\ref{fig:thetas_sim_step} apresenta o comportamento dos ganhos adaptativos $\theta$.
 
   \vfill
   \noindent
@@ -139,7 +140,7 @@
       \centering
       \def\svgwidth{\textwidth}
       \input{./img/i2_sim_step.tex}}
-    \captionof{figure}{Resposta da corrente da rede ao degrau na referência.}
+    \captionof{figure}{Resposta da corrente da rede $i_2$ ao degrau na referência quando a variável intermediária é a corrente do capacitor $i_C$.}
     \label{fig:i2_sim_step}
   \end{minipage}
 
@@ -149,30 +150,30 @@
 
   \vfill
   \noindent
-  \begin{minipage}{\textwidth}
+  \begin{minipage}{0.9\textwidth}
     \makebox[\textwidth]{
       \centering
       \def\svgwidth{\textwidth}
       \input{./img/up_sim_step.tex}}
-    \captionof{figure}{Resposta da ação de controle ao degrau na referência.}
+    \captionof{figure}{Resposta da ação de controle ao degrau na referência quando a variável intermediária é a corrente do capacitor $i_C$.}
     \label{fig:up_sim_step}
   \end{minipage}
 
   \vfill
   \noindent
-  \begin{minipage}{\textwidth}
+  \begin{minipage}{0.9\textwidth}
     \makebox[\textwidth]{
       \centering
       \def\svgwidth{\textwidth}
       \input{./img/theta_sim_step.tex}}
-    \captionof{figure}{Resposta dos ganhos adaptativos $\theta$ ao degrau na referência.}
+    \captionof{figure}{Resposta dos ganhos adaptativos $\theta$ ao degrau na referência quando a variável intermediária é a corrente do capacitor $i_C$.}
     \label{fig:thetas_sim_step}
   \end{minipage}
   \vfill
 
   \newpage
 
-  As Fig.~\ref{fig:i2_sim_phase}-\ref{fig:thetas_sim_phase} apresentam a reação dos parâmetros do sistema à inversão de fase na referência no instante $t=2$ ciclos. A Fig.~\ref{fig:i2_sim_phase} apresenta a corrente da rede $i_2$, a Fig.~\ref{fig:up_sim_phase} apresenta a ação de controle $up$, e a Fig.~\ref{fig:thetas_sim_phase} apresenta o comportamento dos ganhos adaptativos $\theta$.
+  As Fig.~\ref{fig:i2_sim_phase}-\ref{fig:thetas_sim_phase} apresentam a reação dos parâmetros do sistema à inversão de fase na referência no instante $t=2$ ciclos. A Fig.~\ref{fig:i2_sim_phase} apresenta a corrente da rede $i_2$, a Fig.~\ref{fig:up_sim_phase} apresenta a ação de controle $U$, e a Fig.~\ref{fig:thetas_sim_phase} apresenta o comportamento dos ganhos adaptativos $\theta$.
 
   \vfill
   \noindent
@@ -181,7 +182,7 @@
       \centering
       \def\svgwidth{\textwidth}
       \input{./img/i2_sim_phase.tex}}
-    \captionof{figure}{Resposta da corrente da rede à inversão de fase na referência.}
+    \captionof{figure}{Resposta da corrente da rede $i_2$ à inversão de fase na referência quando a variável intermediária é a corrente do capacitor $i_C$.}
     \label{fig:i2_sim_phase}
   \end{minipage}
   \vfill
@@ -190,30 +191,30 @@
 
   \vfill
   \noindent
-  \begin{minipage}{\textwidth}
+  \begin{minipage}{0.9\textwidth}
     \makebox[\textwidth]{
       \centering
       \def\svgwidth{\textwidth}
       \input{./img/up_sim_phase.tex}}
-    \captionof{figure}{Ação de controle na presença de inversão de fase na referência.}
+    \captionof{figure}{Ação de controle na presença de inversão de fase na referência quando a variável intermediária é a corrente do capacitor $i_C$.}
     \label{fig:up_sim_phase}
   \end{minipage}
 
   \vfill
   \noindent
-  \begin{minipage}{\textwidth}
+  \begin{minipage}{0.9\textwidth}
     \makebox[\textwidth]{
       \centering
       \def\svgwidth{\textwidth}
       \input{./img/theta_sim_phase.tex}}
-    \captionof{figure}{Comportamento dos ganhos adaptativos $\theta$ mediante a inversão de fase na referência.}
+    \captionof{figure}{Comportamento dos ganhos adaptativos $\theta$ mediante a inversão de fase na referência quando a variável intermediária é a corrente do capacitor $i_C$.}
     \label{fig:thetas_sim_phase}
   \end{minipage}
   \vfill
 
   \newpage
 
-  As Fig.~\ref{fig:i2_sim_short}-\ref{fig:thetas_sim_short} apresentam a reação dos parâmetros do sistema a um curto-circuito na fase $a$ no instante $t=2$ ciclos. A Fig.~\ref{fig:i2_sim_short} apresenta a corrente da rede $i_2$, a Fig.~\ref{fig:up_sim_short} apresenta a ação de controle $up$, e a Fig.~\ref{fig:thetas_sim_short} apresenta o comportamento dos ganhos adaptativos $\theta$.
+  As Fig.~\ref{fig:i2_sim_short}-\ref{fig:thetas_sim_short} apresentam a reação dos parâmetros do sistema a um curto-circuito na fase $a$ no instante $t=2$ ciclos. A Fig.~\ref{fig:i2_sim_short} apresenta a corrente da rede $i_2$, a Fig.~\ref{fig:up_sim_short} apresenta a ação de controle $U$, e a Fig.~\ref{fig:thetas_sim_short} apresenta o comportamento dos ganhos adaptativos $\theta$.
 
   \vfill
   \noindent
@@ -222,7 +223,7 @@
       \centering
       \def\svgwidth{\textwidth}
       \input{./img/i2_sim_short.tex}}
-    \captionof{figure}{Resposta da corrente da rede a um curto-circuito na fase $a$.}
+    \captionof{figure}{Resposta da corrente da rede $i_2$ a um curto-circuito na fase $a$ quando a variável intermediária é a corrente do capacitor $i_C$.}
     \label{fig:i2_sim_short}
   \end{minipage}
 
@@ -232,30 +233,30 @@
 
   \vfill
   \noindent
-  \begin{minipage}{\textwidth}
+  \begin{minipage}{0.9\textwidth}
     \makebox[\textwidth]{
       \centering
       \def\svgwidth{\textwidth}
       \input{./img/up_sim_short.tex}}
-    \captionof{figure}{Ação de controle na presença de curto-circuito na fase $a$.}
+    \captionof{figure}{Ação de controle na presença de curto-circuito na fase $a$ quando a variável intermediária é a corrente do capacitor $i_C$.}
     \label{fig:up_sim_short}
   \end{minipage}
 
   \vfill
   \noindent
-  \begin{minipage}{\textwidth}
+  \begin{minipage}{0.9\textwidth}
     \makebox[\textwidth]{
       \centering
       \def\svgwidth{\textwidth}
       \input{./img/theta_sim_short.tex}}
-    \captionof{figure}{Resposta dos ganhos adaptativos $\theta$ ao curto-circuito na fase $a$.}
+    \captionof{figure}{Resposta dos ganhos adaptativos $\theta$ ao curto-circuito na fase $a$ quando a variável intermediária é a corrente do capacitor $i_C$.}
     \label{fig:thetas_sim_short}
   \end{minipage}
   \vfill
 
   \newpage
 
-  As Fig.~\ref{fig:i2_sim_Lg}-\ref{fig:thetas_sim_Lg} apresentam a reação dos parâmetros do sistema a uma variação abrupta na indutância da rede $L_g$ no instante $t=2$ ciclos. A Fig.~\ref{fig:i2_sim_Lg} apresenta a corrente da rede $i_2$, a Fig.~\ref{fig:up_sim_Lg} apresenta a ação de controle $up$, e a Fig.~\ref{fig:thetas_sim_Lg} apresenta o comportamento dos ganhos adaptativos $\theta$.
+  As Fig.~\ref{fig:i2_sim_Lg}-\ref{fig:thetas_sim_Lg} apresentam a reação dos parâmetros do sistema a uma variação abrupta na indutância da rede $L_g$ no instante $t=2$ ciclos. A Fig.~\ref{fig:i2_sim_Lg} apresenta a corrente da rede $i_2$, a Fig.~\ref{fig:up_sim_Lg} apresenta a ação de controle $U$, e a Fig.~\ref{fig:thetas_sim_Lg} apresenta o comportamento dos ganhos adaptativos $\theta$.
 
   \vfill
   \noindent
@@ -264,7 +265,7 @@
       \centering
       \def\svgwidth{\textwidth}
       \input{./img/i2_sim_Lg.tex}}
-    \captionof{figure}{Resposta da corrente da rede à variação abrupta da indutância $L_g$.}
+    \captionof{figure}{Resposta da corrente da rede $i_2$ à variação abrupta da indutância $L_g$ quando a variável intermediária é a corrente do capacitor $i_C$.}
     \label{fig:i2_sim_Lg}
   \end{minipage}
   \vfill
@@ -273,23 +274,23 @@
 
   \vfill
   \noindent
-  \begin{minipage}{\textwidth}
+  \begin{minipage}{0.9\textwidth}
     \makebox[\textwidth]{
       \centering
       \def\svgwidth{\textwidth}
       \input{./img/up_sim_Lg.tex}}
-    \captionof{figure}{Ação de controle na presença de variação abrupta da indutância da rede $L_g$.}
+    \captionof{figure}{Ação de controle na presença de variação abrupta da indutância da rede $L_g$ quando a variável intermediária é a corrente do capacitor $i_C$.}
     \label{fig:up_sim_Lg}
   \end{minipage}
 
   \vfill
   \noindent
-  \begin{minipage}{\textwidth}
+  \begin{minipage}{0.9\textwidth}
     \makebox[\textwidth]{
       \centering
       \def\svgwidth{\textwidth}
       \input{./img/theta_sim_Lg.tex}}
-    \captionof{figure}{Resposta dos ganhos adaptativos $\theta$ à variação abrupta da indutância da rede $L_g$.}
+    \captionof{figure}{Resposta dos ganhos adaptativos $\theta$ à variação abrupta da indutância da rede $L_g$ quando a variável intermediária é a corrente do capacitor $i_C$.}
     \label{fig:thetas_sim_Lg}
   \end{minipage}
 
@@ -330,15 +331,15 @@
     \end{tabular}
   \end{table}
 
-  As Fig.~\ref{fig:i2_sim_ini_vc}-\ref{fig:thetas_sim_ini_vc} apresentam o comportamento do sistema na inicialização. A Fig.~\ref{fig:i2_sim_ini_vc} apresenta a comparação da corrente da rede $i_2$ com a referência ${i_2}^*$. A Fig.~\ref{fig:up_sim_ini_vc} apresenta o comportamento da ação de controle $up$ durante a inicialização, e a Fig.~\ref{fig:thetas_sim_ini_vc} demonstra o comportamento dos ganhos adaptativos $\theta$ na inicialização.
+  As Fig.~\ref{fig:i2_sim_ini_vc}-\ref{fig:thetas_sim_ini_vc} apresentam o comportamento do sistema na inicialização. A Fig.~\ref{fig:i2_sim_ini_vc} apresenta a comparação da corrente da rede $i_2$ com a referência ${i_2}^*$. A Fig.~\ref{fig:up_sim_ini_vc} apresenta o comportamento da ação de controle $U$ durante a inicialização, e a Fig.~\ref{fig:thetas_sim_ini_vc} demonstra o comportamento dos ganhos adaptativos $\theta$ na inicialização.
 
   \noindent
   \begin{minipage}{\textwidth}
     \makebox[\textwidth]{
       \centering
       \def\svgwidth{\textwidth}
-      \input{./img/logo.pdf_tex}}
-    \captionof{figure}{Comportamento da corrente da rede $i_2$ na inicialização do sistema.}
+      \input{./img/i2_sim_ini_vc.tex}}
+    \captionof{figure}{Comportamento da corrente da rede $i_2$ na inicialização do sistema quando a variável intermediária é a tensão do capacitor $v_C$.}
     \label{fig:i2_sim_ini_vc}
   \end{minipage}
 
@@ -346,30 +347,30 @@
 
   \vfill
   \noindent
-  \begin{minipage}{\textwidth}
+  \begin{minipage}{0.9\textwidth}
     \makebox[\textwidth]{
       \centering
       \def\svgwidth{\textwidth}
-      \input{./img/logo.pdf_tex}}
-    \captionof{figure}{Comportamento da ação de controle na inicialização do sistema.}
+      \input{./img/up_sim_ini_vc.tex}}
+    \captionof{figure}{Comportamento da ação de controle na inicialização do sistema quando a variável intermediária é a tensão do capacitor $v_C$.}
     \label{fig:up_sim_ini_vc}
   \end{minipage}
 
   \vfill
   \noindent
-  \begin{minipage}{\textwidth}
+  \begin{minipage}{0.9\textwidth}
     \makebox[\textwidth]{
       \centering
       \def\svgwidth{\textwidth}
-      \input{./img/logo.pdf_tex}}
-    \captionof{figure}{Comportamento dos ganhos adaptativos $\theta$ na inicialização do sistema.}
+      \input{./img/theta_sim_ini_vc.tex}}
+    \captionof{figure}{Comportamento dos ganhos adaptativos $\theta$ na inicialização do sistema quando a variável intermediária é a tensão do capacitor $v_C$.}
     \label{fig:thetas_sim_ini_vc}
   \end{minipage}
   \vfill
 
   \newpage
 
-  As Fig.~\ref{fig:i2_sim_step_vc}-\ref{fig:thetas_sim_step_vc} apresentam a reação dos parâmetros do sistema a um degrau na referência no instante $t=2$ ciclos. A Fig.~\ref{fig:i2_sim_step_vc} apresenta a corrente da rede $i_2$, a Fig.~\ref{fig:up_sim_step_vc} apresenta a ação de controle $up$, e a Fig.~\ref{fig:thetas_sim_step_vc} apresenta o comportamento dos ganhos adaptativos $\theta$.
+  As Fig.~\ref{fig:i2_sim_step_vc}-\ref{fig:thetas_sim_step_vc} apresentam a reação dos parâmetros do sistema a um degrau na referência no instante $t=2$ ciclos. A Fig.~\ref{fig:i2_sim_step_vc} apresenta a corrente da rede $i_2$, a Fig.~\ref{fig:up_sim_step_vc} apresenta a ação de controle $U$, e a Fig.~\ref{fig:thetas_sim_step_vc} apresenta o comportamento dos ganhos adaptativos $\theta$.
 
   \vfill
   \noindent
@@ -377,8 +378,8 @@
     \makebox[\textwidth]{
       \centering
       \def\svgwidth{\textwidth}
-      \input{./img/logo.pdf_tex}}
-    \captionof{figure}{Resposta da corrente da rede $i_2$ ao degrau na referência.}
+      \input{./img/i2_sim_step_vc.tex}}
+    \captionof{figure}{Resposta da corrente da rede $i_2$ ao degrau na referência quando a variável intermediária é a tensão do capacitor $v_C$.}
     \label{fig:i2_sim_step_vc}
   \end{minipage}
 
@@ -388,30 +389,30 @@
 
   \vfill
   \noindent
-  \begin{minipage}{\textwidth}
+  \begin{minipage}{0.9\textwidth}
     \makebox[\textwidth]{
       \centering
       \def\svgwidth{\textwidth}
-      \input{./img/logo.pdf_tex}}
-    \captionof{figure}{Resposta da ação de controle ao degrau na referência.}
+      \input{./img/up_sim_step_vc.tex}}
+    \captionof{figure}{Resposta da ação de controle ao degrau na referência quando a variável intermediária é a tensão do capacitor $v_C$.}
     \label{fig:up_sim_step_vc}
   \end{minipage}
 
   \vfill
   \noindent
-  \begin{minipage}{\textwidth}
+  \begin{minipage}{0.9\textwidth}
     \makebox[\textwidth]{
       \centering
       \def\svgwidth{\textwidth}
-      \input{./img/logo.pdf_tex}}
-    \captionof{figure}{Resposta dos ganhos adaptativos $\theta$ ao degrau na referência.}
+      \input{./img/theta_sim_step_vc.tex}}
+    \captionof{figure}{Resposta dos ganhos adaptativos $\theta$ ao degrau na referência quando a variável intermediária é a tensão do capacitor $v_C$.}
     \label{fig:thetas_sim_step_vc}
   \end{minipage}
   \vfill
 
   \newpage
 
-  As Fig.~\ref{fig:i2_sim_phase_vc}-\ref{fig:thetas_sim_phase_vc} apresentam a reação dos parâmetros do sistema à inversão de fase na referência no instante $t=2$ ciclos. A Fig.~\ref{fig:i2_sim_phase_vc} apresenta a corrente da rede $i_2$, a Fig.~\ref{fig:up_sim_phase_vc} apresenta a ação de controle $up$, e a Fig.~\ref{fig:thetas_sim_phase_vc} apresenta o comportamento dos ganhos adaptativos $\theta$.
+  As Fig.~\ref{fig:i2_sim_phase_vc}-\ref{fig:thetas_sim_phase_vc} apresentam a reação dos parâmetros do sistema à inversão de fase na referência no instante $t=2$ ciclos. A Fig.~\ref{fig:i2_sim_phase_vc} apresenta a corrente da rede $i_2$, a Fig.~\ref{fig:up_sim_phase_vc} apresenta a ação de controle $U$, e a Fig.~\ref{fig:thetas_sim_phase_vc} apresenta o comportamento dos ganhos adaptativos $\theta$.
 
   \vfill
   \noindent
@@ -419,8 +420,8 @@
     \makebox[\textwidth]{
       \centering
       \def\svgwidth{\textwidth}
-      \input{./img/logo.pdf_tex}}
-    \captionof{figure}{Resposta da corrente da rede $i_2$ à inversão de fase na referência.}
+      \input{./img/i2_sim_phase_vc.tex}}
+    \captionof{figure}{Resposta da corrente da rede $i_2$ à inversão de fase na referência quando a variável intermediária é a tensão do capacitor $v_C$.}
     \label{fig:i2_sim_phase_vc}
   \end{minipage}
   \vfill
@@ -429,30 +430,30 @@
 
   \vfill
   \noindent
-  \begin{minipage}{\textwidth}
+  \begin{minipage}{0.9\textwidth}
     \makebox[\textwidth]{
       \centering
       \def\svgwidth{\textwidth}
-      \input{./img/logo.pdf_tex}}
-    \captionof{figure}{Ação de controle na presença de inversão de fase na referência.}
+      \input{./img/up_sim_phase_vc.tex}}
+    \captionof{figure}{Ação de controle na presença de inversão de fase na referência quando a variável intermediária é a tensão do capacitor $v_C$.}
     \label{fig:up_sim_phase_vc}
   \end{minipage}
 
   \vfill
   \noindent
-  \begin{minipage}{\textwidth}
+  \begin{minipage}{0.9\textwidth}
     \makebox[\textwidth]{
       \centering
       \def\svgwidth{\textwidth}
-      \input{./img/logo.pdf_tex}}
-    \captionof{figure}{Comportamento dos ganhos adaptativos $\theta$ mediante a inversão de fase na referência.}
+      \input{./img/theta_sim_phase_vc.tex}}
+    \captionof{figure}{Comportamento dos ganhos adaptativos $\theta$ mediante a inversão de fase na referência quando a variável intermediária é a tensão do capacitor $v_C$.}
     \label{fig:thetas_sim_phase_vc}
   \end{minipage}
   \vfill
 
   \newpage
 
-  As Fig.~\ref{fig:i2_sim_Lg_vc}-\ref{fig:thetas_sim_Lg_vc} apresentam a reação dos parâmetros do sistema a uma variação abrupta na indutância da rede $L_g$ no instante $t=2$ ciclos. A Fig.~\ref{fig:i2_sim_Lg_vc} apresenta a corrente da rede $i_2$, a Fig.~\ref{fig:up_sim_Lg_vc} apresenta a ação de controle $up$, e a Fig.~\ref{fig:thetas_sim_Lg_vc} apresenta o comportamento dos ganhos adaptativos $\theta$.
+  As Fig.~\ref{fig:i2_sim_Lg_vc}-\ref{fig:thetas_sim_Lg_vc} apresentam a reação dos parâmetros do sistema a uma variação abrupta na indutância da rede $L_g$ no instante $t=2$ ciclos. A Fig.~\ref{fig:i2_sim_Lg_vc} apresenta a corrente da rede $i_2$, a Fig.~\ref{fig:up_sim_Lg_vc} apresenta a ação de controle $U$, e a Fig.~\ref{fig:thetas_sim_Lg_vc} apresenta o comportamento dos ganhos adaptativos $\theta$.
 
   \vfill
   \noindent
@@ -460,8 +461,8 @@
     \makebox[\textwidth]{
       \centering
       \def\svgwidth{\textwidth}
-      \input{./img/logo.pdf_tex}}
-    \captionof{figure}{Resposta da corrente da rede $i_2$ à variação abrupta da indutância $L_g$.}
+      \input{./img/i2_sim_Lg_vc.tex}}
+    \captionof{figure}{Resposta da corrente da rede $i_2$ à variação abrupta da indutância $L_g$ quando a variável intermediária é a tensão do capacitor $v_C$.}
     \label{fig:i2_sim_Lg_vc}
   \end{minipage}
   \vfill
@@ -470,23 +471,23 @@
 
   \vfill
   \noindent
-  \begin{minipage}{\textwidth}
+  \begin{minipage}{0.9\textwidth}
     \makebox[\textwidth]{
       \centering
       \def\svgwidth{\textwidth}
-      \input{./img/logo.pdf_tex}}
-    \captionof{figure}{Ação de controle na presença de variação abrupta da indutância da rede $L_g$.}
+      \input{./img/up_sim_Lg_vc.tex}}
+    \captionof{figure}{Ação de controle na presença de variação abrupta da indutância da rede $L_g$ quando a variável intermediária é a tensão do capacitor $v_C$.}
     \label{fig:up_sim_Lg_vc}
   \end{minipage}
 
   \vfill
   \noindent
-  \begin{minipage}{\textwidth}
+  \begin{minipage}{0.9\textwidth}
     \makebox[\textwidth]{
       \centering
       \def\svgwidth{\textwidth}
-      \input{./img/logo.pdf_tex}}
-    \captionof{figure}{Resposta dos ganhos adaptativos $\theta$ à variação abrupta da indutância da rede $L_g$.}
+      \input{./img/theta_sim_Lg_vc.tex}}
+    \captionof{figure}{Resposta dos ganhos adaptativos $\theta$ à variação abrupta da indutância da rede $L_g$ quando a variável intermediária é a tensão do capacitor $v_C$.}
     \label{fig:thetas_sim_Lg_vc}
   \end{minipage}
 
@@ -587,7 +588,7 @@
 
   \newpage
 
-  As Fig.~\ref{fig:up_exp_Lg}-\ref{fig:m_exp_Lg} apresentam a reação dos parâmetros do sistema a uma variação abrupta na indutância da rede $L_g$ no instante $t=10,298 s$. A Fig.~\ref{fig:up_exp_Lg} apresenta a reação da ação de controle $up$, a Fig.~\ref{fig:theta_exp_Lg} apresenta a resposta dos ganhos adaptativos $\theta$, e a Fig.~\ref{fig:m_exp_Lg} apresenta o comportamento do normalizador $m$.
+  As Fig.~\ref{fig:up_exp_Lg}-\ref{fig:m_exp_Lg} apresentam a reação dos parâmetros do sistema a uma variação abrupta na indutância da rede $L_g$ no instante $t=10,298 s$. A Fig.~\ref{fig:up_exp_Lg} apresenta a reação da ação de controle $U$, a Fig.~\ref{fig:theta_exp_Lg} apresenta a resposta dos ganhos adaptativos $\theta$, e a Fig.~\ref{fig:m_exp_Lg} apresenta o comportamento do normalizador $m$.
 
   \vfill
   \noindent
@@ -628,7 +629,7 @@
 
   \newpage
 
-  As Fig.~\ref{fig:i2_exp_Lg_permanente}-\ref{fig:m_exp_Lg_permanente} apresentam o comportamento dos parâmetros do sistema no regime permanente após a variação da indutância da rede $L_g$. A Fig.~\ref{fig:i2_exp_Lg_permanente} apresenta a corrente da rede $i_2$, a Fig.~\ref{fig:up_exp_Lg_permanente} apresenta a ação de controle $up$, e a Fig.~\ref{fig:m_exp_Lg_permanente} apresenta o comportamento do normalizador $m$.
+  As Fig.~\ref{fig:i2_exp_Lg_permanente}-\ref{fig:m_exp_Lg_permanente} apresentam o comportamento dos parâmetros do sistema no regime permanente após a variação da indutância da rede $L_g$. A Fig.~\ref{fig:i2_exp_Lg_permanente} apresenta a corrente da rede $i_2$, a Fig.~\ref{fig:up_exp_Lg_permanente} apresenta a ação de controle $U$, e a Fig.~\ref{fig:m_exp_Lg_permanente} apresenta o comportamento do normalizador $m$.
 
   \vfill
   \noindent
