@@ -10,7 +10,8 @@ exportar=0;
 %% Dados para plotar
 
 %Chama o script que inicializa os parametros do filtro LCL
-%run('C:\Users\marcelodurgante\Desktop\Dropbox\Trabalho\Dissertacao\matlab\gerar_figuras\parametros_filtro_LCL.m');
+parametros_filtro_LCL;
+
 ZC_L2=Z0*Zg/(Z0+Zg);
 
 % Vc/U
@@ -49,7 +50,7 @@ CPD=3*(z-0.9)/z;
 G_u_vC=minreal(CPD*G1d/(1+CPD*G1d));
 G_u_vC_i2=minreal(G_u_vC*G_vC_i2,0.01);
 
-[P, Z] = pzmap((CPD/3)*G1d);
+[P, Z] = pzmap(Gd);
 
 
 %% Desenha o grid
@@ -115,6 +116,9 @@ set(gca, 'YTick', [-1 0 1]);
 set(gca, 'XLim', [-4 1.2]);
 set(gca, 'YLim', [-1.4 1.4]);
 
+%Box
+box on
+
 %Labels
 ylabel('Eixo Imaginário');
 xlabel('Eixo Real');
@@ -131,6 +135,6 @@ if exportar==1
     cleanfigure
 
     %Exporta
-    matlab2tikz('./gerar_figuras/pzmap_controlador_pd.tex', 'width', '0.8\textwidth', ...
+    matlab2tikz('./pzmap_planta_discreta.tex', 'width', '0.8\textwidth', ...
             'interpretTickLabelAsTex', true, 'encoding', 'UTF-8');
 end

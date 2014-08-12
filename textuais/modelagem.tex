@@ -5,7 +5,7 @@
 %=========================================================================
 
 	%intro temporária, melhorar
-	Este capítulo apresenta a modelagem de conversores de potência conectados à rede elétrica via filtro LCL. São apresentados modelos dinâmicos e em espaço de estados, bem como em coordenadas $\alpha \beta 0$ \cite{ref:JORGE} e em função de transferência, considerando a corrente $i_C$ e a tensão $v_C$ do capacitor como variável intermediária. Modelos em tempo discreto são desenvolvidos, levando em conta o impacto do atraso de transporte da implementação digital.
+	Este capítulo apresenta a modelagem de conversores de potência conectados à rede elétrica via filtro LCL. São apresentados modelos dinâmicos e em espaço de estados, bem como em coordenadas $\alpha \beta 0$ \cite{ref:JORGE} e em função de transferência, considerando a corrente $i_C$ e a tensão $v_C$ do capacitor como variável intermediária, isto é, a variável controlada na malha interna. Modelos em tempo discreto são desenvolvidos, levando em conta o impacto do atraso de transporte da implementação digital.
 
 
 \section{Modelo em Espaço de Estados - Coordenadas \emph{abc}}
@@ -146,7 +146,7 @@
     \label{eq:alpha_beta_0}
   \end{equation}
 
-  Utilizando essa transformação, qualquer parâmetro em coordenadas $abc$ pode ser transcrito em coordenadas $\alpha \beta 0$, e vice versa
+  A transformação (\ref{eq:alpha_beta_0}) é conhecida como invariante em relação à amplitude, pois as grandezas resultantes em coordenadas $\alpha \beta 0$ preservam a mesma amplitude das grandezas em coordenadas $abc$. Utilizando essa transformação, qualquer parâmetro em coordenadas $abc$ pode ser transcrito em coordenadas $\alpha \beta 0$, e vice versa
   %
   \begin{equation}
     \mathbf{T}_{\alpha \beta 0} \mathbf{x}_{abc} = \mathbf{x}_{\alpha \beta 0}
@@ -307,26 +307,17 @@
   %
   %As figuras \ref{fig:pzmap_ic_vc_d}.\subref{fig:pzmap_ic} e \ref{fig:pzmap_ic_vc_d}.\subref{fig:pzmap_vc} apresentam o diagrama de pólos e zeros para o filtro LCL e demonstram esse efeito.
 
-  A Fig.~\ref{fig:pzmap_ic_vc} apresenta o diagrama de pólos e zeros para a planta contínua. A Fig.~\ref{fig:pzmap_ic_vc_d} apresenta o diagrama de pólos e zeros para a planta discreta, evidenciando o surgimento de um zero fora do círculo de raio unitário. Este é um zero instável inerentemente introduzido pelo processo de discretização.
+  A Fig.~\ref{fig:pzmap_planta}.\subref{fig:pzmap_planta_continua} apresenta o diagrama de pólos e zeros para a planta contínua. Percebe-se que a planta encontra-se no limiar da estabilidade. A Fig.~\ref{fig:pzmap_planta}.\subref{fig:pzmap_planta_discreta} apresenta o diagrama de pólos e zeros para a planta discreta, evidenciando o surgimento de um zero fora do círculo de raio unitário. Este é um zero de fase não-mínima inerentemente introduzido pelo processo de discretização.
 
   \begin{figure}[htb]
     \centering
-    \raisebox{-0.5\height}{
-      \def\svgwidth{0.8\textwidth}
-      \input{./img/logo.pdf_tex}}
-    \caption{Diagrama de pólos e zeros para o filtro LCL em tempo contínuo.}
-    \label{fig:pzmap_ic_vc}
-  \end{figure}
-
-  \begin{figure}[htb]
-    \centering
-    \subfloat[Corrente do capacitor.]{\label{fig:pzmap_ic_d}
-      {\input{./img/pzmap_ic.tex}}}\\
-    \subfloat[Tensão do capacitor.]{\label{fig:pzmap_vc_d}
-      {\input{./img/pzmap_vc.tex}}}
+    \subfloat[Planta em tempo contínuo.]{\label{fig:pzmap_planta_continua}
+      {\input{./img/pzmap_planta_continua.tex}}}\\
+    \subfloat[Planta em tempo discreto.]{\label{fig:pzmap_planta_discreta}
+      {\input{./img/pzmap_planta_discreta.tex}}}
     \renewcommand\figurename{Fig.}
-    \caption{Diagrama de pólos e zeros para o filtro LCL para ambas escolhas de variável intermediária em tempo discreto.}
-    \label{fig:pzmap_ic_vc_d}
+    \caption{Diagrama de pólos e zeros para o filtro LCL em tempo contínuo e discreto.}
+    \label{fig:pzmap_planta}
   \end{figure}
 
 

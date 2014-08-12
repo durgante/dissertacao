@@ -10,7 +10,8 @@ exportar=0;
 %% Dados para plotar
 
 %Chama o script que inicializa os parametros do filtro LCL
-%run('C:\Users\marcelodurgante\Desktop\Dropbox\Trabalho\Dissertacao\matlab\gerar_figuras\parametros_filtro_LCL.m');
+parametros_filtro_LCL;
+
 ZC_L2=Z0*Zg/(Z0+Zg);
 
 % Vc/U
@@ -49,48 +50,48 @@ CPD=3*(z-0.9)/z;
 G_u_vC=minreal(CPD*G1d/(1+CPD*G1d));
 G_u_vC_i2=minreal(G_u_vC*G_vC_i2,0.01);
 
-[P, Z] = pzmap((CPD/3)*G1d);
+[P, Z] = pzmap(G);
 
 
 %% Desenha o grid
 
-%Define cores do gráfico (primeiro argumento=1 -> gráfico colorido; =0
-% gráfico em tons de cinza; segundo argumento = número de cores necessário)
-cor=define_cor(colorido, 3);
-
-close all
-figure
-hold on
-
-zeta = 0:.1:.9;
-wn = 0:pi/10:pi;
-
-%Desenha o círculo de raio unitário (removi porque está sobrepondo outro
-% círculo desenhado pelos outros comandos do grid
-%t = 0:.1:6.3;
-%plot(sin(t), cos(t), 'LineWidth', 1, ...
-%                     'LineStyle', ':', ...
-%                     'Color', cor(1, 1:3));
-
-m = tan(asin(zeta));
-zz = exp((0:pi/20:pi)'*(-m + sqrt(-1)*ones(1,length(m))));
-plot(real(zz), imag(zz), 'LineWidth', 1, ...
-                         'LineStyle', ':', ...
-                         'Color', cor(1, 1:3));
-plot(real(zz),-imag(zz), 'LineWidth', 1, ...
-                         'LineStyle', ':', ...
-                         'Color', cor(1, 1:3));
-                     
-e_itheta = exp(sqrt(-1)*(pi/2:pi/20:pi)');
-e_r = exp(wn);
-zw = (ones(length(e_itheta), 1)*e_r).^(e_itheta*ones(1,length(e_r)));
-
-plot(real(zw), imag(zw), 'LineWidth', 1, ...
-                         'LineStyle', ':', ...
-                         'Color', cor(1, 1:3));
-plot(real(zw),-imag(zw), 'LineWidth', 1, ...
-                         'LineStyle', ':', ...
-                         'Color', cor(1, 1:3));
+% %Define cores do gráfico (primeiro argumento=1 -> gráfico colorido; =0
+% % gráfico em tons de cinza; segundo argumento = número de cores necessário)
+% cor=define_cor(colorido, 3);
+% 
+% close all
+% figure
+% hold on
+% 
+% zeta = 0:.1:.9;
+% wn = 0:pi/10:pi;
+% 
+% %Desenha o círculo de raio unitário (removi porque está sobrepondo outro
+% % círculo desenhado pelos outros comandos do grid
+% %t = 0:.1:6.3;
+% %plot(sin(t), cos(t), 'LineWidth', 1, ...
+% %                     'LineStyle', ':', ...
+% %                     'Color', cor(1, 1:3));
+% 
+% m = tan(asin(zeta));
+% zz = exp((0:pi/20:pi)'*(-m + sqrt(-1)*ones(1,length(m))));
+% plot(real(zz), imag(zz), 'LineWidth', 1, ...
+%                          'LineStyle', ':', ...
+%                          'Color', cor(1, 1:3));
+% plot(real(zz),-imag(zz), 'LineWidth', 1, ...
+%                          'LineStyle', ':', ...
+%                          'Color', cor(1, 1:3));
+%                      
+% e_itheta = exp(sqrt(-1)*(pi/2:pi/20:pi)');
+% e_r = exp(wn);
+% zw = (ones(length(e_itheta), 1)*e_r).^(e_itheta*ones(1,length(e_r)));
+% 
+% plot(real(zw), imag(zw), 'LineWidth', 1, ...
+%                          'LineStyle', ':', ...
+%                          'Color', cor(1, 1:3));
+% plot(real(zw),-imag(zw), 'LineWidth', 1, ...
+%                          'LineStyle', ':', ...
+%                          'Color', cor(1, 1:3));
 
 %% Plot
 
@@ -107,13 +108,17 @@ plot(real(Z), imag(Z), 'LineWidth', 1.5, ...
                        'Color', cor(3, 1:3));
 
 %Escolha dos pontos marcados nos eixos
-set(gca, 'XTick', [-4 -3 -2 -1 0 1]);
-set(gca, 'YTick', [-1 0 1]);
+set(gca, 'XTick', [-1 -0.5 0 0.5 1]);
+set(gca, 'YTick', [-6000 -3000 0 3000 6000]);
 %set(gca, 'XTickLabel', []);
                      
 %Escolha dos limites dos eixos X e Y
-set(gca, 'XLim', [-4 1.2]);
-set(gca, 'YLim', [-1.4 1.4]);
+set(gca, 'XLim', [-1 1]);
+set(gca, 'YLim', [-6000 6000]);
+
+%Box
+box on
+grid on
 
 %Labels
 ylabel('Eixo Imaginário');
@@ -131,6 +136,6 @@ if exportar==1
     cleanfigure
 
     %Exporta
-    matlab2tikz('./gerar_figuras/pzmap_controlador_pd.tex', 'width', '0.8\textwidth', ...
+    matlab2tikz('./pzmap_planta_continua.tex', 'width', '0.8\textwidth', ...
             'interpretTickLabelAsTex', true, 'encoding', 'UTF-8');
 end

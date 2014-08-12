@@ -4,9 +4,9 @@
 \chapter{Resultados}\label{resultados}
 %=========================================================================
 
-  A comprovação da teoria desenvolvida nos capítulos anteriores é feita através da demonstração de resultados de simulação e experimentais. As simulações são feitas utilizando o software \textsc{Matlab}, da empresa \textit{MathWorks}$^\circledR$. Mais especificamente, o \textit{toolbox} Simulink é o componente central para realização das simulações. O filtro \textit{LCL} é descrito como uma função de transferência conforme o Capítulo~\ref{modelagem}, o conversor e a fonte são simulados usando modelos disponíveis no Simulink. A plataforma \textsc{dSpace} serve como uma interface entre o circuito real e o \textsc{Matlab}, dispondo de $n_{ADs}$ conversores analógico-digitais (\emph{AD}) de $n$ bits e $n_{DAs}$ conversores digitais-analógicos (\emph{DA}) de $n$ bits, através dos quais são adquiridas as medidas feitas em tempo real no circuito. Acompanha a plataforma o programa \emph{ControlDesk}, que permite a criação de instrumentos virtuais para apresentação e armazenamento das leituras dos ADs. Uma vez computada, a ação de controle é transcrita em comando de acionamento das chaves do conversor e então enviada via \emph{DA} para o conversor.
+  A comprovação da teoria desenvolvida nos capítulos anteriores é feita através da demonstração de resultados de simulação e experimentais. As simulações são feitas utilizando o software \textsc{Matlab}, da empresa \textit{MathWorks}$^\circledR$. Mais especificamente, o \textit{toolbox} Simulink é o componente central para realização das simulações. O filtro LCL é descrito como uma função de transferência conforme o Capítulo~\ref{modelagem}, o conversor e a fonte são simulados usando modelos disponíveis no Simulink. A plataforma d\textsc{SPACE} serve como uma interface entre o circuito real e o \textsc{Matlab}, dispondo de $16$ conversores analógico-digitais (\emph{AD}) de $16$ bits de resolução e $8$ conversores digitais-analógicos (\emph{DA}) de $16$ bits de resolução, através dos quais são adquiridas as medidas feitas em tempo real no circuito. Acompanha a plataforma o programa \emph{ControlDesk}, que permite a criação de instrumentos virtuais para apresentação e armazenamento das leituras dos ADs. Uma vez computada, a ação de controle é transcrita em comando de acionamento das chaves do conversor e então enviada via \emph{DA} para o conversor.
 
-  Os resultados experimentais são obtidos utilizando uma bancada composta por uma fonte \textit{modelo}, um conversor \textsc{Semikron} \textit{modelo} com $n V$ de tensão e $n A$ de corrente nominais. A interface \textsc{dSpace} utilizada é o modelo \textit{modelo}. O processador que a unidade possui é um \emph{DSP} - do inglês \emph{Digital Signal Processor} modelo $modelo$ com uma unidade de lógica e aritmética de ponto flutuante de $n$ bits. As medidas corrente do capacitor e da corrente do lado da rede foram feitas utilizando sensores de Efeito Hall. A Fig.~\ref{fig:topologia_bancada} apresenta a disposição dos elementos da bancada.
+  Os resultados experimentais são obtidos utilizando uma bancada composta por uma fonte \textit{modelo}, um conversor \textsc{Semikron} \textit{SKS 50f B6U+E1CIF+B6CI 29V} com $380V$ de tensão e $50A$ de corrente nominais. A interface d\textsc{space} utilizada é o modelo \textit{ds1103}. O processador que a unidade possui é um \emph{DSP} modelo \emph{TMS320F240} com uma unidade de lógica e aritmética de ponto flutuante de $32$ bits. As medidas corrente do capacitor e da corrente do lado da rede foram feitas utilizando sensores de Efeito Hall. A Fig.~\ref{fig:topologia_bancada} apresenta a disposição dos elementos da bancada.
   %
   \begin{figure}[htb]
     \centering{
@@ -102,7 +102,7 @@
       \def\svgwidth{\textwidth}
       \input{./img/i2_sim_ini.tex}}
     \captionof{figure}{Comportamento da corrente da rede $i_2$ na inicialização do sistema quando a variável intermediária é a corrente do capacitor $i_C$.}
-    \label{fig:up_sim_ini}
+    \label{fig:i2_sim_ini}
   \end{minipage}
 
   \newpage
@@ -300,9 +300,11 @@
 
   \subsection{Resultados para tensão do capacitor como variável intermediária}
 
-  No caso em que se usa a tensão do capacitor como variável intermediária, os resultados de simulação obtidos foram para um ensaio de curto-circuito do filtro. Neste caso, como não há o distúrbio da rede para ser compensado, apenas quatro ganhos adaptativos são suficientes para controlar o sistema.
+  No caso em que se usa a tensão do capacitor como variável intermediária, o desempenho de rastreamento da referência fica bastante prejudicado quando o sistema é conectado contra a rede. Por isso, os resultados de simulação obtidos foram para um ensaio de curto-circuito do filtro, isto é, os terminais do filtro que seriam conectados à rede elétrica são curto-circuitados. Neste caso, como não há o distúrbio da rede para ser compensado, e apenas quatro ganhos adaptativos são suficientes para controlar o sistema.
 
-  A Tabela~\ref{tab:parametros_projeto_vc} resume os parâmetros utilizados no projeto. Os valores de inicialização são baseadas nos valores ideais, ou seja, aqueles que fazem com que os valores dos ganhos adaptativos $\theta$ sejam $\theta^*$ (valores para a condição de casamento). Os valores de inicialização dos ganhos adaptativos, neste caso, são dados por \ref{eq:theta_sim_vc}.
+  A Tabela~\ref{tab:parametros_projeto_vc} resume os parâmetros utilizados no projeto. Os valores de inicialização são baseadas nos valores ideais, ou seja, aqueles que fazem com que os valores dos ganhos adaptativos $\theta$ sejam $\theta^*$ (valores para a condição de casamento). Em uma situação onde a indutância da rede é incerta, não faz sentido falar em valores $\theta^*$. No entanto, desde que o sistema seja submetido a uma referência persistentemente excitante, os ganhos adaptativos tenderão aos $\theta^*$, de forma que os valores de inicialização não possuem uma grande relevância para o bom funcionamento do sistema.
+
+  Os valores de inicialização dos ganhos adaptativos, neste caso, são dados por \ref{eq:theta_sim_vc}, isto é,
   %
   \begin{equation}
     \begin{split}
@@ -318,21 +320,29 @@
     \caption{Valores dos parâmetros do sistema utilizados no projeto.}
     \label{tab:parametros_projeto_vc}
     \centering
-    \begin{tabular}{l l l l}
+    \begin{tabular}{l l}
       \hline
-      \multicolumn{1}{c}{Parâmetro} & \multicolumn{1}{c}{Valor} &
-      \multicolumn{1}{c}{Parâmetro} & \multicolumn{1}{c}{Valor} \\
+      \multicolumn{1}{c}{Parâmetro} & \multicolumn{1}{c}{Valor}\\
       \hline
-      $L_1$      & $2$mH    & $L_2$         & $2$mH   \\
-      $C$        & $40\mu$F & $f_s = 1/T_s$ & $12$kHz \\
-      $\gamma_d$ & $0,0098$ & $\gamma$      & $0,99$  \\
-      $\delta_0$ & $0,8$    & $K_P*K_D$     & $3$     \\
+      $L_1$         & $2$mH    \\
+      $L_2$         & $2$mH    \\
+      $C$           & $40\mu$F \\
+      $f_s = 1/T_s$ & $12$kHz  \\
+      $\gamma_d$    & $0,0098$ \\
+      $\gamma$      & $0,99$   \\
+      $\delta_0$    & $0,8$    \\
+      $K_P*K_D$     & $3$      \\
       \hline
     \end{tabular}
   \end{table}
 
+  %
+
   As Fig.~\ref{fig:i2_sim_ini_vc}-\ref{fig:thetas_sim_ini_vc} apresentam o comportamento do sistema na inicialização. A Fig.~\ref{fig:i2_sim_ini_vc} apresenta a comparação da corrente da rede $i_2$ com a referência ${i_2}^*$. A Fig.~\ref{fig:up_sim_ini_vc} apresenta o comportamento da ação de controle $U$ durante a inicialização, e a Fig.~\ref{fig:thetas_sim_ini_vc} demonstra o comportamento dos ganhos adaptativos $\theta$ na inicialização.
 
+  \newpage
+
+  \vspace*{\fill}
   \noindent
   \begin{minipage}{\textwidth}
     \makebox[\textwidth]{
@@ -342,6 +352,7 @@
     \captionof{figure}{Comportamento da corrente da rede $i_2$ na inicialização do sistema quando a variável intermediária é a tensão do capacitor $v_C$.}
     \label{fig:i2_sim_ini_vc}
   \end{minipage}
+  \vspace*{\fill}
 
   \newpage
 
@@ -561,7 +572,7 @@
 
   \newpage
 
-  \vfill
+  \vspace*{\fill}
 
   \noindent
   \begin{minipage}{\textwidth}
@@ -573,8 +584,7 @@
     \label{fig:i2_exp_phase}
   \end{minipage}
 
-  \vfill
-  \vspace{\fill}
+  \vspace*{\fill}
   \noindent
   \begin{minipage}{\textwidth}
     \makebox[\textwidth]{
@@ -584,7 +594,7 @@
     \captionof{figure}{Resposta da corrente da rede à variação abrupta da indutância.}
     \label{fig:i2_exp_Lg}
   \end{minipage}
-  \vfill
+  \vspace*{\fill}
 
   \newpage
 
@@ -604,7 +614,7 @@
 
   \newpage
 
-  \vfill
+  \vspace*{\fill}
   \noindent
   \begin{minipage}{\textwidth}
     \makebox[\textwidth]{
@@ -615,7 +625,7 @@
     \label{fig:theta_exp_Lg}
   \end{minipage}
 
-  \vfill
+  \vspace*{\fill}
   \noindent
   \begin{minipage}{\textwidth}
     \makebox[\textwidth]{
@@ -625,7 +635,7 @@
     \captionof{figure}{Resposta do normalizador $m$ à variação abrupta da indutância.}
     \label{fig:m_exp_Lg}
   \end{minipage}
-  \vfill
+  \vspace*{\fill}
 
   \newpage
 
@@ -645,7 +655,7 @@
 
   \newpage
 
-  \vfill
+  \vspace*{\fill}
   \noindent
   \begin{minipage}{\textwidth}
     \makebox[\textwidth]{
@@ -656,7 +666,7 @@
     \label{fig:up_exp_Lg_permanente}
   \end{minipage}
 
-  \vfill
+  \vspace*{\fill}
   \noindent
   \begin{minipage}{\textwidth}
     \makebox[\textwidth]{
@@ -666,7 +676,7 @@
     \captionof{figure}{Normalizador no regime permanente após a variação da indutância da rede.}
     \label{fig:m_exp_Lg_permanente}
   \end{minipage}
-  \vfill
+  \vspace*{\fill}
 
   %mostrar figura e comentar do normalizador. A entrada do normalizador é TODOS os sinais que estão envolvidos no controlador adaptativo. Mostrar que um controlador adaptativo é estável é mostrar que todos os sinais que estão envolvidos no algoritmo são limitados. Dessa forma, o normalizador é um ótimo indicativo de que o controlador é estável, visto que mostra que os sinais internos são limitados.
 

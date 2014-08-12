@@ -10,7 +10,7 @@ exportar=0;
 %% Dados para plotar
 
 %Chama o script que inicializa os parametros do filtro LCL
-run('C:\Users\marcelodurgante\Desktop\Dropbox\Trabalho\Dissertacao\matlab\gerar_figuras\parametros_filtro_LCL.m');
+%run('C:\Users\marcelodurgante\Desktop\Dropbox\Trabalho\Dissertacao\matlab\gerar_figuras\parametros_filtro_LCL.m');
 
 Vdc = 20;
 

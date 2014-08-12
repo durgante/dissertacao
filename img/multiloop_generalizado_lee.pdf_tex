@@ -48,21 +48,21 @@
   \global\let\svgwidth\undefined%
   \global\let\svgscale\undefined%
   \makeatother%
-  \begin{picture}(1,0.51198872)%
+  \begin{picture}(1,0.51075893)%
     \put(0,0){\includegraphics[width=\unitlength]{multiloop_generalizado_lee.pdf}}%
-    \put(-0.02468084,0.32102199){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.10534513\unitlength}\centering $r_1$\end{minipage}}}%
-    \put(0.14414617,0.30248303){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.08745633\unitlength}\centering $q_1$\end{minipage}}}%
-    \put(0.20885267,0.32099007){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.08248722\unitlength}\centering $r_2$\end{minipage}}}%
-    \put(0.35837964,0.30249548){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.07976079\unitlength}\centering $q_2$\end{minipage}}}%
-    \put(0.52451028,0.30249759){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.10658224\unitlength}\centering $p_2$\end{minipage}}}%
-    \put(0.49173343,0.22392939){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.17210783\unitlength}\centering $\tilde{p}_2$\end{minipage}}}%
-    \put(0.74079645,0.30249547){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.104708\unitlength}\centering $p_1$\end{minipage}}}%
-    \put(0.92180939,0.32102921){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.09717866\unitlength}\centering $y_1$\end{minipage}}}%
-    \put(0.59369653,0.51254361){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.09565038\unitlength}\centering $d_2$\end{minipage}}}%
-    \put(0.8171014,0.5125436){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.09296223\unitlength}\centering $d_1$\end{minipage}}}%
-    \put(0.61520534,0.43975633){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.11876276\unitlength}\centering $p_{d2}$\end{minipage}}}%
-    \put(0.83252347,0.43972657){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.11578026\unitlength}\centering $p_{d1}$\end{minipage}}}%
-    \put(0.66046718,0.32101489){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.11428953\unitlength}\centering $y_2$\end{minipage}}}%
-    \put(0.71096714,0.08675525){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.16861953\unitlength}\centering $\tilde{P}_p$\end{minipage}}}%
+    \put(-0.02468084,0.3197922){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.10534513\unitlength}\centering $r_1$\end{minipage}}}%
+    \put(0.14414617,0.30125324){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.08745633\unitlength}\centering $q_1$\end{minipage}}}%
+    \put(0.20885267,0.31976027){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.08248722\unitlength}\centering $r_2$\end{minipage}}}%
+    \put(0.35837964,0.30126569){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.07976079\unitlength}\centering $q_2$\end{minipage}}}%
+    \put(0.52451028,0.3012678){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.10658224\unitlength}\centering $p_2$\end{minipage}}}%
+    \put(0.49173343,0.2226996){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.17210783\unitlength}\centering $\tilde{p}_2$\end{minipage}}}%
+    \put(0.74079645,0.30126568){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.104708\unitlength}\centering $p_1$\end{minipage}}}%
+    \put(0.92180939,0.31979942){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.09717866\unitlength}\centering $y_1$\end{minipage}}}%
+    \put(0.59369653,0.51131381){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.09565038\unitlength}\centering $d_2$\end{minipage}}}%
+    \put(0.8171014,0.51131381){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.09296223\unitlength}\centering $d_1$\end{minipage}}}%
+    \put(0.61520534,0.43852654){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.11876276\unitlength}\centering $p_{d2}$\end{minipage}}}%
+    \put(0.83252347,0.43849677){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.11578026\unitlength}\centering $p_{d1}$\end{minipage}}}%
+    \put(0.66046718,0.31978509){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.11428953\unitlength}\centering $y_2$\end{minipage}}}%
+    \put(0.71096714,0.08552546){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.16861953\unitlength}\centering $\tilde{P}_p$\end{minipage}}}%
   \end{picture}%
 \endgroup%

@@ -41,7 +41,7 @@
   %
   %Esta forma de modelagem permite isolar a incerteza paramétrica em $G_{od}$, de forma que o controlador projetado para a malha interna trata de uma planta com parâmetros conhecidos e projetados.
   %
-  Isso permite que controladores diferentes sejam projetados para resolver partes do problema de controle. O controlador da malha interna, por exemplo, será responsável por amortecer a ressonância do filtro \emph{LCL} sem se preocupar com a incerteza paramétrica devida à rede elétrica. Dessa forma, pode-se utilizar controladores convencionais para realizar o amortecimento ativo.
+  Isso permite que controladores diferentes sejam projetados para resolver partes do problema de controle. O controlador da malha interna, por exemplo, será responsável por amortecer a ressonância do filtro LCL sem se preocupar com a incerteza paramétrica devida à rede elétrica. Dessa forma, pode-se utilizar controladores convencionais para realizar o amortecimento ativo.
 
   É conhecido da literatura que, no caso específico de um filtro LCL, é suficiente para a realização do amortecimento da ressonância do filtro a utilização de um controlador proporcional, quando a variável intermediária escolhida é a corrente do capacitor, e de um controlador proporcional-derivativo, quando a variável intermediária escolhida é a tensão do capacitor~\cite{ref:DANNEHL}. O critério de escolha para a variável intermediária varia de acordo com a aplicação e a topologia~\cite{ref:POH}.
 
@@ -136,7 +136,7 @@
 
 \section{Malha Externa}
 
-  Para este projeto, assume-se um alto desempenho no rastreamento de referência da malha interna. O controlador da malha externa é do tipo adaptativo por modelo de referência (\emph{MRAC}), controla a corrente da rede e gera a referência ${U_p}^*$ para a malha interna.
+  Para este projeto, assume-se um alto desempenho no rastreamento de referência da malha interna. O controlador da malha externa, do tipo adaptativo por modelo de referência (do inglês \emph{Model Reference Adaptive Control - MRAC}), controla a corrente da rede e gera a referência ${U_p}^*$ para a malha interna.
 
   O desenvolvimento apresentado nesta seção é realizado em tempo discreto. Assim, o modelo discreto da planta do laço externo, $G_{od}(z)$, da planta do laço interno, $G_{id}(z)$, da planta do distúrbio externo $G_{do}(z)$ e da planta do distúrbio interno $G_{di}(z)$ são dados conforme desenvolvido na Seção~\ref{modelagem}.
   % %
@@ -156,6 +156,17 @@
   % \end{equation}
   % %
   % com $T_s$ sendo a frequência de amostragem, $z$ o operador de discretização associado à Transformada $\mathcal{Z}$ e $\omega_0 = 1 / \sqrt{L_c C}$.
+
+  A planta $G(z)$ pode ser escrita de forma a separar a dinâmica não-modelada $\Delta(z)$ da parte conhecida $G_o(z)$. Isto pode ser feito via uma dinâmica não-modelada aditiva ou multiplicativa. Escolheu-se utilizar uma dinâmica não-modelada aditiva devido ao fato de que a planta resultante para este caso tem grau relativo dois, enquanto que para a dinâmica multiplicativa tem grau relativo três. Um grau relativo menor implica em um número menor de ganhos adaptativos.
+
+  Dessa forma, escreve-se
+  %
+  \begin{equation}
+    G(z) = G_o(z) + \Delta(z) \text{,}
+    \label{eq:planta_go_delta_aditiva}
+  \end{equation}
+  %
+  e se trabalha apenas com a parte conhecida da planta $G_o(z)$. A dinâmica não-modelada, estável e estritamente própria $\Delta(z)$, será compensada pela característica de robustez do controlador, representada pelo normalizador $m$.
 
   Para análise, considere a estrutura da Fig.~\ref{fig:LCL_discreto}. Em um primeiro momento, desconsidera-se o distúrbio de tensão da rede $V_g$ e projeta-se a ação de controle $U \equiv U_p$ para o caso de parâmetros conhecidos. %De (\ref{eq:g_2_discreta}) obtem-se a equação de diferença
   De (\ref{eq:god_i2_vc}) ou de (\ref{eq:god_i2_ic}) obtem-se a equação de diferença

@@ -84,10 +84,10 @@
 % ---
 % Informações de dados para CAPA e FOLHA DE ROSTO
 % ---
-\titulo{Controle de Corrente em Conversores\\ Conectados à Rede Elétrica Utilizando Controladores Multimalha}
+\titulo{Controle Adaptativo de\\ Corrente em Conversores Conectados na\\ Rede Elétrica numa Estrutura Multimalha}
 \autor{Marcelo Hahn Durgante}
 \local{Alegrete, RS}
-\data{20 de Abril de 2014}
+\data{01 de Setembro de 2014}
 \orientador{Prof. Dr. Márcio Stefanello}
 \coorientador{}
 \instituicao{%
@@ -100,7 +100,7 @@
 % O preambulo deve conter o tipo do trabalho, o objetivo,
 % o nome da instituição e a área de concentração
 \preambulo{Dissertação apresentada ao Curso de Mestrado do Programa de Pós-Graduação em
-  Engenharia Elétrica, Área de Concentração em Controle de Sistemas, da Universidade Federal
+  Engenharia Elétrica, Área de Concentração em Eletrônica, da Universidade Federal
   do Pampa (Unipampa, RS), como requisito parcial para obtenção do grau de
   \textbf{Mestre em Engenharia Elétrica}.}
 % ---
@@ -207,17 +207,17 @@
 % ---
 % Dedicatória
 % ---
-\begin{dedicatoria}
-  \input{pretextuais/dedicatoria}
-\end{dedicatoria}
+%\begin{dedicatoria}
+%  \input{pretextuais/dedicatoria}
+%\end{dedicatoria}
 % ---
 
 % ---
 % Agradecimentos
 % ---
-\begin{agradecimentos}
-  \input{pretextuais/agradecimentos}
-\end{agradecimentos}
+%\begin{agradecimentos}
+%  \input{pretextuais/agradecimentos}
+%\end{agradecimentos}
 % ---
 
 % ---
@@ -281,10 +281,17 @@
 % inserir lista de símbolos
 % ---
 \begin{simbolos}
- \item[$ \Gamma $] Letra grega Gama
- \item[$ \Lambda $] Lambda
- \item[$ \zeta $] Letra grega minúscula zeta
- \item[$ \in $] Pertence
+ \item[$ \alpha $] Relativo à fase $\alpha$ do sistema desacoplado pela transformação de Clarke
+ \item[$ \beta $] Relativo à fase $\beta$ do sistema desacoplado pela transformação de Clarke
+ \item[$ O $] Relativo à fase $O$ do sistema desacoplado pela transformação de Clarke
+ \item[$ T_s $] Período de amostragem
+ \item[$ \omega_n $] Frequência de ressonância
+ \item[$ \overline{K_P} $] Limite superior para o valor do ganho $K_P$
+ \item[$ \theta $] Ganho adaptativo
+ \item[$ \phi $] Diferença entre o valor estimado para o ganho adaptativo e o valor para a condição de casamento
+ \item[$ \gamma $] Ganho de projeto do algoritmo adaptativo
+ \item[$ \Delta $] Parcela da planta contendo dinâmicas não-modeladas
+ \item[$ m $] Normalizador projetado para garantir a robustez do sistema
 \end{simbolos}
 % ---
 
