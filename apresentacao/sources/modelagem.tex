@@ -1,0 +1,197 @@
+%SEÇÃO------------------------------------------------------------------
+
+\section{Modelagem}
+
+  \frame{
+    \frametitle{\insertsection}
+    \vfill
+    Modelagem clássica de sistemas de potência:
+    \vfill
+    \begin{itemize}
+      \item Teoria das Componentes Simétricas \cite{ref:FORTESCUE}
+      \vfill
+      \item Transformação de Clarke \cite{ref:CLARKE}
+        \begin{equation}
+          \mathbf{T}_{\alpha \beta 0} = \frac{2}{3} \left[
+          \begin{array}{ccc}
+            1 & -\frac{1}{2} & -\frac{1}{2} \\[0.3em]
+            0 & \phantom{-}\frac{\sqrt{3}}{2} & -\frac{\sqrt{3}}{2} \\[0.3em]
+            \frac{1}{2} &  \phantom{-}\frac{1}{2} & \phantom{-}\frac{1}{2}
+          \end{array}
+          \right]
+          \label{eq:alpha_beta_0}
+        \end{equation}
+        \begin{equation}
+          \mathbf{T}_{\alpha \beta 0} \mathbf{x}_{abc} = \mathbf{x}_{\alpha \beta 0}
+          \iff
+          \mathbf{T}_{\alpha \beta 0}^{-1} \mathbf{x}_{\alpha \beta 0} = \mathbf{x}_{abc}
+        \end{equation}
+    \end{itemize}
+    \vfill
+  }
+
+  \frame{
+    \frametitle{\insertsection}
+    \vfill
+    \begin{small}
+    \begin{figure}[htb]
+      \centering
+      \raisebox{-0.5\height}{
+        \def\svgwidth{\textwidth}
+        \input{./img/LCL_geral.pdf_tex}}
+    \end{figure}
+    \end{small}
+    \vfill
+  }
+
+  \frame{
+    \frametitle{\insertsection}
+    \vfill
+    Modelo em função de transferência \cite{ref:XU}:
+    \vfill
+    \begin{equation}
+      \begin{split}
+        Z_i & = r_1 + L_1 s \text{,} \\
+        Z_C & = \frac{1}{s C} \text{,} \\
+        Z_g & = r_2 + r_g + \left( L_2 + L_g \right) s
+      \end{split}
+    \end{equation}
+    \vfill
+  }
+
+  \frame{
+    \frametitle{\insertsection}
+    \vfill
+    Modelo em função de transferência:
+    \vfill
+    \begin{equation}
+      \frac{V_C}{U_c} = \frac{Z_C Z_g}{Z_i \left( Z_C + Z_g \right) + Z_C Z_g}
+      \label{eq:vc_uc}
+    \end{equation}
+    %
+    \begin{equation}
+      \frac{I_C}{U_c} = \frac{Z_g}{Z_i \left( Z_C + Z_g \right) + Z_C Z_g}
+      \label{eq:ic_uc}
+    \end{equation}
+    %
+    \begin{equation}
+      \frac{I_2}{U_c} = \frac{Z_C}{Z_i \left( Z_C + Z_g \right) + Z_C Z_g}
+      \label{eq:i2_uc}
+    \end{equation}
+    \vfill
+  }
+
+  \frame{
+    \frametitle{\insertsection}
+    \vfill
+    Discretizando (\ref{eq:i2_uc}):
+    \vfill
+    \begin{footnotesize}
+      \begin{equation}
+        G_d (z) = \frac{I_2}{U_c} = K_1 \frac{1}{z \left( z-1 \right)}
+        - \frac{K_1 \sen \left( \omega_n T_s \right) }{\omega_n T_s}
+        \frac{z-1}{z \left( z^2 - 2 \cos\left( \omega_n T_s \right) z +1 \right) }
+      \end{equation}
+    \end{footnotesize}
+    \vfill
+    Onde $T_s$ é o período de amostragem e
+    \vfill
+    \begin{equation}
+      K_1 = \frac{T_s}{L1 + L2 + Lg}
+    \end{equation}
+    %
+    \begin{equation}
+      \omega_n = \sqrt{\frac{ L_1 + L_2 + L_g }{ L_1 C \left( L_2 + L_g \right)}}
+    \end{equation}
+    \vfill
+  }
+
+  \frame{
+    \frametitle{\insertsection}
+    \vfill
+    Para a tensão do capacitor $V_C$ como variável intermediária, discretizando (\ref{eq:vc_uc}):
+    \vfill
+    \begin{equation}
+      G_{id_{vc}}(z) = \frac{V_C}{U_c} = \frac{2 \sen^2 \left( \omega_n \frac{T_s}{2} \right)}{L_1 C \omega_n^2}
+        \frac{z+1}{z \left( z^2 - \cos \left( \omega_n T_s \right) z + 1 \right)}
+    \end{equation}
+    %
+    \begin{equation}
+      G_{od_{vc}}(z) = \frac{I_2}{V_C} = \frac{G_d}{G_{id_{vc}}}
+      \label{eq:god_i2_vc}
+    \end{equation}
+  }
+
+  \frame{
+    \frametitle{\insertsection}
+    \vfill
+    Para a corrente do capacitor $I_C$ como variável intermediária, discretizando (\ref{eq:ic_uc}):
+    \vfill
+    \begin{equation}
+      G_{id_{ic}}(z) = \frac{I_C}{U_c} = \frac{\sen \left( \omega_n T_s \right)}{\omega_n L_1}
+        \frac{z-1}{z \left( z^2 - \cos \left( \omega_n T_s \right) z + 1 \right)}
+    \end{equation}
+    %
+    \begin{equation}
+      G_{od_{ic}}(z) = \frac{I_2}{I_C} = \frac{G_d}{G_{id_{ic}}}
+      \label{eq:god_i2_ic}
+    \end{equation}
+  }
+
+  \frame{
+    \frametitle{\insertsection}
+    \vfill
+    \begin{small}
+    \begin{figure}[htb]
+      \centering
+      \raisebox{-0.5\height}{
+        \def\svgwidth{\textwidth}
+        \input{./img/multiloop_geral.pdf_tex}}
+    \end{figure}
+    \end{small}
+    \vfill
+  }
+
+  \frame{
+    \frametitle{\insertsection}
+    \vfill
+    Efeitos da discretização:
+    \vfill
+    \begin{itemize}
+      \item Planta em tempo contínuo
+      \vfill
+      \item Planta em tempo discreto \cite{ref:ASTROM}
+    \end{itemize}
+    \vfill
+  }
+
+  \frame{
+    \frametitle{\insertsection}
+    \vfill
+    \begin{small}
+    \begin{figure}[htb]
+      \centering
+      \def\svgwidth{0.5\columnwidth}
+      \raisebox{-0.5\height}{
+        \input{./img/pzmap_planta_continua.tex}}
+    \end{figure}
+    \end{small}
+    \vfill
+  }
+
+  \frame{
+    \frametitle{\insertsection}
+    \vfill
+    \begin{small}
+    \begin{figure}[htb]
+      \centering
+      \def\svgwidth{0.6\columnwidth}
+      \raisebox{-0.5\height}{
+        \input{./img/pzmap_planta_discreta.tex}}
+    \end{figure}
+    \end{small}
+    \vfill
+  }
+
+
+%FIM-------------------------------------------------------------------

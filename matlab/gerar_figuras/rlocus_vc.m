@@ -80,7 +80,8 @@ set(gca, 'YLim', [-1.2*10^4 1.2*10^4]);
 %Escolha dos pontos marcados nos eixos
 set(gca, 'XTick', [-1 -0.5 0 0.5 1]);
 set(gca, 'YTick', [-10^4 -0.5*10^4 0 0.5*10^4 10^4]);
-set(gca, 'YTickLabel', {'$-1$', '$-0.5$', '$0$', '$0.5$', '$1$'});
+set(gca, 'YTickLabel', {'$-1$', '$-0,5$', '$0$', '$0,5$', '$1$'});
+set(gca, 'XTickLabel', {'$-1$', '$-0,5$', '$0$', '$0,5$', '$1$'});
 
 %Grid
 box on

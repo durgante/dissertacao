@@ -8,7 +8,7 @@
 
   É necessário, no entanto, que a variável escolhida para ser a \emph{variável intermediária} responda mais rapidamente a variações no distúrbio e na variável manipulada do que a variável controlada. Isso faz sentido devido ao fato de que quanto mais rápido a variável intermediária responder ao distúrbio, mais rápido a ação corretiva será iniciada e menor será o desvio do ponto fixo que a variável controlada sofrerá. De fato, quanto mais rápido a variável intermediária responder, melhor.
 
-  A Fig.~\ref{fig:realimentacao_vs_cascata} apresenta uma comparação de desempenho do controle da temperatura de um reator quando ocorre uma variação de $25\,^{\circ}\mathrm{C}$ na temperatura de entrada do reagente. A linha cheia representa o controle multimalha, e a linha tracejada representa o controle por realimentação simples.
+  A Fig.~\ref{fig:realimentacao_vs_cascata}~\cite{ref:SMITH} exemplifica uma comparação de desempenho do controle da temperatura de um reator quando ocorre uma variação de $25\,^{\circ}\mathrm{C}$ na temperatura de entrada do reagente. A linha cheia representa o controle multimalha, e a linha tracejada representa o controle por realimentação simples.
 
   \begin{figure}[htb]
     \centering{
@@ -27,25 +27,25 @@
 
 \section{Malha Interna}
 
-  A modelagem desenvolvida separa a planta em duas partes: $G_{id}$ pertence à malha interna, e $G_{od}$ pertence à malha externa, conforme pode ser visto na Fig.~\ref{fig:LCL_discreto}.
+  A modelagem desenvolvida separa a planta em duas partes: $G_{id}$ pertence à malha interna, e $G_{od}$ pertence à malha externa, conforme pode ser visto na Fig.~\ref{fig:sistema_discreto}.
 
   \begin{figure}[htb]
     \centering{
       \def\svgwidth{\textwidth}
-      \input{./img/multiloop_geral.pdf_tex}}
+      \input{./img/diagrama_de_blocos_LCL.pdf_tex}}
     \renewcommand\figurename{Fig.}
-    \caption{Diagrama de blocos para o filtro LCL em modelo discreto.}
-    \label{fig:LCL_discreto}
+    \caption{Diagrama de blocos para o sistema em modelo discreto.}
+    \label{fig:sistema_discreto}
   \end{figure}
 
   %
   %Esta forma de modelagem permite isolar a incerteza paramétrica em $G_{od}$, de forma que o controlador projetado para a malha interna trata de uma planta com parâmetros conhecidos e projetados.
   %
-  Isso permite que controladores diferentes sejam projetados para resolver partes do problema de controle. O controlador da malha interna, por exemplo, será responsável por amortecer a ressonância do filtro LCL sem se preocupar com a incerteza paramétrica devida à rede elétrica. Dessa forma, pode-se utilizar controladores convencionais para realizar o amortecimento ativo.
+  A separação da planta em duas partes permite que controladores diferentes sejam projetados para resolver partes do problema de controle. O controlador da malha interna, por exemplo, é projetado considerando o pior caso possível para o parâmetro incerto da rede ($L_g=0$). Dessa forma, a variação paramétrica não impacta negativamente o controle da malha interna, e pode-se utilizar controladores convencionais para realizar o amortecimento ativo.
 
-  É conhecido da literatura que, no caso específico de um filtro LCL, é suficiente para a realização do amortecimento da ressonância do filtro a utilização de um controlador proporcional, quando a variável intermediária escolhida é a corrente do capacitor, e de um controlador proporcional-derivativo, quando a variável intermediária escolhida é a tensão do capacitor~\cite{ref:DANNEHL}. O critério de escolha para a variável intermediária varia de acordo com a aplicação e a topologia~\cite{ref:POH}.
+  É conhecido da literatura que, no caso específico de um filtro LCL, é suficiente para a realização do amortecimento da ressonância do filtro a utilização de um controlador proporcional, quando a variável intermediária escolhida é a corrente do capacitor, e de um controlador proporcional-derivativo, quando a variável intermediária escolhida é a tensão do capacitor~\cite{ref:DANNEHL}. O critério de escolha para a variável intermediária varia de acordo com a aplicação e a topologia~\cite{ref:POH}~\cite{ref:IECON_2013}.
 
-  Levando isso em consideração, neste trabalho um controlador proporcional é projetado para o caso da variável intermediária ser a corrente do capacitor, e um controlador proporcional-derivativo é projetado para o caso da variável intermediária ser a tensão do capacitor.
+  Levando em consideração as particularidades do filtro LCL, neste trabalho um controlador proporcional é projetado para o caso em que a variável intermediária é a corrente do capacitor, e um controlador proporcional-derivativo é projetado para o caso em que a variável intermediária é a tensão do capacitor.
   %O projeto de ambos leva em consideração os parâmetros listados na Tabela~\ref{tab:sim_parameters}.
 
   % \begin{table}[htb]
@@ -67,7 +67,7 @@
 
 \subsection{Projeto para tensão do capacitor como variável intermediária}
 
-  Considerando o controlador da malha interna $C_i(z)$ como sendo proporcional-derivativo, tem-se sua expressão:
+  Considerando o controlador da malha interna $C_i(z)$ como sendo do tipo proporcional-derivativo, tem-se sua expressão:
   %
   \begin{equation}
     C_i(z) = \left( K_P + K_D \right) \frac{z- \frac{K_D}{K_P+K_D}}{z}
@@ -95,29 +95,36 @@
 
 \subsection{Projeto para corrente do capacitor como variável intermediária}
 
-  Considerando o controlador da malha interna $C_i(z)$ como sendo do tipo proporcional, sua expressão é dada por:
+  Considerando o controlador da malha interna $C_i(z)$ como sendo do tipo proporcional, sua expressão é dada por
   %
   \begin{equation}
-    C_i(z) = K_P
+    C_i(z) = K_P\text{.}
   \end{equation}
 
-  Tendo como referência a função de transferência de malha fechada $I_C/U$, que pode ser vista na Fig.~\ref{fig:LCL_discreto} fazendo $U_p = I_C$, observa-se que sua equação característica é:
+  Tendo como referência a função de transferência de malha fechada $I_C/U$, que pode ser vista na Fig.~\ref{fig:sistema_discreto} fazendo $U_p = I_C$, observa-se que sua equação característica é
   %
   \begin{equation}
-    z^3 - 2 \cos \left( \omega_n T_s \right) z^2 + \left( 1 + K_P K_{id} \right) z - K_P K_{id} = 0
+    z^3 - 2 \cos \left( \omega_n T_s \right) z^2 + \left( 1 + K_P K_{id} \right) z - K_P K_{id} = 0\text{,}
+    \label{eq:eq_caracteristica}
   \end{equation}
   %
   com
   %
   \begin{equation}
-    K_{id} = \frac{\sin(\omega_n T_s)}{\omega_n L_1}
+    K_{id} = \frac{\sin(\omega_n T_s)}{\omega_n L_1}\text{.}
   \end{equation}
 
-  Através do critério de estabilidade de Routh-Hurwitz, pode-se projetar o ganho $K_P$
+  A transformação bilinear, dada por
+  %
+  \begin{equation}
+    z = \frac{w + 1}{w - 1}\text{,}
+  \end{equation}
+  %
+  mapeia o interior do círculo de raio unitário do plano $z$ no semiplano esquerdo do plano $w$. Aplicando a transformação bilinear à equação característica~(\ref{eq:eq_caracteristica}) se pode utilizar o critério de estabilidade de Routh-Hurwitz da mesma forma que se faria para um sistema em tempo contínuo~\cite{ref:OGATA}. Ou seja, se pode projetar o ganho $K_P$ como sendo
   %
   \begin{equation}
     \overline{K_P} = \frac{2 \cos \left( \omega_n T_s \right) - 1}
-      {\sen \left( \omega_n T_s \right)} \omega_n L_1
+      {\sen \left( \omega_n T_s \right)} \omega_n L_1\text{,}
   \end{equation}
   %
   onde $\overline{K_P}$ representa o limite superior para o valor de $K_P$.
@@ -157,18 +164,138 @@
   % %
   % com $T_s$ sendo a frequência de amostragem, $z$ o operador de discretização associado à Transformada $\mathcal{Z}$ e $\omega_0 = 1 / \sqrt{L_c C}$.
 
-  A planta $G(z)$ pode ser escrita de forma a separar a dinâmica não-modelada $\Delta(z)$ da parte conhecida $G_o(z)$. Isto pode ser feito via uma dinâmica não-modelada aditiva ou multiplicativa. Escolheu-se utilizar uma dinâmica não-modelada aditiva devido ao fato de que a planta resultante para este caso tem grau relativo dois, enquanto que para a dinâmica multiplicativa tem grau relativo três. Um grau relativo menor implica em um número menor de ganhos adaptativos.
+  %A planta $G(z)$ pode ser escrita de forma a separar a dinâmica não-modelada $\Delta(z)$ da parte conhecida $G_o(z)$. Isto pode ser feito via uma dinâmica não-modelada aditiva ou multiplicativa. Escolheu-se utilizar uma dinâmica não-modelada aditiva devido ao fato de que a planta resultante para este caso tem grau relativo dois, enquanto que para a dinâmica multiplicativa tem grau relativo três. Um grau relativo menor implica em um número menor de ganhos adaptativos.
 
-  Dessa forma, escreve-se
+  Devido à característica robusta apresentada pelo controlador que será proposto para a malha externa, pode-se reescrever a função de transferência da planta na forma de duas parcelas: uma será a dinâmica considerada pelo controlador, e a outra será considerada uma \emph{dinâmica não-modelada}, isto é, será uma parcela da dinâmica que será tratada pela robustez garantida pelo controlador.
+
+  A relação entre as duas parcelas pode ser aditiva ou multiplicativa. A escolha na forma de reescrever $G(z)$ impacta no grau relativo da dinâmica não-modelada resultante. Neste trabalho, escolheu-se a relação aditiva entre as duas parcelas da planta, pois isto resulta numa dinâmica não-modelada de grau relativo menor, o que implica em um número menor de ganhos adaptativos no controlador. Dessa forma, escreve-se
   %
   \begin{equation}
     G(z) = G_o(z) + \Delta(z) \text{,}
     \label{eq:planta_go_delta_aditiva}
   \end{equation}
   %
-  e se trabalha apenas com a parte conhecida da planta $G_o(z)$. A dinâmica não-modelada, estável e estritamente própria $\Delta(z)$, será compensada pela característica de robustez do controlador, representada pelo normalizador $m$.
+  e se propõe uma estrutura conhecida para $G_o(z)$. No caso deste trabalho, propõe-se considerar que o filtro é apenas um indutor da forma $L_1 + L_2$, cuja função de transferência $G_o(z)$ é dada por
+  %
+  \begin{equation}
+    G_o(z) = k \frac{T_s}{L_1+L_2} \frac{1}{z(z-1)} \text{,}
+    \label{eq:go_L1_L2}
+  \end{equation}
+  %
+  onde $k$ é o ganho necessário para igualar o ganho de $G_o(z)$ ao ganho de $G(z)$. Com isso, a parcela não-modelada da dinâmica é dada por
+  %
+  \begin{equation}
+    \Delta(z) = G(z) - G_o(z) \text{.}
+    \label{eq:dnm_deltaz}
+  \end{equation}
 
-  Para análise, considere a estrutura da Fig.~\ref{fig:LCL_discreto}. Em um primeiro momento, desconsidera-se o distúrbio de tensão da rede $V_g$ e projeta-se a ação de controle $U \equiv U_p$ para o caso de parâmetros conhecidos. %De (\ref{eq:g_2_discreta}) obtem-se a equação de diferença
+  As Fig.~\ref{fig:mag_g_go_delta_ic}, Fig.~\ref{fig:phase_g_go_delta_ic} e Fig.~\ref{fig:pzmap_delta_ic} levam em consideração a corrente do capacitor como variável de controle para a malha interna e apresentam, respectivamente, a margem de ganho e de fase para $G(z)$, $G_o(z)$ e $\Delta(z)$ e o diagrama de pólos e zeros para $\Delta(z)$.
+
+  \vspace{\fill}
+  \noindent
+  \begin{minipage}{\textwidth}
+    \makebox[\textwidth]{
+      \centering
+      \def\svgwidth{\textwidth}
+      \input{./img/bode_mag_ic.tex}}
+    \captionof{figure}{Margem de ganho para $G(z)$, $G_o(z)$ e $\Delta(z)$ considerando $i_C$ como variável intermediária.}
+    \label{fig:mag_g_go_delta_ic}
+  \end{minipage}
+  \vspace{\fill}
+
+  \newpage
+
+  \vspace*{\fill}
+  \noindent
+  \begin{minipage}{\textwidth}
+    \makebox[\textwidth]{
+      \centering
+      \def\svgwidth{\textwidth}
+      \input{./img/bode_phase_ic.tex}}
+    \captionof{figure}{Margem de fase para $G(z)$, $G_o(z)$ e $\Delta(z)$ considerando $i_C$ como variável intermediária.}
+    \label{fig:phase_g_go_delta_ic}
+  \end{minipage}
+
+  \vspace{\fill}
+  \noindent
+  \begin{minipage}{\textwidth}
+    \makebox[\textwidth]{
+      \centering
+      \def\svgwidth{\textwidth}
+      \input{./img/pzmap_dnm_ic.tex}}
+    \captionof{figure}{Diagrama de pólos e zeros para $\Delta(z)$ considerando $i_C$ como variável intermediária.}
+    \label{fig:pzmap_delta_ic}
+  \end{minipage}
+  \vspace{\fill}
+
+  \newpage
+
+  % \begin{figure}[htb]
+  %   \centering
+  %   \subfloat[Margem de ganho para $G(z)$, $G_o(z)$ e $\Delta(z)$.]{\label{fig:mag_g_go_delta_ic}
+  %     {\def\svgwidth{0.8\textwidth}\input{./img/gp_bode_mag_ic.tex}}}\\
+  %   \subfloat[Margem de fase para $G(z)$, $G_o(z)$ e $\Delta(z)$.]{\label{fig:phase_g_go_delta_ic}
+  %     {\def\svgwidth{0.8\textwidth}\input{./img/gp_bode_phase_ic.tex}}}\\
+  %   \subfloat[Diagrama de pólos e zeros para $\Delta(z)$.]{\label{fig:pzmap_delta_ic}
+  %     {\def\svgwidth{0.8\textwidth}\input{./img/pzmap_dnm_ic.tex}}}
+  %   \renewcommand\figurename{Fig.}
+  %   \caption{Margens de ganho e fase para as parcelas do sistema considerando $i_C$ como variável intermediária.}
+  %   \label{fig:mag_phase_g_go_delta_ic}
+  % \end{figure}
+
+  As Fig.~\ref{fig:mag_g_go_delta_vc}, Fig.~\ref{fig:phase_g_go_delta_vc} e Fig.~\ref{fig:pzmap_delta_vc} levam em consideração a corrente do capacitor como variável de controle para a malha interna e apresentam, respectivamente, a margem de ganho e de fase para $G(z)$, $G_o(z)$ e $\Delta(z)$ e o diagrama de pólos e zeros para $\Delta(z)$.
+
+  \vspace{\fill}
+  \noindent
+  \begin{minipage}{\textwidth}
+    \makebox[\textwidth]{
+      \centering
+      \def\svgwidth{\textwidth}
+      \input{./img/bode_mag_vc.tex}}
+    \captionof{figure}{Margem de ganho para $G(z)$, $G_o(z)$ e $\Delta(z)$ para $v_C$ como variável intermediária.}
+    \label{fig:mag_g_go_delta_vc}
+  \end{minipage}
+
+  \vspace{\fill}
+  \noindent
+  \begin{minipage}{\textwidth}
+    \makebox[\textwidth]{
+      \centering
+      \def\svgwidth{\textwidth}
+      \input{./img/bode_phase_vc.tex}}
+    \captionof{figure}{Margem de fase para $G(z)$, $G_o(z)$ e $\Delta(z)$ para $v_C$ como variável intermediária.}
+    \label{fig:phase_g_go_delta_vc}
+  \end{minipage}
+  \vspace{\fill}
+
+  \newpage
+
+  \vspace{0.5cm}
+  \noindent
+  \begin{minipage}{\textwidth}
+    \makebox[\textwidth]{
+      \centering
+      \def\svgwidth{\textwidth}
+      \input{./img/pzmap_dnm_vc.tex}}
+    \captionof{figure}{Diagrama de pólos e zeros para $\Delta(z)$ para $v_C$ como variável intermediária.}
+    \label{fig:pzmap_delta_vc}
+  \end{minipage}
+  \vspace{1cm}
+
+  % \begin{figure}[htb]
+  %   \centering
+  %   \subfloat[Margem de ganho para $G(z)$, $G_o(z)$ e $\Delta(z)$.]{\label{fig:mag_g_go_delta_vc}
+  %     {\def\svgwidth{0.8\textwidth}\input{./img/gp_bode_mag_vc.tex}}}\\
+  %   \subfloat[Margem de fase para $G(z)$, $G_o(z)$ e $\Delta(z)$.]{\label{fig:phase_g_go_delta_vc}
+  %     {\def\svgwidth{0.8\textwidth}\input{./img/gp_bode_phase_vc.tex}}}\\
+  %   \subfloat[Diagrama de pólos e zeros para $\Delta(z)$.]{\label{fig:pzmap_delta_vc}
+  %     {\def\svgwidth{0.8\textwidth}\input{./img/pzmap_dnm_vc.tex}}}
+  %   \renewcommand\figurename{Fig.}
+  %   \caption{Margens de ganho e fase para as parcelas do sistema considerando $i_C$ como variável intermediária.}
+  %   \label{fig:mag_phase_g_go_delta_vc}
+  % \end{figure}
+
+  Para análise, considere a estrutura da Fig.~\ref{fig:sistema_discreto}. Em um primeiro momento, desconsidera-se o distúrbio de tensão da rede $V_g$ e projeta-se a ação de controle $U \equiv U_p$ para o caso de parâmetros conhecidos. %De (\ref{eq:g_2_discreta}) obtem-se a equação de diferença
   De (\ref{eq:god_i2_vc}) ou de (\ref{eq:god_i2_ic}) obtem-se a equação de diferença
   %
   \begin{equation}
@@ -303,7 +430,7 @@
   %
   com $c > 0$, o que implica na convergência do erro de estimação $\epsilon$ para zero e na convergência de $\theta$ e $\rho$ para um valor limitado, como em \cite{ref:TAO}.
 
-  Como evidenciado pela Fig.~\ref{fig:LCL_discreto}, percebe-se que a corrente da rede $I_2$ está sujeita a um distúrbio exógeno de tensão da rede $V_g$. Para compensar este efeito, pode-se aumentar o vetor (\ref{eq:omega_k}) de forma que
+  Como evidenciado pela Fig.~\ref{fig:sistema_discreto}, percebe-se que a corrente da rede $I_2$ está sujeita a um distúrbio exógeno de tensão da rede $V_g$. Para compensar este efeito, pode-se aumentar o vetor (\ref{eq:omega_k}) de forma que
   %
   \begin{equation}
     {U_p}^* = \theta_1(k) I_2(k) + \theta_2(k) {I_2}^*(k)+

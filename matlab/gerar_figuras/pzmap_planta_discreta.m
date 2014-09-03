@@ -11,6 +11,7 @@ exportar=0;
 
 %Chama o script que inicializa os parametros do filtro LCL
 parametros_filtro_LCL;
+calculo_FTs;
 
 ZC_L2=Z0*Zg/(Z0+Zg);
 

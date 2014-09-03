@@ -57,10 +57,10 @@ G_u_vC_i2=minreal(G_u_vC*G_vC_i2,0.01);
 %Faça n=4 e m=1 com kp igual ao kp_novo = kp*3.69.
 
 %Go_iC=(z + 0.270665436545005)/(z^4 -2.828886133187644*z^3 +3.152657784036528*z^2 -1.647543301697770*z +0.323771650848891);
-Go=(Ts/(L1+L2))/(z-1);
+Go=(Ts/(L1+L2))/(z*(z-1));
 
-% dnm_iC=minreal(G_u_iC_i2 - Go,0.01);
-% dnm_vC=minreal(G_u_vC_i2 - Go,0.01);
+%dnm_iC=minreal(G_u_iC_i2 - Go,0.01);
+%dnm_vC=minreal(G_u_vC_i2 - Go,0.01);
 % figure
 % bode(G_u_iC_i2,'b')
 % hold
@@ -73,12 +73,12 @@ Go=(Ts/(L1+L2))/(z-1);
 % bode(Go,'g')
 % bode(dnm_vC,'r')
 % hold
-% Go_iC=8.007556285067009*Go;
-% %ganho de Go_iC = 0.166824089272229 (para usar no adaptativo)
-% Go_vC=0.257632115700258*Go;
+ Go_iC=8.007556285067009*Go;
+ %ganho de Go_iC = 0.166824089272229 (para usar no adaptativo)
+ Go_vC=0.257632115700258*Go;
 % %ganho de Go_vC = 0.005367335743755 (para usar no adaptativo)
-% dnm_iC=minreal(G_u_iC_i2 - Go_iC,0.01);
-% dnm_vC=minreal(G_u_vC_i2 - Go_vC,0.01);
+ dnm_iC=minreal(G_u_iC_i2 - Go_iC,0.01);
+ dnm_vC=minreal(G_u_vC_i2 - Go_vC,0.01);
 % figure
 % bode(G_u_iC_i2,'b')
 % hold

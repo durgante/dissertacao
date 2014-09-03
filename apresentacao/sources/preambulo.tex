@@ -1,0 +1,105 @@
+%CLASSE-----------------------------------------------------------------
+
+%\documentclass[aspectratio=169]{beamer}        %Beamer widescreen!
+\documentclass{beamer}
+\usetheme[titlepagelogo=img/logo,
+    			color=green,
+    			pageofpages=-,
+    			language=brazilian,
+    			bullet=square,
+    			coding=utf8,
+    			notshowauthor=true
+    			]{TorinoTh}
+
+
+%PACOTES----------------------------------------------------------------
+
+\usepackage[brazilian]{babel}
+\usepackage{lmodern}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{microtype}
+\usepackage{cmap}
+\usepackage{pgfplots}
+\usepackage{graphicx}
+\usepackage{geometry}
+\usepackage{amsmath,
+            amsfonts,
+            amssymb,
+            amsthm}
+\usepackage[lite]{mtpro2}
+\usepackage{multicol}
+\usepackage{multirow}
+\usepackage{array}
+\usepackage{xcolor}
+\usepackage[alf]{abntex2cite}
+%\usepackage{caption}
+%\usepackage{subfig}
+%\usepackage{hyperref}
+%\usepackage{fancybox}
+%\usepackage{natbib}
+
+
+%TITULO-----------------------------------------------------------------
+
+\title[Defesa de Dissertação]{Controle Adaptativo de Corrente em
+					Conversores Conectados na Rede Elétrica numa
+					Estrutura Multimalha}
+
+\author[M. Durgante]{Marcelo Durgante}
+\rel{Prof. Dr. Márcio Stefanello}
+
+\date{1 de setembro de 2014}
+
+\ateneo{Universidade Federal do Pampa}
+
+\setrellabel{Orientador}
+\setcandidatelabel{Acadêmico}
+\setsubject{Dissertação de Mestrado}
+
+%COMANDOS---------------------------------------------------------------
+
+\setbeamertemplate{caption}[numbered]
+\usefonttheme{professionalfonts}
+\setbeamertemplate{navigation symbols}{}
+\definecolor{uni_green}{RGB}{0,145,64}
+\graphicspath{{img/}}
+\pgfplotsset{compat=newest}
+\pgfplotsset{plot coordinates/math parser=false}
+\newcommand{\sen}{\operatorname{sen}}
+\providecommand{\sin}{} \renewcommand{\sin}{\hspace{2pt}\mathrm{sen}}
+
+\makeatletter
+{\hypersetup{
+      %pagebackref=true,
+      unicode=true,
+    pdftitle={\@title},
+    pdfauthor={\@author},
+      pdfcreator={LaTeX with abnTeX2},
+    pdfkeywords={Controle Multimalha}{Controle Adaptativo}{Conexão de Conversores na Rede}{Rejeição de Distúrbios}{Incerteza Paramétrica},
+    colorlinks=true,          % false: boxed links; true: colored links
+      linkcolor=uni_green,            % color of internal links
+      citecolor=uni_green,            % color of links to bibliography
+      filecolor=black,          % color of file links
+    urlcolor=black,
+    bookmarksdepth=4
+}
+
+%Apresenta o sumário a cada mudança de seção e subseção
+\AtBeginSection[]
+{
+    \begin{frame}
+    \frametitle{Sumário}
+    \tableofcontents[currentsection, currentsubsection]
+    \end{frame}
+}
+
+\AtBeginSubsection[]
+{
+    \begin{frame}
+    \frametitle{Sumário}
+    \tableofcontents[currentsection, currentsubsection]
+    \end{frame}
+}
+
+%FIM--------------------------------------------------------------------

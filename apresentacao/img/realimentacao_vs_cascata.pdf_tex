@@ -1,0 +1,76 @@
+%% Creator: Inkscape 0.48.3.1, www.inkscape.org
+%% PDF/EPS/PS + LaTeX output extension by Johan Engelen, 2010
+%% Accompanies image file 'realimentacao_vs_cascata.pdf' (pdf, eps, ps)
+%%
+%% To include the image in your LaTeX document, write
+%%   \input{<filename>.pdf_tex}
+%%  instead of
+%%   \includegraphics{<filename>.pdf}
+%% To scale the image, write
+%%   \def\svgwidth{<desired width>}
+%%   \input{<filename>.pdf_tex}
+%%  instead of
+%%   \includegraphics[width=<desired width>]{<filename>.pdf}
+%%
+%% Images with a different path to the parent latex file can
+%% be accessed with the `import' package (which may need to be
+%% installed) using
+%%   \usepackage{import}
+%% in the preamble, and then including the image with
+%%   \import{<path to file>}{<filename>.pdf_tex}
+%% Alternatively, one can specify
+%%   \graphicspath{{<path to file>/}}
+%% 
+%% For more information, please see info/svg-inkscape on CTAN:
+%%   http://tug.ctan.org/tex-archive/info/svg-inkscape
+%%
+\begingroup%
+  \makeatletter%
+  \providecommand\color[2][]{%
+    \errmessage{(Inkscape) Color is used for the text in Inkscape, but the package 'color.sty' is not loaded}%
+    \renewcommand\color[2][]{}%
+  }%
+  \providecommand\transparent[1]{%
+    \errmessage{(Inkscape) Transparency is used (non-zero) for the text in Inkscape, but the package 'transparent.sty' is not loaded}%
+    \renewcommand\transparent[1]{}%
+  }%
+  \providecommand\rotatebox[2]{#2}%
+  \ifx\svgwidth\undefined%
+    \setlength{\unitlength}{303.67068975bp}%
+    \ifx\svgscale\undefined%
+      \relax%
+    \else%
+      \setlength{\unitlength}{\unitlength * \real{\svgscale}}%
+    \fi%
+  \else%
+    \setlength{\unitlength}{\svgwidth}%
+  \fi%
+  \global\let\svgwidth\undefined%
+  \global\let\svgscale\undefined%
+  \makeatother%
+  \begin{picture}(1,0.79266065)%
+    \put(0,0){\includegraphics[width=\unitlength]{realimentacao_vs_cascata.pdf}}%
+    \put(0.16682928,0.64492522){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.23973338\unitlength}\centering Cascata\end{minipage}}}%
+    \put(0.27179917,0.44477185){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.41624037\unitlength}\centering Realimentação\end{minipage}}}%
+    \put(-0.02718888,0.09570435){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.21865792\unitlength}\centering $83$\end{minipage}}}%
+    \put(-0.04365408,0.21035468){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.25158832\unitlength}\centering $84$\end{minipage}}}%
+    \put(-0.04758133,0.32839262){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.25939842\unitlength}\centering $85$\end{minipage}}}%
+    \put(-0.05302825,0.44301865){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.27031824\unitlength}\centering $86$\end{minipage}}}%
+    \put(-0.05208925,0.5593921){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.26847935\unitlength}\centering $87$\end{minipage}}}%
+    \put(-0.03371883,0.67570288){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.23170134\unitlength}\centering $88$\end{minipage}}}%
+    \put(-0.02731042,0.79381011){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.21882902\unitlength}\centering $89$\end{minipage}}}%
+    \put(-0.00770103,0.06439088){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.2392511\unitlength}\centering $0$\end{minipage}}}%
+    \put(0.10139511,0.06440776){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.19764532\unitlength}\centering $5$\end{minipage}}}%
+    \put(0.17621229,0.06434915){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.22105072\unitlength}\centering $10$\end{minipage}}}%
+    \put(0.27710815,0.06436258){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.19244415\unitlength}\centering $15$\end{minipage}}}%
+    \put(0.37209175,0.06436491){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.17554026\unitlength}\centering $20$\end{minipage}}}%
+    \put(0.43398427,0.06436378){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.2249516\unitlength}\centering $25$\end{minipage}}}%
+    \put(0.54263225,0.06435357){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.18074146\unitlength}\centering $30$\end{minipage}}}%
+    \put(0.62010634,0.06438404){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.19894566\unitlength}\centering $35$\end{minipage}}}%
+    \put(0.71185588,0.06436716){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.18854325\unitlength}\centering $40$\end{minipage}}}%
+    \put(0.81076412,0.06441668){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.16383759\unitlength}\centering $45$\end{minipage}}}%
+    \put(0.90343254,0.0643998){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.148234\unitlength}\centering $50$\end{minipage}}}%
+    \put(0.44074134,0.02058179){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.21143067\unitlength}\centering $t$, min\end{minipage}}}%
+    \put(-0.00111378,0.34416817){\color[rgb]{0,0,0}\rotatebox{90}{\makebox(0,0)[lt]{\begin{minipage}{0.11304977\unitlength}\centering $T_{reator} \text{,} \,^{\circ}\mathrm{C}$\end{minipage}}}}%
+  \end{picture}%
+\endgroup%

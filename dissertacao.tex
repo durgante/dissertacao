@@ -2,8 +2,16 @@
 %CLASSE-------------------------------------------------------------------
 
 % verso e anverso:
-\documentclass[12pt,openright,twoside,a4paper,english,french,spanish,
-                sumario=tradicional,brazil]{abntex2}
+\documentclass[12pt,
+              openright,
+              twoside,
+              a4paper,
+              english,
+              french,
+              spanish,
+              sumario=tradicional,
+              brazil
+              ]{abntex2}
 
 % apenas verso:
 % \documentclass[12pt,oneside,a4paper,english,french,spanish,brazil]{abntex2}
@@ -79,6 +87,93 @@
 %\usetikzlibrary{external}
 %\tikzset{external/system call={latex \tikzexternalcheckshellescape -halt-on-error -interaction=batchmode -jobname "\image" "\texsource"}}
 %\tikzexternalize[shell escape=-enable-write18]
+\newsavebox{\fmbox}
+\newenvironment{fmpage}[1]
+{\begin{lrbox}{\fmbox}\begin{minipage}{#1}}
+{\end{minipage}\end{lrbox}\fbox{\usebox{\fmbox}}}
+% ---
+
+% ---
+% INICIO DAS CUSTOMIZACOES PARA A UNIVERSIDADE XXX
+% ---
+
+% alterando a capa
+\renewcommand{\imprimircapa}{%
+  \begin{capa}%
+    \center
+    \ABNTEXchapterfont\bfseries{UNIVERSIDADE FEDERAL DO PAMPA}
+
+    \vspace*{5cm}
+
+    {\ABNTEXchapterfont\bfseries{MARCELO HAHN DURGANTE}}
+
+    \vspace*{3cm}
+
+    \ABNTEXchapterfont\bfseries{CONTROLE ADAPTATIVO DE CORRENTE EM CONVERSORES CONECTADOS NA REDE ELÉTRICA NUMA ESTRUTURA MULTIMALHA}
+    \vfill
+
+    \normalsize\textbf{Alegrete}
+
+    \par
+
+    \normalsize\textbf{2014}
+
+    %\vspace*{1cm}
+  \end{capa}
+}
+
+
+% folha de rosto
+
+\makeatletter
+
+\renewcommand{\folhaderostocontent}{
+\begin{center}
+{\ABNTEXchapterfont\bfseries{MARCELO HAHN DURGANTE}}
+
+\vspace*{5cm}
+
+\begin{center}
+\ABNTEXchapterfont\bfseries{CONTROLE ADAPTATIVO DE CORRENTE EM CONVERSORES CONECTADOS NA REDE ELÉTRICA NUMA ESTRUTURA MULTIMALHA}
+\end{center}
+
+\vspace*{\fill}
+
+\abntex@ifnotempty{\imprimirpreambulo}{%
+  \hspace{.45\textwidth}
+  \begin{minipage}{.5\textwidth}
+  \SingleSpacing
+  \imprimirpreambulo\\
+
+  \vspace{\baselineskip}
+  Orientador: \imprimirorientador.
+  \end{minipage}%
+\vspace*{\fill}
+}%
+
+%{\large\imprimirorientadorRotulo~\imprimirorientador\par}
+
+%\abntex@ifnotempty{\imprimircoorientador}{%
+%  {\large\imprimircoorientadorRotulo~\imprimircoorientador}%
+%}%
+
+\vspace*{\fill}
+
+%{\abntex@ifnotempty{\imprimirinstituicao}{\imprimirinstituicao\vspace*{\fill}}}
+
+\normalsize\textbf{Alegrete}
+
+\par
+
+\normalsize\textbf{2014}
+%\vspace*{1cm}
+\end{center}
+}
+
+\makeatother
+
+% ---
+% FIM DAS CUSTOMIZACOES PARA A UNIVERSIDADE XXX
 % ---
 
 % ---
@@ -91,7 +186,7 @@
 \orientador{Prof. Dr. Márcio Stefanello}
 \coorientador{}
 \instituicao{%
-  Universidade Federal do Pampa -- Unipampa
+  Universidade Federal do Pampa -- UNIPAMPA
   \par
   Curso de Engenharia Elétrica
   \par
@@ -99,10 +194,7 @@
 \tipotrabalho{Dissertação (Mestrado)}
 % O preambulo deve conter o tipo do trabalho, o objetivo,
 % o nome da instituição e a área de concentração
-\preambulo{Dissertação apresentada ao Curso de Mestrado do Programa de Pós-Graduação em
-  Engenharia Elétrica, Área de Concentração em Eletrônica, da Universidade Federal
-  do Pampa (Unipampa, RS), como requisito parcial para obtenção do grau de
-  \textbf{Mestre em Engenharia Elétrica}.}
+\preambulo{Dissertação apresentada ao Programa de Pós-Graduação Stricto Sensu em Engenharia Elétrica da Universidade Federal do Pampa, como requisito parcial para obtenção do Título de Mestre em Engenharia Elétrica.}
 % ---
 
 
@@ -161,7 +253,7 @@
 % ----------------------------------------------------------
 % ELEMENTOS PRÉ-TEXTUAIS
 % ----------------------------------------------------------
-% \pretextual
+\pretextual
 
 % ---
 % Capa
@@ -288,7 +380,7 @@
  \item[$ \omega_n $] Frequência de ressonância
  \item[$ \overline{K_P} $] Limite superior para o valor do ganho $K_P$
  \item[$ \theta $] Ganho adaptativo
- \item[$ \phi $] Diferença entre o valor estimado para o ganho adaptativo e o valor para a condição de casamento
+ \item[$ \phi $] Erro de parâmetro da ação de controle
  \item[$ \gamma $] Ganho de projeto do algoritmo adaptativo
  \item[$ \Delta $] Parcela da planta contendo dinâmicas não-modeladas
  \item[$ m $] Normalizador projetado para garantir a robustez do sistema
@@ -316,6 +408,7 @@
 %\chapter*[Introdução]{Introdução}
 %\addcontentsline{toc}{chapter}{Introdução}
 
+%\part{Introdução}
 \input{textuais/introducao}
 
 
@@ -344,7 +437,7 @@
 % Finaliza a parte no bookmark do PDF, para que se inicie o bookmark na raiz
 % ---
 %\bookmarksetup{startatroot}%
-\phantompart
+%\phantompart
 % ---
 
 % ---

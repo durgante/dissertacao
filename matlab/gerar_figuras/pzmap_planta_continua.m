@@ -110,7 +110,8 @@ plot(real(Z), imag(Z), 'LineWidth', 1.5, ...
 %Escolha dos pontos marcados nos eixos
 set(gca, 'XTick', [-1 -0.5 0 0.5 1]);
 set(gca, 'YTick', [-6000 -3000 0 3000 6000]);
-%set(gca, 'XTickLabel', []);
+set(gca, 'XTickLabel', {'-1', '-0,5', '0', '0,5', '1'});
+set(gca, 'YTickLabel', {'-6.000', '-3.000', '0', '3.000', '6.000'});
                      
 %Escolha dos limites dos eixos X e Y
 set(gca, 'XLim', [-1 1]);

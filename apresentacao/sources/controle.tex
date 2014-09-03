@@ -1,0 +1,255 @@
+%SEÇÃO------------------------------------------------------------------
+
+\section{Controle Multimalha}
+
+  \frame{
+    \frametitle{\insertsection}
+    \vfill
+    \begin{itemize}
+      \item Projeto do controlador da malha interna \cite{ref:DANNEHL}
+        \begin{itemize}
+          \item Variável intermediária: tensão do capacitor $v_C$
+          \item Variável intermediária: corrente do capacitor $i_C$
+        \end{itemize}
+      \vfill
+      \item Projeto do controlador da malha externa
+    \end{itemize}
+    \vfill
+  }
+
+  \frame{
+    \frametitle{\insertsection}
+    \vfill
+    Variável controlada na malha interna: tensão do capacitor $v_C$
+    \vfill
+    \begin{equation}
+      C_i(z) = \left( K_P + K_D \right) \frac{z- \frac{K_D}{K_P+K_D}}{z}
+    \end{equation}
+    \begin{equation}
+      z = \frac{K_D}{K_P+K_D} > 1
+    \end{equation}
+    \vfill
+  }
+
+  \frame{
+    \frametitle{\insertsection}
+    \vfill
+    \begin{small}
+    \begin{figure}[htb]
+      \centering
+      %\raisebox{-0.5\height}{
+        \def\svgwidth{0.5\textwidth}
+        \input{./img/rlocus_controlador_pd.tex}%}
+    \end{figure}
+    \end{small}
+    \vfill
+  }
+
+  \frame{
+    \frametitle{\insertsection}
+    \vfill
+    Variável controlada na malha interna: corrente do capacitor $i_C$
+    \begin{equation}
+      C_i(z) = K_P
+    \end{equation}
+    \vfill
+    Equação característica da função de transferência $\frac{i_C}{U_c}$:
+    \begin{equation}
+      z^3 - 2 \cos \left( \omega_n T_s \right) z^2 + \left( 1 + K_P K_{id} \right) z - K_P K_{id} = 0
+      \label{eq:eq_caracteristica}
+    \end{equation}
+    Onde:
+    \begin{equation}
+      K_{id} = \frac{\sin(\omega_n T_s)}{\omega_n L_1}
+    \end{equation}
+    \vfill
+  }
+
+  \frame{
+    \frametitle{\insertsection}
+    \vfill
+    Utilizando a transformação bilinear:
+    \begin{equation}
+      z = \frac{w + 1}{w - 1}
+    \end{equation}
+    \vfill
+    Critério de estabilidade de Routh-Hurwitz como em um sistema em tempo contínuo \cite{ref:OGATA}
+    \begin{equation}
+      \overline{K_P} = \frac{2 \cos \left( \omega_n T_s \right) - 1}
+        {\sen \left( \omega_n T_s \right)} \omega_n L_1
+    \end{equation}
+    \vfill
+  }
+
+  \frame{
+    \frametitle{\insertsection}
+    \vfill
+    \begin{small}
+    \begin{figure}[htb]
+      \centering
+      \raisebox{-0.5\height}{
+        \def\svgwidth{0.5\textwidth}
+        \input{./img/rlocus_controlador_p.tex}}
+    \end{figure}
+    \end{small}
+    \vfill
+  }
+
+  \frame{
+    \frametitle{\insertsection}
+    \vfill
+    Projeto do controlador da malha externa:
+    \vfill
+    \begin{itemize}
+      \item Tratamento do zero de fase não-mínima devido à discretização
+      \vfill
+      \item Explorar a característica robusta do controlador para reduzir a ordem do sistema
+    \end{itemize}
+    \vfill
+  }
+
+  \frame{
+    \frametitle{\insertsection}
+    \vfill
+    Reescrita da expressão da planta em termos de uma \emph{dinâmica não-modelada}
+    \begin{equation}
+      G(z) = G_o(z) + \Delta(z)
+      \label{eq:planta_go_delta_aditiva}
+    \end{equation}
+    \vfill
+    Considerando $G_o(z)$ como sendo apenas um indutor $L_1 + L_2$:
+    \begin{equation}
+      G_o(z) = k \frac{T_s}{L_1+L_2} \frac{1}{z(z-1)}
+      \label{eq:go_L1_L2}
+    \end{equation}
+    \vfill
+    Logo, a dinâmica não-modelada é dada por
+    \begin{equation}
+      \Delta(z) = G(z) - G_o(z)
+      \label{eq:dnm_deltaz}
+    \end{equation}
+    \vfill
+  }
+
+  \frame{
+    \frametitle{\insertsection}
+    \vfill
+    Margem de ganho para $G(z)$, $G_o(z)$ e $\Delta(z)$ e diagrama de pólos e zeros para $\Delta(z)$ para a corrente do capacitor $i_C$ como variável controlada na malha interna
+    \vfill
+  }
+
+  \frame{
+    \frametitle{\insertsection}
+    \vfill
+    \begin{small}
+    \begin{figure}[htb]
+      \centering
+      \raisebox{-0.5\height}{
+        \def\svgwidth{0.5\textwidth}
+        \input{./img/bode_mag_ic.tex}}
+    \end{figure}
+    \end{small}
+    \vfill
+  }
+
+  \frame{
+    \frametitle{\insertsection}
+    \vfill
+    \begin{small}
+    \begin{figure}[htb]
+      \centering
+      \raisebox{-0.5\height}{
+        \def\svgwidth{0.5\textwidth}
+        \input{./img/pzmap_dnm_ic.tex}}
+    \end{figure}
+    \end{small}
+    \vfill
+  }
+
+  \frame{
+    \frametitle{\insertsection}
+    \vfill
+    Margem de ganho para $G(z)$, $G_o(z)$ e $\Delta(z)$ e diagrama de pólos e zeros para $\Delta(z)$ para a tensão do capacitor $v_C$ como variável controlada na malha interna
+    \vfill
+  }
+
+  \frame{
+    \frametitle{\insertsection}
+    \vfill
+    \begin{small}
+    \begin{figure}[htb]
+      \centering
+      \raisebox{-0.5\height}{
+        \def\svgwidth{0.5\textwidth}
+        \input{./img/bode_mag_vc.tex}}
+    \end{figure}
+    \end{small}
+    \vfill
+  }
+
+  \frame{
+    \frametitle{\insertsection}
+    \vfill
+    \begin{small}
+    \begin{figure}[htb]
+      \centering
+      \raisebox{-0.5\height}{
+        \def\svgwidth{0.5\textwidth}
+        \input{./img/pzmap_dnm_vc.tex}}
+    \end{figure}
+    \end{small}
+    \vfill
+  }
+
+  \frame{
+    \frametitle{\insertsection}
+    \vfill
+    Algoritmo de adaptação paramétrica \cite{ref:TAO}:
+    \begin{equation}
+      \begin{split}
+        \theta(k+1) &= \theta(k) - \mathrm{sgn}(k_p) \gamma_d \frac{\zeta(k) \cdot e_a(k)}{{\bar{m}}^2(k)} \\
+        \rho(k+1) &= \rho(k) - \gamma \frac{e_2(k) \cdot e_a(k)}{{\bar{m}}^2(k)} \\
+        {\bar{m}}^2 &= m^2(k) + \zeta^T(k) \zeta(k) + {e_2}^2(k) \\
+        m^2(k+1) &=  \delta_0(m^2(k) - 1) + u^2(k) + y^2(k) + 1
+      \end{split}
+      \label{eq:equacoes_algoritmo_adaptativo}
+    \end{equation}
+    \vfill
+  }
+
+  \frame{
+    \frametitle{\insertsection}
+    \vfill
+    Com:
+    \begin{equation}
+      e_1 = y(k) - y_m(k)
+    \end{equation}
+    \begin{equation}
+      e_a = e_1 + \rho e_2
+    \end{equation}
+    \begin{equation}
+      \zeta(k) = W_m(z) \omega(k)
+    \end{equation}
+    \begin{equation}
+      e_2 = -W_m(z)u(k)+\theta^T(k)\zeta(k)
+    \end{equation}
+    \vfill
+    Com $\gamma$ e $\gamma_d$ ganhos das leis de adaptação e $\delta_0$ é uma constante de projeto
+    \vfill
+  }
+
+  \frame{
+    \frametitle{\insertsection}
+    \vfill
+    \begin{small}
+    \begin{figure}[htb]
+      \centering
+      \raisebox{-0.5\height}{
+        \def\svgwidth{\textwidth}
+        \input{./img/diagrama_blocos_adaptativo.pdf_tex}}
+    \end{figure}
+    \end{small}
+    \vfill
+  }
+
+%FIM-------------------------------------------------------------------

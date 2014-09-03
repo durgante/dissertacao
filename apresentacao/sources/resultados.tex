@@ -1,0 +1,361 @@
+%SEÇÃO------------------------------------------------------------------
+
+\section{Resultados}
+
+  \frame{
+    \frametitle{\insertsection}
+    \vfill
+    Resultados de simulação para a corrente do capacitor $i_C$ como variável controlada na malha interna
+    \vfill
+    Valores de inicialização:
+    \begin{equation}
+      \begin{split}
+        \theta^T & = \left[ \begin{matrix} -0,03, & -0,36, & -0,57, & -0,01 & 0,16 & 0,02 \end{matrix} \right]\text{ e}\\
+        \omega & = {\left[ \begin{matrix} 0 & 0 & 0 & 0 & 0 & 0 \end{matrix} \right]}^T
+      \end{split}
+      \label{eq:theta_sim}
+    \end{equation}
+    \begin{equation}
+      W_m(z) = \frac{(1-p_1)(1-p_2)}{(z-p_1)(z-p_2)}
+      \label{eq:wm_simulacao}
+    \end{equation}
+    Com $p_1 = p_2 = 0,2$.
+    \vfill
+  }
+
+  \frame{
+    \frametitle{\insertsection}
+    \vfill
+    Valores utilizados dos parâmetros do sistema utilizados no projeto
+    \vfill
+    \begin{table}[htb]
+      \renewcommand{\arraystretch}{1.35}
+      \setlength{\tabcolsep}{1.2mm}
+      %\caption{Valores dos parâmetros do sistema utilizados no projeto, com $i_C$ como variável intermediária.}
+      \label{tab:parametros_projeto}
+      \centering
+      \begin{tabular}{l l l l}
+        \hline
+        \multicolumn{1}{c}{Parâmetro} & \multicolumn{1}{c}{Valor} &
+        \multicolumn{1}{c}{Parâmetro} & \multicolumn{1}{c}{Valor} \\
+        \hline
+        $L_1$      & $2$mH    & $L_2$         & $2$mH   \\
+        $C$        & $40\mu$F & $f_s = 1/T_s$ & $12$kHz \\
+        $\gamma_d$ & $0,0098$ & $\gamma$      & $0,99$  \\
+        $\delta_0$ & $0,8$    & $K_P$         & $8$     \\
+        \hline
+      \end{tabular}
+    \end{table}
+    \vfill
+  }
+
+  \frame{
+    \frametitle{\insertsection}
+    \vfill
+    \begin{small}
+    \begin{figure}[htb]
+      \centering
+      \raisebox{-0.5\height}{
+        %\def\svgwidth{0.6\columnwidth}
+        \resizebox{0.7\linewidth}{!}{\input{./img/i2_sim_Lg.tex}}}
+    \end{figure}
+    \end{small}
+    \vfill
+  }
+
+  \frame{
+    \frametitle{\insertsection}
+    \vfill
+    \begin{small}
+    \begin{figure}[htb]
+      \centering
+      \raisebox{-0.5\height}{
+        %\def\svgwidth{0.8\linewidth}
+        \resizebox{0.7\linewidth}{!}{\input{./img/up_sim_Lg.tex}}}
+    \end{figure}
+    \end{small}
+    \vfill
+  }
+
+  \frame{
+    \frametitle{\insertsection}
+    \vfill
+    \begin{small}
+    \begin{figure}[htb]
+      \centering
+      \raisebox{-0.5\height}{
+        %\def\svgwidth{0.8\linewidth}
+        \resizebox{0.7\linewidth}{!}{\input{./img/theta_sim_Lg.tex}}}
+    \end{figure}
+    \end{small}
+    \vfill
+  }
+
+  \frame{
+    \frametitle{\insertsection}
+    \vfill
+    Resultados de simulação para a tensão do capacitor $v_C$ como variável controlada na malha interna
+    \vfill
+    Valores de inicialização:
+    \begin{equation}
+      \begin{split}
+        \theta^T & = \left[ \begin{matrix} 0,97, & -1,07, & 2,22, & 16,03 \end{matrix} \right]\text{ e}\\
+        \omega & = {\left[ \begin{matrix} 0 & 0 & 0 & 0 \end{matrix} \right]}^T
+      \end{split}
+      \label{eq:theta_sim_vc}
+    \end{equation}
+    \begin{equation}
+      W_m(z) = \frac{(1-p_1)(1-p_2)}{(z-p_1)(z-p_2)}
+      \label{eq:wm_simulacao}
+    \end{equation}
+    Com $p_1 = p_2 = 0,2$.
+    \vfill
+  }
+
+  \frame{
+    \frametitle{\insertsection}
+    \vfill
+    Valores utilizados dos parâmetros do sistema utilizados no projeto
+    \vfill
+    \begin{small}
+    \begin{table}[htb]
+      \renewcommand{\arraystretch}{1.35}
+      \setlength{\tabcolsep}{1.2mm}
+      %\caption{Valores dos parâmetros do sistema utilizados no projeto, com $v_C$ como variável intermediária.}
+      \label{tab:parametros_projeto_vc}
+      \centering
+      \begin{tabular}{l l}
+        \hline
+        \multicolumn{1}{c}{Parâmetro} & \multicolumn{1}{c}{Valor}\\
+        \hline
+        $L_1$         & $2$mH    \\
+        $L_2$         & $2$mH    \\
+        $C$           & $40\mu$F \\
+        $f_s = 1/T_s$ & $12$kHz  \\
+        $\gamma_d$    & $0,0098$ \\
+        $\gamma$      & $0,99$   \\
+        $\delta_0$    & $0,8$    \\
+        $K_P*K_D$     & $3$      \\
+        \hline
+      \end{tabular}
+    \end{table}
+    \end{small}
+    \vfill
+  }
+
+  \frame{
+    \frametitle{\insertsection}
+    \vfill
+    \begin{small}
+    \begin{figure}[htb]
+      \centering
+      \raisebox{-0.5\height}{
+        %\def\svgwidth{0.6\columnwidth}
+        \resizebox{0.7\linewidth}{!}{\input{./img/i2_sim_Lg_vc.tex}}}
+    \end{figure}
+    \end{small}
+    \vfill
+  }
+
+  \frame{
+    \frametitle{\insertsection}
+    \vfill
+    \begin{small}
+    \begin{figure}[htb]
+      \centering
+      \raisebox{-0.5\height}{
+        %\def\svgwidth{0.8\linewidth}
+        \resizebox{0.7\linewidth}{!}{\input{./img/up_sim_Lg_vc.tex}}}
+    \end{figure}
+    \end{small}
+    \vfill
+  }
+
+  \frame{
+    \frametitle{\insertsection}
+    \vfill
+    \begin{small}
+    \begin{figure}[htb]
+      \centering
+      \raisebox{-0.5\height}{
+        %\def\svgwidth{0.8\linewidth}
+        \resizebox{0.7\linewidth}{!}{\input{./img/theta_sim_Lg_vc.tex}}}
+    \end{figure}
+    \end{small}
+    \vfill
+  }
+
+  \frame{
+    \frametitle{\insertsection}
+    \vfill
+    Resultados experimentais para a corrente do capacitor $i_C$ como variável controlada na malha interna
+    \vfill
+    Valores de inicialização:
+    \begin{equation}
+      \begin{split}
+        \theta^T = \left[ \begin{matrix} 0, & 0, & -1,36, & 1,36 \end{matrix} \right]\\
+        \omega = {\left[ \begin{matrix} 0 & 0 & 0 & 0 \end{matrix} \right]}^T
+      \end{split}
+      \label{eq:theta_exp}
+    \end{equation}
+    \begin{equation}
+      W_m(z) = \frac{(1-p_1)(1-p_2)}{(z-p_1)(z-p_2)}
+      \label{eq:wm_exp}
+    \end{equation}
+    Com $p_1 = p_2 = 0,5$.
+    \vfill
+  }
+
+  \frame{
+    \frametitle{\insertsection}
+    \vfill
+    Valores utilizados dos parâmetros do sistema utilizados no projeto
+    \vfill
+    \begin{table}[htb]
+      \renewcommand{\arraystretch}{1.35}
+      \setlength{\tabcolsep}{1.2mm}
+      %\caption{Valores dos parâmetros do sistema utilizados no experimento.}
+      \label{tab:parametros_experimento}
+      \centering
+      \begin{tabular}{l l l l}
+        \hline
+        \multicolumn{1}{c}{Parâmetro} & \multicolumn{1}{c}{Valor} &
+        \multicolumn{1}{c}{Parâmetro} & \multicolumn{1}{c}{Valor} \\
+        \hline
+        $L_1$      & $1$mH    & $L_2$         & $0,5$mH \\
+        $C$        & $40\mu$F & $f_s = 1/T_s$ & $12$kHz \\
+        $\gamma_d$ & $0,01$   & $\gamma$      & $0,95$  \\
+        $\delta_0$ & $0,98$   & $K_P$         & $3,35$  \\
+        \hline
+      \end{tabular}
+    \end{table}
+    \vfill
+  }
+
+  \frame{
+    \frametitle{\insertsection}
+    \vfill
+    \begin{small}
+    \begin{figure}[htb]
+      \centering
+      \raisebox{-0.5\height}{
+        %\def\svgwidth{0.6\columnwidth}
+        \resizebox{0.9\linewidth}{!}{\input{./img/i2_exp_ini.tex}}}
+    \end{figure}
+    \end{small}
+    \vfill
+  }
+
+  \frame{
+    \frametitle{\insertsection}
+    \vfill
+    \begin{small}
+    \begin{figure}[htb]
+      \centering
+      \raisebox{-0.5\height}{
+        %\def\svgwidth{0.8\linewidth}
+        \resizebox{0.9\linewidth}{!}{\input{./img/i2_exp_phase.tex}}}
+    \end{figure}
+    \end{small}
+    \vfill
+  }
+
+  \frame{
+    \frametitle{\insertsection}
+    \vfill
+    \begin{small}
+    \begin{figure}[htb]
+      \centering
+      \raisebox{-0.5\height}{
+        %\def\svgwidth{0.8\linewidth}
+        \resizebox{0.9\linewidth}{!}{\input{./img/i2_exp_Lg.tex}}}
+    \end{figure}
+    \end{small}
+    \vfill
+  }
+
+  \frame{
+    \frametitle{\insertsection}
+    \vfill
+    \begin{small}
+    \begin{figure}[htb]
+      \centering
+      \raisebox{-0.5\height}{
+        %\def\svgwidth{0.8\linewidth}
+        \resizebox{0.9\linewidth}{!}{\input{./img/up_exp_Lg.tex}}}
+    \end{figure}
+    \end{small}
+    \vfill
+  }
+
+  \frame{
+    \frametitle{\insertsection}
+    \vfill
+    \begin{small}
+    \begin{figure}[htb]
+      \centering
+      \raisebox{-0.5\height}{
+        %\def\svgwidth{0.8\linewidth}
+        \resizebox{0.7\linewidth}{!}{\input{./img/theta_exp_Lg.tex}}}
+    \end{figure}
+    \end{small}
+    \vfill
+  }
+
+  \frame{
+    \frametitle{\insertsection}
+    \vfill
+    \begin{small}
+    \begin{figure}[htb]
+      \centering
+      \raisebox{-0.5\height}{
+        %\def\svgwidth{0.8\linewidth}
+        \resizebox{0.9\linewidth}{!}{\input{./img/m_exp_Lg.tex}}}
+    \end{figure}
+    \end{small}
+    \vfill
+  }
+
+  \frame{
+    \frametitle{\insertsection}
+    \vfill
+    \begin{small}
+    \begin{figure}[htb]
+      \centering
+      \raisebox{-0.5\height}{
+        %\def\svgwidth{0.8\linewidth}
+        \resizebox{0.9\linewidth}{!}{\input{./img/i2_exp_Lg_permanente.tex}}}
+    \end{figure}
+    \end{small}
+    \vfill
+  }
+
+  \frame{
+    \frametitle{\insertsection}
+    \vfill
+    \begin{small}
+    \begin{figure}[htb]
+      \centering
+      \raisebox{-0.5\height}{
+        %\def\svgwidth{0.8\linewidth}
+        \resizebox{0.9\linewidth}{!}{\input{./img/up_exp_Lg_permanente.tex}}}
+    \end{figure}
+    \end{small}
+    \vfill
+  }
+
+  \frame{
+    \frametitle{\insertsection}
+    \vfill
+    \begin{small}
+    \begin{figure}[htb]
+      \centering
+      \raisebox{-0.5\height}{
+        %\def\svgwidth{0.8\linewidth}
+        \resizebox{0.9\linewidth}{!}{\input{./img/m_exp_Lg_permanente.tex}}}
+    \end{figure}
+    \end{small}
+    \vfill
+  }
+
+%FIM--------------------------------------------------------------------

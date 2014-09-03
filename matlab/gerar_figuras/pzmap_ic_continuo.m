@@ -153,7 +153,7 @@ plot(real(Z), imag(Z), 'LineWidth', 1.5, ...
 
 %Escolha dos pontos marcados nos eixos
 %set(gca, 'XTick', [-4 -3 -2 -1 0 1]);
-%set(gca, 'YTick', [-1 0 1]);
+%set(gca, 'YTick', [-8000 -6000 -4000 -2000 0 2000 4000 6000 8000]);
 %set(gca, 'XTickLabel', []);
                      
 %Escolha dos limites dos eixos X e Y

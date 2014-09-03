@@ -1,0 +1,182 @@
+%SEÇÃO------------------------------------------------------------------
+
+\section{Introdução}
+
+  \frame{
+    \frametitle{\insertsection}
+    \vfill
+    \begin{itemize}
+      \item Problemas de qualidade de energia
+      %O fornecimento de energia é idealmente senoidal e balanceado, com correntes de linha senoidais, amplitude e frequência fixas e fator de potência unitário. Distorções deste padrão implicam em um problema de qualidade de energia.
+      \vfill
+      \item Conversores tiristorizados e dispositivos eletrônicos de potência
+      %Distorções causadas pela crescente utilização de conversores tiristorizados e cargas semelhantes em ambientes industriais e dispositivos eletrônicos de potência em residências. Estas cargas drenam correntes harmônicas da rede e causam variações bruscas de energia reativa, que afastam o fator de potência do valor unitário.
+      \vfill
+      \item Filtragem: ativa ou passiva
+      %filtragem passiva é mais fácil de projetar e implementar, mas tem uma capacidade de compensação limitada comparado com filtros ativos. A partir da década de 70, com a popularização dos dispositivos semicondutores de potência, a filtragem ativa começou a difundir-se cada vez mais.
+      \vfill
+      \item Fitro $L$ $\to$ Filtro $LCL$
+        \begin{adv}
+          \item Maior atenuação das componentes harmônicas
+          \item Dimensões físicas reduzidas em relação ao filtro $L$
+        \end{adv}
+        \begin{disadv}
+          \item Pico de amplitude na frequência de ressonância
+        \end{disadv}
+        %\begin{itemize}
+        %  \item Maior atenuação das componentes harmônicas
+        %  \item Dimensões físicas significativamente menores que o filtro $L$
+        %\end{itemize}
+      %inversores de tensão trabalham em frequências de comutação da ordem de kHz para manter as perdas de operação em níveis aceitáveis. Por esse motivo, em geral utilizam-se filtros do tipo L para manter as correntes harmônicas sob controle. Nos últimos anos, no entanto, filtros LCL tem sido estudados como uma alternativa, devido ao fato de apresentarem maior atenuação das frequências harmônicas e possuírem dimensões físicas muito menores do que o filtro L, implicando na redução do custo de implementação.
+    \end{itemize}
+    \vfill
+  }
+
+  \frame{
+    \frametitle{\insertsection}
+    \vfill
+    \begin{small}
+    \begin{figure}[htb]
+      \centering
+      \raisebox{-0.5\height}{
+        \def\svgwidth{0.7\textwidth}
+        \input{./img/L_vs_LCL.tex}}
+    \end{figure}
+    \end{small}
+    \vfill
+  }
+
+  \frame{
+    \frametitle{\insertsection}
+    \vfill
+    Como resolver o problema do pico de amplitude na frequência de ressonância do filtro?
+    \vfill
+    \begin{itemize}
+      \item Amortecimento passivo via resistor em série ou paralelo com o capacitor do filtro
+      %reduz efetivamente o pico de amplitude na freq. de ress. mas implica em dissipação de energia pelo filtro e degrada o amortecimento nas altas frequências. Não é uma solução aceitável para aplicações que precisam de alto desempenho.
+      \vfill
+      \item Estratégias de amortecimento ativo
+        \begin{itemize}
+          \item Estimação da impedância da rede \cite{ref:BLAABJERG}
+          \item Retroação de estados \cite{ref:MASSING}
+          \item Múltiplos laços de realimentação \cite{ref:POH}
+          \item Dentre outras \cite{ref:WU}, \cite{ref:MORENO}, \cite{ref:YANG}
+        \end{itemize}
+    \end{itemize}
+    \vfill
+  }
+
+  \frame{
+    \frametitle{\insertsection}
+    \vfill
+    \begin{small}
+    \begin{figure}[htb]
+      \centering
+      \raisebox{-0.5\height}{
+        \def\svgwidth{0.7\textwidth}
+        \input{./img/R_in_LCL.tex}}
+    \end{figure}
+    \end{small}
+    \vfill
+  }
+
+  \frame{
+    \frametitle{\insertsection}
+    \vfill
+    Estratégias comumente usadas para controle de conversores conectados à rede elétrica:
+    \vfill
+    \begin{itemize}
+      \item Controladores de tipo $PI$ em eixos síncronos $dq$ ou estacionários $\alpha \beta$ \cite{ref:KAZMIERKOWSKI}
+      %rastreamento de referências senoidais e rejeição de distúrbios de mesma natureza
+      \vfill
+      \item Controladores do tipo \emph{Dead-Beat} \cite{ref:MALESANI}
+      %mais rápida estratégia de controle linear, replica exatamente a corrente de referência com dois ciclos de atraso e é baseada no modelo interno do sistema (altamente sensível às incertezas do modelo)
+      \vfill
+      \item Controlador por Histerese \cite{ref:TENTI}
+      %resposta dinâmica rápida devido à sua inerente não-linearidade, é estável e robusto com relação à variações na carga ou outros distúrbios dinâmicos
+      \vfill
+      \item Controle Multimalha \cite{ref:KRISHNA}
+      %apresenta um desempenho melhor que controle por realimentação simples pelo fato de não precisar esperar que o distúrbio se propague pelo sistema, uma vez que o distúrbio afete uma variável intermediária, a ação corretiva pode começar imediantamente, não é necessário esperar que o distúrbio tire a variável controlada do ponto de operação. Pressupõe como requisito básico que a variável intermediária reaja mais rapidamente ao distúrbio que a variável controlada
+    \end{itemize}
+  }
+
+  \frame{
+    \frametitle{\insertsection}
+    \vfill
+    Conforme apresentado em \cite{ref:SMITH}:
+    \vfill
+    \begin{small}
+    \begin{figure}[htb]
+      \centering
+      \raisebox{-0.5\height}{
+        \def\svgwidth{0.6\textwidth}
+        \input{./img/realimentacao_vs_cascata.pdf_tex}}
+    \end{figure}
+    \end{small}
+    \vfill
+  }
+
+  \frame{
+    \frametitle{\insertsection}
+    \vfill
+    \begin{block}{Desafio}
+      \begin{center}
+        O valor da impedância da rede é desconhecido/incerto.
+      \end{center}
+    \end{block}
+    \vfill
+    \begin{itemize}
+      \item A indutância da rede pode ser considerada como parte do filtro
+      \vfill
+      \item Desenvolver estratégias de controle robustas à incerteza paramétrica
+    \end{itemize}
+    \vfill
+  }
+
+  \frame{
+    \frametitle{\insertsection}
+    \vfill
+    \begin{small}
+    \begin{figure}[htb]
+      \centering
+      \raisebox{-0.5\height}{
+        \def\svgwidth{\textwidth}
+        \input{./img/topologia.pdf_tex}}
+    \end{figure}
+    \end{small}
+    \vfill
+  }
+
+  \frame{
+    \frametitle{\insertsection}
+    \vfill
+    Proposta deste trabalho:
+    \vfill
+    \begin{itemize}
+      \item Utilização de uma estrutura composta por duas malhas
+      %onde a malha interna é projetada para amortecer o pico de amplitude na frequência de ressonância do filtro
+      \vfill
+      \item Projeto de um controlador do tipo MRAC Robusto
+      %controlador adaptativo robusto por modelo de referência, possui um conjunto de ganhos que são atualizados constantemente para oferecer uma resposta otimizada frente à variação da indutância da rede. É chamado robusto devido ao fato de ser possível provar matematicamente que a variação no parâmetro da rede implica em degradação do desempenho do filtro, mas não em instabilidade
+      \vfill
+      \item Modelagem do sistema visando simplificação do projeto dos controladores
+      %o amortecimento provido pela malha interna implica na aproximação dos pólos do sistema da origem, e a modelagem da parcela da planta tratada pela malha externa visa a redução no número de ganhos adaptativos, para que o cálculo da lei de controle seja rápido
+    \end{itemize}
+    \vfill
+  }
+
+  \frame{
+    \frametitle{\insertsection}
+    \vfill
+    \begin{footnotesize}
+    \begin{figure}[htb]
+      \centering
+      \raisebox{-0.5\height}{
+        \def\svgwidth{0.9\textwidth}
+        \input{./img/diagrama_de_blocos_LCL.pdf_tex}}
+    \end{figure}
+    \end{footnotesize}
+    \vfill
+  }
+
+%FIM-------------------------------------------------------------------

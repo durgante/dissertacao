@@ -11,6 +11,7 @@ exportar=0;
 
 %Chama o script que inicializa os parametros do filtro LCL
 %run('C:\Users\marcelodurgante\Desktop\Dropbox\Trabalho\Dissertacao\matlab\gerar_figuras\parametros_filtro_LCL.m');
+parametros_filtro_LCL;
 
 Vdc = 20;
 

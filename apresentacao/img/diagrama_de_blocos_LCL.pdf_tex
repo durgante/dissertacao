@@ -1,0 +1,70 @@
+%% Creator: Inkscape 0.48.3.1, www.inkscape.org
+%% PDF/EPS/PS + LaTeX output extension by Johan Engelen, 2010
+%% Accompanies image file 'diagrama_de_blocos_LCL.pdf' (pdf, eps, ps)
+%%
+%% To include the image in your LaTeX document, write
+%%   \input{<filename>.pdf_tex}
+%%  instead of
+%%   \includegraphics{<filename>.pdf}
+%% To scale the image, write
+%%   \def\svgwidth{<desired width>}
+%%   \input{<filename>.pdf_tex}
+%%  instead of
+%%   \includegraphics[width=<desired width>]{<filename>.pdf}
+%%
+%% Images with a different path to the parent latex file can
+%% be accessed with the `import' package (which may need to be
+%% installed) using
+%%   \usepackage{import}
+%% in the preamble, and then including the image with
+%%   \import{<path to file>}{<filename>.pdf_tex}
+%% Alternatively, one can specify
+%%   \graphicspath{{<path to file>/}}
+%% 
+%% For more information, please see info/svg-inkscape on CTAN:
+%%   http://tug.ctan.org/tex-archive/info/svg-inkscape
+%%
+\begingroup%
+  \makeatletter%
+  \providecommand\color[2][]{%
+    \errmessage{(Inkscape) Color is used for the text in Inkscape, but the package 'color.sty' is not loaded}%
+    \renewcommand\color[2][]{}%
+  }%
+  \providecommand\transparent[1]{%
+    \errmessage{(Inkscape) Transparency is used (non-zero) for the text in Inkscape, but the package 'transparent.sty' is not loaded}%
+    \renewcommand\transparent[1]{}%
+  }%
+  \providecommand\rotatebox[2]{#2}%
+  \ifx\svgwidth\undefined%
+    \setlength{\unitlength}{591.2bp}%
+    \ifx\svgscale\undefined%
+      \relax%
+    \else%
+      \setlength{\unitlength}{\unitlength * \real{\svgscale}}%
+    \fi%
+  \else%
+    \setlength{\unitlength}{\svgwidth}%
+  \fi%
+  \global\let\svgwidth\undefined%
+  \global\let\svgscale\undefined%
+  \makeatother%
+  \begin{picture}(1,0.52837449)%
+    \put(0,0){\includegraphics[width=\unitlength]{diagrama_de_blocos_LCL.pdf}}%
+    \put(0.60165804,0.34838261){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.10084912\unitlength}\centering $G_{di}$\end{minipage}}}%
+    \put(0.8475798,0.34839047){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.11291656\unitlength}\centering $G_{do}$\end{minipage}}}%
+    \put(0.07360394,0.21685632){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.09309151\unitlength}\centering MRAC\end{minipage}}}%
+    \put(0.3249018,0.22176016){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.12316232\unitlength}\centering $C_i$\end{minipage}}}%
+    \put(0.46128181,0.22175745){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.12833407\unitlength}\centering $G_{id}$\end{minipage}}}%
+    \put(0.7304378,0.22176051){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.09395347\unitlength}\centering $G_{od}$\end{minipage}}}%
+    \put(-0.00478952,0.24366343){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.06249198\unitlength}\centering $I_2^*$\end{minipage}}}%
+    \put(0.15688564,0.23863411){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.0801488\unitlength}\centering $U$\end{minipage}}}%
+    \put(0.42113813,0.24366098){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.05559631\unitlength}\centering $U_c$\end{minipage}}}%
+    \put(0.66276512,0.24366342){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.07628331\unitlength}\centering $U_p$\end{minipage}}}%
+    \put(0.92056451,0.23861889){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.06460664\unitlength}\centering $I_2$\end{minipage}}}%
+    \put(0.62635882,0.42487864){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.08472002\unitlength}\centering $V_g$\end{minipage}}}%
+    \put(0.87069131,0.42489387){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.10239542\unitlength}\centering $V_g$\end{minipage}}}%
+    \put(0.13197997,0.24365329){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.35598878\unitlength}\centering ${U_p}^*$\end{minipage}}}%
+    \put(0.0641243,0.29673443){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.30404957\unitlength}\centering Sistema de Controle\end{minipage}}}%
+    \put(0.5822373,0.48749731){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.31571923\unitlength}\centering Modelo do Filtro LCL\end{minipage}}}%
+  \end{picture}%
+\endgroup%

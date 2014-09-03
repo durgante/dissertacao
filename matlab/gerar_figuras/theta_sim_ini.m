@@ -122,6 +122,7 @@ for i=1:subplotsx
             set(gca, 'YTick', [-0.4 -0.2 0 0.2]);
             set(gca, 'XTick', [0/60 1/60]);
             set(gca, 'XTickLabel', {''});
+            set(gca, 'YTickLabel', {'-0,4', '-0,2' '0', '0,2'});
 
             %Escolha dos limites dos eixos X e Y
             set(gca, 'XLim', [X_ini X_end]);
@@ -171,6 +172,7 @@ for i=1:subplotsx
             set(gca, 'YTick', [-0.4 -0.2 0 0.2]);
             set(gca, 'XTick', [0/60 1/60]);
             set(gca, 'XTickLabel', {''});
+            set(gca, 'YTickLabel', {'-0,4', '-0,2' '0', '0,2'});
 
             %Escolha dos limites dos eixos X e Y
             set(gca, 'XLim', [X_ini X_end]);
@@ -220,6 +222,7 @@ for i=1:subplotsx
             set(gca, 'YTick', [-0.4 -0.2 0 0.2]);
             set(gca, 'XTick', [0/60 1/60]);
             set(gca, 'XTickLabel', {'0', '1'});
+            set(gca, 'YTickLabel', {'-0,4', '-0,2' '0', '0,2'});
 
             %Escolha dos limites dos eixos X e Y
             set(gca, 'XLim', [X_ini X_end]);

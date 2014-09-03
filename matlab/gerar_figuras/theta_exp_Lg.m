@@ -107,6 +107,7 @@ for i=1:subplotsx
             set(gca, 'YTick', [0.542 0.547 0.552]);
             set(gca, 'XTick', [10.27 10.28 10.29 10.3 10.31 10.32]);
             set(gca, 'XTickLabel', {''});
+            set(gca, 'YTickLabel', {'0,542', '0,547', '0,552'});
 
             %Escolha dos limites dos eixos X e Y
             set(gca, 'XLim', [X_ini X_end]);
@@ -136,6 +137,7 @@ for i=1:subplotsx
             set(gca, 'YTick', [0.172 0.177 0.182]);
             set(gca, 'XTick', [10.27 10.28 10.29 10.3 10.31 10.32]);
             set(gca, 'XTickLabel', {''});
+            set(gca, 'YTickLabel', {'0,172', '0,177', '0,182'});
 
             %Escolha dos limites dos eixos X e Y
             set(gca, 'XLim', [X_ini X_end]);
@@ -165,6 +167,7 @@ for i=1:subplotsx
             set(gca, 'YTick', [-1.192 -1.188 -1.184]);
             set(gca, 'XTick', [10.27 10.28 10.29 10.3 10.31 10.32]);
             set(gca, 'XTickLabel', {''});
+            set(gca, 'YTickLabel', {'-1,192', '-1,188', '-1,184'});
 
             %Escolha dos limites dos eixos X e Y
             set(gca, 'XLim', [X_ini X_end]);
@@ -193,7 +196,8 @@ for i=1:subplotsx
             %Escolha dos pontos marcados do eixo Y
             set(gca, 'YTick', [1.728 1.735 1.742]);
             set(gca, 'XTick', [10.27 10.28 10.29 10.3 10.31 10.32]);
-            set(gca, 'XTickLabel', 10.27:0.01:10.32);
+            set(gca, 'XTickLabel', {'10,27', '10,28', '10,29', '10,3', '10,31', '10,32'});
+            set(gca, 'YTickLabel', {'1,728', '1,735', '1,742'});
 
             %Escolha dos limites dos eixos X e Y
             set(gca, 'XLim', [X_ini X_end]);
@@ -205,7 +209,7 @@ for i=1:subplotsx
 
             %Labels
             ylabel('\theta_4');
-            xlabel('tempo (ciclos)');
+            xlabel('Tempo (s)');
             title('');
             %legend(...
             %    '{i2_a}^*', ...

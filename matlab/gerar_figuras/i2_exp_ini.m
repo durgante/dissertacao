@@ -4,7 +4,7 @@
 colorido=0;
 
 %Exportar para formato .tex? 1=sim 0=não
-exportar=0;
+exportar=1;
 
 
 %% Dados para plotar
@@ -44,7 +44,7 @@ plot(t(inicio:final), i2(inicio:final), 'LineWidth', 1.5, ...
 %Escolha dos pontos marcados do eixo Y
 set(gca, 'YTick', [-4 -2 0 2 4]);
 set(gca, 'XTick', [7.6 7.62 7.64 7.66 7.68 7.7]);
-%set(gca, 'XTickLabel', {'$10^{3}$', '$10^{3.5}$', '$10^{4}$'});
+set(gca, 'XTickLabel', {'7,6', '7,62', '7,64', '7,66', '7,68', '7,7'});
 
 %Escolha dos limites dos eixos X e Y
 set(gca, 'XLim', [7.59 7.7017]);

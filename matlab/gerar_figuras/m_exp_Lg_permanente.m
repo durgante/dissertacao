@@ -46,7 +46,8 @@ plot(t(inicio:final), m(inicio:final), 'LineWidth', 1.5, ...
 %Escolha dos pontos marcados do eixo Y
 set(gca, 'YTick', [800 1000 1200 1400]);
 set(gca, 'XTick', [12.43 12.45 12.47 12.49]);
-%set(gca, 'XTickLabel', {'$10^{3}$', '$10^{3.5}$', '$10^{4}$'});
+set(gca, 'XTickLabel', {'12,43', '12,45', '12,47', '12,49'});
+set(gca, 'YTickLabel', {'800', '1.000', '1.200', '1.400'});
 
 %Escolha dos limites dos eixos X e Y
 set(gca, 'YLim', [700 1500]);

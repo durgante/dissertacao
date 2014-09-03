@@ -1,0 +1,70 @@
+%% Creator: Inkscape 0.48.3.1, www.inkscape.org
+%% PDF/EPS/PS + LaTeX output extension by Johan Engelen, 2010
+%% Accompanies image file 'multiloop_geral.pdf' (pdf, eps, ps)
+%%
+%% To include the image in your LaTeX document, write
+%%   \input{<filename>.pdf_tex}
+%%  instead of
+%%   \includegraphics{<filename>.pdf}
+%% To scale the image, write
+%%   \def\svgwidth{<desired width>}
+%%   \input{<filename>.pdf_tex}
+%%  instead of
+%%   \includegraphics[width=<desired width>]{<filename>.pdf}
+%%
+%% Images with a different path to the parent latex file can
+%% be accessed with the `import' package (which may need to be
+%% installed) using
+%%   \usepackage{import}
+%% in the preamble, and then including the image with
+%%   \import{<path to file>}{<filename>.pdf_tex}
+%% Alternatively, one can specify
+%%   \graphicspath{{<path to file>/}}
+%% 
+%% For more information, please see info/svg-inkscape on CTAN:
+%%   http://tug.ctan.org/tex-archive/info/svg-inkscape
+%%
+\begingroup%
+  \makeatletter%
+  \providecommand\color[2][]{%
+    \errmessage{(Inkscape) Color is used for the text in Inkscape, but the package 'color.sty' is not loaded}%
+    \renewcommand\color[2][]{}%
+  }%
+  \providecommand\transparent[1]{%
+    \errmessage{(Inkscape) Transparency is used (non-zero) for the text in Inkscape, but the package 'transparent.sty' is not loaded}%
+    \renewcommand\transparent[1]{}%
+  }%
+  \providecommand\rotatebox[2]{#2}%
+  \ifx\svgwidth\undefined%
+    \setlength{\unitlength}{897.9106bp}%
+    \ifx\svgscale\undefined%
+      \relax%
+    \else%
+      \setlength{\unitlength}{\unitlength * \real{\svgscale}}%
+    \fi%
+  \else%
+    \setlength{\unitlength}{\svgwidth}%
+  \fi%
+  \global\let\svgwidth\undefined%
+  \global\let\svgscale\undefined%
+  \makeatother%
+  \begin{picture}(1,0.42286216)%
+    \put(0,0){\includegraphics[width=\unitlength]{multiloop_geral.pdf}}%
+    \put(0.59313595,0.32942632){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.10530032\unitlength}\centering $G_{di}$\end{minipage}}}%
+    \put(0.84991201,0.32943453){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.11790038\unitlength}\centering $G_{do}$\end{minipage}}}%
+    \put(0.05676618,0.19719695){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.09720031\unitlength}\centering $C_o$\end{minipage}}}%
+    \put(0.30416445,0.1972151){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.12859837\unitlength}\centering $C_i$\end{minipage}}}%
+    \put(0.44656391,0.19721227){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.13399838\unitlength}\centering $G_{id}$\end{minipage}}}%
+    \put(0.7275997,0.19721547){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.09810032\unitlength}\centering $G_{od}$\end{minipage}}}%
+    \put(-0.00714492,0.22008511){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.0652502\unitlength}\centering $I_2^*$\end{minipage}}}%
+    \put(0.12873253,0.21483383){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.08368635\unitlength}\centering $U$\end{minipage}}}%
+    \put(0.40464839,0.22008257){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.05805017\unitlength}\centering $U_c$\end{minipage}}}%
+    \put(0.65694013,0.22008512){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.07965024\unitlength}\centering $U_p$\end{minipage}}}%
+    \put(0.92611806,0.21481792){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.0674582\unitlength}\centering $I_2$\end{minipage}}}%
+    \put(0.61892696,0.40929866){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.08845933\unitlength}\centering $V_g$\end{minipage}}}%
+    \put(0.8740436,0.40931457){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.10691487\unitlength}\centering $V_g$\end{minipage}}}%
+    \put(0.34425833,0.11022304){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.24537564\unitlength}\centering Malha Interna\end{minipage}}}%
+    \put(0.34384657,0.03147946){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.24621673\unitlength}\centering Malha Externa\end{minipage}}}%
+    \put(0.10272758,0.22007454){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.37170114\unitlength}\centering ${U_p}^*$\end{minipage}}}%
+  \end{picture}%
+\endgroup%
