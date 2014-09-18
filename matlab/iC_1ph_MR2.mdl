@@ -1,12 +1,12 @@
 Model {
-  Name			  "iC_1ph_MR2_0829"
-  Version		  7.5
+  Name			  "iC_1ph_MR2"
+  Version		  7.9
   MdlSubVersion		  0
   GraphicalInterface {
     NumRootInports	    0
     NumRootOutports	    0
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.403"
+    ComputedModelVersion    "1.452"
     NumModelReferences	    0
     NumTestPointedSignals   0
   }
@@ -19,26 +19,28 @@ Model {
   OverrideScopeRefreshTime on
   DisableAllScopes	  off
   DataTypeOverride	  "UseLocalSettings"
+  DataTypeOverrideAppliesTo "AllNumericTypes"
   MinMaxOverflowLogging	  "UseLocalSettings"
   MinMaxOverflowArchiveMode "Overwrite"
+  FPTRunName		  "Run 1"
   MaxMDLFileLineLength	  120
   InitFcn		  "iC_ini"
   UserBdParams		  "DSRTSU_INTERNAL_RTI_VER;DSRTSU_INTERNAL_RTI_TYPE;PhysicalModelingChecksum;PhysicalModelingParameter"
   "Checksum;PhysicalModelingProducts"
   DSRTSU_INTERNAL_RTI_VER "390"
   DSRTSU_INTERNAL_RTI_TYPE "rti1103"
-  PhysicalModelingChecksum "2025628747"
-  PhysicalModelingParameterChecksum "1873903462"
+  PhysicalModelingChecksum "1232081578"
+  PhysicalModelingParameterChecksum "3901422622"
   PhysicalModelingProducts "Power_System_Blocks"
   Created		  "Mon Aug 19 14:09:14 2013"
   Creator		  "dpbernardon"
   UpdateHistory		  "UpdateHistoryNever"
   ModifiedByFormat	  "%<Auto>"
-  LastModifiedBy	  "dpbernardon"
+  LastModifiedBy	  "marcelodurgante"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Tue Oct 22 17:05:43 2013"
-  RTWModifiedTimeStamp	  304362319
-  ModelVersionFormat	  "1.%<AutoIncrement:403>"
+  LastModifiedDate	  "Thu Sep 18 17:19:16 2014"
+  RTWModifiedTimeStamp	  332961521
+  ModelVersionFormat	  "1.%<AutoIncrement:452>"
   ConfigurationManager	  "None"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
@@ -46,6 +48,7 @@ Model {
   WideLines		  off
   ShowLineDimensions	  off
   ShowPortDataTypes	  off
+  ShowDesignRanges	  off
   ShowLoopsOnError	  on
   IgnoreBidirectionalLines off
   ShowStorageClass	  off
@@ -113,13 +116,13 @@ Model {
     Dimension		    1
     Simulink.ConfigSet {
       $ObjectID		      1
-      Version		      "1.10.0"
+      Version		      "1.12.0"
       Array {
 	Type			"Handle"
 	Dimension		10
 	Simulink.SolverCC {
 	  $ObjectID		  2
-	  Version		  "1.10.0"
+	  Version		  "1.12.0"
 	  StartTime		  "0.0"
 	  StopTime		  "30/60"
 	  AbsTol		  "auto"
@@ -137,6 +140,8 @@ Model {
 	  MaxConsecutiveMinStep	  "1"
 	  RelTol		  "1e-3"
 	  SolverMode		  "Auto"
+	  EnableConcurrentExecution off
+	  ConcurrentTasks	  off
 	  Solver		  "ode14x"
 	  SolverName		  "ode14x"
 	  SolverJacobianMethodControl "auto"
@@ -152,7 +157,7 @@ Model {
 	}
 	Simulink.DataIOCC {
 	  $ObjectID		  3
-	  Version		  "1.10.0"
+	  Version		  "1.12.0"
 	  Decimation		  "1"
 	  ExternalInput		  "[t, u]"
 	  FinalStateName	  "xFinal"
@@ -164,6 +169,7 @@ Model {
 	  SaveFinalState	  off
 	  SaveCompleteFinalSimState off
 	  SaveFormat		  "Array"
+	  SignalLoggingSaveFormat "ModelDataLogs"
 	  SaveOutput		  on
 	  SaveState		  off
 	  SignalLogging		  on
@@ -183,7 +189,7 @@ Model {
 	}
 	Simulink.OptimizationCC {
 	  $ObjectID		  4
-	  Version		  "1.10.0"
+	  Version		  "1.12.0"
 	  Array {
 	    Type		    "Cell"
 	    Dimension		    7
@@ -201,12 +207,13 @@ Model {
 	  ConditionallyExecuteInputs on
 	  InlineParams		  off
 	  UseIntDivNetSlope	  off
+	  UseFloatMulNetSlope	  off
+	  UseSpecifiedMinMax	  off
 	  InlineInvariantSignals  off
 	  OptimizeBlockIOStorage  off
 	  BufferReuse		  off
 	  EnhancedBackFolding	  off
 	  StrengthReduction	  off
-	  EnforceIntegerDowncast  on
 	  ExpressionFolding	  off
 	  BooleansAsBitfields	  off
 	  BitfieldContainerType	  "uint_T"
@@ -233,10 +240,11 @@ Model {
 	  BufferReusableBoundary  on
 	  SimCompilerOptimization "Off"
 	  AccelVerboseBuild	  off
+	  ParallelExecutionInRapidAccelerator on
 	}
 	Simulink.DebuggingCC {
 	  $ObjectID		  5
-	  Version		  "1.10.0"
+	  Version		  "1.12.0"
 	  RTPrefix		  "error"
 	  ConsistencyChecking	  "none"
 	  ArrayBoundsChecking	  "none"
@@ -259,6 +267,8 @@ Model {
 	  MinStepSizeMsg	  "warning"
 	  TimeAdjustmentMsg	  "none"
 	  MaxConsecutiveZCsMsg	  "error"
+	  MaskedZcDiagnostic	  "warning"
+	  IgnoredZcDiagnostic	  "warning"
 	  SolverPrmCheckMsg	  "warning"
 	  InheritedTsInSrcMsg	  "warning"
 	  DiscreteInheritContinuousMsg "warning"
@@ -289,12 +299,14 @@ Model {
 	  UnconnectedOutputMsg	  "warning"
 	  UnconnectedLineMsg	  "warning"
 	  SFcnCompatibilityMsg	  "none"
+	  FrameProcessingCompatibilityMsg "warning"
 	  UniqueDataStoreMsg	  "none"
 	  BusObjectLabelMismatch  "warning"
 	  RootOutportRequireBusObject "warning"
 	  AssertControl		  "UseLocalSettings"
 	  EnableOverflowDetection off
 	  ModelReferenceIOMsg	  "none"
+	  ModelReferenceMultiInstanceNormalModeStructChecksumCheck "error"
 	  ModelReferenceVersionMismatchMessage "none"
 	  ModelReferenceIOMismatchMessage "none"
 	  ModelReferenceCSMismatchMessage "none"
@@ -304,19 +316,32 @@ Model {
 	  ModelReferenceExtraNoncontSigs "error"
 	  StateNameClashWarn	  "warning"
 	  SimStateInterfaceChecksumMismatchMsg "warning"
+	  SimStateOlderReleaseMsg "error"
+	  InitInArrayFormatMsg	  "warning"
 	  StrictBusMsg		  "ErrorLevel1"
 	  BusNameAdapt		  "WarnAndRepair"
 	  NonBusSignalsTreatedAsBus "none"
 	  LoggingUnavailableSignals "error"
 	  BlockIODiagnostic	  "none"
+	  SFUnusedDataAndEventsDiag "warning"
+	  SFUnexpectedBacktrackingDiag "warning"
+	  SFInvalidInputDataAccessInChartInitDiag "warning"
+	  SFNoUnconditionalDefaultTransitionDiag "warning"
+	  SFTransitionOutsideNaturalParentDiag "warning"
+	  SFUnconditionalTransitionShadowingDiag "warning"
 	}
 	Simulink.HardwareCC {
 	  $ObjectID		  6
-	  Version		  "1.10.0"
+	  Version		  "1.12.0"
 	  ProdBitPerChar	  8
 	  ProdBitPerShort	  16
 	  ProdBitPerInt		  32
 	  ProdBitPerLong	  32
+	  ProdBitPerFloat	  32
+	  ProdBitPerDouble	  64
+	  ProdBitPerPointer	  32
+	  ProdLargestAtomicInteger "Char"
+	  ProdLargestAtomicFloat  "None"
 	  ProdIntDivRoundTo	  "Zero"
 	  ProdEndianess		  "BigEndian"
 	  ProdWordSize		  32
@@ -326,6 +351,11 @@ Model {
 	  TargetBitPerShort	  16
 	  TargetBitPerInt	  32
 	  TargetBitPerLong	  32
+	  TargetBitPerFloat	  32
+	  TargetBitPerDouble	  64
+	  TargetBitPerPointer	  32
+	  TargetLargestAtomicInteger "Char"
+	  TargetLargestAtomicFloat "None"
 	  TargetShiftRightIntArith on
 	  TargetIntDivRoundTo	  "Zero"
 	  TargetEndianess	  "BigEndian"
@@ -339,10 +369,11 @@ Model {
 	}
 	Simulink.ModelReferenceCC {
 	  $ObjectID		  7
-	  Version		  "1.10.0"
+	  Version		  "1.12.0"
 	  UpdateModelReferenceTargets "IfOutOfDateOrStructuralChange"
 	  CheckModelReferenceTargetMessage "error"
 	  EnableParallelModelReferenceBuilds off
+	  ParallelModelReferenceErrorOnInvalidPool on
 	  ParallelModelReferenceMATLABWorkerInit "None"
 	  ModelReferenceNumInstancesAllowed "Multi"
 	  PropagateVarSize	  "Infer from blocks in model"
@@ -353,7 +384,7 @@ Model {
 	}
 	Simulink.SFSimCC {
 	  $ObjectID		  8
-	  Version		  "1.10.0"
+	  Version		  "1.12.0"
 	  SFSimEnableDebug	  on
 	  SFSimOverflowDetection  on
 	  SFSimEcho		  on
@@ -362,12 +393,13 @@ Model {
 	  SimExtrinsic		  on
 	  SimIntegrity		  on
 	  SimUseLocalCustomCode	  off
+	  SimParseCustomCode	  on
 	  SimBuildMode		  "sf_incremental_build"
 	}
 	Simulink.RTWCC {
 	  $BackupClass		  "Simulink.RTWCC"
 	  $ObjectID		  9
-	  Version		  "1.10.0"
+	  Version		  "1.12.0"
 	  Array {
 	    Type		    "Cell"
 	    Dimension		    6
@@ -410,6 +442,9 @@ Model {
 	  GenerateTraceReportSf	  off
 	  GenerateTraceReportEml  off
 	  GenerateCodeInfo	  off
+	  GenerateWebview	  off
+	  GenerateCodeMetricsReport off
+	  GenerateCodeReplacementReport	off
 	  RTWCompilerOptimization "Off"
 	  CheckMdlBeforeBuild	  "Off"
 	  CustomRebuildMode	  "OnUpdate"
@@ -418,7 +453,7 @@ Model {
 	    Dimension		    2
 	    Simulink.CodeAppCC {
 	      $ObjectID		      10
-	      Version		      "1.10.0"
+	      Version		      "1.12.0"
 	      Array {
 		Type			"Cell"
 		Dimension		19
@@ -455,6 +490,7 @@ Model {
 	      IncAutoGenComments      off
 	      SimulinkDataObjDesc     off
 	      SFDataObjDesc	      off
+	      MATLABFcnDesc	      off
 	      IncDataTypeInIds	      off
 	      MangleLength	      1
 	      CustomSymbolStrGlobalVar "$R$N$M"
@@ -469,7 +505,9 @@ Model {
 	      ParamNamingRule	      "None"
 	      SignalNamingRule	      "None"
 	      InsertBlockDesc	      off
+	      InsertPolySpaceComments off
 	      SimulinkBlockComments   on
+	      MATLABSourceComments    off
 	      EnableCustomComments    off
 	      InlinedPrmAccess	      "Literals"
 	      ReqsInCode	      off
@@ -478,15 +516,10 @@ Model {
 	    Simulink.STFCustomTargetCC {
 	      $BackupClass	      "Simulink.TargetCC"
 	      $ObjectID		      11
-	      Version		      "1.10.0"
+	      Version		      "1.12.0"
 	      Array {
 		Type			"Cell"
-		Dimension		23
-		Cell			"TimeScaleFactor"
-		Cell			"CCompilerEffectiveOptimizationOpts"
-		Cell			"CCompilerOptimizationOpts"
-		Cell			"BoardName"
-		Cell			"NetworkClient"
+		Dimension		17
 		Cell			"GeneratePreprocessorConditionals"
 		Cell			"IncludeMdlTerminateFcn"
 		Cell			"CombineOutputUpdateFcns"
@@ -498,22 +531,21 @@ Model {
 		Cell			"CPPClassGenCompliant"
 		Cell			"MultiInstanceERTCode"
 		Cell			"PurelyIntegerCode"
-		Cell			"SupportNonFinite"
+		Cell			"ParMdlRefBuildCompliant"
 		Cell			"SupportComplex"
 		Cell			"SupportAbsoluteTime"
 		Cell			"SupportContinuousTime"
 		Cell			"SupportNonInlinedSFcns"
 		Cell			"PortableWordSizes"
-		Cell			"ParMdlRefBuildCompliant"
 		PropName		"DisabledProps"
 	      }
 	      TargetFcnLib	      "ansi_tfl_table_tmw.mat"
 	      TargetLibSuffix	      ""
 	      TargetPreCompLibLocation ""
-	      TargetFunctionLibrary   "ANSI_C"
+	      CodeReplacementLibrary  "ANSI_C"
 	      UtilityFuncGeneration   "Auto"
 	      ERTMultiwordTypeDef     "System defined"
-	      ERTCodeCoverageTool     "None"
+	      CodeExecutionProfiling  off
 	      ERTMultiwordLength      256
 	      MultiwordLength	      2048
 	      GenerateFullHeader      on
@@ -523,9 +555,11 @@ Model {
 	      ModelReferenceCompliant on
 	      ParMdlRefBuildCompliant on
 	      CompOptLevelCompliant   off
+	      ConcurrentExecutionCompliant off
 	      IncludeMdlTerminateFcn  on
 	      GeneratePreprocessorConditionals "Disable all"
 	      CombineOutputUpdateFcns off
+	      CombineSignalStateStructs	off
 	      SuppressErrorStatus     off
 	      ERTFirstTimeCompliant   off
 	      IncludeFileDelimiter    "Auto"
@@ -546,6 +580,7 @@ Model {
 	      ModelStepFunctionPrototypeControlCompliant off
 	      CPPClassGenCompliant    off
 	      AutosarCompliant	      off
+	      GRTInterface	      on
 	      SystemTargetFile	      "rti1103.tlc"
 	      DialogCategory	      0
 	      Array {
@@ -554,10 +589,10 @@ Model {
 		Simulink.GRTTargetCC {
 		  $BackupClass		  "Simulink.TargetCC"
 		  $ObjectID		  12
-		  Version		  "1.10.0"
+		  Version		  "1.12.0"
 		  Array {
 		    Type		    "Cell"
-		    Dimension		    18
+		    Dimension		    17
 		    Cell		    "GeneratePreprocessorConditionals"
 		    Cell		    "IncludeMdlTerminateFcn"
 		    Cell		    "CombineOutputUpdateFcns"
@@ -569,22 +604,21 @@ Model {
 		    Cell		    "CPPClassGenCompliant"
 		    Cell		    "MultiInstanceERTCode"
 		    Cell		    "PurelyIntegerCode"
-		    Cell		    "SupportNonFinite"
+		    Cell		    "ParMdlRefBuildCompliant"
 		    Cell		    "SupportComplex"
 		    Cell		    "SupportAbsoluteTime"
 		    Cell		    "SupportContinuousTime"
 		    Cell		    "SupportNonInlinedSFcns"
 		    Cell		    "PortableWordSizes"
-		    Cell		    "ParMdlRefBuildCompliant"
 		    PropName		    "DisabledProps"
 		  }
 		  TargetFcnLib		  "ansi_tfl_table_tmw.mat"
 		  TargetLibSuffix	  ""
 		  TargetPreCompLibLocation ""
-		  TargetFunctionLibrary	  "ANSI_C"
+		  CodeReplacementLibrary  "ANSI_C"
 		  UtilityFuncGeneration	  "Auto"
 		  ERTMultiwordTypeDef	  "System defined"
-		  ERTCodeCoverageTool	  "None"
+		  CodeExecutionProfiling  off
 		  ERTMultiwordLength	  256
 		  MultiwordLength	  2048
 		  GenerateFullHeader	  on
@@ -594,9 +628,11 @@ Model {
 		  ModelReferenceCompliant on
 		  ParMdlRefBuildCompliant on
 		  CompOptLevelCompliant	  off
+		  ConcurrentExecutionCompliant off
 		  IncludeMdlTerminateFcn  on
 		  GeneratePreprocessorConditionals "Disable all"
 		  CombineOutputUpdateFcns off
+		  CombineSignalStateStructs off
 		  SuppressErrorStatus	  off
 		  ERTFirstTimeCompliant	  off
 		  IncludeFileDelimiter	  "Auto"
@@ -617,6 +653,7 @@ Model {
 		  ModelStepFunctionPrototypeControlCompliant off
 		  CPPClassGenCompliant	  off
 		  AutosarCompliant	  off
+		  GRTInterface		  on
 		  UseMalloc		  off
 		  ExtMode		  off
 		  ExtModeStaticAlloc	  off
@@ -628,6 +665,7 @@ Model {
 		  RTWCAPISignals	  off
 		  RTWCAPIParams		  off
 		  RTWCAPIStates		  off
+		  RTWCAPIRootIO		  off
 		  GenerateASAP2		  off
 		}
 		PropName		"Components"
@@ -798,16 +836,9 @@ Model {
 	}
 	hdlcoderui.hdlcc {
 	  $ObjectID		  13
-	  Version		  "1.10.0"
+	  Version		  "1.12.0"
 	  Description		  "HDL Coder custom configuration component"
 	  Name			  "HDL Coder"
-	  Array {
-	    Type		    "Cell"
-	    Dimension		    1
-	    Cell		    ""
-	    PropName		    "HDLConfigFile"
-	  }
-	  HDLCActiveTab		  "0"
 	}
 	SSC.SimscapeCC {
 	  $ObjectID		  14
@@ -818,50 +849,13 @@ Model {
 	    Cell		    "Name"
 	    PropName		    "DisabledProps"
 	  }
-	  Array {
-	    Type		    "Handle"
-	    Dimension		    1
-	    MECH.SimMechanicsCC {
-	      $ObjectID		      15
-	      Version		      "1.10.0"
-	      Name		      "SimMechanics"
-	      WarnOnRedundantConstraints on
-	      WarnOnSingularInitialAssembly off
-	      ShowCutJoints	      off
-	      VisOnUpdateDiagram      off
-	      VisDuringSimulation     off
-	      EnableVisSimulationTime on
-	      VisSampleTime	      "0"
-	      DisableBodyVisControl   off
-	      ShowCG		      on
-	      ShowCS		      on
-	      ShowOnlyPortCS	      off
-	      HighlightModel	      on
-	      FramesToBeSkipped	      "0"
-	      AnimationDelay	      "3"
-	      RecordAVI		      off
-	      CompressAVI	      on
-	      AutoFitVis	      "off"
-	      EnableSelection	      on
-	      LastVizWinPosition      "[-1 -1 -1 -1]"
-	      CamPosition	      "[0 0 0]"
-	      CamTarget		      "[0 0 -1]"
-	      CamUpVector	      "[0 1 0]"
-	      CamHeight		      "-1"
-	      CamViewAngle	      "0"
-	      VisBackgroundColor      "[0.9 0.9 0.95]"
-	      DefaultBodyColor	      "[1 0 0]"
-	      MDLBodyVisualizationType "Convex hull from body CS locations"
-	      OVRRIDBodyVisualizationType "NONE"
-	    }
-	    PropName		    "Components"
-	  }
 	  Name			  "Simscape"
 	  EditingMode		  "Full"
 	  ExplicitSolverDiagnosticOptions "warning"
-	  InputDerivativeDiagnosticOptions "warning"
+	  GlobalZcOffDiagnosticOptions "warning"
 	  SimscapeLogType	  "none"
 	  SimscapeLogName	  "simlog"
+	  SimscapeLogDecimation	  1
 	  SimscapeLogLimitData	  on
 	  SimscapeLogDataHistory  5000
 	}
@@ -869,7 +863,7 @@ Model {
       }
       Name		      "Configuration"
       CurrentDlgPage	      "Solver"
-      ConfigPrmDlgPosition    " [ 400, 210, 1280, 840 ] "
+      ConfigPrmDlgPosition     [ 400, 210, 1280, 840 ] 
     }
     PropName		    "ConfigurationSets"
   }
@@ -877,6 +871,7 @@ Model {
     $PropName		    "ActiveConfigurationSet"
     $ObjectID		    1
   }
+  ExplicitPartitioning	  off
   BlockDefaults {
     ForegroundColor	    "black"
     BackgroundColor	    "white"
@@ -912,6 +907,7 @@ Model {
     Block {
       BlockType		      Clock
       DisplayTime	      off
+      Decimation	      "10"
     }
     Block {
       BlockType		      Demux
@@ -937,16 +933,9 @@ Model {
       Multiplication	      "Element-wise(K.*u)"
       ParamMin		      "[]"
       ParamMax		      "[]"
-      ParameterDataTypeMode   "Same as input"
-      ParameterDataType	      "fixdt(1,16,0)"
-      ParameterScalingMode    "Best Precision: Matrix-wise"
-      ParameterScaling	      "[]"
       ParamDataTypeStr	      "Inherit: Same as input"
       OutMin		      "[]"
       OutMax		      "[]"
-      OutDataTypeMode	      "Same as input"
-      OutDataType	      "fixdt(1,16,0)"
-      OutScaling	      "[]"
       OutDataTypeStr	      "Inherit: Same as input"
       LockScale		      off
       RndMeth		      "Floor"
@@ -956,23 +945,20 @@ Model {
     Block {
       BlockType		      Goto
       IconDisplay	      "Tag"
+      TagVisibility	      "local"
     }
     Block {
       BlockType		      Inport
       Port		      "1"
-      UseBusObject	      off
-      BusObject		      "BusObject"
+      OutputFunctionCall      off
+      OutMin		      "[]"
+      OutMax		      "[]"
+      OutDataTypeStr	      "Inherit: auto"
+      LockScale		      off
       BusOutputAsStruct	      off
       PortDimensions	      "-1"
       VarSizeSig	      "Inherit"
       SampleTime	      "-1"
-      OutMin		      "[]"
-      OutMax		      "[]"
-      DataType		      "auto"
-      OutDataType	      "fixdt(1,16,0)"
-      OutScaling	      "[]"
-      OutDataTypeStr	      "Inherit: auto"
-      LockScale		      off
       SignalType	      "auto"
       SamplingMode	      "auto"
       LatchByDelayingOutsideSignal off
@@ -982,19 +968,14 @@ Model {
     Block {
       BlockType		      Outport
       Port		      "1"
-      UseBusObject	      off
-      BusObject		      "BusObject"
+      OutMin		      "[]"
+      OutMax		      "[]"
+      OutDataTypeStr	      "Inherit: auto"
+      LockScale		      off
       BusOutputAsStruct	      off
       PortDimensions	      "-1"
       VarSizeSig	      "Inherit"
       SampleTime	      "-1"
-      OutMin		      "[]"
-      OutMax		      "[]"
-      DataType		      "auto"
-      OutDataType	      "fixdt(1,16,0)"
-      OutScaling	      "[]"
-      OutDataTypeStr	      "Inherit: auto"
-      LockScale		      off
       SignalType	      "auto"
       SamplingMode	      "auto"
       SourceOfInitialOutputValue "Dialog"
@@ -1010,9 +991,6 @@ Model {
       InputSameDT	      on
       OutMin		      "[]"
       OutMax		      "[]"
-      OutDataTypeMode	      "Same as first input"
-      OutDataType	      "fixdt(1,16,0)"
-      OutScaling	      "[]"
       OutDataTypeStr	      "Inherit: Same as first input"
       LockScale		      off
       RndMeth		      "Zero"
@@ -1029,7 +1007,7 @@ Model {
       OutPortSampleTime	      "-1"
     }
     Block {
-      BlockType		      "S-Function"
+      BlockType		      S-Function
       FunctionName	      "system"
       SFunctionModules	      "''"
       PortCounts	      "[]"
@@ -1046,6 +1024,7 @@ Model {
       YMax		      "5"
       SaveToWorkspace	      off
       SaveName		      "ScopeData"
+      DataFormat	      "Array"
       LimitDataPoints	      on
       MaxDataPoints	      "5000"
       Decimation	      "1"
@@ -1056,6 +1035,12 @@ Model {
       BlockType		      Sin
       SineType		      "Time based"
       TimeSource	      "Use simulation time"
+      Amplitude		      "1"
+      Bias		      "0"
+      Frequency		      "1"
+      Phase		      "0"
+      Samples		      "10"
+      Offset		      "0"
       SampleTime	      "-1"
       VectorParams1D	      on
     }
@@ -1085,7 +1070,11 @@ Model {
       RTWMemSecDataParameters "Inherit from model"
       SimViewingDevice	      off
       DataTypeOverride	      "UseLocalSettings"
+      DataTypeOverrideAppliesTo	"AllNumericTypes"
       MinMaxOverflowLogging   "UseLocalSettings"
+      SFBlockType	      "NONE"
+      Variant		      off
+      GeneratePreprocessorConditionals off
     }
     Block {
       BlockType		      Sum
@@ -1097,9 +1086,6 @@ Model {
       AccumDataTypeStr	      "Inherit: Inherit via internal rule"
       OutMin		      "[]"
       OutMax		      "[]"
-      OutDataTypeMode	      "Same as first input"
-      OutDataType	      "fixdt(1,16,0)"
-      OutScaling	      "[]"
       OutDataTypeStr	      "Inherit: Same as first input"
       LockScale		      off
       RndMeth		      "Floor"
@@ -1115,12 +1101,14 @@ Model {
       MaxDataPoints	      "1000"
       Decimation	      "1"
       SampleTime	      "0"
+      SaveFormat	      "Array"
       FixptAsFi		      off
+      NumInputs		      "1"
     }
   }
   System {
-    Name		    "iC_1ph_MR2_0829"
-    Location		    [2, 74, 1678, 989]
+    Name		    "iC_1ph_MR2"
+    Location		    [2, 82, 1582, 871]
     Open		    on
     ModelBrowserVisibility  off
     ModelBrowserWidth	    200
@@ -1134,21 +1122,20 @@ Model {
     ShowPageBoundaries	    off
     ZoomFactor		    "100"
     ReportName		    "simulink-default.rpt"
-    SIDHighWatermark	    529
+    SIDHighWatermark	    "533"
     Block {
       BlockType		      Clock
       Name		      "Clock"
-      SID		      32
+      SID		      "32"
       Position		      [85, 305, 105, 325]
       BackgroundColor	      "gray"
-      Decimation	      "10"
     }
     Block {
       BlockType		      SubSystem
       Name		      "Controlador"
-      SID		      56
+      SID		      "56"
       Ports		      [4, 1]
-      Position		      [480, 40, 640, 455]
+      Position		      [390, 30, 550, 445]
       BackgroundColor	      "lightBlue"
       MinAlgLoopOccurrences   off
       PropExecContextOutsideSubsystem off
@@ -1159,7 +1146,7 @@ Model {
       MaskHideContents	      off
       System {
 	Name			"Controlador"
-	Location		[2, 82, 1662, 997]
+	Location		[2, 82, 1582, 871]
 	Open			on
 	ModelBrowserVisibility	off
 	ModelBrowserWidth	200
@@ -1174,16 +1161,16 @@ Model {
 	ZoomFactor		"100"
 	Block {
 	  BlockType		  Inport
-	  Name			  "i2ref_a"
-	  SID			  61
+	  Name			  "i2ref"
+	  SID			  "61"
 	  Position		  [30, 118, 60, 132]
 	  BackgroundColor	  "gray"
 	  IconDisplay		  "Port number"
 	}
 	Block {
 	  BlockType		  Inport
-	  Name			  "i2_a"
-	  SID			  81
+	  Name			  "i2"
+	  SID			  "81"
 	  Position		  [30, 268, 60, 282]
 	  BackgroundColor	  "gray"
 	  Port			  "2"
@@ -1191,8 +1178,8 @@ Model {
 	}
 	Block {
 	  BlockType		  Inport
-	  Name			  "iC_a"
-	  SID			  84
+	  Name			  "iC"
+	  SID			  "84"
 	  Position		  [30, 418, 60, 432]
 	  BackgroundColor	  "gray"
 	  Port			  "3"
@@ -1201,7 +1188,7 @@ Model {
 	Block {
 	  BlockType		  Inport
 	  Name			  "t"
-	  SID			  66
+	  SID			  "66"
 	  Position		  [50, 518, 80, 532]
 	  BackgroundColor	  "gray"
 	  Port			  "4"
@@ -1210,11 +1197,12 @@ Model {
 	Block {
 	  BlockType		  SubSystem
 	  Name			  "Controlador Adaptativo Alpha"
-	  SID			  35
-	  Ports			  [5, 2]
+	  SID			  "35"
+	  Ports			  [4, 2]
 	  Position		  [475, 61, 690, 219]
 	  BackgroundColor	  "lightBlue"
 	  LibraryVersion	  "1.32"
+	  ErrorFcn		  "Stateflow.Translate.translate"
 	  PermitHierarchicalResolution "ExplicitOnly"
 	  TreatAsAtomicUnit	  on
 	  MinAlgLoopOccurrences	  on
@@ -1223,17 +1211,14 @@ Model {
 	  RTWSystemCode		  "Function"
 	  FunctionWithSeparateData off
 	  Opaque		  off
-	  Array {
-	    Type		    "Handle"
-	    Dimension		    0
-	    PropName		    "AvailSigsLoadSave"
-	  }
 	  RequestExecContextInheritance	off
 	  MaskHideContents	  off
+	  SFBlockType		  "MATLAB Function"
 	  MaskType		  "Stateflow"
 	  MaskDescription	  "Embedded MATLAB block"
-	  MaskDisplay		  "disp('adaptativo');"
 	  MaskSelfModifiable	  on
+	  MaskDisplay		  "bgColor = Simulink.Root.ColorString2Rgb(get_param(gcbh, 'BackgroundColor')); image(imread('private/"
+	  "eml_membrane_16.png','png','BackgroundColor',bgColor(1:3)),'center'); disp([10 10 'adaptativo']);"
 	  MaskIconFrame		  on
 	  MaskIconOpaque	  off
 	  MaskIconRotate	  "none"
@@ -1254,19 +1239,19 @@ Model {
 	    TiledPageScale	    1
 	    ShowPageBoundaries	    off
 	    ZoomFactor		    "100"
-	    SIDHighWatermark	    527
-	    SIDPrevWatermark	    143
+	    SIDHighWatermark	    "532"
+	    SIDPrevWatermark	    "143"
 	    Block {
 	      BlockType		      Inport
 	      Name		      "i2ref_k"
-	      SID		      35
+	      SID		      "35::35"
 	      Position		      [20, 101, 40, 119]
 	      IconDisplay	      "Port number"
 	    }
 	    Block {
 	      BlockType		      Inport
 	      Name		      "i2_k"
-	      SID		      282
+	      SID		      "35::282"
 	      Position		      [20, 136, 40, 154]
 	      Port		      "2"
 	      IconDisplay	      "Port number"
@@ -1274,54 +1259,48 @@ Model {
 	    Block {
 	      BlockType		      Inport
 	      Name		      "ic_k"
-	      SID		      283
+	      SID		      "35::283"
 	      Position		      [20, 171, 40, 189]
 	      Port		      "3"
 	      IconDisplay	      "Port number"
 	    }
 	    Block {
 	      BlockType		      Inport
-	      Name		      "flag"
-	      SID		      284
+	      Name		      "t"
+	      SID		      "35::285"
 	      Position		      [20, 206, 40, 224]
 	      Port		      "4"
 	      IconDisplay	      "Port number"
 	    }
 	    Block {
-	      BlockType		      Inport
-	      Name		      "t"
-	      SID		      285
-	      Position		      [20, 246, 40, 264]
-	      Port		      "5"
-	      IconDisplay	      "Port number"
-	    }
-	    Block {
 	      BlockType		      Demux
 	      Name		      " Demux "
-	      SID		      280
+	      SID		      "35::529"
 	      Ports		      [1, 1]
-	      Position		      [270, 230, 320, 270]
+	      Position		      [270, 220, 320, 260]
+	      ZOrder		      2
 	      Outputs		      "1"
 	    }
 	    Block {
-	      BlockType		      "S-Function"
+	      BlockType		      S-Function
 	      Name		      " SFunction "
-	      SID		      279
-	      Tag		      "Stateflow S-Function iC_1ph_MR2_0829 2"
-	      Ports		      [5, 3]
+	      SID		      "35::528"
+	      Tag		      "Stateflow S-Function iC_1ph_MR2 2"
+	      Ports		      [4, 3]
 	      Position		      [180, 100, 230, 220]
+	      ZOrder		      1
 	      FunctionName	      "sf_sfun"
-	      PortCounts	      "[5 3]"
+	      PortCounts	      "[4 3]"
 	      EnableBusSupport	      on
 	      Port {
 		PortNumber		2
-		Name			"up_alpha"
+		Name			"up"
 		RTWStorageClass		"Auto"
 		DataLoggingNameMode	"SignalName"
 	      }
 	      Port {
 		PortNumber		3
-		Name			"theta_alpha"
+		Name			"theta"
 		RTWStorageClass		"Auto"
 		DataLoggingNameMode	"SignalName"
 	      }
@@ -1329,20 +1308,21 @@ Model {
 	    Block {
 	      BlockType		      Terminator
 	      Name		      " Terminator "
-	      SID		      281
-	      Position		      [460, 241, 480, 259]
+	      SID		      "35::531"
+	      Position		      [460, 231, 480, 249]
+	      ZOrder		      4
 	    }
 	    Block {
 	      BlockType		      Outport
-	      Name		      "up_alpha"
-	      SID		      286
+	      Name		      "up"
+	      SID		      "35::286"
 	      Position		      [460, 101, 480, 119]
 	      IconDisplay	      "Port number"
 	    }
 	    Block {
 	      BlockType		      Outport
-	      Name		      "theta_alpha"
-	      SID		      287
+	      Name		      "theta"
+	      SID		      "35::287"
 	      Position		      [460, 136, 480, 154]
 	      Port		      "2"
 	      IconDisplay	      "Port number"
@@ -1366,31 +1346,25 @@ Model {
 	      DstPort		      3
 	    }
 	    Line {
-	      SrcBlock		      "flag"
+	      SrcBlock		      "t"
 	      SrcPort		      1
 	      DstBlock		      " SFunction "
 	      DstPort		      4
 	    }
 	    Line {
-	      SrcBlock		      "t"
-	      SrcPort		      1
-	      DstBlock		      " SFunction "
-	      DstPort		      5
-	    }
-	    Line {
-	      Name		      "up_alpha"
+	      Name		      "up"
 	      Labels		      [0, 0]
 	      SrcBlock		      " SFunction "
 	      SrcPort		      2
-	      DstBlock		      "up_alpha"
+	      DstBlock		      "up"
 	      DstPort		      1
 	    }
 	    Line {
-	      Name		      "theta_alpha"
+	      Name		      "theta"
 	      Labels		      [0, 0]
 	      SrcBlock		      " SFunction "
 	      SrcPort		      3
-	      DstBlock		      "theta_alpha"
+	      DstBlock		      "theta"
 	      DstPort		      1
 	    }
 	    Line {
@@ -1402,7 +1376,6 @@ Model {
 	    Line {
 	      SrcBlock		      " SFunction "
 	      SrcPort		      1
-	      Points		      [20, 0]
 	      DstBlock		      " Demux "
 	      DstPort		      1
 	    }
@@ -1411,7 +1384,7 @@ Model {
 	Block {
 	  BlockType		  Display
 	  Name			  "Display"
-	  SID			  529
+	  SID			  "529"
 	  Ports			  [1]
 	  Position		  [780, 264, 890, 426]
 	  Decimation		  "1"
@@ -1420,7 +1393,7 @@ Model {
 	Block {
 	  BlockType		  Step
 	  Name			  "Flag"
-	  SID			  49
+	  SID			  "49"
 	  Position		  [50, 630, 80, 660]
 	  BackgroundColor	  "gray"
 	  Time			  "flag_time"
@@ -1431,15 +1404,15 @@ Model {
 	Block {
 	  BlockType		  From
 	  Name			  "From1"
-	  SID			  102
+	  SID			  "102"
 	  Position		  [355, 66, 430, 94]
 	  ShowName		  off
-	  GotoTag		  "i2ref_alpha"
+	  GotoTag		  "i2ref"
 	}
 	Block {
 	  BlockType		  From
 	  Name			  "From10"
-	  SID			  111
+	  SID			  "111"
 	  Position		  [355, 186, 430, 214]
 	  BackgroundColor	  "gray"
 	  ShowName		  off
@@ -1448,108 +1421,92 @@ Model {
 	Block {
 	  BlockType		  From
 	  Name			  "From13"
-	  SID			  117
+	  SID			  "117"
 	  Position		  [900, 86, 975, 114]
 	  BackgroundColor	  "lightBlue"
 	  ShowName		  off
-	  GotoTag		  "up_alpha"
-	}
-	Block {
-	  BlockType		  From
-	  Name			  "From16"
-	  SID			  198
-	  Position		  [355, 156, 395, 184]
-	  BackgroundColor	  "gray"
-	  ShowName		  off
-	  GotoTag		  "flag"
+	  GotoTag		  "up"
 	}
 	Block {
 	  BlockType		  From
 	  Name			  "From4"
-	  SID			  105
+	  SID			  "105"
 	  Position		  [355, 96, 430, 124]
 	  ShowName		  off
-	  GotoTag		  "i2_alpha"
+	  GotoTag		  "i2"
 	}
 	Block {
 	  BlockType		  From
 	  Name			  "From7"
-	  SID			  108
+	  SID			  "108"
 	  Position		  [355, 126, 430, 154]
 	  ShowName		  off
-	  GotoTag		  "iC_alpha"
+	  GotoTag		  "iC"
 	}
 	Block {
 	  BlockType		  Goto
 	  Name			  "Goto1"
-	  SID			  79
+	  SID			  "79"
 	  Position		  [195, 560, 235, 590]
 	  BackgroundColor	  "gray"
 	  ShowName		  off
 	  GotoTag		  "t"
-	  TagVisibility		  "local"
 	}
 	Block {
 	  BlockType		  Goto
 	  Name			  "Goto11"
-	  SID			  114
+	  SID			  "114"
 	  Position		  [755, 85, 815, 115]
 	  BackgroundColor	  "lightBlue"
 	  ShowName		  off
-	  GotoTag		  "up_alpha"
-	  TagVisibility		  "local"
+	  GotoTag		  "up"
 	}
 	Block {
 	  BlockType		  Goto
 	  Name			  "Goto14"
-	  SID			  197
+	  SID			  "197"
 	  Position		  [195, 630, 235, 660]
 	  BackgroundColor	  "gray"
 	  ShowName		  off
 	  GotoTag		  "flag"
-	  TagVisibility		  "local"
 	}
 	Block {
 	  BlockType		  Goto
 	  Name			  "Goto15"
-	  SID			  202
+	  SID			  "202"
 	  Position		  [195, 510, 235, 540]
 	  BackgroundColor	  "gray"
 	  ShowName		  off
 	  GotoTag		  "t1"
-	  TagVisibility		  "local"
 	}
 	Block {
 	  BlockType		  Goto
 	  Name			  "Goto2"
-	  SID			  90
+	  SID			  "90"
 	  Position		  [175, 260, 235, 290]
 	  ShowName		  off
-	  GotoTag		  "i2_alpha"
-	  TagVisibility		  "local"
+	  GotoTag		  "i2"
 	}
 	Block {
 	  BlockType		  Goto
 	  Name			  "Goto5"
-	  SID			  93
+	  SID			  "93"
 	  Position		  [175, 410, 235, 440]
 	  ShowName		  off
-	  GotoTag		  "iC_alpha"
-	  TagVisibility		  "local"
+	  GotoTag		  "iC"
 	}
 	Block {
 	  BlockType		  Goto
 	  Name			  "Goto8"
-	  SID			  96
+	  SID			  "96"
 	  Position		  [165, 110, 245, 140]
 	  ShowName		  off
-	  GotoTag		  "i2ref_alpha"
-	  TagVisibility		  "local"
+	  GotoTag		  "i2ref"
 	}
 	Block {
 	  BlockType		  RateTransition
 	  Name			  "Rate Transition1"
-	  SID			  40
+	  SID			  "40"
 	  Position		  [125, 554, 165, 596]
 	  BackgroundColor	  "gray"
 	  ShowName		  off
@@ -1558,7 +1515,7 @@ Model {
 	Block {
 	  BlockType		  Scope
 	  Name			  "Scope"
-	  SID			  312
+	  SID			  "312"
 	  Ports			  [1]
 	  Position		  [785, 39, 815, 71]
 	  ShowName		  off
@@ -1571,6 +1528,7 @@ Model {
 	    ListType		    AxesTitles
 	    axes1		    "%<SignalLabel>"
 	  }
+	  ShowLegends		  off
 	  YMin			  "-5500"
 	  YMax			  "5000"
 	  SaveName		  "ScopeData4"
@@ -1579,44 +1537,21 @@ Model {
 	  SampleTime		  "0"
 	}
 	Block {
-	  BlockType		  Scope
-	  Name			  "Scope1"
-	  SID			  528
-	  Ports			  [1]
-	  Position		  [770, 214, 800, 246]
-	  ShowName		  off
-	  Floating		  off
-	  Location		  [5, 48, 1685, 1009]
-	  Open			  off
-	  NumInputPorts		  "1"
-	  ZoomMode		  "yonly"
-	  List {
-	    ListType		    AxesTitles
-	    axes1		    "%<SignalLabel>"
-	  }
-	  YMin			  "-5500"
-	  YMax			  "5000"
-	  DataFormat		  "StructureWithTime"
-	  LimitDataPoints	  off
-	  SampleTime		  "0"
-	}
-	Block {
 	  BlockType		  ToWorkspace
 	  Name			  "To Workspace"
-	  SID			  363
+	  SID			  "363"
 	  Ports			  [1]
 	  Position		  [755, 165, 815, 195]
 	  BackgroundColor	  "gray"
 	  ShowName		  off
-	  VariableName		  "theta_alpha"
+	  VariableName		  "theta"
 	  MaxDataPoints		  "inf"
 	  SampleTime		  "Ts1"
-	  SaveFormat		  "Array"
 	}
 	Block {
 	  BlockType		  Outport
-	  Name			  "up_a"
-	  SID			  57
+	  Name			  "up"
+	  SID			  "57"
 	  Position		  [1110, 93, 1140, 107]
 	  BackgroundColor	  "gray"
 	  IconDisplay		  "Port number"
@@ -1641,13 +1576,13 @@ Model {
 	  DstPort		  1
 	}
 	Line {
-	  SrcBlock		  "i2_a"
+	  SrcBlock		  "i2"
 	  SrcPort		  1
 	  DstBlock		  "Goto2"
 	  DstPort		  1
 	}
 	Line {
-	  SrcBlock		  "iC_a"
+	  SrcBlock		  "iC"
 	  SrcPort		  1
 	  DstBlock		  "Goto5"
 	  DstPort		  1
@@ -1661,12 +1596,14 @@ Model {
 	Line {
 	  SrcBlock		  "From4"
 	  SrcPort		  1
+	  Points		  [25, 0]
 	  DstBlock		  "Controlador Adaptativo Alpha"
 	  DstPort		  2
 	}
 	Line {
 	  SrcBlock		  "From7"
 	  SrcPort		  1
+	  Points		  [25, 0]
 	  DstBlock		  "Controlador Adaptativo Alpha"
 	  DstPort		  3
 	}
@@ -1674,7 +1611,7 @@ Model {
 	  SrcBlock		  "From10"
 	  SrcPort		  1
 	  DstBlock		  "Controlador Adaptativo Alpha"
-	  DstPort		  5
+	  DstPort		  4
 	}
 	Line {
 	  SrcBlock		  "Controlador Adaptativo Alpha"
@@ -1693,7 +1630,7 @@ Model {
 	Line {
 	  SrcBlock		  "From13"
 	  SrcPort		  1
-	  DstBlock		  "up_a"
+	  DstBlock		  "up"
 	  DstPort		  1
 	}
 	Line {
@@ -1701,12 +1638,6 @@ Model {
 	  SrcPort		  1
 	  DstBlock		  "Goto14"
 	  DstPort		  1
-	}
-	Line {
-	  SrcBlock		  "From16"
-	  SrcPort		  1
-	  DstBlock		  "Controlador Adaptativo Alpha"
-	  DstPort		  4
 	}
 	Line {
 	  SrcBlock		  "Controlador Adaptativo Alpha"
@@ -1717,20 +1648,13 @@ Model {
 	    DstPort		    1
 	  }
 	  Branch {
-	    Points		    [0, 50]
-	    Branch {
-	      DstBlock		      "Scope1"
-	      DstPort		      1
-	    }
-	    Branch {
-	      Points		      [0, 115]
-	      DstBlock		      "Display"
-	      DstPort		      1
-	    }
+	    Points		    [0, 165]
+	    DstBlock		    "Display"
+	    DstPort		    1
 	  }
 	}
 	Line {
-	  SrcBlock		  "i2ref_a"
+	  SrcBlock		  "i2ref"
 	  SrcPort		  1
 	  DstBlock		  "Goto8"
 	  DstPort		  1
@@ -1740,9 +1664,9 @@ Model {
     Block {
       BlockType		      SubSystem
       Name		      "Conversor + Filtro"
-      SID		      155
+      SID		      "155"
       Ports		      [1, 2]
-      Position		      [810, 69, 1085, 256]
+      Position		      [275, 484, 550, 671]
       BackgroundColor	      "darkGreen"
       MinAlgLoopOccurrences   off
       PropExecContextOutsideSubsystem off
@@ -1753,7 +1677,7 @@ Model {
       MaskHideContents	      off
       System {
 	Name			"Conversor + Filtro"
-	Location		[112, 87, 1568, 963]
+	Location		[2, 82, 1582, 871]
 	Open			off
 	ModelBrowserVisibility	off
 	ModelBrowserWidth	200
@@ -1768,31 +1692,26 @@ Model {
 	ZoomFactor		"100"
 	Block {
 	  BlockType		  Inport
-	  Name			  "up_a"
-	  SID			  158
+	  Name			  "up"
+	  SID			  "158"
 	  Position		  [20, 108, 50, 122]
 	  BackgroundColor	  "gray"
 	  IconDisplay		  "Port number"
 	}
 	Block {
 	  BlockType		  Reference
-	  Name			  "Ca"
-	  SID			  123
+	  Name			  "C"
+	  SID			  "123"
 	  Ports			  [0, 0, 0, 0, 0, 1, 1]
 	  Position		  [766, 90, 794, 160]
 	  BlockRotation		  270
 	  BlockMirror		  on
 	  NamePlacement		  "alternate"
-	  LibraryVersion	  "1.1899"
-	  DialogController	  "POWERSYS.PowerSysDialog"
+	  LibraryVersion	  "1.2119"
 	  FontName		  "Verdana"
 	  FontSize		  11
 	  SourceBlock		  "powerlib/Elements/Series RLC Branch"
 	  SourceType		  "Series RLC Branch"
-	  PhysicalDomain	  "powersysdomain"
-	  SubClassName		  "unknown"
-	  LeftPortType		  "p1"
-	  RightPortType		  "p1"
 	  LConnTagsString	  "__new0"
 	  RConnTagsString	  "__new0"
 	  BranchType		  "C"
@@ -1808,24 +1727,15 @@ Model {
 	Block {
 	  BlockType		  Reference
 	  Name			  "Controlled Voltage Source"
-	  SID			  126
+	  SID			  "126"
 	  Ports			  [1, 0, 0, 0, 0, 1, 1]
 	  Position		  [515, 310, 560, 345]
 	  ShowName		  off
-	  LibraryVersion	  "1.1899"
-	  DialogController	  "POWERSYS.PowerSysDialog"
+	  LibraryVersion	  "1.2119"
 	  FontName		  "Verdana"
 	  FontSize		  11
 	  SourceBlock		  "powerlib/Electrical\nSources/Controlled Voltage Source"
 	  SourceType		  "Controlled Voltage Source"
-	  ShowPortLabels	  "FromPortIcon"
-	  SystemSampleTime	  "-1"
-	  FunctionWithSeparateData off
-	  RTWMemSecFuncInitTerm	  "Inherit from model"
-	  RTWMemSecFuncExecute	  "Inherit from model"
-	  RTWMemSecDataConstants  "Inherit from model"
-	  RTWMemSecDataInternal	  "Inherit from model"
-	  RTWMemSecDataParameters "Inherit from model"
 	  Initialize		  on
 	  Source_Type		  "AC"
 	  Amplitude		  "0"
@@ -1836,24 +1746,15 @@ Model {
 	Block {
 	  BlockType		  Reference
 	  Name			  "Conversor"
-	  SID			  129
+	  SID			  "129"
 	  Ports			  [1, 0, 0, 0, 0, 3, 2]
 	  Position		  [505, 197, 560, 273]
 	  BlockMirror		  on
-	  LibraryVersion	  "1.1899"
-	  DialogController	  "POWERSYS.PowerSysDialog"
+	  LibraryVersion	  "1.2119"
 	  FontName		  "Verdana"
 	  FontSize		  11
 	  SourceBlock		  "powerlib/Power\nElectronics/Universal Bridge"
 	  SourceType		  "Universal Bridge"
-	  ShowPortLabels	  "FromPortIcon"
-	  SystemSampleTime	  "-1"
-	  FunctionWithSeparateData off
-	  RTWMemSecFuncInitTerm	  "Inherit from model"
-	  RTWMemSecFuncExecute	  "Inherit from model"
-	  RTWMemSecDataConstants  "Inherit from model"
-	  RTWMemSecDataInternal	  "Inherit from model"
-	  RTWMemSecDataParameters "Inherit from model"
 	  Arms			  "3"
 	  SnubberResistance	  "1e5"
 	  SnubberCapacitance	  "inf"
@@ -1871,7 +1772,7 @@ Model {
 	Block {
 	  BlockType		  Demux
 	  Name			  "Demux"
-	  SID			  179
+	  SID			  "179"
 	  Ports			  [1, 2]
 	  Position		  [1070, 395, 1075, 475]
 	  ShowName		  off
@@ -1881,15 +1782,15 @@ Model {
 	Block {
 	  BlockType		  From
 	  Name			  "From"
-	  SID			  172
+	  SID			  "172"
 	  Position		  [335, 116, 375, 144]
 	  ShowName		  off
-	  GotoTag		  "up_a"
+	  GotoTag		  "up"
 	}
 	Block {
 	  BlockType		  From
 	  Name			  "From12"
-	  SID			  298
+	  SID			  "298"
 	  Position		  [935, 246, 975, 274]
 	  ShowName		  off
 	  GotoTag		  "p_ch"
@@ -1897,7 +1798,7 @@ Model {
 	Block {
 	  BlockType		  From
 	  Name			  "From13"
-	  SID			  353
+	  SID			  "353"
 	  Position		  [1215, 246, 1255, 274]
 	  ShowName		  off
 	  GotoTag		  "init"
@@ -1905,22 +1806,20 @@ Model {
 	Block {
 	  BlockType		  From
 	  Name			  "From3"
-	  SID			  175
+	  SID			  "175"
 	  Position		  [420, 316, 460, 344]
 	  ShowName		  off
-	  GotoTag		  "up_a"
+	  GotoTag		  "up"
 	}
 	Block {
 	  BlockType		  Gain
 	  Name			  "Gain"
-	  SID			  131
+	  SID			  "131"
 	  Position		  [410, 115, 440, 145]
 	  BackgroundColor	  "gray"
 	  ShowName		  off
 	  Gain			  "1/VCC"
-	  ParameterDataTypeMode	  "Inherit via internal rule"
 	  ParamDataTypeStr	  "Inherit: Inherit via internal rule"
-	  OutDataTypeMode	  "Inherit via internal rule"
 	  OutDataTypeStr	  "Inherit: Inherit via internal rule"
 	  SaturateOnIntegerOverflow off
 	  SampleTime		  "Ts1"
@@ -1928,13 +1827,11 @@ Model {
 	Block {
 	  BlockType		  Gain
 	  Name			  "Gain3"
-	  SID			  301
+	  SID			  "301"
 	  Position		  [1020, 10, 1050, 40]
 	  ShowName		  off
 	  Gain			  "-1"
-	  ParameterDataTypeMode	  "Inherit via internal rule"
 	  ParamDataTypeStr	  "Inherit: Inherit via internal rule"
-	  OutDataTypeMode	  "Inherit via internal rule"
 	  OutDataTypeStr	  "Inherit: Inherit via internal rule"
 	  SaturateOnIntegerOverflow off
 	  SampleTime		  "Ts1"
@@ -1942,70 +1839,53 @@ Model {
 	Block {
 	  BlockType		  Goto
 	  Name			  "Goto"
-	  SID			  168
+	  SID			  "168"
 	  Position		  [155, 100, 195, 130]
 	  ShowName		  off
-	  GotoTag		  "up_a"
-	  TagVisibility		  "local"
+	  GotoTag		  "up"
 	}
 	Block {
 	  BlockType		  Goto
 	  Name			  "Goto6"
-	  SID			  297
+	  SID			  "297"
 	  Position		  [160, 355, 200, 385]
 	  ShowName		  off
 	  GotoTag		  "p_ch"
-	  TagVisibility		  "local"
 	}
 	Block {
 	  BlockType		  Goto
 	  Name			  "Goto7"
-	  SID			  354
+	  SID			  "354"
 	  Position		  [160, 415, 200, 445]
 	  ShowName		  off
 	  GotoTag		  "init"
-	  TagVisibility		  "local"
 	}
 	Block {
 	  BlockType		  Reference
 	  Name			  "Ground"
-	  SID			  361
+	  SID			  "361"
 	  Ports			  [0, 0, 0, 0, 0, 1]
 	  Position		  [769, 445, 791, 470]
 	  BlockRotation		  270
 	  BlockMirror		  on
 	  ShowName		  off
-	  LibraryVersion	  "1.1899"
-	  DialogController	  "POWERSYS.PowerSysDialog"
+	  LibraryVersion	  "1.2119"
 	  FontName		  "Verdana"
 	  FontSize		  11
 	  SourceBlock		  "powerlib/Elements/Ground"
 	  SourceType		  "Ground"
-	  PhysicalDomain	  "powersysdomain"
-	  SubClassName		  "unknown"
-	  LeftPortType		  "p1"
-	  RightPortType		  "p1"
 	  LConnTagsString	  "a"
 	}
 	Block {
 	  BlockType		  Reference
 	  Name			  "Ideal Switch"
-	  SID			  132
+	  SID			  "132"
 	  Ports			  [1, 0, 0, 0, 0, 1, 1]
 	  Position		  [1085, 15, 1140, 55]
 	  ShowName		  off
-	  LibraryVersion	  "1.1899"
-	  DialogController	  "POWERSYS.PowerSysDialog"
+	  LibraryVersion	  "1.2119"
 	  SourceBlock		  "powerlib/Power\nElectronics/Ideal Switch"
 	  SourceType		  "Ideal Switch"
-	  ShowPortLabels	  "FromPortIcon"
-	  SystemSampleTime	  "-1"
-	  FunctionWithSeparateData off
-	  RTWMemSecFuncInitTerm	  "Inherit from model"
-	  RTWMemSecFuncExecute	  "Inherit from model"
-	  RTWMemSecDataConstants  "Inherit from model"
-	  RTWMemSecDataInternal	  "Inherit from model"
-	  RTWMemSecDataParameters "Inherit from model"
 	  Ron			  "0.001"
 	  Lon			  "0"
 	  IC			  "1"
@@ -2016,22 +1896,13 @@ Model {
 	Block {
 	  BlockType		  Reference
 	  Name			  "Ideal Switch1"
-	  SID			  133
+	  SID			  "133"
 	  Ports			  [1, 0, 0, 0, 0, 1, 1]
 	  Position		  [1040, 90, 1095, 130]
 	  ShowName		  off
-	  LibraryVersion	  "1.1899"
-	  DialogController	  "POWERSYS.PowerSysDialog"
+	  LibraryVersion	  "1.2119"
 	  SourceBlock		  "powerlib/Power\nElectronics/Ideal Switch"
 	  SourceType		  "Ideal Switch"
-	  ShowPortLabels	  "FromPortIcon"
-	  SystemSampleTime	  "-1"
-	  FunctionWithSeparateData off
-	  RTWMemSecFuncInitTerm	  "Inherit from model"
-	  RTWMemSecFuncExecute	  "Inherit from model"
-	  RTWMemSecDataConstants  "Inherit from model"
-	  RTWMemSecDataInternal	  "Inherit from model"
-	  RTWMemSecDataParameters "Inherit from model"
 	  Ron			  "0.001"
 	  Lon			  "0"
 	  IC			  "0"
@@ -2042,22 +1913,13 @@ Model {
 	Block {
 	  BlockType		  Reference
 	  Name			  "Ideal Switch8"
-	  SID			  349
+	  SID			  "349"
 	  Ports			  [1, 0, 0, 0, 0, 1, 1]
 	  Position		  [1290, 15, 1345, 55]
 	  ShowName		  off
-	  LibraryVersion	  "1.1899"
-	  DialogController	  "POWERSYS.PowerSysDialog"
+	  LibraryVersion	  "1.2119"
 	  SourceBlock		  "powerlib/Power\nElectronics/Ideal Switch"
 	  SourceType		  "Ideal Switch"
-	  ShowPortLabels	  "FromPortIcon"
-	  SystemSampleTime	  "-1"
-	  FunctionWithSeparateData off
-	  RTWMemSecFuncInitTerm	  "Inherit from model"
-	  RTWMemSecFuncExecute	  "Inherit from model"
-	  RTWMemSecDataConstants  "Inherit from model"
-	  RTWMemSecDataInternal	  "Inherit from model"
-	  RTWMemSecDataParameters "Inherit from model"
 	  Ron			  "0.001"
 	  Lon			  "0"
 	  IC			  "1"
@@ -2068,7 +1930,7 @@ Model {
 	Block {
 	  BlockType		  Step
 	  Name			  "Inicialização"
-	  SID			  355
+	  SID			  "355"
 	  Position		  [90, 415, 120, 445]
 	  Time			  "init_time"
 	  Before		  "1"
@@ -2077,20 +1939,15 @@ Model {
 	}
 	Block {
 	  BlockType		  Reference
-	  Name			  "L1a"
-	  SID			  138
+	  Name			  "L1"
+	  SID			  "138"
 	  Ports			  [0, 0, 0, 0, 0, 1, 1]
 	  Position		  [680, 31, 750, 59]
-	  LibraryVersion	  "1.1899"
-	  DialogController	  "POWERSYS.PowerSysDialog"
+	  LibraryVersion	  "1.2119"
 	  FontName		  "Verdana"
 	  FontSize		  11
 	  SourceBlock		  "powerlib/Elements/Series RLC Branch"
 	  SourceType		  "Series RLC Branch"
-	  PhysicalDomain	  "powersysdomain"
-	  SubClassName		  "unknown"
-	  LeftPortType		  "p1"
-	  RightPortType		  "p1"
 	  LConnTagsString	  "__new0"
 	  RConnTagsString	  "__new0"
 	  BranchType		  "RL"
@@ -2105,20 +1962,15 @@ Model {
 	}
 	Block {
 	  BlockType		  Reference
-	  Name			  "L2a+Lga"
-	  SID			  141
+	  Name			  "L2+Lg"
+	  SID			  "141"
 	  Ports			  [0, 0, 0, 0, 0, 1, 1]
 	  Position		  [810, 31, 880, 59]
-	  LibraryVersion	  "1.1899"
-	  DialogController	  "POWERSYS.PowerSysDialog"
+	  LibraryVersion	  "1.2119"
 	  FontName		  "Verdana"
 	  FontSize		  11
 	  SourceBlock		  "powerlib/Elements/Series RLC Branch"
 	  SourceType		  "Series RLC Branch"
-	  PhysicalDomain	  "powersysdomain"
-	  SubClassName		  "unknown"
-	  LeftPortType		  "p1"
-	  RightPortType		  "p1"
 	  LConnTagsString	  "__new0"
 	  RConnTagsString	  "__new0"
 	  BranchType		  "RL"
@@ -2134,28 +1986,20 @@ Model {
 	Block {
 	  BlockType		  Reference
 	  Name			  "Multímetro"
-	  SID			  178
+	  SID			  "178"
 	  Ports			  [0, 1, 0, 0, 0, 1]
 	  Position		  [1000, 416, 1040, 454]
-	  LibraryVersion	  "1.1899"
+	  LibraryVersion	  "1.2119"
 	  FontName		  "Verdana"
 	  FontSize		  11
 	  SourceBlock		  "powerlib/Measurements/Multimeter"
 	  SourceType		  "MultimeterPSB"
-	  ShowPortLabels	  "FromPortIcon"
-	  SystemSampleTime	  "-1"
-	  FunctionWithSeparateData off
-	  RTWMemSecFuncInitTerm	  "Inherit from model"
-	  RTWMemSecFuncExecute	  "Inherit from model"
-	  RTWMemSecDataConstants  "Inherit from model"
-	  RTWMemSecDataInternal	  "Inherit from model"
-	  RTWMemSecDataParameters "Inherit from model"
 	  PhasorSimulation	  off
 	  OutputType		  "Complex"
 	  sel			  "[7 5]"
 	  L			  "7"
 	  Gain			  "[1 1]"
-	  yselected		  "{'Ib: Conversor + Filtro/L2a+Lga','Ib: Conversor + Filtro/Ca'};"
+	  yselected		  "{'Ib: Conversor + Filtro/L2+Lg','Ib: Conversor + Filtro/C'};"
 	  PSBOutputType		  "1"
 	  PSBequivalent		  "0"
 	  AxesSetting		  "[0,0.1,-100,100]"
@@ -2165,24 +2009,15 @@ Model {
 	Block {
 	  BlockType		  Reference
 	  Name			  "PWM"
-	  SID			  144
+	  SID			  "144"
 	  Ports			  [1, 1]
 	  Position		  [460, 107, 560, 153]
 	  BackgroundColor	  "gray"
-	  LibraryVersion	  "1.612"
-	  DialogController	  "POWERSYS.PowerSysDialog"
+	  LibraryVersion	  "1.648"
 	  FontName		  "Verdana"
 	  FontSize		  11
 	  SourceBlock		  "powerlib_extras/Discrete \nControl Blocks/Discrete\nPWM Generator"
 	  SourceType		  "Discrete PWM Generator"
-	  ShowPortLabels	  "FromPortIcon"
-	  SystemSampleTime	  "-1"
-	  FunctionWithSeparateData off
-	  RTWMemSecFuncInitTerm	  "Inherit from model"
-	  RTWMemSecFuncExecute	  "Inherit from model"
-	  RTWMemSecDataConstants  "Inherit from model"
-	  RTWMemSecDataInternal	  "Inherit from model"
-	  RTWMemSecDataParameters "Inherit from model"
 	  GeneratorMode		  "3-arm  bridge (6 pulses)"
 	  Fc			  "12000"
 	  Ts			  "Ts1"
@@ -2194,7 +2029,7 @@ Model {
 	Block {
 	  BlockType		  RateTransition
 	  Name			  "Rate Transition13"
-	  SID			  146
+	  SID			  "146"
 	  Position		  [85, 94, 125, 136]
 	  BackgroundColor	  "gray"
 	  ShowName		  off
@@ -2202,20 +2037,34 @@ Model {
 	}
 	Block {
 	  BlockType		  Reference
-	  Name			  "Rinit_a"
-	  SID			  352
+	  Name			  "Rede"
+	  SID			  "532"
+	  Ports			  [0, 0, 0, 0, 0, 1, 1]
+	  Position		  [1493, 110, 1517, 145]
+	  ZOrder		  -2
+	  BlockRotation		  270
+	  LibraryVersion	  "1.2119"
+	  FontName		  "Verdana"
+	  FontSize		  11
+	  SourceBlock		  "powerlib/Electrical\nSources/AC Voltage Source"
+	  SourceType		  "AC Voltage Source"
+	  Amplitude		  "rede_amp"
+	  Phase			  "0"
+	  Frequency		  "60"
+	  SampleTime		  "0"
+	  Measurements		  "None"
+	}
+	Block {
+	  BlockType		  Reference
+	  Name			  "Rinit"
+	  SID			  "352"
 	  Ports			  [0, 0, 0, 0, 0, 1, 1]
 	  Position		  [1285, 96, 1355, 124]
-	  LibraryVersion	  "1.1899"
-	  DialogController	  "POWERSYS.PowerSysDialog"
+	  LibraryVersion	  "1.2119"
 	  FontName		  "Verdana"
 	  FontSize		  11
 	  SourceBlock		  "powerlib/Elements/Series RLC Branch"
 	  SourceType		  "Series RLC Branch"
-	  PhysicalDomain	  "powersysdomain"
-	  SubClassName		  "unknown"
-	  LeftPortType		  "p1"
-	  RightPortType		  "p1"
 	  LConnTagsString	  "__new0"
 	  RConnTagsString	  "__new0"
 	  BranchType		  "RL"
@@ -2231,32 +2080,23 @@ Model {
 	Block {
 	  BlockType		  Reference
 	  Name			  "VCC"
-	  SID			  151
+	  SID			  "151"
 	  Ports			  [0, 0, 0, 0, 0, 1, 1]
 	  Position		  [440, 215, 460, 250]
 	  BlockRotation		  270
 	  NamePlacement		  "alternate"
-	  LibraryVersion	  "1.1899"
-	  DialogController	  "POWERSYS.PowerSysDialog"
+	  LibraryVersion	  "1.2119"
 	  FontName		  "Verdana"
 	  FontSize		  11
 	  SourceBlock		  "powerlib/Electrical\nSources/DC Voltage Source"
 	  SourceType		  "DC Voltage Source"
-	  ShowPortLabels	  "FromPortIcon"
-	  SystemSampleTime	  "-1"
-	  FunctionWithSeparateData off
-	  RTWMemSecFuncInitTerm	  "Inherit from model"
-	  RTWMemSecFuncExecute	  "Inherit from model"
-	  RTWMemSecDataConstants  "Inherit from model"
-	  RTWMemSecDataInternal	  "Inherit from model"
-	  RTWMemSecDataParameters "Inherit from model"
 	  Amplitude		  "VCC"
 	  Measurements		  "None"
 	}
 	Block {
 	  BlockType		  Step
 	  Name			  "Variação Paramétrica"
-	  SID			  296
+	  SID			  "296"
 	  Position		  [90, 355, 120, 385]
 	  Time			  "param_change_time"
 	  Before		  "-1"
@@ -2264,20 +2104,15 @@ Model {
 	}
 	Block {
 	  BlockType		  Reference
-	  Name			  "deltaL2a"
-	  SID			  152
+	  Name			  "deltaL2"
+	  SID			  "152"
 	  Ports			  [0, 0, 0, 0, 0, 1, 1]
 	  Position		  [1140, 96, 1210, 124]
-	  LibraryVersion	  "1.1899"
-	  DialogController	  "POWERSYS.PowerSysDialog"
+	  LibraryVersion	  "1.2119"
 	  FontName		  "Verdana"
 	  FontSize		  11
 	  SourceBlock		  "powerlib/Elements/Series RLC Branch"
 	  SourceType		  "Series RLC Branch"
-	  PhysicalDomain	  "powersysdomain"
-	  SubClassName		  "unknown"
-	  LeftPortType		  "p1"
-	  RightPortType		  "p1"
 	  LConnTagsString	  "__new0"
 	  RConnTagsString	  "__new0"
 	  BranchType		  "RL"
@@ -2292,16 +2127,16 @@ Model {
 	}
 	Block {
 	  BlockType		  Outport
-	  Name			  "i2_a"
-	  SID			  157
+	  Name			  "i2"
+	  SID			  "157"
 	  Position		  [1105, 408, 1135, 422]
 	  BackgroundColor	  "gray"
 	  IconDisplay		  "Port number"
 	}
 	Block {
 	  BlockType		  Outport
-	  Name			  "iC_a"
-	  SID			  182
+	  Name			  "iC"
+	  SID			  "182"
 	  Position		  [1105, 448, 1135, 462]
 	  BackgroundColor	  "gray"
 	  Port			  "2"
@@ -2319,7 +2154,7 @@ Model {
 	  Branch {
 	    ConnectType		    "SRC_SRC"
 	    Points		    [0, 65]
-	    DstBlock		    "deltaL2a"
+	    DstBlock		    "deltaL2"
 	    DstPort		    RConn1
 	  }
 	  Branch {
@@ -2330,24 +2165,24 @@ Model {
 	  Branch {
 	    ConnectType		    "DEST_SRC"
 	    Points		    [0, 65]
-	    DstBlock		    "Rinit_a"
+	    DstBlock		    "Rinit"
 	    DstPort		    LConn1
 	  }
 	}
 	Line {
 	  LineType		  "Connection"
 	  Points		  [780, 45; 0, 30]
-	  DstBlock		  "Ca"
+	  DstBlock		  "C"
 	  DstPort		  LConn1
 	  Branch {
 	    ConnectType		    "SRC_DEST"
-	    SrcBlock		    "L2a+Lga"
+	    SrcBlock		    "L2+Lg"
 	    SrcPort		    LConn1
 	    Points		    [-15, 0]
 	  }
 	  Branch {
 	    ConnectType		    "SRC_SRC"
-	    DstBlock		    "L1a"
+	    DstBlock		    "L1"
 	    DstPort		    RConn1
 	  }
 	}
@@ -2369,7 +2204,7 @@ Model {
 	}
 	Line {
 	  LineType		  "Connection"
-	  SrcBlock		  "L2a+Lga"
+	  SrcBlock		  "L2+Lg"
 	  SrcPort		  RConn1
 	  Points		  [125, 0]
 	  Branch {
@@ -2386,7 +2221,7 @@ Model {
 	}
 	Line {
 	  LineType		  "Connection"
-	  SrcBlock		  "deltaL2a"
+	  SrcBlock		  "deltaL2"
 	  SrcPort		  LConn1
 	  DstBlock		  "Ideal Switch1"
 	  DstPort		  RConn1
@@ -2398,7 +2233,7 @@ Model {
 	  DstPort		  1
 	}
 	Line {
-	  SrcBlock		  "up_a"
+	  SrcBlock		  "up"
 	  SrcPort		  1
 	  DstBlock		  "Rate Transition13"
 	  DstPort		  1
@@ -2438,7 +2273,7 @@ Model {
 	Line {
 	  SrcBlock		  "Demux"
 	  SrcPort		  1
-	  DstBlock		  "i2_a"
+	  DstBlock		  "i2"
 	  DstPort		  1
 	}
 	Line {
@@ -2455,39 +2290,30 @@ Model {
 	}
 	Line {
 	  LineType		  "Connection"
-	  SrcBlock		  "Rinit_a"
-	  SrcPort		  RConn1
-	  Points		  [15, 0; 0, -75]
+	  SrcBlock		  "Rede"
+	  SrcPort		  LConn1
+	  Points		  [0, 65; -724, 0]
 	  Branch {
-	    ConnectType		    "DEST_SRC"
-	    DstBlock		    "Ideal Switch8"
-	    DstPort		    RConn1
+	    ConnectType		    "DEST_DEST"
+	    Points		    [780, 395; 1, 0; 0, -170]
+	    Branch {
+	      ConnectType	      "SRC_DEST"
+	      SrcBlock		      "Ground"
+	      SrcPort		      LConn1
+	      Points		      [0, -35]
+	    }
+	    Branch {
+	      ConnectType	      "SRC_DEST"
+	      SrcBlock		      "Controlled Voltage Source"
+	      SrcPort		      LConn1
+	      Points		      [-6, 0; 0, 60; 286, 0]
+	    }
 	  }
 	  Branch {
 	    ConnectType		    "DEST_SRC"
-	    Points		    [165, 0; 0, 190; -769, 0]
-	    Branch {
-	      ConnectType	      "DEST_DEST"
-	      Points		      [780, 395; 1, 0; 0, -170]
-	      Branch {
-		ConnectType		"SRC_DEST"
-		SrcBlock		"Ground"
-		SrcPort			LConn1
-		Points			[0, -35]
-	      }
-	      Branch {
-		ConnectType		"SRC_DEST"
-		SrcBlock		"Controlled Voltage Source"
-		SrcPort			LConn1
-		Points			[-6, 0; 0, 60; 286, 0]
-	      }
-	    }
-	    Branch {
-	      ConnectType	      "DEST_SRC"
-	      Points		      [-1, 0]
-	      DstBlock		      "Ca"
-	      DstPort		      RConn1
-	    }
+	    Points		    [-1, 0]
+	    DstBlock		    "C"
+	    DstPort		    RConn1
 	  }
 	}
 	Line {
@@ -2522,16 +2348,34 @@ Model {
 	  SrcBlock		  "Controlled Voltage Source"
 	  SrcPort		  RConn1
 	  Points		  [45, 0; 0, -285]
-	  DstBlock		  "L1a"
+	  DstBlock		  "L1"
 	  DstPort		  LConn1
 	}
 	Line {
 	  SrcBlock		  "Demux"
 	  SrcPort		  2
-	  DstBlock		  "iC_a"
+	  DstBlock		  "iC"
 	  DstPort		  1
 	}
+	Line {
+	  LineType		  "Connection"
+	  SrcBlock		  "Rinit"
+	  SrcPort		  RConn1
+	  Points		  [15, 0; 0, -75]
+	  Branch {
+	    ConnectType		    "DEST_SRC"
+	    DstBlock		    "Ideal Switch8"
+	    DstPort		    RConn1
+	  }
+	  Branch {
+	    ConnectType		    "DEST_DEST"
+	    SrcBlock		    "Rede"
+	    SrcPort		    RConn1
+	    Points		    [0, -60; -120, 0]
+	  }
+	}
 	Annotation {
+	  SID			  "530"
 	  Name			  "Timers:"
 	  Position		  [106, 327]
 	}
@@ -2540,44 +2384,44 @@ Model {
     Block {
       BlockType		      From
       Name		      "From"
-      SID		      191
-      Position		      [390, 181, 430, 209]
+      SID		      "191"
+      Position		      [300, 171, 340, 199]
       BackgroundColor	      "darkGreen"
       ShowName		      off
-      GotoTag		      "i2_a"
+      GotoTag		      "i2"
     }
     Block {
       BlockType		      From
       Name		      "From10"
-      SID		      222
-      Position		      [1380, 181, 1420, 209]
+      SID		      "222"
+      Position		      [675, 191, 715, 219]
       BackgroundColor	      "darkGreen"
       ShowName		      off
-      GotoTag		      "i2_a"
+      GotoTag		      "i2"
     }
     Block {
       BlockType		      From
       Name		      "From13"
-      SID		      225
-      Position		      [1380, 316, 1420, 344]
+      SID		      "225"
+      Position		      [675, 326, 715, 354]
       BackgroundColor	      "darkGreen"
       ShowName		      off
-      GotoTag		      "iC_a"
+      GotoTag		      "iC"
     }
     Block {
       BlockType		      From
       Name		      "From16"
-      SID		      228
-      Position		      [1375, 46, 1430, 74]
+      SID		      "228"
+      Position		      [670, 56, 725, 84]
       BackgroundColor	      "orange"
       ShowName		      off
-      GotoTag		      "i2ref_a"
+      GotoTag		      "i2ref"
     }
     Block {
       BlockType		      From
       Name		      "From19"
-      SID		      231
-      Position		      [1380, 586, 1420, 614]
+      SID		      "231"
+      Position		      [675, 596, 715, 624]
       BackgroundColor	      "gray"
       ShowName		      off
       GotoTag		      "t"
@@ -2585,44 +2429,44 @@ Model {
     Block {
       BlockType		      From
       Name		      "From20"
-      SID		      242
-      Position		      [1380, 451, 1420, 479]
+      SID		      "242"
+      Position		      [675, 461, 715, 489]
       BackgroundColor	      "lightBlue"
       ShowName		      off
-      GotoTag		      "up_a"
+      GotoTag		      "up"
     }
     Block {
       BlockType		      From
       Name		      "From23"
-      SID		      254
-      Position		      [745, 151, 785, 179]
+      SID		      "254"
+      Position		      [210, 566, 250, 594]
       BackgroundColor	      "lightBlue"
       ShowName		      off
-      GotoTag		      "up_a"
+      GotoTag		      "up"
     }
     Block {
       BlockType		      From
       Name		      "From3"
-      SID		      194
-      Position		      [390, 286, 430, 314]
+      SID		      "194"
+      Position		      [300, 276, 340, 304]
       BackgroundColor	      "darkGreen"
       ShowName		      off
-      GotoTag		      "iC_a"
+      GotoTag		      "iC"
     }
     Block {
       BlockType		      From
       Name		      "From6"
-      SID		      207
-      Position		      [385, 76, 440, 104]
+      SID		      "207"
+      Position		      [295, 66, 350, 94]
       BackgroundColor	      "orange"
       ShowName		      off
-      GotoTag		      "i2ref_a"
+      GotoTag		      "i2ref"
     }
     Block {
       BlockType		      From
       Name		      "From9"
-      SID		      212
-      Position		      [390, 391, 430, 419]
+      SID		      "212"
+      Position		      [300, 381, 340, 409]
       BackgroundColor	      "gray"
       ShowName		      off
       GotoTag		      "t"
@@ -2630,58 +2474,53 @@ Model {
     Block {
       BlockType		      Goto
       Name		      "Goto"
-      SID		      185
-      Position		      [1125, 100, 1165, 130]
+      SID		      "185"
+      Position		      [590, 515, 630, 545]
       BackgroundColor	      "darkGreen"
       ShowName		      off
-      GotoTag		      "i2_a"
-      TagVisibility	      "local"
+      GotoTag		      "i2"
     }
     Block {
       BlockType		      Goto
       Name		      "Goto10"
-      SID		      251
-      Position		      [665, 235, 705, 265]
+      SID		      "251"
+      Position		      [575, 225, 615, 255]
       BackgroundColor	      "lightBlue"
       ShowName		      off
-      GotoTag		      "up_a"
-      TagVisibility	      "local"
+      GotoTag		      "up"
     }
     Block {
       BlockType		      Goto
       Name		      "Goto3"
-      SID		      188
-      Position		      [1125, 195, 1165, 225]
+      SID		      "188"
+      Position		      [590, 610, 630, 640]
       BackgroundColor	      "darkGreen"
       ShowName		      off
-      GotoTag		      "iC_a"
-      TagVisibility	      "local"
+      GotoTag		      "iC"
     }
     Block {
       BlockType		      Goto
       Name		      "Goto6"
-      SID		      204
+      SID		      "204"
       Position		      [190, 175, 245, 205]
       BackgroundColor	      "orange"
       ShowName		      off
-      GotoTag		      "i2ref_a"
-      TagVisibility	      "local"
+      GotoTag		      "i2ref"
     }
     Block {
       BlockType		      Goto
       Name		      "Goto9"
-      SID		      211
+      SID		      "211"
       Position		      [200, 300, 240, 330]
       BackgroundColor	      "gray"
       ShowName		      off
       GotoTag		      "t"
-      TagVisibility	      "local"
     }
     Block {
       BlockType		      RateTransition
       Name		      "Rate Transition"
-      SID		      232
-      Position		      [1470, 39, 1510, 81]
+      SID		      "232"
+      Position		      [765, 49, 805, 91]
       BackgroundColor	      "gray"
       ShowName		      off
       OutPortSampleTime	      "Ts1"
@@ -2689,8 +2528,8 @@ Model {
     Block {
       BlockType		      RateTransition
       Name		      "Rate Transition10"
-      SID		      245
-      Position		      [1470, 444, 1510, 486]
+      SID		      "245"
+      Position		      [765, 454, 805, 496]
       BackgroundColor	      "gray"
       ShowName		      off
       OutPortSampleTime	      "Ts1"
@@ -2698,8 +2537,8 @@ Model {
     Block {
       BlockType		      RateTransition
       Name		      "Rate Transition3"
-      SID		      235
-      Position		      [1470, 174, 1510, 216]
+      SID		      "235"
+      Position		      [765, 184, 805, 226]
       BackgroundColor	      "gray"
       ShowName		      off
       OutPortSampleTime	      "Ts1"
@@ -2707,8 +2546,8 @@ Model {
     Block {
       BlockType		      RateTransition
       Name		      "Rate Transition6"
-      SID		      238
-      Position		      [1470, 309, 1510, 351]
+      SID		      "238"
+      Position		      [765, 319, 805, 361]
       BackgroundColor	      "gray"
       ShowName		      off
       OutPortSampleTime	      "Ts1"
@@ -2716,8 +2555,8 @@ Model {
     Block {
       BlockType		      RateTransition
       Name		      "Rate Transition9"
-      SID		      241
-      Position		      [1470, 579, 1510, 621]
+      SID		      "241"
+      Position		      [765, 589, 805, 631]
       BackgroundColor	      "gray"
       ShowName		      off
       OutPortSampleTime	      "Ts1"
@@ -2725,7 +2564,7 @@ Model {
     Block {
       BlockType		      SubSystem
       Name		      "Referência"
-      SID		      27
+      SID		      "27"
       Ports		      [0, 1]
       Position		      [35, 154, 150, 226]
       BackgroundColor	      "orange"
@@ -2738,7 +2577,7 @@ Model {
       MaskHideContents	      off
       System {
 	Name			"Referência"
-	Location		[86, 82, 1542, 958]
+	Location		[86, 82, 1542, 871]
 	Open			off
 	ModelBrowserVisibility	off
 	ModelBrowserWidth	200
@@ -2754,97 +2593,73 @@ Model {
 	Block {
 	  BlockType		  Sin
 	  Name			  "11 harmônica"
-	  SID			  20
+	  SID			  "20"
 	  Ports			  [0, 1]
 	  Position		  [25, 665, 55, 695]
 	  BackgroundColor	  "yellow"
-	  Amplitude		  "1.2"
-	  Bias			  "0"
-	  Frequency		  "2*pi*60*11"
-	  Phase			  "0"
-	  Samples		  "10"
-	  Offset		  "0"
+	  Amplitude		  "ref_amp/2"
+	  Frequency		  "ref_freq*11"
 	  SampleTime		  "Ts"
 	}
 	Block {
 	  BlockType		  Sin
 	  Name			  "13 harmônica"
-	  SID			  21
+	  SID			  "21"
 	  Ports			  [0, 1]
 	  Position		  [25, 730, 55, 760]
 	  BackgroundColor	  "yellow"
-	  Amplitude		  "1.2"
-	  Bias			  "0"
-	  Frequency		  "2*pi*60*13"
-	  Phase			  "0"
-	  Samples		  "10"
-	  Offset		  "0"
+	  Amplitude		  "ref_amp/2"
+	  Frequency		  "ref_freq*13"
 	  SampleTime		  "Ts"
 	}
 	Block {
 	  BlockType		  Sin
 	  Name			  "3 harmônica"
-	  SID			  16
+	  SID			  "16"
 	  Ports			  [0, 1]
 	  Position		  [25, 405, 55, 435]
 	  BackgroundColor	  "yellow"
-	  Amplitude		  "1.2"
-	  Bias			  "0"
-	  Frequency		  "2*pi*60*3"
-	  Phase			  "0"
-	  Samples		  "10"
-	  Offset		  "0"
+	  Amplitude		  "ref_amp/2"
+	  Frequency		  "ref_freq*3"
 	  SampleTime		  "Ts"
 	}
 	Block {
 	  BlockType		  Sin
 	  Name			  "5 harmônica"
-	  SID			  17
+	  SID			  "17"
 	  Ports			  [0, 1]
 	  Position		  [25, 470, 55, 500]
 	  BackgroundColor	  "yellow"
-	  Amplitude		  "1.2"
-	  Bias			  "0"
-	  Frequency		  "2*pi*60*5"
-	  Phase			  "0"
-	  Samples		  "10"
-	  Offset		  "0"
+	  Amplitude		  "ref_amp/2"
+	  Frequency		  "ref_freq*5"
 	  SampleTime		  "Ts"
 	}
 	Block {
 	  BlockType		  Sin
 	  Name			  "7 harmônica"
-	  SID			  18
+	  SID			  "18"
 	  Ports			  [0, 1]
 	  Position		  [25, 535, 55, 565]
 	  BackgroundColor	  "yellow"
-	  Amplitude		  "1.2"
-	  Bias			  "0"
-	  Frequency		  "2*pi*60*7"
-	  Phase			  "0"
-	  Samples		  "10"
-	  Offset		  "0"
+	  Amplitude		  "ref_amp/2"
+	  Frequency		  "ref_freq*7"
 	  SampleTime		  "Ts"
 	}
 	Block {
 	  BlockType		  Sin
 	  Name			  "9 harmônica"
-	  SID			  19
+	  SID			  "19"
 	  Ports			  [0, 1]
 	  Position		  [25, 600, 55, 630]
 	  BackgroundColor	  "yellow"
-	  Amplitude		  "1.2"
-	  Bias			  "0"
-	  Frequency		  "2*pi*60*9"
-	  Phase			  "0"
-	  Samples		  "10"
-	  Offset		  "0"
+	  Amplitude		  "ref_amp/2"
+	  Frequency		  "ref_freq*9"
 	  SampleTime		  "Ts"
 	}
 	Block {
 	  BlockType		  Step
 	  Name			  "Degrau de Amplitude"
-	  SID			  11
+	  SID			  "11"
 	  Position		  [245, 65, 275, 95]
 	  BackgroundColor	  "yellow"
 	  Time			  "ref_step_time"
@@ -2855,14 +2670,12 @@ Model {
 	Block {
 	  BlockType		  Gain
 	  Name			  "Gain"
-	  SID			  23
+	  SID			  "23"
 	  Position		  [160, 566, 390, 604]
 	  BackgroundColor	  "gray"
 	  ShowName		  off
 	  Gain			  "excitacao_persistente"
-	  ParameterDataTypeMode	  "Inherit via internal rule"
 	  ParamDataTypeStr	  "Inherit: Inherit via internal rule"
-	  OutDataTypeMode	  "Inherit via internal rule"
 	  OutDataTypeStr	  "Inherit: Inherit via internal rule"
 	  SaturateOnIntegerOverflow off
 	  SampleTime		  "Ts"
@@ -2870,7 +2683,7 @@ Model {
 	Block {
 	  BlockType		  Step
 	  Name			  "Inversão de Fase"
-	  SID			  12
+	  SID			  "12"
 	  Position		  [125, 65, 155, 95]
 	  BackgroundColor	  "yellow"
 	  Time			  "ref_phaseInv_time"
@@ -2881,13 +2694,12 @@ Model {
 	Block {
 	  BlockType		  Product
 	  Name			  "Product4"
-	  SID			  5
+	  SID			  "5"
 	  Ports			  [2, 1]
 	  Position		  [190, 32, 220, 63]
 	  BackgroundColor	  "yellow"
 	  ShowName		  off
 	  InputSameDT		  off
-	  OutDataTypeMode	  "Inherit via internal rule"
 	  OutDataTypeStr	  "Inherit: Inherit via internal rule"
 	  SaturateOnIntegerOverflow off
 	  SampleTime		  "Ts"
@@ -2895,13 +2707,12 @@ Model {
 	Block {
 	  BlockType		  Product
 	  Name			  "Product5"
-	  SID			  6
+	  SID			  "6"
 	  Ports			  [2, 1]
 	  Position		  [315, 42, 345, 73]
 	  BackgroundColor	  "yellow"
 	  ShowName		  off
 	  InputSameDT		  off
-	  OutDataTypeMode	  "Inherit via internal rule"
 	  OutDataTypeStr	  "Inherit: Inherit via internal rule"
 	  SaturateOnIntegerOverflow off
 	  SampleTime		  "Ts"
@@ -2909,7 +2720,7 @@ Model {
 	Block {
 	  BlockType		  Sum
 	  Name			  "Sum2"
-	  SID			  26
+	  SID			  "26"
 	  Ports			  [2, 1]
 	  Position		  [450, 50, 470, 70]
 	  BackgroundColor	  "yellow"
@@ -2917,42 +2728,36 @@ Model {
 	  IconShape		  "round"
 	  Inputs		  "|++"
 	  InputSameDT		  off
-	  OutDataTypeMode	  "Inherit via internal rule"
 	  OutDataTypeStr	  "Inherit: Inherit via internal rule"
 	  SaturateOnIntegerOverflow off
 	}
 	Block {
 	  BlockType		  Sum
 	  Name			  "Sum3"
-	  SID			  201
+	  SID			  "201"
 	  Ports			  [6, 1]
 	  Position		  [125, 393, 135, 772]
 	  ShowName		  off
 	  Inputs		  "++++++"
 	  InputSameDT		  off
-	  OutDataTypeMode	  "Inherit via internal rule"
 	  OutDataTypeStr	  "Inherit: Inherit via internal rule"
 	  SaturateOnIntegerOverflow off
 	}
 	Block {
 	  BlockType		  Sin
-	  Name			  "i2ref_A"
-	  SID			  13
+	  Name			  "i2_ref"
+	  SID			  "13"
 	  Ports			  [0, 1]
 	  Position		  [25, 25, 55, 55]
 	  BackgroundColor	  "orange"
-	  Amplitude		  "2"
-	  Bias			  "0"
-	  Frequency		  "2*pi*60"
-	  Phase			  "0"
-	  Samples		  "10"
-	  Offset		  "0"
+	  Amplitude		  "ref_amp"
+	  Frequency		  "ref_freq"
 	  SampleTime		  "Ts"
 	}
 	Block {
 	  BlockType		  Outport
-	  Name			  "i2ref_a"
-	  SID			  28
+	  Name			  "i2ref"
+	  SID			  "28"
 	  Position		  [615, 53, 645, 67]
 	  BackgroundColor	  "gray"
 	  IconDisplay		  "Port number"
@@ -2978,7 +2783,7 @@ Model {
 	  DstPort		  2
 	}
 	Line {
-	  SrcBlock		  "i2ref_A"
+	  SrcBlock		  "i2_ref"
 	  SrcPort		  1
 	  DstBlock		  "Product4"
 	  DstPort		  1
@@ -2999,7 +2804,7 @@ Model {
 	Line {
 	  SrcBlock		  "Sum2"
 	  SrcPort		  1
-	  DstBlock		  "i2ref_a"
+	  DstBlock		  "i2ref"
 	  DstPort		  1
 	}
 	Line {
@@ -3049,90 +2854,78 @@ Model {
     Block {
       BlockType		      ToWorkspace
       Name		      "To Workspace"
-      SID		      210
+      SID		      "210"
       Ports		      [1]
-      Position		      [1550, 45, 1610, 75]
+      Position		      [845, 55, 905, 85]
       BackgroundColor	      "gray"
       ShowName		      off
-      VariableName	      "i2ref_a"
+      VariableName	      "i2ref"
       MaxDataPoints	      "inf"
       SampleTime	      "Ts1"
-      SaveFormat	      "Array"
     }
     Block {
       BlockType		      ToWorkspace
       Name		      "To Workspace10"
-      SID		      248
+      SID		      "248"
       Ports		      [1]
-      Position		      [1550, 450, 1610, 480]
+      Position		      [845, 460, 905, 490]
       BackgroundColor	      "gray"
       ShowName		      off
-      VariableName	      "up_a"
+      VariableName	      "up"
       MaxDataPoints	      "inf"
       SampleTime	      "Ts1"
-      SaveFormat	      "Array"
     }
     Block {
       BlockType		      ToWorkspace
       Name		      "To Workspace3"
-      SID		      215
+      SID		      "215"
       Ports		      [1]
-      Position		      [1550, 180, 1610, 210]
+      Position		      [845, 190, 905, 220]
       BackgroundColor	      "gray"
       ShowName		      off
-      VariableName	      "i2_a"
+      VariableName	      "i2"
       MaxDataPoints	      "inf"
       SampleTime	      "Ts1"
-      SaveFormat	      "Array"
     }
     Block {
       BlockType		      ToWorkspace
       Name		      "To Workspace6"
-      SID		      218
+      SID		      "218"
       Ports		      [1]
-      Position		      [1550, 315, 1610, 345]
+      Position		      [845, 325, 905, 355]
       BackgroundColor	      "gray"
       ShowName		      off
-      VariableName	      "iC_a"
+      VariableName	      "iC"
       MaxDataPoints	      "inf"
       SampleTime	      "Ts1"
-      SaveFormat	      "Array"
     }
     Block {
       BlockType		      ToWorkspace
       Name		      "To Workspace9"
-      SID		      221
+      SID		      "221"
       Ports		      [1]
-      Position		      [1550, 585, 1610, 615]
+      Position		      [845, 595, 905, 625]
       BackgroundColor	      "gray"
       ShowName		      off
       VariableName	      "t"
       MaxDataPoints	      "inf"
       SampleTime	      "Ts1"
-      SaveFormat	      "Array"
     }
     Block {
       BlockType		      Reference
       Name		      "powergui"
-      SID		      31
+      SID		      "31"
       Ports		      []
       Position		      [30, 30, 153, 75]
       Priority		      "1"
-      LibraryVersion	      "1.1899"
+      LibraryVersion	      "1.2119"
       UserDataPersistent      on
       UserData		      "DataTag0"
       FontName		      "Verdana"
       SourceBlock	      "powerlib/powergui"
       SourceType	      "PSB option menu block"
-      ShowPortLabels	      "FromPortIcon"
-      SystemSampleTime	      "-1"
-      FunctionWithSeparateData off
-      RTWMemSecFuncInitTerm   "Inherit from model"
-      RTWMemSecFuncExecute    "Inherit from model"
-      RTWMemSecDataConstants  "Inherit from model"
-      RTWMemSecDataInternal   "Inherit from model"
-      RTWMemSecDataParameters "Inherit from model"
       SimulationMode	      "Discrete"
+      SolverType	      "Tustin"
       SampleTime	      "Ts1"
       frequency		      "60"
       SPID		      off
@@ -3141,11 +2934,16 @@ Model {
       DisableVfSwitches	      off
       SwTol		      "0"
       Interpol		      off
-      frequencyindice	      "0"
-      echomessages	      off
-      HookPort		      off
       DisplayEquations	      off
       FunctionMessages	      off
+      frequencyindice	      "0"
+      Pbase		      "100e6"
+      ErrMax		      "1e-4"
+      Iterations	      "50"
+      UnitsV		      "kV"
+      UnitsW		      "MW"
+      echomessages	      off
+      HookPort		      off
       EnableUseOfTLC	      off
       x0status		      "blocks"
       RestoreLinks	      "warning"
@@ -3290,8 +3088,9 @@ Model {
       DstPort		      1
     }
     Annotation {
+      SID		      "531"
       Name		      "Variáveis enviadas para a workspace:"
-      Position		      [1490, 25]
+      Position		      [785, 35]
     }
   }
 }
@@ -3314,7 +3113,7 @@ MatData {
 }
 # Finite State Machines
 #
-#    Stateflow Version 7.5 (R2010a) dated Jan 19 2010, 19:48:30
+#    Stateflow Version 7.6 (R2011b) dated Jan 26 2012, 02:07:42
 #
 #
 
@@ -3322,11 +3121,11 @@ MatData {
 Stateflow {
   machine {
     id			    1
-    name		    "iC_1ph_MR2_0829"
+    name		    "iC_1ph_MR2"
     created		    "19-Aug-2013 14:46:26"
     isLibrary		    0
-    firstTarget		    14
-    sfVersion		    75014000
+    firstTarget		    13
+    sfVersion		    76014001.00040001
   }
   chart {
     id			    2
@@ -3339,7 +3138,7 @@ Stateflow {
     firstJunction	    4
     viewObj		    2
     machine		    1
-    ssIdHighWaterMark	    16
+    ssIdHighWaterMark	    17
     decomposition	    CLUSTER_CHART
     type		    EML_CHART
     firstData		    6
@@ -3363,75 +3162,33 @@ Stateflow {
     decomposition	    CLUSTER_STATE
     eml {
       isEML		      1
-      script		      "function [up_alpha,theta_alpha] = adaptativo( i2ref_k, i2_k, ic_k, flag, t )\n\n%#CODEGEN\n    \n"
-      "%Definição dos valores projetados dos elementos do filtro\nL1ideal=2e-3;\nL2ideal=2e-3;\nLgideal=0;\nCideal=40e-"
-      "6;\nR1ideal=0;\nR2ideal=0;\nRgideal=0;\n\n%Definição de erros percentuais para simular variação paramétrica\nerr"
-      "L1=0;\nerrL2=0;\nerrLg=0;\nerrC=0;\nerrR1=0;\nerrR2=0;\nerrRg=0;\ndeltaL1=errL1*L1ideal;\ndeltaL2=errL2*L2ideal;"
-      "\ndeltaLg=errLg*Lgideal;\ndeltaC=errC*Cideal;\ndeltaR1=errR1*R1ideal;\ndeltaR2=errR2*R2ideal;\ndeltaRg=errRg*Rgi"
-      "deal;\n\n%Definição do valor real medido, incluindo a variação paramétrica\n%percentual\nL1=L1ideal+deltaL1;\nL2"
-      "=L2ideal+deltaL2+Lgideal+deltaLg;\nC=Cideal+deltaC;\nR1=R1ideal+deltaR1;\nR2=R2ideal+deltaR2+Rgideal+deltaRg;\n\n"
-      "%Demais elementos\nTs=1/12000;\nw=sqrt((L1+L2)/(L1*L2*C));\n\n%Kp é a multiplicação do ganho do controlador da m"
-      "alha interna(kp), do\n%ganho da planta(ki) e do ganho da malha externa(kod)\nkp=8;\n%Kp=0.156891976007044;\nKp=0"
-      ".004780841242217;\n\n%polos do modelo de referência:\np1=0.2;\np2=0.2;\n\nkm=(1-p1)*(1-p2);\n\n%constantes -> ga"
-      "maD < (1-gama)*km/kp\ngamaD=0.0098;\ngama=0.99;\n\ndelta0=0.8;\n\n%adapt_time=2/60;\n%vg_switch_time=4/60;\n\n%i"
-      "f t>=19/60\n%    stop=1;\n%end\n\n%% Variáveis Persistentes e Inicializações\n\npersistent theta_k;\nif isempty("
-      "theta_k)\n    %COM compensação para vg\n    %theta_k=[-0.3106; -0.2728; 0.0368; -0.2369; -0.422; -0.2775; -0.797"
-      "9; 1.786; -0.0008; 0.0003];\n    %theta_k=[-0.3106; -0.2728; 0.0368; -0.2369; -0.422; -0.2775; -0.7979; 1.786; 1"
-      "; 0];\n    %theta_k=[-0.40085038; -0.36853743; -0.064251891; -0.4277604154; -0.61214672; -0.46675405; -0.9892934"
-      "3; 1.76426551; 0.17164080; 0.11598547];\n    %theta_k=[0;0;0;0;0;0; -0.98929343; 1.76426551; 0.17164080; 0.11598"
-      "547];\n    %theta_k=[-0.071151848470510; -0.470549298500393; -0.993323557655345; 1.762541193804541; 0.1180145679"
-      "31226; 0.108368323169129];\n    %theta_k=[-0.46; -0.58; -1.74; 1.73; 0.2; 0.03];\n    %theta_k=[-0.03; -0.36; -0"
-      ".57; -0.01; 0.16; 0.02];\n    theta_k=[0.34; -0.36; -0.51; 0.86; 0; 0];\nend\n\npersistent omega_k;\nif isempty("
-      "omega_k)\n    %COM vg\n    omega_k=[0; 0; 0; 0; 0; 0];\nend\n\npersistent omega_k_1;\nif isempty(omega_k_1)\n   "
-      " %COM vg\n    omega_k_1=[0; 0; 0; 0; 0; 0];\nend\n\npersistent omega_k_2;\nif isempty(omega_k_2)\n    %COM vg\n "
-      "   omega_k_2=[0; 0; 0; 0; 0; 0];\nend\n\n%persistent omega_k_3;\n%if isempty(omega_k_3)\n%    %COM vg\n%    omeg"
-      "a_k_3=[0; 0; 0; 0; 0; 0];\n%end\n\npersistent eta_k_1;\nif isempty(eta_k_1)\n    %COM vg\n    eta_k_1=[0; 0; 0; "
-      "0; 0; 0];\nend\n\npersistent eta_k_2;\nif isempty(eta_k_2)\n    %COM vg\n    eta_k_2=[0; 0; 0; 0; 0; 0];\nend\n\n"
-      "%persistent eta_k_3;\n%if isempty(eta_k_3)\n%    %COM vg\n%    eta_k_3=[0; 0; 0; 0; 0; 0];\n%end\n\npersistent i"
-      "2m_k_1;\nif isempty(i2m_k_1)\n    i2m_k_1=0;\nend\n\npersistent i2m_k_2;\nif isempty(i2m_k_2)\n    i2m_k_2=0;\ne"
-      "nd\n\n%persistent i2m_k_3;\n%if isempty(i2m_k_3)\n%    i2m_k_3=0;\n%end\n\npersistent i2ref_k_1;\nif isempty(i2r"
-      "ef_k_1)\n    i2ref_k_1=0;\nend\n\npersistent i2ref_k_2;\nif isempty(i2ref_k_2)\n    i2ref_k_2=0;\nend\n\n%persis"
-      "tent i2ref_k_3;\n%if isempty(i2ref_k_3)\n%    i2ref_k_3=0;\n%end\n\npersistent v_k_1;\nif isempty(v_k_1)\n    v_"
-      "k_1=0;\nend\n\npersistent v_k_2;\nif isempty(v_k_2)\n    v_k_2=0;\nend\n\n%persistent v_k_3;\n%if isempty(v_k_3)"
-      "\n%    v_k_3=0;\n%end\n\npersistent rho_k;\nif isempty(rho_k)\n    rho_k=Kp/km;\nend\n\npersistent m2;\nif isemp"
-      "ty(m2)\n    m2=1;\nend\n\npersistent u_k_1;\nif isempty(u_k_1)\n    u_k_1=0;\nend\n\npersistent u_k_2;\nif isemp"
-      "ty(u_k_2)\n    u_k_2=0;\nend\n\npersistent P;\nif isempty(P)\n    %P=[0.002225441018075 -0.002258665319558 -1.12"
-      "9332659782590e-004 -0.003793046611769; ...\n    %    -0.002258665319558 0.149747822133961 -0.042512608892738 0.0"
-      "02487914954665; ...\n    %    -1.129332659782590e-004 -0.042512608892738 0.997874369555398 1.243957477280539e-00"
-      "4; ...\n    %    -0.003793046611769 0.002487914954665 1.243957477280538e-004 0.754190018333160];\n    %P=[0.0097"
-      "12540165252   -0.000020445335620  -0.000026266935611  -0.000037334327242 -0.001161097577207  -0.000971095497459;"
-      " ...\n    %   -0.000020445335620   0.009977400822109  -0.000022631160072  -0.000009984284241 -0.000310511239892 "
-      "  0.000028021469709; ...\n    %   -0.000026266935611  -0.000022631160072   0.009976301443788  -0.000009972563160"
-      " -0.000310146714255   0.000019062507239; ...\n    %   -0.000037334327242  -0.000009984284241  -0.000009972563160"
-      "   0.009989966652248 -0.000312037115068   0.000004936266851; ...\n    %   -0.001161097577207  -0.000310511239892"
-      "  -0.000310146714255  -0.000312037115068 0.000295645721395   0.000153517899078; ...\n    %   -0.000971095497459 "
-      "  0.000028021469709   0.000019062507239   0.000004936266851 0.000153517899078   0.000171767843043];\n\n    P=gam"
-      "aD*eye(6);\nend\n\npersistent gama2;\nif isempty(gama2)\n    %gama2=0.997899999973786;\n    gama2=gama;\nend\n\n"
-      "% persistent u_res_k1;\n% if isempty(u_res_k1)\n%     u_res_k1=0;\n% end\n% \n% persistent u_res_k2;\n% if isemp"
-      "ty(u_res_k2)\n%     u_res_k2=0;\n% end\n% \n% persistent e_res_k1;\n% if isempty(e_res_k1)\n%     e_res_k1=0;\n%"
-      " end\n% \n% persistent e_res_k2;\n% if isempty(e_res_k2)\n%     e_res_k2=0;\n% end\n\n%persistent adapt_init_fla"
-      "g;\n%if isempty(adapt_init_flag)\n%    adapt_init_flag=0;\n%end\n\n%if t>=adapt_time\n\n%% Cálculos\n\n%Ação de "
-      "controle\nomega_k(3)= i2_k;\nomega_k(4)= i2ref_k;\n\n%if t>vg_switch_time\n%    omega_k(5)= 311*sin(2*pi*60*t);\n"
-      "%    omega_k(6)= 311*cos(2*pi*60*t);\n%    if adapt_init_flag<1\n%        theta_k(5)=0;\n%        theta_k(6)=-1;"
-      "\n%        %theta_k=[0.3127; -0.3906; -0.7082; 1.0079; 0.0873; 0.0164;];\n%        adapt_init_flag=1;\n%    end\n"
-      "%else\n%    omega_k(5)= 0;\n%    omega_k(6)= 0;\n%end\n\n%omega_k(5)= 311*sin(2*pi*60*t);\n%omega_k(6)= 311*cos("
-      "2*pi*60*t);\n\nomega_k(5)= 0;\nomega_k(6)= 0;\n\nu_k= theta_k'*omega_k;\n\n%inserindo o controlador proporcional"
-      " no bloco do adaptativo\nup_alpha= kp*(u_k-ic_k);\n\neta_k= (p1+p2)*eta_k_1 - p1*p2*eta_k_2 + (1-p1)*(1-p2)*omeg"
-      "a_k_2;\n\ni2m_k= (p1+p2)*i2m_k_1 - p1*p2*i2m_k_2 + (1-p1)*(1-p2)*i2ref_k_2;\n\ne1_k= i2_k - i2m_k;\n\nv_k= (p1+p"
-      "2)*v_k_1 - p1*p2*v_k_2 + (1-p1)*(1-p2)*u_k_2;\n\nq_k= theta_k'*eta_k;\n\ne2_k= -v_k+q_k;\n\nea_k= e1_k+rho_k*e2_"
-      "k;\n\nif flag==1\n    m2_k= 0.1*(eta_k'*eta_k) + e2_k^2 + m2;\nelse\n    m2_k= 0.01*(eta_k'*eta_k) + e2_k^2 + m2"
-      ";\nend\n%m2_k= m2 + (1+eta_k'*P*eta_k) + gama2*e2_k^2;\n\nP= P - (P*(eta_k*eta_k')*P)/m2_k;\ngama2= gama2 - (gam"
-      "a2^2*e2_k^2)/(m2_k^2);\n\n%Pout=P;\n%gama_out=gama2;\n\n%% Atualização\n\n%calcula theta(k+1)\ntheta_k = theta_k"
-      " - (gamaD*ea_k/m2_k)*eta_k;\n%theta_k = theta_k - (P*ea_k/m2_k)*eta_k;\ntheta_alpha = theta_k;\n\n%calcula rho(k"
-      "+1)\nrho_k= rho_k - (gama*ea_k*e2_k)/m2_k;\n\nif flag==1\n    m2 = delta0*(m2 - 1) + abs(u_k) + abs(i2_k) + 1;\n"
-      "else\n    m2 = delta0*(m2 - 1) + abs(u_k) + abs(i2_k) + 1;\nend\n\n%omega_k_3=omega_k_2;\nomega_k_2=omega_k_1;\n"
-      "omega_k_1=omega_k;\n\nomega_k(1)=0*omega_k(1) + 1*u_k;\nomega_k(2)=0*omega_k(2) + 1*i2_k;\n\n%eta_k_3=eta_k_2;\n"
-      "eta_k_2=eta_k_1;\neta_k_1=eta_k;\n\n%i2ref_k_3 = i2ref_k_2;\ni2ref_k_2 = i2ref_k_1;\ni2ref_k_1 = i2ref_k;\n\n%i2"
-      "m_k_3=i2m_k_2;\ni2m_k_2=i2m_k_1;\ni2m_k_1=i2m_k;\n\n%v_k_3=v_k_2;\nv_k_2=v_k_1;\nv_k_1=v_k;\n\nu_k_2=u_k_1;\nu_k"
-      "_1=u_k;\n\n%else\n\n%e_res_k=0-ic_k;\n%u_res_k= 1.98*u_res_k1 - u_res_k2 + 1.25*10^(-5)*(e_res_k1 - e_res_k2);\n"
-      "\n%up_alpha= kp*e_res_k + u_res_k;\n\n%e_res_k2 = e_res_k1;\n%e_res_k1 = e_res_k;\n%u_res_k2 = u_res_k1;\n%u_res"
-      "_k1 = u_res_k;\n\n%end\n\nend"
-      editorLayout	      "100 M4x1[10 5 1696 1026]"
+      script		      "function [up,theta] = adaptativo( i2ref_k, i2_k, ic_k, t )\n\n%#CODEGEN\n\n%Kp é a multiplicação "
+      "do ganho do controlador da malha interna(kp), do\n%ganho da planta(ki) e do ganho da malha externa(kod)\nkp=8;\n"
+      "%Kp=0.156891976007044;\nKp=0.004780841242217;\n\n%polos do modelo de referência:\np1=0.2;\np2=0.2;\n\nkm=(1-p1)*"
+      "(1-p2);\n\n%constantes -> gamaD < (1-gama)*km/kp\ngamaD=0.0098;\ngama=0.99;\n\ndelta0=0.8;\n\n%% Variáveis Persi"
+      "stentes e Inicializações\n\npersistent theta_k;\nif isempty(theta_k)\n    theta_k=[0.09; -0.26; -0.37; 0.37; 0.3"
+      "7; 0.13];\nend\n\npersistent omega_k;\nif isempty(omega_k)\n    omega_k=[0; 0; 0; 0; 0; 0];\nend\n\npersistent o"
+      "mega_k_1;\nif isempty(omega_k_1)\n    omega_k_1=[0; 0; 0; 0; 0; 0];\nend\n\npersistent omega_k_2;\nif isempty(om"
+      "ega_k_2)\n    omega_k_2=[0; 0; 0; 0; 0; 0];\nend\n\npersistent eta_k_1;\nif isempty(eta_k_1)\n    eta_k_1=[0; 0;"
+      " 0; 0; 0; 0];\nend\n\npersistent eta_k_2;\nif isempty(eta_k_2)\n    eta_k_2=[0; 0; 0; 0; 0; 0];\nend\n\npersiste"
+      "nt i2m_k_1;\nif isempty(i2m_k_1)\n    i2m_k_1=0;\nend\n\npersistent i2m_k_2;\nif isempty(i2m_k_2)\n    i2m_k_2=0"
+      ";\nend\n\npersistent i2ref_k_1;\nif isempty(i2ref_k_1)\n    i2ref_k_1=0;\nend\n\npersistent i2ref_k_2;\nif isemp"
+      "ty(i2ref_k_2)\n    i2ref_k_2=0;\nend\n\npersistent v_k_1;\nif isempty(v_k_1)\n    v_k_1=0;\nend\n\npersistent v_"
+      "k_2;\nif isempty(v_k_2)\n    v_k_2=0;\nend\n\npersistent rho_k;\nif isempty(rho_k)\n    rho_k=Kp/km;\nend\n\nper"
+      "sistent m2;\nif isempty(m2)\n    m2=1;\nend\n\npersistent u_k_1;\nif isempty(u_k_1)\n    u_k_1=0;\nend\n\npersis"
+      "tent u_k_2;\nif isempty(u_k_2)\n    u_k_2=0;\nend\n\n%% Cálculos\n\n%Ação de controle\nomega_k(3)= i2_k;\nomega_"
+      "k(4)= i2ref_k;\n\n%COM distúrbio da rede\nomega_k(5)= 311*sin(2*pi*60*t);\nomega_k(6)= 311*cos(2*pi*60*t);\n\n%S"
+      "EM distúrbio da rede\n%omega_k(5)= 0;\n%omega_k(6)= 0;\n\nu_k= theta_k'*omega_k;\n\n%inserindo o controlador pro"
+      "porcional no bloco do adaptativo\nup= kp*(u_k-ic_k);\n\neta_k= (p1+p2)*eta_k_1 - p1*p2*eta_k_2 + (1-p1)*(1-p2)*o"
+      "mega_k_2;\n\ni2m_k= (p1+p2)*i2m_k_1 - p1*p2*i2m_k_2 + (1-p1)*(1-p2)*i2ref_k_2;\n\ne1_k= i2_k - i2m_k;\n\nv_k= (p"
+      "1+p2)*v_k_1 - p1*p2*v_k_2 + (1-p1)*(1-p2)*u_k_2;\n\nq_k= theta_k'*eta_k;\n\ne2_k= -v_k+q_k;\n\nea_k= e1_k+rho_k*"
+      "e2_k;\n\nm2_k= 0.1*(eta_k'*eta_k) + e2_k^2 + m2;\n\n\n%% Atualização\n\n%calcula theta(k+1)\ntheta_k = theta_k -"
+      " (gamaD*ea_k/m2_k)*eta_k;\ntheta = theta_k;\n\n%calcula rho(k+1)\nrho_k= rho_k - (gama*ea_k*e2_k)/m2_k;\n\nm2 = "
+      "delta0*(m2 - 1) + abs(u_k) + abs(i2_k) + 1;\n\nomega_k_2=omega_k_1;\nomega_k_1=omega_k;\n\nomega_k(1)=0*omega_k("
+      "1) + 1*u_k;\nomega_k(2)=0*omega_k(2) + 1*i2_k;\n\neta_k_2=eta_k_1;\neta_k_1=eta_k;\n\ni2ref_k_2 = i2ref_k_1;\ni2"
+      "ref_k_1 = i2ref_k;\n\ni2m_k_2=i2m_k_1;\ni2m_k_1=i2m_k;\n\nv_k_2=v_k_1;\nv_k_1=v_k;\n\nu_k_2=u_k_1;\nu_k_1=u_k;\n"
+      "\nend"
+      editorLayout	      "100 M4x1[10 5 700 500]"
     }
   }
   junction {
@@ -3489,7 +3246,7 @@ Stateflow {
   data {
     id			    7
     ssIdNumber		    5
-    name		    "up_alpha"
+    name		    "up"
     linkNode		    [2 6 8]
     scope		    OUTPUT_DATA
     machine		    1
@@ -3552,8 +3309,8 @@ Stateflow {
   }
   data {
     id			    10
-    ssIdNumber		    14
-    name		    "flag"
+    ssIdNumber		    11
+    name		    "t"
     linkNode		    [2 9 11]
     scope		    INPUT_DATA
     machine		    1
@@ -3574,31 +3331,9 @@ Stateflow {
   }
   data {
     id			    11
-    ssIdNumber		    11
-    name		    "t"
-    linkNode		    [2 10 12]
-    scope		    INPUT_DATA
-    machine		    1
-    props {
-      array {
-	size			"-1"
-      }
-      type {
-	method			SF_INHERITED_TYPE
-	primitive		SF_DOUBLE_TYPE
-	isSigned		1
-	wordLength		"16"
-      }
-      complexity	      SF_COMPLEX_INHERITED
-      frame		      SF_FRAME_INHERITED
-    }
-    dataType		    "Inherit: Same as Simulink"
-  }
-  data {
-    id			    12
     ssIdNumber		    16
-    name		    "theta_alpha"
-    linkNode		    [2 11 0]
+    name		    "theta"
+    linkNode		    [2 10 0]
     scope		    OUTPUT_DATA
     machine		    1
     props {
@@ -3617,13 +3352,13 @@ Stateflow {
     dataType		    "Inherit: Same as Simulink"
   }
   instance {
-    id			    13
+    id			    12
     name		    "Controlador/Controlador Adaptativo Alpha"
     machine		    1
     chart		    2
   }
   target {
-    id			    14
+    id			    13
     name		    "sfun"
     description		    "Default Simulink S-Function Target."
     machine		    1

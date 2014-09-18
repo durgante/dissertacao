@@ -59,10 +59,6 @@ typedef struct {
   boolean_T c2_u_k_1_not_empty;
   real_T c2_u_k_2;
   boolean_T c2_u_k_2_not_empty;
-  real_T c2_P[36];
-  boolean_T c2_P_not_empty;
-  real_T c2_gama2;
-  boolean_T c2_gama2_not_empty;
 } SFc2_iC_1ph_MR2InstanceStruct;
 
 /* Named Constants */

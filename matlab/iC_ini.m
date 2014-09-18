@@ -3,21 +3,24 @@ clear all
 
 Ts=1/12000;
 Ts1=Ts/10;
-VCC=1700;
+VCC=400;
 Vg=311;
 z=tf('z', Ts);
 s=tf('s');
 
 %Referência
+ref_amp=10;
+ref_freq=2*pi*60;
 excitacao_persistente=0;
 ref_phaseInv_time=60/60;
-ref_step_time=60/60;
+ref_step_time=15/60;
 
 %Chaveamentos na potência
 param_change_time=60/60;
 init_time=60/60;
 
 %Outros
+rede_amp=311;
 flag_time=60/60;
 short_ON_time=60/60;
 short_OFF_time=61/60;
@@ -96,14 +99,6 @@ N_MR_z=km;
 D_MR_z=(z-p1)*(z-p2);%*(z-p3);
 MR_z=N_MR_z/D_MR_z;
 [MRN,MRD]=tfdata(MR_z,'v');
-
-%Controlador Ressonante
-%kp_res=0.1;
-%ki_res=5;
-%N_CR_s=ki_res*s;
-%D_CR_s=s^2 + (2*pi*60)^2;
-%CR_s=kp_res + N_CR_s/D_CR_s;
-%[CRN,CRD]=tfdata(CR_s,'v');
 
 Kp=0.004780841242217;
 

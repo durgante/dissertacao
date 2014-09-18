@@ -8,7 +8,7 @@ L2=0.54e-3;
 C=40e-6;
 %C=80e-6;
 
-Lg=0:1e-4:5*5e-3;
+Lg=0:1e-4:100*5e-3;
 w=sqrt((L1+L2+Lg)./(L1.*(L2+Lg).*C));
 
 %kp tem que ser menor que a linha azul e maior que a linha vermelha
