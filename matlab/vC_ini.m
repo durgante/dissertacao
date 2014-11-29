@@ -1,30 +1,51 @@
-%% Declarações Iniciais
+%% PREFERÊNCIAS DA SIMULAÇÃO
 clear all
 
 Ts=1/12000;
 Ts1=Ts/10;
-%VCC=1200;
-VCC=1200;
-Vg=311;
+VCC=400;
 z=tf('z', Ts);
 s=tf('s');
 
-Vg_teste=0;
+%Preferências de simulação
+incerteza_parametrica=0; %inclui erros percentuais nos valores dos elementos do filtro
+incerteza_parametrica_max=8; %valor de 1 a 10 representando porcentagens de 10% a 100% para o máximo do erro paramétrico
+excitacao_persistente=0; %torna a referência do tipo excitação persistente
+excitacao_persistente_rng=1; %torna as amplitudes das harmônicas da excitação persistente aleatórias
 
 %Referência
-excitacao_persistente=0;
-ref_phaseInv_time=20000/60;
-ref_step_time=20000/60;
+ref_amp=200; %amplitude da referência
+ref_freq=2*pi*60; %frequência da referência
+if excitacao_persistente_rng
+    amp_rng=randi(5,6,1)/10;
+    ref_amp3=amp_rng(1)*ref_amp;
+    ref_amp5=amp_rng(2)*ref_amp;
+    ref_amp7=amp_rng(3)*ref_amp;
+    ref_amp9=amp_rng(4)*ref_amp;
+    ref_amp11=amp_rng(5)*ref_amp;
+    ref_amp13=amp_rng(6)*ref_amp;
+else
+    ref_amp3=ref_amp/2;
+    ref_amp5=ref_amp/2;
+    ref_amp7=ref_amp/2;
+    ref_amp9=ref_amp/2;
+    ref_amp11=ref_amp/2;
+    ref_amp13=ref_amp/2;
+end
 
-%Chaveamentos na potência
-param_change_time=20/60;
-init_time=600000/60;
+%Timers
+ref_phaseInv_time=20000/60; %inversão de fase da ref.
+ref_step_time=20000/60; %degrau na ref.
+param_change_time=20000/60; %variação paramétrica
+init_time=20000/60; %tempo de saída do resistor de partida
 
 %Outros
-flag_time=0/60;
-short_ON_time=600000/60;
-short_OFF_time=600001/60;
-R_init=10;
+rede_amp=311;
+short_ON_time=20000/60; %instante de início do curto
+short_OFF_time=20001/60; %instante de término do curto
+R_init=10; %valor do resistor de partida
+
+%% VALORES DOS ELEMENTOS
 
 %Definição dos valores projetados dos elementos do filtro
 L1ideal=2e-3;
@@ -36,13 +57,24 @@ R2ideal=0;
 Rgideal=0;
 
 %Definição de erros percentuais para simular variação paramétrica
-errL1=0;
-errL2=0;
-errLg=0;
-errC=0;
-errR1=0;
-errR2=0;
-errRg=0;
+if incerteza_parametrica
+    err_rng=randi(incerteza_parametrica_max,7,1)/10;
+    errL1=err_rng(1);
+    errL2=err_rng(2);
+    errLg=err_rng(3);
+    errC=err_rng(4);
+    errR1=err_rng(5);
+    errR2=err_rng(6);
+    errRg=err_rng(7);
+else
+    errL1=0;
+    errL2=0;
+    errLg=0;
+    errC=0;
+    errR1=0;
+    errR2=0;
+    errRg=0;
+end
 deltaL1=errL1*L1ideal;
 deltaL2=errL2*L2ideal;
 deltaLg=errLg*Lgideal;

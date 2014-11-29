@@ -6,7 +6,7 @@ Model {
     NumRootInports	    0
     NumRootOutports	    0
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.452"
+    ComputedModelVersion    "1.457"
     NumModelReferences	    0
     NumTestPointedSignals   0
   }
@@ -38,9 +38,9 @@ Model {
   ModifiedByFormat	  "%<Auto>"
   LastModifiedBy	  "marcelodurgante"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Thu Sep 18 17:19:16 2014"
-  RTWModifiedTimeStamp	  332961521
-  ModelVersionFormat	  "1.%<AutoIncrement:452>"
+  LastModifiedDate	  "Fri Sep 19 14:29:20 2014"
+  RTWModifiedTimeStamp	  333020396
+  ModelVersionFormat	  "1.%<AutoIncrement:457>"
   ConfigurationManager	  "None"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
@@ -1108,7 +1108,7 @@ Model {
   }
   System {
     Name		    "iC_1ph_MR2"
-    Location		    [2, 82, 1582, 871]
+    Location		    [2, 74, 1598, 879]
     Open		    on
     ModelBrowserVisibility  off
     ModelBrowserWidth	    200
@@ -1196,7 +1196,7 @@ Model {
 	}
 	Block {
 	  BlockType		  SubSystem
-	  Name			  "Controlador Adaptativo Alpha"
+	  Name			  "Controlador Adaptativo"
 	  SID			  "35"
 	  Ports			  [4, 2]
 	  Position		  [475, 61, 690, 219]
@@ -1225,7 +1225,7 @@ Model {
 	  MaskPortRotate	  "default"
 	  MaskIconUnits		  "normalized"
 	  System {
-	    Name		    "Controlador Adaptativo Alpha"
+	    Name		    "Controlador Adaptativo"
 	    Location		    [16, 52, 1235, 2571]
 	    Open		    off
 	    ModelBrowserVisibility  off
@@ -1391,17 +1391,6 @@ Model {
 	  Lockdown		  off
 	}
 	Block {
-	  BlockType		  Step
-	  Name			  "Flag"
-	  SID			  "49"
-	  Position		  [50, 630, 80, 660]
-	  BackgroundColor	  "gray"
-	  Time			  "flag_time"
-	  Before		  "1"
-	  After			  "0"
-	  SampleTime		  "Ts"
-	}
-	Block {
 	  BlockType		  From
 	  Name			  "From1"
 	  SID			  "102"
@@ -1460,15 +1449,6 @@ Model {
 	  BackgroundColor	  "lightBlue"
 	  ShowName		  off
 	  GotoTag		  "up"
-	}
-	Block {
-	  BlockType		  Goto
-	  Name			  "Goto14"
-	  SID			  "197"
-	  Position		  [195, 630, 235, 660]
-	  BackgroundColor	  "gray"
-	  ShowName		  off
-	  GotoTag		  "flag"
 	}
 	Block {
 	  BlockType		  Goto
@@ -1590,31 +1570,31 @@ Model {
 	Line {
 	  SrcBlock		  "From1"
 	  SrcPort		  1
-	  DstBlock		  "Controlador Adaptativo Alpha"
+	  DstBlock		  "Controlador Adaptativo"
 	  DstPort		  1
 	}
 	Line {
 	  SrcBlock		  "From4"
 	  SrcPort		  1
 	  Points		  [25, 0]
-	  DstBlock		  "Controlador Adaptativo Alpha"
+	  DstBlock		  "Controlador Adaptativo"
 	  DstPort		  2
 	}
 	Line {
 	  SrcBlock		  "From7"
 	  SrcPort		  1
 	  Points		  [25, 0]
-	  DstBlock		  "Controlador Adaptativo Alpha"
+	  DstBlock		  "Controlador Adaptativo"
 	  DstPort		  3
 	}
 	Line {
 	  SrcBlock		  "From10"
 	  SrcPort		  1
-	  DstBlock		  "Controlador Adaptativo Alpha"
+	  DstBlock		  "Controlador Adaptativo"
 	  DstPort		  4
 	}
 	Line {
-	  SrcBlock		  "Controlador Adaptativo Alpha"
+	  SrcBlock		  "Controlador Adaptativo"
 	  SrcPort		  1
 	  Points		  [20, 0]
 	  Branch {
@@ -1634,13 +1614,7 @@ Model {
 	  DstPort		  1
 	}
 	Line {
-	  SrcBlock		  "Flag"
-	  SrcPort		  1
-	  DstBlock		  "Goto14"
-	  DstPort		  1
-	}
-	Line {
-	  SrcBlock		  "Controlador Adaptativo Alpha"
+	  SrcBlock		  "Controlador Adaptativo"
 	  SrcPort		  2
 	  Points		  [20, 0]
 	  Branch {
@@ -1694,7 +1668,7 @@ Model {
 	  BlockType		  Inport
 	  Name			  "up"
 	  SID			  "158"
-	  Position		  [20, 108, 50, 122]
+	  Position		  [20, 38, 50, 52]
 	  BackgroundColor	  "gray"
 	  IconDisplay		  "Port number"
 	}
@@ -1748,7 +1722,7 @@ Model {
 	  Name			  "Conversor"
 	  SID			  "129"
 	  Ports			  [1, 0, 0, 0, 0, 3, 2]
-	  Position		  [505, 197, 560, 273]
+	  Position		  [505, 127, 560, 203]
 	  BlockMirror		  on
 	  LibraryVersion	  "1.2119"
 	  FontName		  "Verdana"
@@ -1774,7 +1748,7 @@ Model {
 	  Name			  "Demux"
 	  SID			  "179"
 	  Ports			  [1, 2]
-	  Position		  [1070, 395, 1075, 475]
+	  Position		  [150, 295, 155, 375]
 	  ShowName		  off
 	  Outputs		  "2"
 	  DisplayOption		  "bar"
@@ -1783,7 +1757,7 @@ Model {
 	  BlockType		  From
 	  Name			  "From"
 	  SID			  "172"
-	  Position		  [335, 116, 375, 144]
+	  Position		  [335, 46, 375, 74]
 	  ShowName		  off
 	  GotoTag		  "up"
 	}
@@ -1815,7 +1789,7 @@ Model {
 	  BlockType		  Gain
 	  Name			  "Gain"
 	  SID			  "131"
-	  Position		  [410, 115, 440, 145]
+	  Position		  [410, 45, 440, 75]
 	  BackgroundColor	  "gray"
 	  ShowName		  off
 	  Gain			  "1/VCC"
@@ -1840,7 +1814,7 @@ Model {
 	  BlockType		  Goto
 	  Name			  "Goto"
 	  SID			  "168"
-	  Position		  [155, 100, 195, 130]
+	  Position		  [155, 30, 195, 60]
 	  ShowName		  off
 	  GotoTag		  "up"
 	}
@@ -1848,7 +1822,7 @@ Model {
 	  BlockType		  Goto
 	  Name			  "Goto6"
 	  SID			  "297"
-	  Position		  [160, 355, 200, 385]
+	  Position		  [155, 150, 195, 180]
 	  ShowName		  off
 	  GotoTag		  "p_ch"
 	}
@@ -1856,7 +1830,7 @@ Model {
 	  BlockType		  Goto
 	  Name			  "Goto7"
 	  SID			  "354"
-	  Position		  [160, 415, 200, 445]
+	  Position		  [155, 210, 195, 240]
 	  ShowName		  off
 	  GotoTag		  "init"
 	}
@@ -1931,7 +1905,7 @@ Model {
 	  BlockType		  Step
 	  Name			  "Inicialização"
 	  SID			  "355"
-	  Position		  [90, 415, 120, 445]
+	  Position		  [85, 210, 115, 240]
 	  Time			  "init_time"
 	  Before		  "1"
 	  After			  "0"
@@ -1988,7 +1962,7 @@ Model {
 	  Name			  "Multímetro"
 	  SID			  "178"
 	  Ports			  [0, 1, 0, 0, 0, 1]
-	  Position		  [1000, 416, 1040, 454]
+	  Position		  [80, 316, 120, 354]
 	  LibraryVersion	  "1.2119"
 	  FontName		  "Verdana"
 	  FontSize		  11
@@ -2011,7 +1985,7 @@ Model {
 	  Name			  "PWM"
 	  SID			  "144"
 	  Ports			  [1, 1]
-	  Position		  [460, 107, 560, 153]
+	  Position		  [460, 37, 560, 83]
 	  BackgroundColor	  "gray"
 	  LibraryVersion	  "1.648"
 	  FontName		  "Verdana"
@@ -2030,7 +2004,7 @@ Model {
 	  BlockType		  RateTransition
 	  Name			  "Rate Transition13"
 	  SID			  "146"
-	  Position		  [85, 94, 125, 136]
+	  Position		  [85, 24, 125, 66]
 	  BackgroundColor	  "gray"
 	  ShowName		  off
 	  OutPortSampleTime	  "Ts1"
@@ -2082,7 +2056,7 @@ Model {
 	  Name			  "VCC"
 	  SID			  "151"
 	  Ports			  [0, 0, 0, 0, 0, 1, 1]
-	  Position		  [440, 215, 460, 250]
+	  Position		  [440, 145, 460, 180]
 	  BlockRotation		  270
 	  NamePlacement		  "alternate"
 	  LibraryVersion	  "1.2119"
@@ -2097,7 +2071,7 @@ Model {
 	  BlockType		  Step
 	  Name			  "Variação Paramétrica"
 	  SID			  "296"
-	  Position		  [90, 355, 120, 385]
+	  Position		  [85, 150, 115, 180]
 	  Time			  "param_change_time"
 	  Before		  "-1"
 	  SampleTime		  "Ts1"
@@ -2129,7 +2103,7 @@ Model {
 	  BlockType		  Outport
 	  Name			  "i2"
 	  SID			  "157"
-	  Position		  [1105, 408, 1135, 422]
+	  Position		  [185, 308, 215, 322]
 	  BackgroundColor	  "gray"
 	  IconDisplay		  "Port number"
 	}
@@ -2137,7 +2111,7 @@ Model {
 	  BlockType		  Outport
 	  Name			  "iC"
 	  SID			  "182"
-	  Position		  [1105, 448, 1135, 462]
+	  Position		  [185, 348, 215, 362]
 	  BackgroundColor	  "gray"
 	  Port			  "2"
 	  IconDisplay		  "Port number"
@@ -2377,7 +2351,7 @@ Model {
 	Annotation {
 	  SID			  "530"
 	  Name			  "Timers:"
-	  Position		  [106, 327]
+	  Position		  [101, 122]
 	}
       }
     }
@@ -2577,7 +2551,7 @@ Model {
       MaskHideContents	      off
       System {
 	Name			"Referência"
-	Location		[86, 82, 1542, 871]
+	Location		[2, 82, 1582, 871]
 	Open			off
 	ModelBrowserVisibility	off
 	ModelBrowserWidth	200
@@ -2595,9 +2569,9 @@ Model {
 	  Name			  "11 harmônica"
 	  SID			  "20"
 	  Ports			  [0, 1]
-	  Position		  [25, 665, 55, 695]
+	  Position		  [25, 425, 55, 455]
 	  BackgroundColor	  "yellow"
-	  Amplitude		  "ref_amp/2"
+	  Amplitude		  "ref_amp11"
 	  Frequency		  "ref_freq*11"
 	  SampleTime		  "Ts"
 	}
@@ -2606,9 +2580,9 @@ Model {
 	  Name			  "13 harmônica"
 	  SID			  "21"
 	  Ports			  [0, 1]
-	  Position		  [25, 730, 55, 760]
+	  Position		  [25, 490, 55, 520]
 	  BackgroundColor	  "yellow"
-	  Amplitude		  "ref_amp/2"
+	  Amplitude		  "ref_amp13"
 	  Frequency		  "ref_freq*13"
 	  SampleTime		  "Ts"
 	}
@@ -2617,9 +2591,9 @@ Model {
 	  Name			  "3 harmônica"
 	  SID			  "16"
 	  Ports			  [0, 1]
-	  Position		  [25, 405, 55, 435]
+	  Position		  [25, 165, 55, 195]
 	  BackgroundColor	  "yellow"
-	  Amplitude		  "ref_amp/2"
+	  Amplitude		  "ref_amp3"
 	  Frequency		  "ref_freq*3"
 	  SampleTime		  "Ts"
 	}
@@ -2628,9 +2602,9 @@ Model {
 	  Name			  "5 harmônica"
 	  SID			  "17"
 	  Ports			  [0, 1]
-	  Position		  [25, 470, 55, 500]
+	  Position		  [25, 230, 55, 260]
 	  BackgroundColor	  "yellow"
-	  Amplitude		  "ref_amp/2"
+	  Amplitude		  "ref_amp5"
 	  Frequency		  "ref_freq*5"
 	  SampleTime		  "Ts"
 	}
@@ -2639,9 +2613,9 @@ Model {
 	  Name			  "7 harmônica"
 	  SID			  "18"
 	  Ports			  [0, 1]
-	  Position		  [25, 535, 55, 565]
+	  Position		  [25, 295, 55, 325]
 	  BackgroundColor	  "yellow"
-	  Amplitude		  "ref_amp/2"
+	  Amplitude		  "ref_amp7"
 	  Frequency		  "ref_freq*7"
 	  SampleTime		  "Ts"
 	}
@@ -2650,9 +2624,9 @@ Model {
 	  Name			  "9 harmônica"
 	  SID			  "19"
 	  Ports			  [0, 1]
-	  Position		  [25, 600, 55, 630]
+	  Position		  [25, 360, 55, 390]
 	  BackgroundColor	  "yellow"
-	  Amplitude		  "ref_amp/2"
+	  Amplitude		  "ref_amp9"
 	  Frequency		  "ref_freq*9"
 	  SampleTime		  "Ts"
 	}
@@ -2671,7 +2645,7 @@ Model {
 	  BlockType		  Gain
 	  Name			  "Gain"
 	  SID			  "23"
-	  Position		  [160, 566, 390, 604]
+	  Position		  [160, 326, 390, 364]
 	  BackgroundColor	  "gray"
 	  ShowName		  off
 	  Gain			  "excitacao_persistente"
@@ -2736,7 +2710,7 @@ Model {
 	  Name			  "Sum3"
 	  SID			  "201"
 	  Ports			  [6, 1]
-	  Position		  [125, 393, 135, 772]
+	  Position		  [125, 153, 135, 532]
 	  ShowName		  off
 	  Inputs		  "++++++"
 	  InputSameDT		  off
@@ -2918,7 +2892,7 @@ Model {
       Ports		      []
       Position		      [30, 30, 153, 75]
       Priority		      "1"
-      LibraryVersion	      "1.2119"
+      LibraryVersion	      "*1.2119"
       UserDataPersistent      on
       UserData		      "DataTag0"
       FontName		      "Verdana"
@@ -3129,7 +3103,7 @@ Stateflow {
   }
   chart {
     id			    2
-    name		    "Controlador/Controlador Adaptativo Alpha"
+    name		    "Controlador/Controlador Adaptativo"
     windowPosition	    [1061.25 -69.167 278 600]
     viewLimits		    [0 156.75 0 153.75]
     screen		    [1 1 1440 900 1.333333333333333]
@@ -3353,7 +3327,7 @@ Stateflow {
   }
   instance {
     id			    12
-    name		    "Controlador/Controlador Adaptativo Alpha"
+    name		    "Controlador/Controlador Adaptativo"
     machine		    1
     chart		    2
   }

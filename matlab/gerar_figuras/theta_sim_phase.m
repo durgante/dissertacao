@@ -56,7 +56,7 @@ end
 %Número de colunas para acomodar subplots
 subplotsx=1;
 %Número de linhas para acomodar subplots
-subplotsy=3;
+subplotsy=2;
 %Espaço sobrando na esquerda da janela de plot
 leftedge=2;
 %Espaço sobrando na direita da janela de plot
@@ -94,7 +94,7 @@ close all
 for i=1:subplotsx
     for ii=1:subplotsy
         ax=axes('position',sub_pos{i,ii},'XGrid','off','XMinorGrid','off','FontSize',fontsize,'Box','on','Layer','top');
-        if ii==3
+        if ii==2
             hold on
             plot(t(inicio:passo:final), theta_alpha(inicio:passo:final,1), 'LineWidth', 1.5, ...
                            'LineStyle', '-', ...
@@ -135,7 +135,7 @@ for i=1:subplotsx
             box on
 
             %Labels
-            ylabel('Eixo Alpha');
+            ylabel('Eixo Alfa');
             %xlabel('tempo (ciclos)');
             title('');
             %legend(...
@@ -144,7 +144,7 @@ for i=1:subplotsx
             hold off
         end
 
-        if ii==2
+        if ii==1
             hold on
             plot(t(inicio:passo:final), theta_Beta(inicio:passo:final,1), 'LineWidth', 1.5, ...
                            'LineStyle', '-', ...
@@ -194,55 +194,55 @@ for i=1:subplotsx
             hold off
         end
 
-        if ii==1
-            hold on
-            plot(t(inicio:passo:final), theta_O(inicio:passo:final,1), 'LineWidth', 1.5, ...
-                           'LineStyle', '-', ...
-                           'Color', cor1(1, 1:3));
-
-            plot(t(inicio:passo:final), theta_O(inicio:passo:final,2), 'LineWidth', 1.5, ...
-                           'LineStyle', '--', ...
-                           'Color', cor1(2, 1:3));
-            
-            plot(t(inicio:passo:final), theta_O(inicio:passo:final,3), 'LineWidth', 1.5, ...
-                           'LineStyle', '-.', ...
-                           'Color', cor1(3, 1:3));
-                       
-            plot(t(inicio:passo:final), theta_O(inicio:passo:final,4), 'LineWidth', 1.5, ...
-                           'LineStyle', ':', ...
-                           'Color', cor1(4, 1:3));
-                       
-            plot(t(inicio:passo:final), theta_O(inicio:passo:final,5), 'LineWidth', 1.5, ...
-                           'LineStyle', '-', ...
-                           'Color', cor1(5, 1:3));
-                       
-            plot(t(inicio:passo:final), theta_O(inicio:passo:final,6), 'LineWidth', 1.5, ...
-                           'LineStyle', '--', ...
-                           'Color', cor1(6, 1:3));
-
-            %Escolha dos pontos marcados do eixo Y
-            set(gca, 'YTick', yticks);
-            set(gca, 'XTick', xticks);
-            set(gca, 'XTickLabel', {'1', '2', '3', '4'});
-            set(gca, 'YTickLabel', {'-0,6', '-0,3' '0' '0,2'});
-
-            %Escolha dos limites dos eixos X e Y
-            set(gca, 'YLim', ylims);
-            set(gca, 'XLim', xlims);
-            
-            %Grid
-            %grid on
-            box on
-
-            %Labels
-            ylabel('Eixo O');
-            xlabel('tempo (ciclos)');
-            title('');
-            %legend(...
-            %    '{i2_a}^*', ...
-            %    'i2_a', 'location', 'NE');
-            hold off
-        end
+%         if ii==1
+%             hold on
+%             plot(t(inicio:passo:final), theta_O(inicio:passo:final,1), 'LineWidth', 1.5, ...
+%                            'LineStyle', '-', ...
+%                            'Color', cor1(1, 1:3));
+% 
+%             plot(t(inicio:passo:final), theta_O(inicio:passo:final,2), 'LineWidth', 1.5, ...
+%                            'LineStyle', '--', ...
+%                            'Color', cor1(2, 1:3));
+%             
+%             plot(t(inicio:passo:final), theta_O(inicio:passo:final,3), 'LineWidth', 1.5, ...
+%                            'LineStyle', '-.', ...
+%                            'Color', cor1(3, 1:3));
+%                        
+%             plot(t(inicio:passo:final), theta_O(inicio:passo:final,4), 'LineWidth', 1.5, ...
+%                            'LineStyle', ':', ...
+%                            'Color', cor1(4, 1:3));
+%                        
+%             plot(t(inicio:passo:final), theta_O(inicio:passo:final,5), 'LineWidth', 1.5, ...
+%                            'LineStyle', '-', ...
+%                            'Color', cor1(5, 1:3));
+%                        
+%             plot(t(inicio:passo:final), theta_O(inicio:passo:final,6), 'LineWidth', 1.5, ...
+%                            'LineStyle', '--', ...
+%                            'Color', cor1(6, 1:3));
+% 
+%             %Escolha dos pontos marcados do eixo Y
+%             set(gca, 'YTick', yticks);
+%             set(gca, 'XTick', xticks);
+%             set(gca, 'XTickLabel', {'1', '2', '3', '4'});
+%             set(gca, 'YTickLabel', {'-0,6', '-0,3' '0' '0,2'});
+% 
+%             %Escolha dos limites dos eixos X e Y
+%             set(gca, 'YLim', ylims);
+%             set(gca, 'XLim', xlims);
+%             
+%             %Grid
+%             %grid on
+%             box on
+% 
+%             %Labels
+%             ylabel('Eixo O');
+%             xlabel('tempo (ciclos)');
+%             title('');
+%             %legend(...
+%             %    '{i2_a}^*', ...
+%             %    'i2_a', 'location', 'NE');
+%             hold off
+%         end
 
     end
 end

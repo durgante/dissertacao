@@ -21,7 +21,7 @@
 
   É possível desenvolver controladores com qualquer número de malhas aninhadas em cascata. É importante observar apenas o fato de que a malha mais externa gera a referência para a malha imediatamente interna em relação a ela. Dessa forma, a variável intermediária escolhida para a malha externa deve responder mais rápido ao distúrbio do que a variável intermediária escolhida para a malha interna.
 
-  Na prática, é comum observar controladores com duas ou três malhas aninhadas. Além do quesito desempenho, outros fatores podem levar à utilização de controladores multimalha. Como é o caso deste trabalho, a separação do modelo em duas partes simplifica a abordagem de controle, devido ao fato de a malha interna fazer o amortecimento ativo da ressonância do filtro, e a malha externa tratar da incerteza paramétrica inerente à rede elétrica.
+  Na prática, é comum observar controladores com duas ou três malhas aninhadas. Além do quesito desempenho, outros fatores podem levar à utilização de controladores multimalha. No caso deste trabalho, a separação do modelo em duas partes simplifica a abordagem de controle, devido ao fato de a malha interna fazer o amortecimento ativo da ressonância do filtro, e a malha externa tratar da incerteza paramétrica inerente à rede elétrica.
 
   O projeto deste controlador divide-se então em uma malha interna e uma malha externa, conforme a seguir.
 
@@ -86,7 +86,7 @@
       \def\svgwidth{0.9\textwidth}
       \input{./img/rlocus_controlador_pd.tex}}
     \renewcommand\figurename{Fig.}
-    \caption{Lugar das raízes para o controlador proporcional-derivativo.}
+    \caption{Lugar das raízes para a função de transferência do controlador proporcional-derivativo.}
     \label{fig:rlocus_vc_2}
   \end{figure}
 
@@ -134,7 +134,7 @@
       \def\svgwidth{\textwidth}
       \input{./img/rlocus_controlador_p.tex}}
     \renewcommand\figurename{Fig.}
-    \caption{Lugar das raízes para o controlador proporcional.}
+    \caption{Lugar das raízes para a função de transferência do controlador proporcional.}
     \label{fig:rlocus_ic_2}
   \end{figure}
 
@@ -189,7 +189,7 @@
     \label{eq:dnm_deltaz}
   \end{equation}
 
-  As Fig.~\ref{fig:mag_g_go_delta_ic}, Fig.~\ref{fig:phase_g_go_delta_ic} e Fig.~\ref{fig:pzmap_delta_ic} levam em consideração a corrente do capacitor como variável de controle para a malha interna e apresentam, respectivamente, a margem de ganho e de fase para $G(z)$, $G_o(z)$ e $\Delta(z)$ e o diagrama de pólos e zeros para $\Delta(z)$.
+  As Fig.~\ref{fig:pzmap_delta_ic}, Fig.~\ref{fig:mag_g_go_delta_ic} e Fig.~\ref{fig:phase_g_go_delta_ic} levam em consideração a corrente do capacitor como variável de controle para a malha interna e apresentam, respectivamente, o diagrama de pólos e zeros para $\Delta(z)$, a margem de ganho e a margem de fase para $G(z)$, $G_o(z)$ e $\Delta(z)$.
 
   \vspace{\fill}
   \noindent
@@ -197,9 +197,9 @@
     \makebox[\textwidth]{
       \centering
       \def\svgwidth{\textwidth}
-      \input{./img/bode_mag_ic.tex}}
-    \captionof{figure}{Margem de ganho para $G(z)$, $G_o(z)$ e $\Delta(z)$ considerando $i_C$ como variável intermediária.}
-    \label{fig:mag_g_go_delta_ic}
+      \input{./img/pzmap_dnm_ic.tex}}
+    \captionof{figure}{Diagrama de pólos e zeros para $\Delta(z)$ considerando $i_C$ como variável intermediária.}
+    \label{fig:pzmap_delta_ic}
   \end{minipage}
   \vspace{\fill}
 
@@ -211,9 +211,9 @@
     \makebox[\textwidth]{
       \centering
       \def\svgwidth{\textwidth}
-      \input{./img/bode_phase_ic.tex}}
-    \captionof{figure}{Margem de fase para $G(z)$, $G_o(z)$ e $\Delta(z)$ considerando $i_C$ como variável intermediária.}
-    \label{fig:phase_g_go_delta_ic}
+      \input{./img/bode_mag_ic.tex}}
+    \captionof{figure}{Margem de ganho para $G(z)$, $G_o(z)$ e $\Delta(z)$ considerando $i_C$ como variável intermediária.}
+    \label{fig:mag_g_go_delta_ic}
   \end{minipage}
 
   \vspace{\fill}
@@ -222,9 +222,9 @@
     \makebox[\textwidth]{
       \centering
       \def\svgwidth{\textwidth}
-      \input{./img/pzmap_dnm_ic.tex}}
-    \captionof{figure}{Diagrama de pólos e zeros para $\Delta(z)$ considerando $i_C$ como variável intermediária.}
-    \label{fig:pzmap_delta_ic}
+      \input{./img/bode_phase_ic.tex}}
+    \captionof{figure}{Margem de fase para $G(z)$, $G_o(z)$ e $\Delta(z)$ considerando $i_C$ como variável intermediária.}
+    \label{fig:phase_g_go_delta_ic}
   \end{minipage}
   \vspace{\fill}
 

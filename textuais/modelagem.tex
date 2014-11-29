@@ -155,7 +155,7 @@
     \text{.}
   \end{equation}
 
-  No projeto de controladores para sistemas elétricos trifásicos, é usual levar em consideração essa transformação e modelar o sistema para o caso monofásico, projetando o controlador considerando os equivalentes nas coordenadas $\alpha$ e $\beta$. A Fig~\ref{fig:LCL_geral} apresenta a estrutura do sistema para o caso monofásico. Neste caso, as indutâncias do filtro são: $L_1$ do lado do conversor e $L_2$ do lado da rede, $C$ é a capacitância do filtro e $L_g$ é a indutância da rede elétrica. A tensão gerada pelo conversor é representada por $u_{\alpha}$ e a rede elétrica é representada por
+  No projeto de controladores para sistemas elétricos trifásicos, é usual levar em consideração essa transformação e modelar o sistema para o caso monofásico, projetando o controlador considerando os equivalentes nas coordenadas $\alpha$ e $\beta$. A Fig.~\ref{fig:LCL_geral} apresenta a estrutura do sistema para o caso monofásico. Neste caso, as indutâncias do filtro são: $L_1$ do lado do conversor e $L_2$ do lado da rede, $C$ é a capacitância do filtro e $L_g$ é a indutância da rede elétrica. A tensão gerada pelo conversor é representada por $u_{\alpha}$ e a rede elétrica é representada por
   $v_{\alpha}$.
 
   \begin{figure}[htb]
@@ -296,10 +296,12 @@
     \label{eq:god_i2_ic}
   \end{equation}
 
+  A partir do equacionamento realizado, se pode analisar as consequências da discretização das funções de transferência do sistema.
+
 
 \section{Efeitos da Discretização}
 
-  Plantas de fase mínima, ou seja, aquelas que apresentam zeros apenas no semi-plano esquerdo do plano $s$, permitem que os efeitos de zeros indesejados sejam cancelados pela alocação de pólos do controlador. Isso é impossível, no entanto, no caso de plantas de fase não-mínima, visto que a alocação de pólos do controlador no semi-plano esquerdo resulta em instabilidade.
+  Plantas de fase mínima, ou seja, aquelas que apresentam zeros apenas no semi-plano esquerdo do plano $s$, permitem que os efeitos de zeros indesejados sejam cancelados pela alocação de pólos do controlador. Isso é impossível, no entanto, no caso de plantas de fase não-mínima, visto que a alocação de pólos do controlador no semi-plano direito resulta em instabilidade.
 
   Por isso, é importante observar que a discretização de um sistema pode implicar em problemas do ponto de vista de controle. Mesmo uma planta de fase mínima em tempo contínuo pode apresentar zeros de fase não-mínima após a discretização. De fato, de uma forma mais geral, plantas em tempo contínuo com grau relativo $n \ge 2$ apresentam zeros de discretização \cite{ref:ASTROM}. Esse é o caso do filtro LCL quando a variável controlada é a corrente do lado da rede.
 
@@ -316,7 +318,7 @@
     \subfloat[Planta em tempo discreto.]{\label{fig:pzmap_planta_discreta}
       {\input{./img/pzmap_planta_discreta.tex}}}
     \renewcommand\figurename{Fig.}
-    \caption{Diagrama de pólos e zeros para o filtro LCL em tempo contínuo e discreto.}
+    \caption{Diagrama de pólos e zeros para o filtro LCL em tempo contínuo e discreto com atraso de transporte.}
     \label{fig:pzmap_planta}
   \end{figure}
 

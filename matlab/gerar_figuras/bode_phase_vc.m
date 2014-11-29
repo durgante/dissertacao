@@ -87,7 +87,7 @@ grid on
 box on
 
 %Labels
-ylabel('Magnitude (dB)');
+ylabel('Fase (graus)');
 xlabel('Frequência (rad/s)');
 title('');
 legend(...

@@ -214,7 +214,7 @@
 		pdfauthor={\@author},
     	pdfsubject={\imprimirpreambulo},
 	    pdfcreator={LaTeX with abnTeX2},
-		pdfkeywords={Controle Multimalha}{Controle Adaptativo}{Conexão de Conversores na Rede}
+		pdfkeywords={Controle Multimalha}{Controle Adaptativo}{Conexão de Conversores à Rede Elétrica}
       {Rejeição de Distúrbios}{Incerteza Paramétrica},
 		colorlinks=true,       		% false: boxed links; true: colored links
     	linkcolor=black,          	% color of internal links
@@ -299,17 +299,17 @@
 % ---
 % Dedicatória
 % ---
-%\begin{dedicatoria}
-%  \input{pretextuais/dedicatoria}
-%\end{dedicatoria}
+\begin{dedicatoria}
+  \input{pretextuais/dedicatoria}
+\end{dedicatoria}
 % ---
 
 % ---
 % Agradecimentos
 % ---
-%\begin{agradecimentos}
-%  \input{pretextuais/agradecimentos}
-%\end{agradecimentos}
+\begin{agradecimentos}
+  \input{pretextuais/agradecimentos}
+\end{agradecimentos}
 % ---
 
 % ---
@@ -358,14 +358,29 @@
 % ---
 \begin{siglas}
  \item[THD]  Distorção Harmônica Total (do inglês \emph{Total Harmonic Distortion})
+ \item[IEC]  \emph{International Electrotechnical Commission}
+ \item[IEEE] \emph{Institute of Electrical and Electronics Engineers}
  \item[FAP]  Filtro Ativo de Potência
  \item[DSP]  Processador Digital de Sinal (do inglês \emph{Digital Signal Processor})
  \item[LCL]  Filtro composto por dois indutores e um capacitor
- \item[PI]   Proporcional-Integral
- \item[PLL]  Malha de Captura de Fase
+ \item[P]    Controlador proporcional
+ \item[PI]   Controlador proporcional-integral
+ \item[PLL]  Malha de Captura de Fase (do inglês \emph{Phase Locked Loop})
+ \item[CC]   Corrente contínua
+ \item[CA]   Corrente alternada
+ \item[RL]   Circuito composto por um resistor e um indutor
+ \item[PWM]  Modulação por largura de pulso (do inglês \emph{Pulse Width Modulation})
+ \item[ZOH]  Retentor de ordem zero (do inglês \emph{Zero Order Hold})
  \item[MRAC] Controle Adaptativo por Modelo de Referência (do inglês \emph{Model Reference Adaptive Control})
- \item[IMC] Controle por Modelo Interno (do inglês \emph{Internal Model Control})
+ \item[A/D]  Conversor analógico-digital
+ \item[D/A]  Conversor digital-analógico
+ \item[PC]   Computador pessoal (do inglês \emph{Personal Computer})
+ \item[IMC]  Controle por Modelo Interno (do inglês \emph{Internal Model Control})
  \item[FOPDT] Primeira Ordem Mais Tempo Morto (do inglês \emph{First Order Plus Dead Time})
+ \item[SISO] Sistema de uma entrada e uma saída (do inglês \emph{Single Input, Single Output})
+ \item[LTI]  Sistema linear invariante no tempo (do inglês \emph{Linear, Time Invariant})
+ \item[MRC]  Controle por modelo de referência (do inglês \emph{Model Reference Control})
+ \item[SPR]  Estritamente positivo e real (do inglês \emph{Stricly Positive Real})
 \end{siglas}
 % ---
 
@@ -373,17 +388,40 @@
 % inserir lista de símbolos
 % ---
 \begin{simbolos}
- \item[$ \alpha $] Relativo à fase $\alpha$ do sistema desacoplado pela transformação de Clarke
- \item[$ \beta $] Relativo à fase $\beta$ do sistema desacoplado pela transformação de Clarke
- \item[$ O $] Relativo à fase $O$ do sistema desacoplado pela transformação de Clarke
  \item[$ T_s $] Período de amostragem
  \item[$ \omega_n $] Frequência de ressonância
  \item[$ \overline{K_P} $] Limite superior para o valor do ganho $K_P$
+ \item[$ t $] Variável associada ao tempo contínuo
+ \item[$ s $] Variável associada à Transformada de Laplace
+ \item[$ z $] Variável associada à Transformada $\mathbb{Z}$
+ \item[$ k $] Variável associada ao tempo discreto
+ \item[$ y $] Saída da planta
+ \item[$ u $] Entrada da planta
+ \item[$ r $] Função de excitação
  \item[$ \theta $] Ganho adaptativo
+ \item[$ \gamma, \gamma_d, \lambda $] Ganhos de projeto do algoritmo adaptativo
  \item[$ \phi $] Erro de parâmetro da ação de controle
- \item[$ \gamma $] Ganho de projeto do algoritmo adaptativo
- \item[$ \Delta $] Parcela da planta contendo dinâmicas não-modeladas
  \item[$ m $] Normalizador projetado para garantir a robustez do sistema
+ \item[$ \omega $] Vetor regressor
+ \item[$ \eta $] Sinal que modela o efeito das dinâmicas não-modeladas
+ \item[$ \delta_0 $] Constante utilizada no normalizador para o projeto da robustez das leis de adaptação
+ \item[$ G $] Função de transferência da planta
+ \item[$ W_m $] Modelo de referência
+ \item[$ \Delta $] Parcela da planta contendo dinâmicas não-modeladas
+ \item[$ e_1 $] Erro de rastreamento
+ \item[$ e_2 $] Sinal de aumento do erro
+ \item[$ e_a $] Erro aumentado
+ \item[$ \zeta $] Vetor regressor filtrado
+ \item[$ \rho $] Estimação da divisão do ganho da planta pelo ganho do modelo de referência
+ \item[$ \rho^* $] Valor real da divisão do ganho da planta pelo ganho do modelo de referência
+ \item[$ \tilde{\rho} $] Erro da estimação da divisão do ganho da planta pelo do modelo de referência
+ \item[$ \mathrm{sgn} $] Função sinal
+ \item[$ \Lambda $] Polinômio mônico estável do denominador da função de transferência dos filtros auxiliares
+ \item[$ V $] Função definida positiva
+ \item[$ abc $] Coordenadas associadas ao sistema trifásico em eixos estacionários
+ \item[$ \alpha \beta $] Coordenadas associadas aos sistemas monofásicos desacoplados equivalentes do sistema trifásico
+ \item[$ ||\cdot|| $] Norma Euclidiana
+ \item[$ |\cdot| $] Valor absoluto
 \end{simbolos}
 % ---
 

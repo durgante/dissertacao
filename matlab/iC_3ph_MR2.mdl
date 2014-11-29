@@ -6,7 +6,7 @@ Model {
     NumRootInports	    0
     NumRootOutports	    0
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.400"
+    ComputedModelVersion    "1.410"
     NumModelReferences	    0
     NumTestPointedSignals   0
   }
@@ -38,9 +38,9 @@ Model {
   ModifiedByFormat	  "%<Auto>"
   LastModifiedBy	  "marcelodurgante"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Thu Jul 24 09:43:36 2014"
-  RTWModifiedTimeStamp	  328095088
-  ModelVersionFormat	  "1.%<AutoIncrement:400>"
+  LastModifiedDate	  "Fri Sep 19 15:33:47 2014"
+  RTWModifiedTimeStamp	  333041116
+  ModelVersionFormat	  "1.%<AutoIncrement:410>"
   ConfigurationManager	  "None"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
@@ -1122,7 +1122,7 @@ Model {
   }
   System {
     Name		    "iC_3ph_MR2"
-    Location		    [64, 82, 1598, 854]
+    Location		    [2, 82, 1582, 871]
     Open		    on
     ModelBrowserVisibility  off
     ModelBrowserWidth	    200
@@ -1163,7 +1163,7 @@ Model {
       System {
 	Name			"Controlador"
 	Location		[64, 82, 1598, 871]
-	Open			on
+	Open			off
 	ModelBrowserVisibility	off
 	ModelBrowserWidth	200
 	ScreenColor		"white"
@@ -1287,7 +1287,7 @@ Model {
 	  BlockType		  SubSystem
 	  Name			  "Controlador Adaptativo 0"
 	  SID			  "89"
-	  Ports			  [5, 2]
+	  Ports			  [4, 2]
 	  Position		  [535, 510, 750, 670]
 	  ZOrder		  -12
 	  BackgroundColor	  "lightBlue"
@@ -1349,20 +1349,11 @@ Model {
 	    }
 	    Block {
 	      BlockType		      Inport
-	      Name		      "flag"
-	      SID		      "89::284"
-	      Position		      [20, 206, 40, 224]
-	      ZOrder		      -4
-	      Port		      "4"
-	      IconDisplay	      "Port number"
-	    }
-	    Block {
-	      BlockType		      Inport
 	      Name		      "t"
 	      SID		      "89::285"
-	      Position		      [20, 246, 40, 264]
+	      Position		      [20, 206, 40, 224]
 	      ZOrder		      -5
-	      Port		      "5"
+	      Port		      "4"
 	      IconDisplay	      "Port number"
 	    }
 	    Block {
@@ -1370,7 +1361,7 @@ Model {
 	      Name		      " Demux "
 	      SID		      "89::280"
 	      Ports		      [1, 1]
-	      Position		      [270, 230, 320, 270]
+	      Position		      [270, 220, 320, 260]
 	      ZOrder		      2
 	      Outputs		      "1"
 	    }
@@ -1379,11 +1370,11 @@ Model {
 	      Name		      " SFunction "
 	      SID		      "89::279"
 	      Tag		      "Stateflow S-Function iC_3ph_MR2 6"
-	      Ports		      [5, 3]
+	      Ports		      [4, 3]
 	      Position		      [180, 100, 230, 220]
 	      ZOrder		      1
 	      FunctionName	      "sf_sfun"
-	      PortCounts	      "[5 3]"
+	      PortCounts	      "[4 3]"
 	      EnableBusSupport	      on
 	      Port {
 		PortNumber		2
@@ -1402,7 +1393,7 @@ Model {
 	      BlockType		      Terminator
 	      Name		      " Terminator "
 	      SID		      "89::281"
-	      Position		      [460, 241, 480, 259]
+	      Position		      [460, 231, 480, 249]
 	      ZOrder		      3
 	    }
 	    Block {
@@ -1441,16 +1432,10 @@ Model {
 	      DstPort		      3
 	    }
 	    Line {
-	      SrcBlock		      "flag"
-	      SrcPort		      1
-	      DstBlock		      " SFunction "
-	      DstPort		      4
-	    }
-	    Line {
 	      SrcBlock		      "t"
 	      SrcPort		      1
 	      DstBlock		      " SFunction "
-	      DstPort		      5
+	      DstPort		      4
 	    }
 	    Line {
 	      Name		      "up_0"
@@ -1477,7 +1462,6 @@ Model {
 	    Line {
 	      SrcBlock		      " SFunction "
 	      SrcPort		      1
-	      Points		      [20, 0]
 	      DstBlock		      " Demux "
 	      DstPort		      1
 	    }
@@ -1487,7 +1471,7 @@ Model {
 	  BlockType		  SubSystem
 	  Name			  "Controlador Adaptativo Alpha"
 	  SID			  "35"
-	  Ports			  [5, 2]
+	  Ports			  [4, 2]
 	  Position		  [535, 56, 750, 214]
 	  ZOrder		  -13
 	  BackgroundColor	  "lightBlue"
@@ -1549,20 +1533,11 @@ Model {
 	    }
 	    Block {
 	      BlockType		      Inport
-	      Name		      "flag"
-	      SID		      "35::284"
-	      Position		      [20, 206, 40, 224]
-	      ZOrder		      -4
-	      Port		      "4"
-	      IconDisplay	      "Port number"
-	    }
-	    Block {
-	      BlockType		      Inport
 	      Name		      "t"
 	      SID		      "35::285"
-	      Position		      [20, 246, 40, 264]
+	      Position		      [20, 206, 40, 224]
 	      ZOrder		      -5
-	      Port		      "5"
+	      Port		      "4"
 	      IconDisplay	      "Port number"
 	    }
 	    Block {
@@ -1570,7 +1545,7 @@ Model {
 	      Name		      " Demux "
 	      SID		      "35::280"
 	      Ports		      [1, 1]
-	      Position		      [270, 230, 320, 270]
+	      Position		      [270, 220, 320, 260]
 	      ZOrder		      2
 	      Outputs		      "1"
 	    }
@@ -1579,11 +1554,11 @@ Model {
 	      Name		      " SFunction "
 	      SID		      "35::279"
 	      Tag		      "Stateflow S-Function iC_3ph_MR2 2"
-	      Ports		      [5, 3]
+	      Ports		      [4, 3]
 	      Position		      [180, 100, 230, 220]
 	      ZOrder		      1
 	      FunctionName	      "sf_sfun"
-	      PortCounts	      "[5 3]"
+	      PortCounts	      "[4 3]"
 	      EnableBusSupport	      on
 	      Port {
 		PortNumber		2
@@ -1602,7 +1577,7 @@ Model {
 	      BlockType		      Terminator
 	      Name		      " Terminator "
 	      SID		      "35::281"
-	      Position		      [460, 241, 480, 259]
+	      Position		      [460, 231, 480, 249]
 	      ZOrder		      3
 	    }
 	    Block {
@@ -1641,16 +1616,10 @@ Model {
 	      DstPort		      3
 	    }
 	    Line {
-	      SrcBlock		      "flag"
-	      SrcPort		      1
-	      DstBlock		      " SFunction "
-	      DstPort		      4
-	    }
-	    Line {
 	      SrcBlock		      "t"
 	      SrcPort		      1
 	      DstBlock		      " SFunction "
-	      DstPort		      5
+	      DstPort		      4
 	    }
 	    Line {
 	      Name		      "up_alpha"
@@ -1677,7 +1646,6 @@ Model {
 	    Line {
 	      SrcBlock		      " SFunction "
 	      SrcPort		      1
-	      Points		      [20, 0]
 	      DstBlock		      " Demux "
 	      DstPort		      1
 	    }
@@ -1687,7 +1655,7 @@ Model {
 	  BlockType		  SubSystem
 	  Name			  "Controlador Adaptativo Beta"
 	  SID			  "88"
-	  Ports			  [5, 2]
+	  Ports			  [4, 2]
 	  Position		  [535, 280, 750, 440]
 	  ZOrder		  -14
 	  BackgroundColor	  "lightBlue"
@@ -1749,20 +1717,11 @@ Model {
 	    }
 	    Block {
 	      BlockType		      Inport
-	      Name		      "flag"
-	      SID		      "88::284"
-	      Position		      [20, 206, 40, 224]
-	      ZOrder		      -4
-	      Port		      "4"
-	      IconDisplay	      "Port number"
-	    }
-	    Block {
-	      BlockType		      Inport
 	      Name		      "t"
 	      SID		      "88::285"
-	      Position		      [20, 246, 40, 264]
+	      Position		      [20, 206, 40, 224]
 	      ZOrder		      -5
-	      Port		      "5"
+	      Port		      "4"
 	      IconDisplay	      "Port number"
 	    }
 	    Block {
@@ -1770,7 +1729,7 @@ Model {
 	      Name		      " Demux "
 	      SID		      "88::280"
 	      Ports		      [1, 1]
-	      Position		      [270, 230, 320, 270]
+	      Position		      [270, 220, 320, 260]
 	      ZOrder		      2
 	      Outputs		      "1"
 	    }
@@ -1779,11 +1738,11 @@ Model {
 	      Name		      " SFunction "
 	      SID		      "88::279"
 	      Tag		      "Stateflow S-Function iC_3ph_MR2 3"
-	      Ports		      [5, 3]
+	      Ports		      [4, 3]
 	      Position		      [180, 100, 230, 220]
 	      ZOrder		      1
 	      FunctionName	      "sf_sfun"
-	      PortCounts	      "[5 3]"
+	      PortCounts	      "[4 3]"
 	      EnableBusSupport	      on
 	      Port {
 		PortNumber		2
@@ -1793,7 +1752,7 @@ Model {
 	      }
 	      Port {
 		PortNumber		3
-		Name			"theta_Beta"
+		Name			"theta_beta"
 		RTWStorageClass		"Auto"
 		DataLoggingNameMode	"SignalName"
 	      }
@@ -1802,7 +1761,7 @@ Model {
 	      BlockType		      Terminator
 	      Name		      " Terminator "
 	      SID		      "88::281"
-	      Position		      [460, 241, 480, 259]
+	      Position		      [460, 231, 480, 249]
 	      ZOrder		      3
 	    }
 	    Block {
@@ -1815,7 +1774,7 @@ Model {
 	    }
 	    Block {
 	      BlockType		      Outport
-	      Name		      "theta_Beta"
+	      Name		      "theta_beta"
 	      SID		      "88::287"
 	      Position		      [460, 136, 480, 154]
 	      ZOrder		      -10
@@ -1841,16 +1800,10 @@ Model {
 	      DstPort		      3
 	    }
 	    Line {
-	      SrcBlock		      "flag"
-	      SrcPort		      1
-	      DstBlock		      " SFunction "
-	      DstPort		      4
-	    }
-	    Line {
 	      SrcBlock		      "t"
 	      SrcPort		      1
 	      DstBlock		      " SFunction "
-	      DstPort		      5
+	      DstPort		      4
 	    }
 	    Line {
 	      Name		      "up_beta"
@@ -1861,11 +1814,11 @@ Model {
 	      DstPort		      1
 	    }
 	    Line {
-	      Name		      "theta_Beta"
+	      Name		      "theta_beta"
 	      Labels		      [0, 0]
 	      SrcBlock		      " SFunction "
 	      SrcPort		      3
-	      DstBlock		      "theta_Beta"
+	      DstBlock		      "theta_beta"
 	      DstPort		      1
 	    }
 	    Line {
@@ -1877,23 +1830,10 @@ Model {
 	    Line {
 	      SrcBlock		      " SFunction "
 	      SrcPort		      1
-	      Points		      [20, 0]
 	      DstBlock		      " Demux "
 	      DstPort		      1
 	    }
 	  }
-	}
-	Block {
-	  BlockType		  Step
-	  Name			  "Flag"
-	  SID			  "49"
-	  Position		  [35, 660, 65, 690]
-	  ZOrder		  -15
-	  BackgroundColor	  "gray"
-	  Time			  "flag_time"
-	  Before		  "1"
-	  After			  "0"
-	  SampleTime		  "Ts"
 	}
 	Block {
 	  BlockType		  From
@@ -1963,36 +1903,6 @@ Model {
 	  BackgroundColor	  "lightBlue"
 	  ShowName		  off
 	  GotoTag		  "up_0"
-	}
-	Block {
-	  BlockType		  From
-	  Name			  "From16"
-	  SID			  "198"
-	  Position		  [415, 151, 455, 179]
-	  ZOrder		  -23
-	  BackgroundColor	  "gray"
-	  ShowName		  off
-	  GotoTag		  "flag"
-	}
-	Block {
-	  BlockType		  From
-	  Name			  "From17"
-	  SID			  "199"
-	  Position		  [415, 376, 455, 404]
-	  ZOrder		  -24
-	  BackgroundColor	  "gray"
-	  ShowName		  off
-	  GotoTag		  "flag"
-	}
-	Block {
-	  BlockType		  From
-	  Name			  "From18"
-	  SID			  "200"
-	  Position		  [415, 606, 455, 634]
-	  ZOrder		  -25
-	  BackgroundColor	  "gray"
-	  ShowName		  off
-	  GotoTag		  "flag"
 	}
 	Block {
 	  BlockType		  From
@@ -2114,16 +2024,6 @@ Model {
 	  BackgroundColor	  "lightBlue"
 	  ShowName		  off
 	  GotoTag		  "up_0"
-	}
-	Block {
-	  BlockType		  Goto
-	  Name			  "Goto14"
-	  SID			  "197"
-	  Position		  [180, 660, 220, 690]
-	  ZOrder		  -39
-	  BackgroundColor	  "gray"
-	  ShowName		  off
-	  GotoTag		  "flag"
 	}
 	Block {
 	  BlockType		  Goto
@@ -2345,7 +2245,7 @@ Model {
 	  ZOrder		  -54
 	  BackgroundColor	  "gray"
 	  ShowName		  off
-	  VariableName		  "theta_Beta"
+	  VariableName		  "theta_beta"
 	  MaxDataPoints		  "inf"
 	  SampleTime		  "Ts1"
 	}
@@ -3306,36 +3206,42 @@ Model {
 	Line {
 	  SrcBlock		  "From4"
 	  SrcPort		  1
+	  Points		  [25, 0]
 	  DstBlock		  "Controlador Adaptativo Alpha"
 	  DstPort		  2
 	}
 	Line {
 	  SrcBlock		  "From5"
 	  SrcPort		  1
+	  Points		  [25, 0]
 	  DstBlock		  "Controlador Adaptativo Beta"
 	  DstPort		  2
 	}
 	Line {
 	  SrcBlock		  "From6"
 	  SrcPort		  1
+	  Points		  [25, 0]
 	  DstBlock		  "Controlador Adaptativo 0"
 	  DstPort		  2
 	}
 	Line {
 	  SrcBlock		  "From7"
 	  SrcPort		  1
+	  Points		  [25, 0]
 	  DstBlock		  "Controlador Adaptativo Alpha"
 	  DstPort		  3
 	}
 	Line {
 	  SrcBlock		  "From8"
 	  SrcPort		  1
+	  Points		  [25, 0]
 	  DstBlock		  "Controlador Adaptativo Beta"
 	  DstPort		  3
 	}
 	Line {
 	  SrcBlock		  "From9"
 	  SrcPort		  1
+	  Points		  [25, 0]
 	  DstBlock		  "Controlador Adaptativo 0"
 	  DstPort		  3
 	}
@@ -3343,19 +3249,19 @@ Model {
 	  SrcBlock		  "From12"
 	  SrcPort		  1
 	  DstBlock		  "Controlador Adaptativo 0"
-	  DstPort		  5
+	  DstPort		  4
 	}
 	Line {
 	  SrcBlock		  "From11"
 	  SrcPort		  1
 	  DstBlock		  "Controlador Adaptativo Beta"
-	  DstPort		  5
+	  DstPort		  4
 	}
 	Line {
 	  SrcBlock		  "From10"
 	  SrcPort		  1
 	  DstBlock		  "Controlador Adaptativo Alpha"
-	  DstPort		  5
+	  DstPort		  4
 	}
 	Line {
 	  SrcBlock		  "Controlador Adaptativo Alpha"
@@ -3410,30 +3316,6 @@ Model {
 	  Points		  [25, 0; 0, -15]
 	  DstBlock		  "alpha-beta-zero to abc"
 	  DstPort		  3
-	}
-	Line {
-	  SrcBlock		  "Flag"
-	  SrcPort		  1
-	  DstBlock		  "Goto14"
-	  DstPort		  1
-	}
-	Line {
-	  SrcBlock		  "From16"
-	  SrcPort		  1
-	  DstBlock		  "Controlador Adaptativo Alpha"
-	  DstPort		  4
-	}
-	Line {
-	  SrcBlock		  "From17"
-	  SrcPort		  1
-	  DstBlock		  "Controlador Adaptativo Beta"
-	  DstPort		  4
-	}
-	Line {
-	  SrcBlock		  "From18"
-	  SrcPort		  1
-	  DstBlock		  "Controlador Adaptativo 0"
-	  DstPort		  4
 	}
 	Line {
 	  SrcBlock		  "Controlador Adaptativo Beta"
@@ -3502,7 +3384,7 @@ Model {
       Name		      "Conversor + Filtro"
       SID		      "155"
       Ports		      [3, 6]
-      Position		      [895, 212, 1170, 398]
+      Position		      [425, 507, 700, 693]
       ZOrder		      -3
       BackgroundColor	      "darkGreen"
       MinAlgLoopOccurrences   off
@@ -6491,7 +6373,7 @@ Model {
       BlockType		      From
       Name		      "From10"
       SID		      "222"
-      Position		      [1380, 181, 1420, 209]
+      Position		      [850, 181, 890, 209]
       ZOrder		      -6
       BackgroundColor	      "darkGreen"
       ShowName		      off
@@ -6501,7 +6383,7 @@ Model {
       BlockType		      From
       Name		      "From11"
       SID		      "223"
-      Position		      [1380, 226, 1420, 254]
+      Position		      [850, 226, 890, 254]
       ZOrder		      -7
       BackgroundColor	      "darkGreen"
       ShowName		      off
@@ -6511,7 +6393,7 @@ Model {
       BlockType		      From
       Name		      "From12"
       SID		      "224"
-      Position		      [1380, 271, 1420, 299]
+      Position		      [850, 271, 890, 299]
       ZOrder		      -8
       BackgroundColor	      "darkGreen"
       ShowName		      off
@@ -6521,7 +6403,7 @@ Model {
       BlockType		      From
       Name		      "From13"
       SID		      "225"
-      Position		      [1380, 316, 1420, 344]
+      Position		      [850, 316, 890, 344]
       ZOrder		      -9
       BackgroundColor	      "darkGreen"
       ShowName		      off
@@ -6531,7 +6413,7 @@ Model {
       BlockType		      From
       Name		      "From14"
       SID		      "226"
-      Position		      [1380, 361, 1420, 389]
+      Position		      [850, 361, 890, 389]
       ZOrder		      -10
       BackgroundColor	      "darkGreen"
       ShowName		      off
@@ -6541,7 +6423,7 @@ Model {
       BlockType		      From
       Name		      "From15"
       SID		      "227"
-      Position		      [1380, 406, 1420, 434]
+      Position		      [850, 406, 890, 434]
       ZOrder		      -11
       BackgroundColor	      "darkGreen"
       ShowName		      off
@@ -6551,7 +6433,7 @@ Model {
       BlockType		      From
       Name		      "From16"
       SID		      "228"
-      Position		      [1375, 46, 1430, 74]
+      Position		      [845, 46, 900, 74]
       ZOrder		      -12
       BackgroundColor	      "orange"
       ShowName		      off
@@ -6561,7 +6443,7 @@ Model {
       BlockType		      From
       Name		      "From17"
       SID		      "229"
-      Position		      [1375, 91, 1430, 119]
+      Position		      [845, 91, 900, 119]
       ZOrder		      -13
       BackgroundColor	      "orange"
       ShowName		      off
@@ -6571,7 +6453,7 @@ Model {
       BlockType		      From
       Name		      "From18"
       SID		      "230"
-      Position		      [1375, 136, 1430, 164]
+      Position		      [845, 136, 900, 164]
       ZOrder		      -14
       BackgroundColor	      "orange"
       ShowName		      off
@@ -6581,7 +6463,7 @@ Model {
       BlockType		      From
       Name		      "From19"
       SID		      "231"
-      Position		      [1380, 586, 1420, 614]
+      Position		      [850, 586, 890, 614]
       ZOrder		      -15
       BackgroundColor	      "gray"
       ShowName		      off
@@ -6601,7 +6483,7 @@ Model {
       BlockType		      From
       Name		      "From20"
       SID		      "242"
-      Position		      [1380, 451, 1420, 479]
+      Position		      [850, 451, 890, 479]
       ZOrder		      -17
       BackgroundColor	      "lightBlue"
       ShowName		      off
@@ -6611,7 +6493,7 @@ Model {
       BlockType		      From
       Name		      "From21"
       SID		      "243"
-      Position		      [1380, 496, 1420, 524]
+      Position		      [850, 496, 890, 524]
       ZOrder		      -18
       BackgroundColor	      "lightBlue"
       ShowName		      off
@@ -6621,7 +6503,7 @@ Model {
       BlockType		      From
       Name		      "From22"
       SID		      "244"
-      Position		      [1380, 541, 1420, 569]
+      Position		      [850, 541, 890, 569]
       ZOrder		      -19
       BackgroundColor	      "lightBlue"
       ShowName		      off
@@ -6631,7 +6513,7 @@ Model {
       BlockType		      From
       Name		      "From23"
       SID		      "254"
-      Position		      [825, 231, 865, 259]
+      Position		      [355, 526, 395, 554]
       ZOrder		      -20
       BackgroundColor	      "lightBlue"
       ShowName		      off
@@ -6641,7 +6523,7 @@ Model {
       BlockType		      From
       Name		      "From24"
       SID		      "255"
-      Position		      [825, 291, 865, 319]
+      Position		      [355, 586, 395, 614]
       ZOrder		      -21
       BackgroundColor	      "lightBlue"
       ShowName		      off
@@ -6651,7 +6533,7 @@ Model {
       BlockType		      From
       Name		      "From25"
       SID		      "256"
-      Position		      [825, 351, 865, 379]
+      Position		      [355, 646, 395, 674]
       ZOrder		      -22
       BackgroundColor	      "lightBlue"
       ShowName		      off
@@ -6731,7 +6613,7 @@ Model {
       BlockType		      Goto
       Name		      "Goto"
       SID		      "185"
-      Position		      [1210, 215, 1250, 245]
+      Position		      [740, 510, 780, 540]
       ZOrder		      -30
       BackgroundColor	      "darkGreen"
       ShowName		      off
@@ -6741,7 +6623,7 @@ Model {
       BlockType		      Goto
       Name		      "Goto1"
       SID		      "186"
-      Position		      [1210, 245, 1250, 275]
+      Position		      [740, 540, 780, 570]
       ZOrder		      -31
       BackgroundColor	      "darkGreen"
       ShowName		      off
@@ -6781,7 +6663,7 @@ Model {
       BlockType		      Goto
       Name		      "Goto2"
       SID		      "187"
-      Position		      [1210, 275, 1250, 305]
+      Position		      [740, 570, 780, 600]
       ZOrder		      -35
       BackgroundColor	      "darkGreen"
       ShowName		      off
@@ -6791,7 +6673,7 @@ Model {
       BlockType		      Goto
       Name		      "Goto3"
       SID		      "188"
-      Position		      [1210, 305, 1250, 335]
+      Position		      [740, 600, 780, 630]
       ZOrder		      -36
       BackgroundColor	      "darkGreen"
       ShowName		      off
@@ -6801,7 +6683,7 @@ Model {
       BlockType		      Goto
       Name		      "Goto4"
       SID		      "189"
-      Position		      [1210, 335, 1250, 365]
+      Position		      [740, 630, 780, 660]
       ZOrder		      -37
       BackgroundColor	      "darkGreen"
       ShowName		      off
@@ -6811,7 +6693,7 @@ Model {
       BlockType		      Goto
       Name		      "Goto5"
       SID		      "190"
-      Position		      [1210, 365, 1250, 395]
+      Position		      [740, 660, 780, 690]
       ZOrder		      -38
       BackgroundColor	      "darkGreen"
       ShowName		      off
@@ -6861,7 +6743,7 @@ Model {
       BlockType		      RateTransition
       Name		      "Rate Transition"
       SID		      "232"
-      Position		      [1470, 39, 1510, 81]
+      Position		      [940, 39, 980, 81]
       ZOrder		      -43
       BackgroundColor	      "gray"
       ShowName		      off
@@ -6871,7 +6753,7 @@ Model {
       BlockType		      RateTransition
       Name		      "Rate Transition1"
       SID		      "233"
-      Position		      [1470, 84, 1510, 126]
+      Position		      [940, 84, 980, 126]
       ZOrder		      -44
       BackgroundColor	      "gray"
       ShowName		      off
@@ -6881,7 +6763,7 @@ Model {
       BlockType		      RateTransition
       Name		      "Rate Transition10"
       SID		      "245"
-      Position		      [1470, 444, 1510, 486]
+      Position		      [940, 444, 980, 486]
       ZOrder		      -45
       BackgroundColor	      "gray"
       ShowName		      off
@@ -6891,7 +6773,7 @@ Model {
       BlockType		      RateTransition
       Name		      "Rate Transition11"
       SID		      "246"
-      Position		      [1470, 489, 1510, 531]
+      Position		      [940, 489, 980, 531]
       ZOrder		      -46
       BackgroundColor	      "gray"
       ShowName		      off
@@ -6901,7 +6783,7 @@ Model {
       BlockType		      RateTransition
       Name		      "Rate Transition12"
       SID		      "247"
-      Position		      [1470, 534, 1510, 576]
+      Position		      [940, 534, 980, 576]
       ZOrder		      -47
       BackgroundColor	      "gray"
       ShowName		      off
@@ -6911,7 +6793,7 @@ Model {
       BlockType		      RateTransition
       Name		      "Rate Transition2"
       SID		      "234"
-      Position		      [1470, 129, 1510, 171]
+      Position		      [940, 129, 980, 171]
       ZOrder		      -48
       BackgroundColor	      "gray"
       ShowName		      off
@@ -6921,7 +6803,7 @@ Model {
       BlockType		      RateTransition
       Name		      "Rate Transition3"
       SID		      "235"
-      Position		      [1470, 174, 1510, 216]
+      Position		      [940, 174, 980, 216]
       ZOrder		      -49
       BackgroundColor	      "gray"
       ShowName		      off
@@ -6931,7 +6813,7 @@ Model {
       BlockType		      RateTransition
       Name		      "Rate Transition4"
       SID		      "236"
-      Position		      [1470, 219, 1510, 261]
+      Position		      [940, 219, 980, 261]
       ZOrder		      -50
       BackgroundColor	      "gray"
       ShowName		      off
@@ -6941,7 +6823,7 @@ Model {
       BlockType		      RateTransition
       Name		      "Rate Transition5"
       SID		      "237"
-      Position		      [1470, 264, 1510, 306]
+      Position		      [940, 264, 980, 306]
       ZOrder		      -51
       BackgroundColor	      "gray"
       ShowName		      off
@@ -6951,7 +6833,7 @@ Model {
       BlockType		      RateTransition
       Name		      "Rate Transition6"
       SID		      "238"
-      Position		      [1470, 309, 1510, 351]
+      Position		      [940, 309, 980, 351]
       ZOrder		      -52
       BackgroundColor	      "gray"
       ShowName		      off
@@ -6961,7 +6843,7 @@ Model {
       BlockType		      RateTransition
       Name		      "Rate Transition7"
       SID		      "239"
-      Position		      [1470, 354, 1510, 396]
+      Position		      [940, 354, 980, 396]
       ZOrder		      -53
       BackgroundColor	      "gray"
       ShowName		      off
@@ -6971,7 +6853,7 @@ Model {
       BlockType		      RateTransition
       Name		      "Rate Transition8"
       SID		      "240"
-      Position		      [1470, 399, 1510, 441]
+      Position		      [940, 399, 980, 441]
       ZOrder		      -54
       BackgroundColor	      "gray"
       ShowName		      off
@@ -6981,7 +6863,7 @@ Model {
       BlockType		      RateTransition
       Name		      "Rate Transition9"
       SID		      "241"
-      Position		      [1470, 579, 1510, 621]
+      Position		      [940, 579, 980, 621]
       ZOrder		      -55
       BackgroundColor	      "gray"
       ShowName		      off
@@ -7004,7 +6886,7 @@ Model {
       MaskHideContents	      off
       System {
 	Name			"Referência"
-	Location		[64, 74, 1598, 879]
+	Location		[2, 82, 1582, 871]
 	Open			off
 	ModelBrowserVisibility	off
 	ModelBrowserWidth	200
@@ -7025,8 +6907,8 @@ Model {
 	  Position		  [25, 665, 55, 695]
 	  ZOrder		  -1
 	  BackgroundColor	  "yellow"
-	  Amplitude		  "1.2"
-	  Frequency		  "2*pi*60*11"
+	  Amplitude		  "ref_amp11"
+	  Frequency		  "ref_freq*11"
 	  SampleTime		  "Ts"
 	}
 	Block {
@@ -7037,8 +6919,8 @@ Model {
 	  Position		  [25, 730, 55, 760]
 	  ZOrder		  -2
 	  BackgroundColor	  "yellow"
-	  Amplitude		  "1.2"
-	  Frequency		  "2*pi*60*13"
+	  Amplitude		  "ref_amp13"
+	  Frequency		  "ref_freq*13"
 	  SampleTime		  "Ts"
 	}
 	Block {
@@ -7049,8 +6931,8 @@ Model {
 	  Position		  [25, 405, 55, 435]
 	  ZOrder		  -3
 	  BackgroundColor	  "yellow"
-	  Amplitude		  "1.2"
-	  Frequency		  "2*pi*60*3"
+	  Amplitude		  "ref_amp3"
+	  Frequency		  "ref_freq*3"
 	  SampleTime		  "Ts"
 	}
 	Block {
@@ -7061,8 +6943,8 @@ Model {
 	  Position		  [25, 470, 55, 500]
 	  ZOrder		  -4
 	  BackgroundColor	  "yellow"
-	  Amplitude		  "1.2"
-	  Frequency		  "2*pi*60*5"
+	  Amplitude		  "ref_amp5"
+	  Frequency		  "ref_freq*5"
 	  SampleTime		  "Ts"
 	}
 	Block {
@@ -7073,8 +6955,8 @@ Model {
 	  Position		  [25, 535, 55, 565]
 	  ZOrder		  -5
 	  BackgroundColor	  "yellow"
-	  Amplitude		  "1.2"
-	  Frequency		  "2*pi*60*7"
+	  Amplitude		  "ref_amp7"
+	  Frequency		  "ref_freq*7"
 	  SampleTime		  "Ts"
 	}
 	Block {
@@ -7085,8 +6967,8 @@ Model {
 	  Position		  [25, 600, 55, 630]
 	  ZOrder		  -6
 	  BackgroundColor	  "yellow"
-	  Amplitude		  "1.2"
-	  Frequency		  "2*pi*60*9"
+	  Amplitude		  "ref_amp9"
+	  Frequency		  "ref_freq*9"
 	  SampleTime		  "Ts"
 	}
 	Block {
@@ -7329,8 +7211,8 @@ Model {
 	  Position		  [25, 25, 55, 55]
 	  ZOrder		  -24
 	  BackgroundColor	  "orange"
-	  Amplitude		  "10"
-	  Frequency		  "2*pi*60"
+	  Amplitude		  "ref_amp"
+	  Frequency		  "ref_freq"
 	  SampleTime		  "Ts"
 	}
 	Block {
@@ -7341,8 +7223,8 @@ Model {
 	  Position		  [25, 145, 55, 175]
 	  ZOrder		  -25
 	  BackgroundColor	  "orange"
-	  Amplitude		  "10"
-	  Frequency		  "2*pi*60"
+	  Amplitude		  "ref_amp"
+	  Frequency		  "ref_freq"
 	  Phase			  "2*pi/3"
 	  SampleTime		  "Ts"
 	}
@@ -7354,8 +7236,8 @@ Model {
 	  Position		  [25, 270, 55, 300]
 	  ZOrder		  -26
 	  BackgroundColor	  "orange"
-	  Amplitude		  "10"
-	  Frequency		  "2*pi*60"
+	  Amplitude		  "ref_amp"
+	  Frequency		  "ref_freq"
 	  Phase			  "-2*pi/3"
 	  SampleTime		  "Ts"
 	}
@@ -7572,7 +7454,7 @@ Model {
       Name		      "To Workspace"
       SID		      "210"
       Ports		      [1]
-      Position		      [1550, 45, 1610, 75]
+      Position		      [1020, 45, 1080, 75]
       ZOrder		      -57
       BackgroundColor	      "gray"
       ShowName		      off
@@ -7585,7 +7467,7 @@ Model {
       Name		      "To Workspace1"
       SID		      "213"
       Ports		      [1]
-      Position		      [1550, 90, 1610, 120]
+      Position		      [1020, 90, 1080, 120]
       ZOrder		      -58
       BackgroundColor	      "gray"
       ShowName		      off
@@ -7598,7 +7480,7 @@ Model {
       Name		      "To Workspace10"
       SID		      "248"
       Ports		      [1]
-      Position		      [1550, 450, 1610, 480]
+      Position		      [1020, 450, 1080, 480]
       ZOrder		      -59
       BackgroundColor	      "gray"
       ShowName		      off
@@ -7611,7 +7493,7 @@ Model {
       Name		      "To Workspace11"
       SID		      "249"
       Ports		      [1]
-      Position		      [1550, 495, 1610, 525]
+      Position		      [1020, 495, 1080, 525]
       ZOrder		      -60
       BackgroundColor	      "gray"
       ShowName		      off
@@ -7624,7 +7506,7 @@ Model {
       Name		      "To Workspace12"
       SID		      "250"
       Ports		      [1]
-      Position		      [1550, 540, 1610, 570]
+      Position		      [1020, 540, 1080, 570]
       ZOrder		      -61
       BackgroundColor	      "gray"
       ShowName		      off
@@ -7637,7 +7519,7 @@ Model {
       Name		      "To Workspace2"
       SID		      "214"
       Ports		      [1]
-      Position		      [1550, 135, 1610, 165]
+      Position		      [1020, 135, 1080, 165]
       ZOrder		      -62
       BackgroundColor	      "gray"
       ShowName		      off
@@ -7650,7 +7532,7 @@ Model {
       Name		      "To Workspace3"
       SID		      "215"
       Ports		      [1]
-      Position		      [1550, 180, 1610, 210]
+      Position		      [1020, 180, 1080, 210]
       ZOrder		      -63
       BackgroundColor	      "gray"
       ShowName		      off
@@ -7663,7 +7545,7 @@ Model {
       Name		      "To Workspace4"
       SID		      "216"
       Ports		      [1]
-      Position		      [1550, 225, 1610, 255]
+      Position		      [1020, 225, 1080, 255]
       ZOrder		      -64
       BackgroundColor	      "gray"
       ShowName		      off
@@ -7676,7 +7558,7 @@ Model {
       Name		      "To Workspace5"
       SID		      "217"
       Ports		      [1]
-      Position		      [1550, 270, 1610, 300]
+      Position		      [1020, 270, 1080, 300]
       ZOrder		      -65
       BackgroundColor	      "gray"
       ShowName		      off
@@ -7689,7 +7571,7 @@ Model {
       Name		      "To Workspace6"
       SID		      "218"
       Ports		      [1]
-      Position		      [1550, 315, 1610, 345]
+      Position		      [1020, 315, 1080, 345]
       ZOrder		      -66
       BackgroundColor	      "gray"
       ShowName		      off
@@ -7702,7 +7584,7 @@ Model {
       Name		      "To Workspace7"
       SID		      "219"
       Ports		      [1]
-      Position		      [1550, 360, 1610, 390]
+      Position		      [1020, 360, 1080, 390]
       ZOrder		      -67
       BackgroundColor	      "gray"
       ShowName		      off
@@ -7715,7 +7597,7 @@ Model {
       Name		      "To Workspace8"
       SID		      "220"
       Ports		      [1]
-      Position		      [1550, 405, 1610, 435]
+      Position		      [1020, 405, 1080, 435]
       ZOrder		      -68
       BackgroundColor	      "gray"
       ShowName		      off
@@ -7728,7 +7610,7 @@ Model {
       Name		      "To Workspace9"
       SID		      "221"
       Ports		      [1]
-      Position		      [1550, 585, 1610, 615]
+      Position		      [1020, 585, 1080, 615]
       ZOrder		      -69
       BackgroundColor	      "gray"
       ShowName		      off
@@ -7744,7 +7626,7 @@ Model {
       Position		      [30, 30, 153, 75]
       ZOrder		      -70
       Priority		      "1"
-      LibraryVersion	      "*1.2119"
+      LibraryVersion	      "1.2119"
       UserDataPersistent      on
       UserData		      "DataTag0"
       FontName		      "Verdana"
@@ -8110,7 +7992,7 @@ Model {
     Annotation {
       SID		      "527"
       Name		      "Variáveis enviadas para a workspace:"
-      Position		      [1490, 25]
+      Position		      [960, 25]
     }
   }
 }
@@ -8144,7 +8026,7 @@ Stateflow {
     name		    "iC_3ph_MR2"
     created		    "19-Aug-2013 14:46:26"
     isLibrary		    0
-    firstTarget		    82
+    firstTarget		    79
     sfVersion		    76014001.00040001
   }
   chart {
@@ -8391,73 +8273,32 @@ Stateflow {
     decomposition	    CLUSTER_STATE
     eml {
       isEML		      1
-      script		      "function [up_alpha, theta_alpha] = adaptativo( i2ref_k, i2_k, ic_k, flag, t )\n\n%#CODEGEN\n    \n"
-      "%Definição dos valores projetados dos elementos do filtro\nL1ideal=2e-3;\nL2ideal=2e-3;\nLgideal=0;\nCideal=40e-"
-      "6;\nR1ideal=0;\nR2ideal=0;\nRgideal=0;\n\n%Definição de erros percentuais para simular variação paramétrica\nerr"
-      "L1=0;\nerrL2=0;\nerrLg=0;\nerrC=0;\nerrR1=0;\nerrR2=0;\nerrRg=0;\ndeltaL1=errL1*L1ideal;\ndeltaL2=errL2*L2ideal;"
-      "\ndeltaLg=errLg*Lgideal;\ndeltaC=errC*Cideal;\ndeltaR1=errR1*R1ideal;\ndeltaR2=errR2*R2ideal;\ndeltaRg=errRg*Rgi"
-      "deal;\n\n%Definição do valor real medido, incluindo a variação paramétrica\n%percentual\nL1=L1ideal+deltaL1;\nL2"
-      "=L2ideal+deltaL2+Lgideal+deltaLg;\nC=Cideal+deltaC;\nR1=R1ideal+deltaR1;\nR2=R2ideal+deltaR2+Rgideal+deltaRg;\n\n"
-      "%Demais elementos\nTs=1/12000;\nw=sqrt((L1+L2)/(L1*L2*C));\n\n%Kp é a multiplicação do ganho do controlador da m"
-      "alha interna(kp), do\n%ganho da planta(ki) e do ganho da malha externa(kod)\nkp=8;\n%Kp=0.156891976007044;\nKp=0"
-      ".004780841242217;\n\n%polos do modelo de referência:\np1=0.2;\np2=0.2;\n\nkm=(1-p1)*(1-p2);\n\n%constantes -> ga"
-      "maD < (1-gama)*km/kp\ngamaD=0.0098;\ngama=0.99;\n\ndelta0=0.8;\n\n%adapt_time=2/60;\n%vg_switch_time=4/60;\n\n%i"
-      "f t>=19/60\n%    stop=1;\n%end\n\n%% Variáveis Persistentes e Inicializações\n\npersistent theta_k;\nif isempty("
-      "theta_k)\n    %COM compensação para vg\n    %theta_k=[-0.3106; -0.2728; 0.0368; -0.2369; -0.422; -0.2775; -0.797"
-      "9; 1.786; -0.0008; 0.0003];\n    %theta_k=[-0.3106; -0.2728; 0.0368; -0.2369; -0.422; -0.2775; -0.7979; 1.786; 1"
-      "; 0];\n    %theta_k=[-0.40085038; -0.36853743; -0.064251891; -0.4277604154; -0.61214672; -0.46675405; -0.9892934"
-      "3; 1.76426551; 0.17164080; 0.11598547];\n    %theta_k=[0;0;0;0;0;0; -0.98929343; 1.76426551; 0.17164080; 0.11598"
-      "547];\n    %theta_k=[-0.071151848470510; -0.470549298500393; -0.993323557655345; 1.762541193804541; 0.1180145679"
-      "31226; 0.108368323169129];\n    %theta_k=[-0.46; -0.58; -1.74; 1.73; 0.2; 0.03];\n    theta_k=[-0.03; -0.36; -0."
+      script		      "function [up_alpha, theta_alpha] = adaptativo( i2ref_k, i2_k, ic_k, t )\n\n%#CODEGEN\n\n%Kp é a m"
+      "ultiplicação do ganho do controlador da malha interna(kp), do\n%ganho da planta(ki) e do ganho da malha externa("
+      "kod)\nkp=8;\n%Kp=0.156891976007044;\nKp=0.004780841242217;\n\n%polos do modelo de referência:\np1=0.2;\np2=0.2;\n"
+      "\nkm=(1-p1)*(1-p2);\n\n%constantes -> gamaD < (1-gama)*km/kp\ngamaD=0.0098;\ngama=0.99;\n\ndelta0=0.8;\n\n%% Var"
+      "iáveis Persistentes e Inicializações\n\npersistent theta_k;\nif isempty(theta_k)\n    theta_k=[-0.03; -0.36; -0."
       "57; -0.01; 0.16; 0.02];\nend\n\npersistent omega_k;\nif isempty(omega_k)\n    %COM vg\n    omega_k=[0; 0; 0; 0; "
       "0; 0];\nend\n\npersistent omega_k_1;\nif isempty(omega_k_1)\n    %COM vg\n    omega_k_1=[0; 0; 0; 0; 0; 0];\nend"
       "\n\npersistent omega_k_2;\nif isempty(omega_k_2)\n    %COM vg\n    omega_k_2=[0; 0; 0; 0; 0; 0];\nend\n\npersist"
-      "ent omega_k_3;\nif isempty(omega_k_3)\n    %COM vg\n    omega_k_3=[0; 0; 0; 0; 0; 0];\nend\n\npersistent eta_k_1"
-      ";\nif isempty(eta_k_1)\n    %COM vg\n    eta_k_1=[0; 0; 0; 0; 0; 0];\nend\n\npersistent eta_k_2;\nif isempty(eta"
-      "_k_2)\n    %COM vg\n    eta_k_2=[0; 0; 0; 0; 0; 0];\nend\n\npersistent eta_k_3;\nif isempty(eta_k_3)\n    %COM v"
-      "g\n    eta_k_3=[0; 0; 0; 0; 0; 0];\nend\n\npersistent i2m_k_1;\nif isempty(i2m_k_1)\n    i2m_k_1=0;\nend\n\npers"
-      "istent i2m_k_2;\nif isempty(i2m_k_2)\n    i2m_k_2=0;\nend\n\npersistent i2m_k_3;\nif isempty(i2m_k_3)\n    i2m_k"
-      "_3=0;\nend\n\npersistent i2ref_k_1;\nif isempty(i2ref_k_1)\n    i2ref_k_1=0;\nend\n\npersistent i2ref_k_2;\nif i"
-      "sempty(i2ref_k_2)\n    i2ref_k_2=0;\nend\n\npersistent i2ref_k_3;\nif isempty(i2ref_k_3)\n    i2ref_k_3=0;\nend\n"
-      "\npersistent v_k_1;\nif isempty(v_k_1)\n    v_k_1=0;\nend\n\npersistent v_k_2;\nif isempty(v_k_2)\n    v_k_2=0;\n"
-      "end\n\npersistent v_k_3;\nif isempty(v_k_3)\n    v_k_3=0;\nend\n\npersistent rho_k;\nif isempty(rho_k)\n    rho_"
-      "k=Kp/km;\nend\n\npersistent m2;\nif isempty(m2)\n    m2=1;\nend\n\npersistent u_k_1;\nif isempty(u_k_1)\n    u_k"
-      "_1=0;\nend\n\npersistent u_k_2;\nif isempty(u_k_2)\n    u_k_2=0;\nend\n\npersistent P;\nif isempty(P)\n    %P=[0"
-      ".002225441018075 -0.002258665319558 -1.129332659782590e-004 -0.003793046611769; ...\n    %    -0.002258665319558"
-      " 0.149747822133961 -0.042512608892738 0.002487914954665; ...\n    %    -1.129332659782590e-004 -0.04251260889273"
-      "8 0.997874369555398 1.243957477280539e-004; ...\n    %    -0.003793046611769 0.002487914954665 1.243957477280538"
-      "e-004 0.754190018333160];\n    %P=[0.009712540165252   -0.000020445335620  -0.000026266935611  -0.00003733432724"
-      "2 -0.001161097577207  -0.000971095497459; ...\n    %   -0.000020445335620   0.009977400822109  -0.00002263116007"
-      "2  -0.000009984284241 -0.000310511239892   0.000028021469709; ...\n    %   -0.000026266935611  -0.00002263116007"
-      "2   0.009976301443788  -0.000009972563160 -0.000310146714255   0.000019062507239; ...\n    %   -0.00003733432724"
-      "2  -0.000009984284241  -0.000009972563160   0.009989966652248 -0.000312037115068   0.000004936266851; ...\n    %"
-      "   -0.001161097577207  -0.000310511239892  -0.000310146714255  -0.000312037115068 0.000295645721395   0.00015351"
-      "7899078; ...\n    %   -0.000971095497459   0.000028021469709   0.000019062507239   0.000004936266851 0.000153517"
-      "899078   0.000171767843043];\n\n    P=gamaD*eye(6);\nend\n\npersistent gama2;\nif isempty(gama2)\n    %gama2=0.9"
-      "97899999973786;\n    gama2=gama;\nend\n\n% persistent u_res_k1;\n% if isempty(u_res_k1)\n%     u_res_k1=0;\n% en"
-      "d\n% \n% persistent u_res_k2;\n% if isempty(u_res_k2)\n%     u_res_k2=0;\n% end\n% \n% persistent e_res_k1;\n% i"
-      "f isempty(e_res_k1)\n%     e_res_k1=0;\n% end\n% \n% persistent e_res_k2;\n% if isempty(e_res_k2)\n%     e_res_k"
-      "2=0;\n% end\n\n%persistent adapt_init_flag;\n%if isempty(adapt_init_flag)\n%    adapt_init_flag=0;\n%end\n\n%if "
-      "t>=adapt_time\n\n%% Cálculos\n\n%Ação de controle\nomega_k(3)= i2_k;\nomega_k(4)= i2ref_k;\n\n%if t>vg_switch_ti"
-      "me\n%    omega_k(5)= 311*sin(2*pi*60*t);\n%    omega_k(6)= 311*cos(2*pi*60*t);\n%    if adapt_init_flag<1\n%    "
-      "    theta_k(5)=0;\n%        theta_k(6)=-1;\n%        %theta_k=[0.3127; -0.3906; -0.7082; 1.0079; 0.0873; 0.0164;"
-      "];\n%        adapt_init_flag=1;\n%    end\n%else\n%    omega_k(5)= 0;\n%    omega_k(6)= 0;\n%end\n\nomega_k(5)= "
-      "311*sin(2*pi*60*t);\nomega_k(6)= 311*cos(2*pi*60*t);\n\nu_k= theta_k'*omega_k;\n\n%inserindo o controlador propo"
-      "rcional no bloco do adaptativo\nup_alpha= kp*(u_k-ic_k);\n\neta_k= (p1+p2)*eta_k_1 - p1*p2*eta_k_2 + (1-p1)*(1-p"
-      "2)*omega_k_2;\n\ni2m_k= (p1+p2)*i2m_k_1 - p1*p2*i2m_k_2 + (1-p1)*(1-p2)*i2ref_k_2;\n\ne1_k= i2_k - i2m_k;\n\nv_k"
-      "= (p1+p2)*v_k_1 - p1*p2*v_k_2 + (1-p1)*(1-p2)*u_k_2;\n\nq_k= theta_k'*eta_k;\n\ne2_k= -v_k+q_k;\n\nea_k= e1_k+rh"
-      "o_k*e2_k;\n\nif flag==1\n    m2_k= 0.1*eta_k'*eta_k + e2_k^2 + m2;\nelse\n    m2_k= 0.01*eta_k'*eta_k + e2_k^2 +"
-      " m2;\nend\n%m2_k= m2 + (1+eta_k'*P*eta_k) + gama2*e2_k^2;\n\nP= P - (P*eta_k*eta_k'*P)/m2_k;\ngama2= gama2 - (ga"
-      "ma2^2*e2_k^2)/(m2_k^2);\n\n%Pout=P;\n%gama_out=gama2;\n\n%% Atualização\n\n%calcula theta(k+1)\ntheta_k = theta_"
-      "k - (gamaD*ea_k/m2_k)*eta_k;\n%theta_k = theta_k - (P*ea_k/m2_k)*eta_k;\ntheta_alpha = theta_k;\n\n%calcula rho("
-      "k+1)\nrho_k= rho_k - (gama*ea_k*e2_k)/m2_k;\n\nif flag==1\n    m2 = delta0*(m2 - 1) + abs(u_k) + abs(i2_k) + 1;\n"
-      "else\n    m2 = delta0*(m2 - 1) + abs(u_k) + abs(i2_k) + 1;\nend\n\nomega_k_3=omega_k_2;\nomega_k_2=omega_k_1;\no"
-      "mega_k_1=omega_k;\n\nomega_k(1)=0*omega_k(1) + 1*u_k;\nomega_k(2)=0*omega_k(2) + 1*i2_k;\n\neta_k_3=eta_k_2;\net"
-      "a_k_2=eta_k_1;\neta_k_1=eta_k;\n\ni2ref_k_3 = i2ref_k_2;\ni2ref_k_2 = i2ref_k_1;\ni2ref_k_1 = i2ref_k;\n\ni2m_k_"
-      "3=i2m_k_2;\ni2m_k_2=i2m_k_1;\ni2m_k_1=i2m_k;\n\nv_k_3=v_k_2;\nv_k_2=v_k_1;\nv_k_1=v_k;\n\nu_k_2=u_k_1;\nu_k_1=u_"
-      "k;\n\n%else\n\n%e_res_k=0-ic_k;\n%u_res_k= 1.98*u_res_k1 - u_res_k2 + 1.25*10^(-5)*(e_res_k1 - e_res_k2);\n\n%up"
-      "_alpha= kp*e_res_k + u_res_k;\n\n%e_res_k2 = e_res_k1;\n%e_res_k1 = e_res_k;\n%u_res_k2 = u_res_k1;\n%u_res_k1 ="
-      " u_res_k;\n\n%end\n\nend"
+      "ent eta_k_1;\nif isempty(eta_k_1)\n    %COM vg\n    eta_k_1=[0; 0; 0; 0; 0; 0];\nend\n\npersistent eta_k_2;\nif "
+      "isempty(eta_k_2)\n    %COM vg\n    eta_k_2=[0; 0; 0; 0; 0; 0];\nend\n\npersistent i2m_k_1;\nif isempty(i2m_k_1)\n"
+      "    i2m_k_1=0;\nend\n\npersistent i2m_k_2;\nif isempty(i2m_k_2)\n    i2m_k_2=0;\nend\n\npersistent i2ref_k_1;\ni"
+      "f isempty(i2ref_k_1)\n    i2ref_k_1=0;\nend\n\npersistent i2ref_k_2;\nif isempty(i2ref_k_2)\n    i2ref_k_2=0;\ne"
+      "nd\n\npersistent v_k_1;\nif isempty(v_k_1)\n    v_k_1=0;\nend\n\npersistent v_k_2;\nif isempty(v_k_2)\n    v_k_2"
+      "=0;\nend\n\npersistent rho_k;\nif isempty(rho_k)\n    rho_k=Kp/km;\nend\n\npersistent m2;\nif isempty(m2)\n    m"
+      "2=1;\nend\n\npersistent u_k_1;\nif isempty(u_k_1)\n    u_k_1=0;\nend\n\npersistent u_k_2;\nif isempty(u_k_2)\n  "
+      "  u_k_2=0;\nend\n\n\n%% Cálculos\n\n%Ação de controle\nomega_k(3)= i2_k;\nomega_k(4)= i2ref_k;\n\nomega_k(5)= 31"
+      "1*sin(2*pi*60*t);\nomega_k(6)= 311*cos(2*pi*60*t);\n\nu_k= theta_k'*omega_k;\n\n%inserindo o controlador proporc"
+      "ional no bloco do adaptativo\nup_alpha= kp*(u_k-ic_k);\n\neta_k= (p1+p2)*eta_k_1 - p1*p2*eta_k_2 + (1-p1)*(1-p2)"
+      "*omega_k_2;\n\ni2m_k= (p1+p2)*i2m_k_1 - p1*p2*i2m_k_2 + (1-p1)*(1-p2)*i2ref_k_2;\n\ne1_k= i2_k - i2m_k;\n\nv_k= "
+      "(p1+p2)*v_k_1 - p1*p2*v_k_2 + (1-p1)*(1-p2)*u_k_2;\n\nq_k= theta_k'*eta_k;\n\ne2_k= -v_k+q_k;\n\nea_k= e1_k+rho_"
+      "k*e2_k;\n\nm2_k= 0.1*eta_k'*eta_k + e2_k^2 + m2;\n\n%% Atualização\n\n%calcula theta(k+1)\ntheta_k = theta_k - ("
+      "gamaD*ea_k/m2_k)*eta_k;\ntheta_alpha = theta_k;\n\n%calcula rho(k+1)\nrho_k= rho_k - (gama*ea_k*e2_k)/m2_k;\n\nm"
+      "2 = delta0*(m2 - 1) + abs(u_k) + abs(i2_k) + 1;\n\nomega_k_2=omega_k_1;\nomega_k_1=omega_k;\n\nomega_k(1)=0*omeg"
+      "a_k(1) + 1*u_k;\nomega_k(2)=0*omega_k(2) + 1*i2_k;\n\neta_k_2=eta_k_1;\neta_k_1=eta_k;\n\ni2ref_k_2 = i2ref_k_1;"
+      "\ni2ref_k_1 = i2ref_k;\n\ni2m_k_2=i2m_k_1;\ni2m_k_1=i2m_k;\n\nv_k_2=v_k_1;\nv_k_1=v_k;\n\nu_k_2=u_k_1;\nu_k_1=u_"
+      "k;\n\nend"
       editorLayout	      "100 M4x1[10 5 700 500]"
     }
   }
@@ -8579,8 +8420,8 @@ Stateflow {
   }
   data {
     id			    21
-    ssIdNumber		    14
-    name		    "flag"
+    ssIdNumber		    11
+    name		    "t"
     linkNode		    [13 20 22]
     scope		    INPUT_DATA
     machine		    1
@@ -8601,31 +8442,9 @@ Stateflow {
   }
   data {
     id			    22
-    ssIdNumber		    11
-    name		    "t"
-    linkNode		    [13 21 23]
-    scope		    INPUT_DATA
-    machine		    1
-    props {
-      array {
-	size			"-1"
-      }
-      type {
-	method			SF_INHERITED_TYPE
-	primitive		SF_DOUBLE_TYPE
-	isSigned		1
-	wordLength		"16"
-      }
-      complexity	      SF_COMPLEX_INHERITED
-      frame		      SF_FRAME_INHERITED
-    }
-    dataType		    "Inherit: Same as Simulink"
-  }
-  data {
-    id			    23
     ssIdNumber		    16
     name		    "theta_alpha"
-    linkNode		    [13 22 0]
+    linkNode		    [13 21 0]
     scope		    OUTPUT_DATA
     machine		    1
     props {
@@ -8644,26 +8463,26 @@ Stateflow {
     dataType		    "Inherit: Same as Simulink"
   }
   instance {
-    id			    24
+    id			    23
     name		    "Controlador/Controlador Adaptativo Alpha"
     machine		    1
     chart		    13
   }
   chart {
-    id			    25
+    id			    24
     name		    "Controlador/Controlador Adaptativo Beta"
     windowPosition	    [1061.25 -69.167 278 600]
     viewLimits		    [0 156.75 0 153.75]
     screen		    [1 1 1440 900 1.333333333333333]
-    treeNode		    [0 26 0 0]
-    firstTransition	    28
-    firstJunction	    27
-    viewObj		    25
+    treeNode		    [0 25 0 0]
+    firstTransition	    27
+    firstJunction	    26
+    viewObj		    24
     machine		    1
     ssIdHighWaterMark	    16
     decomposition	    CLUSTER_CHART
     type		    EML_CHART
-    firstData		    29
+    firstData		    28
     chartFileNumber	    3
     disableImplicitCasting  1
     eml {
@@ -8671,100 +8490,59 @@ Stateflow {
     }
   }
   state {
-    id			    26
+    id			    25
     labelString		    "eML_blk_kernel()"
     position		    [18 64.5 118 66]
     fontSize		    12
-    chart		    25
-    treeNode		    [25 0 0 0]
+    chart		    24
+    treeNode		    [24 0 0 0]
     superState		    SUBCHART
-    subviewer		    25
+    subviewer		    24
     ssIdNumber		    1
     type		    FUNC_STATE
     decomposition	    CLUSTER_STATE
     eml {
       isEML		      1
-      script		      "function [up_beta, theta_Beta] = adaptativo( i2ref_k, i2_k, ic_k, flag, t )\n\n%#CODEGEN\n    \n%"
-      "Definição dos valores projetados dos elementos do filtro\nL1ideal=2e-3;\nL2ideal=2e-3;\nLgideal=0;\nCideal=40e-6"
-      ";\nR1ideal=0;\nR2ideal=0;\nRgideal=0;\n\n%Definição de erros percentuais para simular variação paramétrica\nerrL"
-      "1=0;\nerrL2=0;\nerrLg=0;\nerrC=0;\nerrR1=0;\nerrR2=0;\nerrRg=0;\ndeltaL1=errL1*L1ideal;\ndeltaL2=errL2*L2ideal;\n"
-      "deltaLg=errLg*Lgideal;\ndeltaC=errC*Cideal;\ndeltaR1=errR1*R1ideal;\ndeltaR2=errR2*R2ideal;\ndeltaRg=errRg*Rgide"
-      "al;\n\n%Definição do valor real medido, incluindo a variação paramétrica\n%percentual\nL1=L1ideal+deltaL1;\nL2=L"
-      "2ideal+deltaL2+Lgideal+deltaLg;\nC=Cideal+deltaC;\nR1=R1ideal+deltaR1;\nR2=R2ideal+deltaR2+Rgideal+deltaRg;\n\n%"
-      "Demais elementos\nTs=1/12000;\nw=sqrt((L1+L2)/(L1*L2*C));\n\n%Kp é a multiplicação do ganho do controlador da ma"
-      "lha interna(kp), do\n%ganho da planta(ki) e do ganho da malha externa(kod)\nkp=8;\n%Kp=0.156891976007044;\nKp=0."
-      "004780841242217;\n\n%polos do modelo de referência:\np1=0.2;\np2=0.2;\n\nkm=(1-p1)*(1-p2);\n\n%constantes -> gam"
-      "aD < (1-gama)*km/kp\ngamaD=0.0098;\ngama=0.99;\n\ndelta0=0.8;\n\n%adapt_time=2/60;\n%vg_switch_time=4/60;\n\n%% "
-      "Variáveis Persistentes e Inicializações\n\npersistent theta_k;\nif isempty(theta_k)\n    %COM compensação para v"
-      "g\n    %theta_k=[-0.3106; -0.2728; 0.0368; -0.2369; -0.422; -0.2775; -0.7979; 1.786; -0.0008; 0.0003];\n    %the"
-      "ta_k=[-0.3106; -0.2728; 0.0368; -0.2369; -0.422; -0.2775; -0.7979; 1.786; 1; 0];\n    %theta_k=[-0.40085038; -0."
-      "36853743; -0.064251891; -0.4277604154; -0.61214672; -0.46675405; -0.98929343; 1.76426551; 0.17164080; 0.11598547"
-      "];\n    %theta_k=[0;0;0;0;0;0; -0.98929343; 1.76426551; 0.17164080; 0.11598547];\n    %theta_k=[-0.0711518484705"
-      "10; -0.470549298500393; -0.993323557655345; 1.762541193804541; 0.118014567931226; 0.108368323169129];\n    %thet"
-      "a_k=[-0.46; -0.58; -1.74; 1.73; 0.2; 0.03];\n    theta_k=[-0.03; -0.36; -0.57; -0.01; 0.16; 0.02];\nend\n\npersi"
-      "stent omega_k;\nif isempty(omega_k)\n    %COM vg\n    omega_k=[0; 0; 0; 0; 0; 0];\nend\n\npersistent omega_k_1;\n"
-      "if isempty(omega_k_1)\n    %COM vg\n    omega_k_1=[0; 0; 0; 0; 0; 0];\nend\n\npersistent omega_k_2;\nif isempty("
-      "omega_k_2)\n    %COM vg\n    omega_k_2=[0; 0; 0; 0; 0; 0];\nend\n\npersistent omega_k_3;\nif isempty(omega_k_3)\n"
-      "    %COM vg\n    omega_k_3=[0; 0; 0; 0; 0; 0];\nend\n\npersistent eta_k_1;\nif isempty(eta_k_1)\n    %COM vg\n  "
-      "  eta_k_1=[0; 0; 0; 0; 0; 0];\nend\n\npersistent eta_k_2;\nif isempty(eta_k_2)\n    %COM vg\n    eta_k_2=[0; 0; "
-      "0; 0; 0; 0];\nend\n\npersistent eta_k_3;\nif isempty(eta_k_3)\n    %COM vg\n    eta_k_3=[0; 0; 0; 0; 0; 0];\nend"
-      "\n\npersistent i2m_k_1;\nif isempty(i2m_k_1)\n    i2m_k_1=0;\nend\n\npersistent i2m_k_2;\nif isempty(i2m_k_2)\n "
-      "   i2m_k_2=0;\nend\n\npersistent i2m_k_3;\nif isempty(i2m_k_3)\n    i2m_k_3=0;\nend\n\npersistent i2ref_k_1;\nif"
-      " isempty(i2ref_k_1)\n    i2ref_k_1=0;\nend\n\npersistent i2ref_k_2;\nif isempty(i2ref_k_2)\n    i2ref_k_2=0;\nen"
-      "d\n\npersistent i2ref_k_3;\nif isempty(i2ref_k_3)\n    i2ref_k_3=0;\nend\n\npersistent v_k_1;\nif isempty(v_k_1)"
-      "\n    v_k_1=0;\nend\n\npersistent v_k_2;\nif isempty(v_k_2)\n    v_k_2=0;\nend\n\npersistent v_k_3;\nif isempty("
-      "v_k_3)\n    v_k_3=0;\nend\n\npersistent rho_k;\nif isempty(rho_k)\n    rho_k=Kp/km;\nend\n\npersistent m2;\nif i"
-      "sempty(m2)\n    m2=1;\nend\n\npersistent u_k_1;\nif isempty(u_k_1)\n    u_k_1=0;\nend\n\npersistent u_k_2;\nif i"
-      "sempty(u_k_2)\n    u_k_2=0;\nend\n\npersistent P;\nif isempty(P)\n    %P=[0.002225441018075 -0.002258665319558 -"
-      "1.129332659782590e-004 -0.003793046611769; ...\n    %    -0.002258665319558 0.149747822133961 -0.042512608892738"
-      " 0.002487914954665; ...\n    %    -1.129332659782590e-004 -0.042512608892738 0.997874369555398 1.243957477280539"
-      "e-004; ...\n    %    -0.003793046611769 0.002487914954665 1.243957477280538e-004 0.754190018333160];\n    %P=[0."
-      "009712540165252   -0.000020445335620  -0.000026266935611  -0.000037334327242 -0.001161097577207  -0.000971095497"
-      "459; ...\n    %   -0.000020445335620   0.009977400822109  -0.000022631160072  -0.000009984284241 -0.000310511239"
-      "892   0.000028021469709; ...\n    %   -0.000026266935611  -0.000022631160072   0.009976301443788  -0.00000997256"
-      "3160 -0.000310146714255   0.000019062507239; ...\n    %   -0.000037334327242  -0.000009984284241  -0.00000997256"
-      "3160   0.009989966652248 -0.000312037115068   0.000004936266851; ...\n    %   -0.001161097577207  -0.00031051123"
-      "9892  -0.000310146714255  -0.000312037115068 0.000295645721395   0.000153517899078; ...\n    %   -0.000971095497"
-      "459   0.000028021469709   0.000019062507239   0.000004936266851 0.000153517899078   0.000171767843043];\n\n    P"
-      "=gamaD*eye(6);\nend\n\npersistent gama2;\nif isempty(gama2)\n    %gama2=0.997899999973786;\n    gama2=gama;\nend"
-      "\n\n% persistent u_res_k1;\n% if isempty(u_res_k1)\n%     u_res_k1=0;\n% end\n% \n% persistent u_res_k2;\n% if i"
-      "sempty(u_res_k2)\n%     u_res_k2=0;\n% end\n% \n% persistent e_res_k1;\n% if isempty(e_res_k1)\n%     e_res_k1=0"
-      ";\n% end\n% \n% persistent e_res_k2;\n% if isempty(e_res_k2)\n%     e_res_k2=0;\n% end\n\n%persistent adapt_init"
-      "_flag;\n%if isempty(adapt_init_flag)\n%    adapt_init_flag=0;\n%end\n\n%if t>=adapt_time\n\n%% Cálculos\n\n%Ação"
-      " de controle\nomega_k(3)= i2_k;\nomega_k(4)= i2ref_k;\n\n%if t>vg_switch_time\n%    omega_k(5)= 311*sin(2*pi*60*"
-      "t);\n%    omega_k(6)= 311*cos(2*pi*60*t);\n%    if adapt_init_flag<1\n%        theta_k(5)=-1;\n%        theta_k("
-      "6)=0;\n%        %theta_k=[0.3127; -0.3906; -0.7082; 1.0079; 0.0873; 0.0164;];\n%        adapt_init_flag=1;\n%   "
-      " end\n%else\n%    omega_k(5)= 0;\n%    omega_k(6)= 0;\n%end\n\nomega_k(5)= 311*sin(2*pi*60*t);\nomega_k(6)= 311*"
-      "cos(2*pi*60*t);\n\nu_k= theta_k'*omega_k;\n%Theta=theta_k;\n\n%inserindo o controlador proporcional no bloco do "
-      "adaptativo\nup_beta= kp*(u_k-ic_k);\n\neta_k= (p1+p2)*eta_k_1 - p1*p2*eta_k_2 + (1-p1)*(1-p2)*omega_k_2;\n\ni2m_"
-      "k= (p1+p2)*i2m_k_1 - p1*p2*i2m_k_2 + (1-p1)*(1-p2)*i2ref_k_2;\n\ne1_k= i2_k - i2m_k;\n\nv_k= (p1+p2)*v_k_1 - p1*"
-      "p2*v_k_2 + (1-p1)*(1-p2)*u_k_2;\n\nq_k= theta_k'*eta_k;\n\ne2_k= -v_k+q_k;\n\nea_k= e1_k+rho_k*e2_k;\n\nif flag="
-      "=1\n    m2_k= 0.1*eta_k'*eta_k + e2_k^2 + m2;\nelse\n    m2_k= 0.01*eta_k'*eta_k + e2_k^2 + m2;\nend\n%m2_k= m2 "
-      "+ (1+eta_k'*P*eta_k) + gama2*e2_k^2;\n\nP= P - (P*eta_k*eta_k'*P)/m2_k;\ngama2= gama2 - (gama2^2*e2_k^2)/(m2_k^2"
-      ");\n\n%Pout=P;\n%gama_out=gama2;\n\n%% Atualização\n\n%calcula theta(k+1)\ntheta_k = theta_k - (gamaD*ea_k/m2_k)"
-      "*eta_k;\n%theta_k = theta_k - (P*ea_k/m2_k)*eta_k;\ntheta_Beta = theta_k;\n\n%calcula rho(k+1)\nrho_k= rho_k - ("
-      "gama*ea_k*e2_k)/m2_k;\n\nif flag==1\n    m2 = delta0*(m2 - 1) + abs(u_k) + abs(i2_k) + 1;\nelse\n    m2 = delta0"
-      "*(m2 - 1) + abs(u_k) + abs(i2_k) + 1;\nend\n\nomega_k_3=omega_k_2;\nomega_k_2=omega_k_1;\nomega_k_1=omega_k;\n\n"
-      "omega_k(1)=0*omega_k(1) + 1*u_k;\nomega_k(2)=0*omega_k(2) + 1*i2_k;\n\neta_k_3=eta_k_2;\neta_k_2=eta_k_1;\neta_k"
-      "_1=eta_k;\n\ni2ref_k_3 = i2ref_k_2;\ni2ref_k_2 = i2ref_k_1;\ni2ref_k_1 = i2ref_k;\n\ni2m_k_3=i2m_k_2;\ni2m_k_2=i"
-      "2m_k_1;\ni2m_k_1=i2m_k;\n\nv_k_3=v_k_2;\nv_k_2=v_k_1;\nv_k_1=v_k;\n\nu_k_2=u_k_1;\nu_k_1=u_k;\n\n%else\n\n% e_re"
-      "s_k=0-ic_k;\n% u_res_k= 1.98*u_res_k1 - u_res_k2 + 1.25*10^(-5)*(e_res_k1 - e_res_k2);\n% \n% up_beta= kp*e_res_"
-      "k + u_res_k;\n% \n% e_res_k2 = e_res_k1;\n% e_res_k1 = e_res_k;\n% u_res_k2 = u_res_k1;\n% u_res_k1 = u_res_k;\n"
-      "\n%end\n\nend"
+      script		      "function [up_beta, theta_beta] = adaptativo( i2ref_k, i2_k, ic_k, t )\n\n%#CODEGEN\n    \n%Kp é a"
+      " multiplicação do ganho do controlador da malha interna(kp), do\n%ganho da planta(ki) e do ganho da malha extern"
+      "a(kod)\nkp=8;\n%Kp=0.156891976007044;\nKp=0.004780841242217;\n\n%polos do modelo de referência:\np1=0.2;\np2=0.2"
+      ";\n\nkm=(1-p1)*(1-p2);\n\n%constantes -> gamaD < (1-gama)*km/kp\ngamaD=0.0098;\ngama=0.99;\n\ndelta0=0.8;\n\n%% "
+      "Variáveis Persistentes e Inicializações\n\npersistent theta_k;\nif isempty(theta_k)\n    theta_k=[-0.03; -0.36; "
+      "-0.57; -0.01; 0.16; 0.02];\nend\n\npersistent omega_k;\nif isempty(omega_k)\n    %COM vg\n    omega_k=[0; 0; 0; "
+      "0; 0; 0];\nend\n\npersistent omega_k_1;\nif isempty(omega_k_1)\n    %COM vg\n    omega_k_1=[0; 0; 0; 0; 0; 0];\n"
+      "end\n\npersistent omega_k_2;\nif isempty(omega_k_2)\n    %COM vg\n    omega_k_2=[0; 0; 0; 0; 0; 0];\nend\n\npers"
+      "istent eta_k_1;\nif isempty(eta_k_1)\n    %COM vg\n    eta_k_1=[0; 0; 0; 0; 0; 0];\nend\n\npersistent eta_k_2;\n"
+      "if isempty(eta_k_2)\n    %COM vg\n    eta_k_2=[0; 0; 0; 0; 0; 0];\nend\n\npersistent i2m_k_1;\nif isempty(i2m_k_"
+      "1)\n    i2m_k_1=0;\nend\n\npersistent i2m_k_2;\nif isempty(i2m_k_2)\n    i2m_k_2=0;\nend\n\npersistent i2ref_k_1"
+      ";\nif isempty(i2ref_k_1)\n    i2ref_k_1=0;\nend\n\npersistent i2ref_k_2;\nif isempty(i2ref_k_2)\n    i2ref_k_2=0"
+      ";\nend\n\npersistent v_k_1;\nif isempty(v_k_1)\n    v_k_1=0;\nend\n\npersistent v_k_2;\nif isempty(v_k_2)\n    v"
+      "_k_2=0;\nend\n\npersistent rho_k;\nif isempty(rho_k)\n    rho_k=Kp/km;\nend\n\npersistent m2;\nif isempty(m2)\n "
+      "   m2=1;\nend\n\npersistent u_k_1;\nif isempty(u_k_1)\n    u_k_1=0;\nend\n\npersistent u_k_2;\nif isempty(u_k_2)"
+      "\n    u_k_2=0;\nend\n\n%% Cálculos\n\n%Ação de controle\nomega_k(3)= i2_k;\nomega_k(4)= i2ref_k;\n\nomega_k(5)= "
+      "311*sin(2*pi*60*t);\nomega_k(6)= 311*cos(2*pi*60*t);\n\nu_k= theta_k'*omega_k;\n\n%inserindo o controlador propo"
+      "rcional no bloco do adaptativo\nup_beta= kp*(u_k-ic_k);\n\neta_k= (p1+p2)*eta_k_1 - p1*p2*eta_k_2 + (1-p1)*(1-p2"
+      ")*omega_k_2;\n\ni2m_k= (p1+p2)*i2m_k_1 - p1*p2*i2m_k_2 + (1-p1)*(1-p2)*i2ref_k_2;\n\ne1_k= i2_k - i2m_k;\n\nv_k="
+      " (p1+p2)*v_k_1 - p1*p2*v_k_2 + (1-p1)*(1-p2)*u_k_2;\n\nq_k= theta_k'*eta_k;\n\ne2_k= -v_k+q_k;\n\nea_k= e1_k+rho"
+      "_k*e2_k;\n\nm2_k= 0.1*eta_k'*eta_k + e2_k^2 + m2;\n\n\n%% Atualização\n\n%calcula theta(k+1)\ntheta_k = theta_k "
+      "- (gamaD*ea_k/m2_k)*eta_k;\ntheta_beta = theta_k;\n\n%calcula rho(k+1)\nrho_k= rho_k - (gama*ea_k*e2_k)/m2_k;\n\n"
+      "m2 = delta0*(m2 - 1) + abs(u_k) + abs(i2_k) + 1;\n\nomega_k_2=omega_k_1;\nomega_k_1=omega_k;\n\nomega_k(1)=0*ome"
+      "ga_k(1) + 1*u_k;\nomega_k(2)=0*omega_k(2) + 1*i2_k;\n\neta_k_2=eta_k_1;\neta_k_1=eta_k;\n\ni2ref_k_2 = i2ref_k_1"
+      ";\ni2ref_k_1 = i2ref_k;\n\ni2m_k_2=i2m_k_1;\ni2m_k_1=i2m_k;\n\nv_k_2=v_k_1;\nv_k_1=v_k;\n\nu_k_2=u_k_1;\nu_k_1=u"
+      "_k;\n\nend"
       editorLayout	      "100 M4x1[10 5 700 500]"
     }
   }
   junction {
-    id			    27
+    id			    26
     position		    [23.5747 49.5747 7]
-    chart		    25
-    linkNode		    [25 0 0]
-    subviewer		    25
+    chart		    24
+    linkNode		    [24 0 0]
+    subviewer		    24
     ssIdNumber		    3
     type		    CONNECTIVE_JUNCTION
   }
   transition {
-    id			    28
+    id			    27
     labelString		    "{eML_blk_kernel();}"
     labelPosition	    [32.125 19.875 102.544 14.964]
     fontSize		    12
@@ -8772,14 +8550,14 @@ Stateflow {
       intersection	      [0 0 1 0 23.5747 14.625 0 0]
     }
     dst {
-      id		      27
+      id		      26
       intersection	      [1 0 -1 0 23.5747 42.5747 0 0]
     }
     midPoint		    [23.5747 24.9468]
-    chart		    25
-    linkNode		    [25 0 0]
+    chart		    24
+    linkNode		    [24 0 0]
     dataLimits		    [23.575 23.575 14.625 34.575]
-    subviewer		    25
+    subviewer		    24
     drawStyle		    SMART
     slide {
       sticky		      BOTH_STICK
@@ -8788,10 +8566,10 @@ Stateflow {
     ssIdNumber		    2
   }
   data {
-    id			    29
+    id			    28
     ssIdNumber		    4
     name		    "i2ref_k"
-    linkNode		    [25 0 30]
+    linkNode		    [24 0 29]
     scope		    INPUT_DATA
     machine		    1
     props {
@@ -8807,10 +8585,10 @@ Stateflow {
     dataType		    "Inherit: Same as Simulink"
   }
   data {
-    id			    30
+    id			    29
     ssIdNumber		    5
     name		    "up_beta"
-    linkNode		    [25 29 31]
+    linkNode		    [24 28 30]
     scope		    OUTPUT_DATA
     machine		    1
     props {
@@ -8827,10 +8605,32 @@ Stateflow {
     dataType		    "Inherit: Same as Simulink"
   }
   data {
-    id			    31
+    id			    30
     ssIdNumber		    6
     name		    "i2_k"
-    linkNode		    [25 30 32]
+    linkNode		    [24 29 31]
+    scope		    INPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+	isSigned		1
+	wordLength		"16"
+      }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_INHERITED
+    }
+    dataType		    "Inherit: Same as Simulink"
+  }
+  data {
+    id			    31
+    ssIdNumber		    8
+    name		    "ic_k"
+    linkNode		    [24 30 32]
     scope		    INPUT_DATA
     machine		    1
     props {
@@ -8850,9 +8650,9 @@ Stateflow {
   }
   data {
     id			    32
-    ssIdNumber		    8
-    name		    "ic_k"
-    linkNode		    [25 31 33]
+    ssIdNumber		    11
+    name		    "t"
+    linkNode		    [24 31 33]
     scope		    INPUT_DATA
     machine		    1
     props {
@@ -8872,53 +8672,9 @@ Stateflow {
   }
   data {
     id			    33
-    ssIdNumber		    14
-    name		    "flag"
-    linkNode		    [25 32 34]
-    scope		    INPUT_DATA
-    machine		    1
-    props {
-      array {
-	size			"-1"
-      }
-      type {
-	method			SF_INHERITED_TYPE
-	primitive		SF_DOUBLE_TYPE
-	isSigned		1
-	wordLength		"16"
-      }
-      complexity	      SF_COMPLEX_INHERITED
-      frame		      SF_FRAME_INHERITED
-    }
-    dataType		    "Inherit: Same as Simulink"
-  }
-  data {
-    id			    34
-    ssIdNumber		    11
-    name		    "t"
-    linkNode		    [25 33 35]
-    scope		    INPUT_DATA
-    machine		    1
-    props {
-      array {
-	size			"-1"
-      }
-      type {
-	method			SF_INHERITED_TYPE
-	primitive		SF_DOUBLE_TYPE
-	isSigned		1
-	wordLength		"16"
-      }
-      complexity	      SF_COMPLEX_INHERITED
-      frame		      SF_FRAME_INHERITED
-    }
-    dataType		    "Inherit: Same as Simulink"
-  }
-  data {
-    id			    35
     ssIdNumber		    16
-    name		    "theta_Beta"
-    linkNode		    [25 34 0]
+    name		    "theta_beta"
+    linkNode		    [24 32 0]
     scope		    OUTPUT_DATA
     machine		    1
     props {
@@ -8937,26 +8693,26 @@ Stateflow {
     dataType		    "Inherit: Same as Simulink"
   }
   instance {
-    id			    36
+    id			    34
     name		    "Controlador/Controlador Adaptativo Beta"
     machine		    1
-    chart		    25
+    chart		    24
   }
   chart {
-    id			    37
+    id			    35
     name		    "Controlador/alpha-beta-zero to abc"
     windowPosition	    [1044.75 -69.167 183 600]
     viewLimits		    [0 156.75 0 153.75]
     screen		    [1 1 1440 900 1.333333333333333]
-    treeNode		    [0 38 0 0]
-    firstTransition	    40
-    firstJunction	    39
-    viewObj		    37
+    treeNode		    [0 36 0 0]
+    firstTransition	    38
+    firstJunction	    37
+    viewObj		    35
     machine		    1
     ssIdHighWaterMark	    9
     decomposition	    CLUSTER_CHART
     type		    EML_CHART
-    firstData		    41
+    firstData		    39
     chartFileNumber	    4
     disableImplicitCasting  1
     eml {
@@ -8964,14 +8720,14 @@ Stateflow {
     }
   }
   state {
-    id			    38
+    id			    36
     labelString		    "eML_blk_kernel()"
     position		    [18 64.5 118 66]
     fontSize		    12
-    chart		    37
-    treeNode		    [37 0 0 0]
+    chart		    35
+    treeNode		    [35 0 0 0]
     superState		    SUBCHART
-    subviewer		    37
+    subviewer		    35
     ssIdNumber		    1
     type		    FUNC_STATE
     decomposition	    CLUSTER_STATE
@@ -8985,16 +8741,16 @@ Stateflow {
     }
   }
   junction {
-    id			    39
+    id			    37
     position		    [23.5747 49.5747 7]
-    chart		    37
-    linkNode		    [37 0 0]
-    subviewer		    37
+    chart		    35
+    linkNode		    [35 0 0]
+    subviewer		    35
     ssIdNumber		    3
     type		    CONNECTIVE_JUNCTION
   }
   transition {
-    id			    40
+    id			    38
     labelString		    "{eML_blk_kernel();}"
     labelPosition	    [32.125 19.875 102.544 14.964]
     fontSize		    12
@@ -9002,14 +8758,14 @@ Stateflow {
       intersection	      [0 0 1 0 23.5747 14.625 0 0]
     }
     dst {
-      id		      39
+      id		      37
       intersection	      [1 0 -1 0 23.5747 42.5747 0 0]
     }
     midPoint		    [23.5747 24.9468]
-    chart		    37
-    linkNode		    [37 0 0]
+    chart		    35
+    linkNode		    [35 0 0]
     dataLimits		    [21.175 25.975 14.625 42.575]
-    subviewer		    37
+    subviewer		    35
     drawStyle		    SMART
     slide {
       sticky		      BOTH_STICK
@@ -9018,10 +8774,10 @@ Stateflow {
     ssIdNumber		    2
   }
   data {
-    id			    41
+    id			    39
     ssIdNumber		    4
     name		    "up_a"
-    linkNode		    [37 0 42]
+    linkNode		    [35 0 40]
     scope		    OUTPUT_DATA
     machine		    1
     props {
@@ -9038,10 +8794,10 @@ Stateflow {
     dataType		    "Inherit: Same as Simulink"
   }
   data {
-    id			    42
+    id			    40
     ssIdNumber		    5
     name		    "up_alpha"
-    linkNode		    [37 41 43]
+    linkNode		    [35 39 41]
     scope		    INPUT_DATA
     machine		    1
     props {
@@ -9058,11 +8814,55 @@ Stateflow {
     dataType		    "Inherit: Same as Simulink"
   }
   data {
-    id			    43
+    id			    41
     ssIdNumber		    6
     name		    "up_b"
-    linkNode		    [37 42 44]
+    linkNode		    [35 40 42]
     scope		    OUTPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+	isSigned		1
+	wordLength		"16"
+      }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_NO
+    }
+    dataType		    "Inherit: Same as Simulink"
+  }
+  data {
+    id			    42
+    ssIdNumber		    7
+    name		    "up_c"
+    linkNode		    [35 41 43]
+    scope		    OUTPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+	isSigned		1
+	wordLength		"16"
+      }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_NO
+    }
+    dataType		    "Inherit: Same as Simulink"
+  }
+  data {
+    id			    43
+    ssIdNumber		    8
+    name		    "up_beta"
+    linkNode		    [35 42 44]
+    scope		    INPUT_DATA
     machine		    1
     props {
       array {
@@ -9081,53 +8881,9 @@ Stateflow {
   }
   data {
     id			    44
-    ssIdNumber		    7
-    name		    "up_c"
-    linkNode		    [37 43 45]
-    scope		    OUTPUT_DATA
-    machine		    1
-    props {
-      array {
-	size			"-1"
-      }
-      type {
-	method			SF_INHERITED_TYPE
-	primitive		SF_DOUBLE_TYPE
-	isSigned		1
-	wordLength		"16"
-      }
-      complexity	      SF_COMPLEX_INHERITED
-      frame		      SF_FRAME_NO
-    }
-    dataType		    "Inherit: Same as Simulink"
-  }
-  data {
-    id			    45
-    ssIdNumber		    8
-    name		    "up_beta"
-    linkNode		    [37 44 46]
-    scope		    INPUT_DATA
-    machine		    1
-    props {
-      array {
-	size			"-1"
-      }
-      type {
-	method			SF_INHERITED_TYPE
-	primitive		SF_DOUBLE_TYPE
-	isSigned		1
-	wordLength		"16"
-      }
-      complexity	      SF_COMPLEX_INHERITED
-      frame		      SF_FRAME_NO
-    }
-    dataType		    "Inherit: Same as Simulink"
-  }
-  data {
-    id			    46
     ssIdNumber		    9
     name		    "up_0"
-    linkNode		    [37 45 0]
+    linkNode		    [35 43 0]
     scope		    INPUT_DATA
     machine		    1
     props {
@@ -9146,26 +8902,26 @@ Stateflow {
     dataType		    "Inherit: Same as Simulink"
   }
   instance {
-    id			    47
+    id			    45
     name		    "Controlador/alpha-beta-zero to abc"
     machine		    1
-    chart		    37
+    chart		    35
   }
   chart {
-    id			    48
+    id			    46
     name		    "Controlador/abc to alpha-beta-zero1"
     windowPosition	    [1061.25 -69.167 183 600]
     viewLimits		    [0 156.75 0 153.75]
     screen		    [1 1 1440 900 1.333333333333333]
-    treeNode		    [0 49 0 0]
-    firstTransition	    51
-    firstJunction	    50
-    viewObj		    48
+    treeNode		    [0 47 0 0]
+    firstTransition	    49
+    firstJunction	    48
+    viewObj		    46
     machine		    1
     ssIdHighWaterMark	    9
     decomposition	    CLUSTER_CHART
     type		    EML_CHART
-    firstData		    52
+    firstData		    50
     chartFileNumber	    5
     disableImplicitCasting  1
     eml {
@@ -9173,14 +8929,14 @@ Stateflow {
     }
   }
   state {
-    id			    49
+    id			    47
     labelString		    "eML_blk_kernel()"
     position		    [18 64.5 118 66]
     fontSize		    12
-    chart		    48
-    treeNode		    [48 0 0 0]
+    chart		    46
+    treeNode		    [46 0 0 0]
     superState		    SUBCHART
-    subviewer		    48
+    subviewer		    46
     ssIdNumber		    1
     type		    FUNC_STATE
     decomposition	    CLUSTER_STATE
@@ -9195,16 +8951,16 @@ Stateflow {
     }
   }
   junction {
-    id			    50
+    id			    48
     position		    [23.5747 49.5747 7]
-    chart		    48
-    linkNode		    [48 0 0]
-    subviewer		    48
+    chart		    46
+    linkNode		    [46 0 0]
+    subviewer		    46
     ssIdNumber		    3
     type		    CONNECTIVE_JUNCTION
   }
   transition {
-    id			    51
+    id			    49
     labelString		    "{eML_blk_kernel();}"
     labelPosition	    [32.125 19.875 102.544 14.964]
     fontSize		    12
@@ -9212,14 +8968,14 @@ Stateflow {
       intersection	      [0 0 1 0 23.5747 14.625 0 0]
     }
     dst {
-      id		      50
+      id		      48
       intersection	      [1 0 -1 0 23.5747 42.5747 0 0]
     }
     midPoint		    [23.5747 24.9468]
-    chart		    48
-    linkNode		    [48 0 0]
+    chart		    46
+    linkNode		    [46 0 0]
     dataLimits		    [23.575 23.575 14.625 34.575]
-    subviewer		    48
+    subviewer		    46
     drawStyle		    SMART
     slide {
       sticky		      BOTH_STICK
@@ -9228,10 +8984,10 @@ Stateflow {
     ssIdNumber		    2
   }
   data {
-    id			    52
+    id			    50
     ssIdNumber		    4
     name		    "i2_a"
-    linkNode		    [48 0 53]
+    linkNode		    [46 0 51]
     scope		    INPUT_DATA
     machine		    1
     props {
@@ -9243,15 +8999,57 @@ Stateflow {
 	primitive		SF_DOUBLE_TYPE
       }
       complexity	      SF_COMPLEX_INHERITED
+    }
+    dataType		    "Inherit: Same as Simulink"
+  }
+  data {
+    id			    51
+    ssIdNumber		    5
+    name		    "i2_alpha"
+    linkNode		    [46 50 52]
+    scope		    OUTPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+      }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_NO
+    }
+    dataType		    "Inherit: Same as Simulink"
+  }
+  data {
+    id			    52
+    ssIdNumber		    6
+    name		    "i2_b"
+    linkNode		    [46 51 53]
+    scope		    INPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+	isSigned		1
+	wordLength		"16"
+      }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_INHERITED
     }
     dataType		    "Inherit: Same as Simulink"
   }
   data {
     id			    53
-    ssIdNumber		    5
-    name		    "i2_alpha"
-    linkNode		    [48 52 54]
-    scope		    OUTPUT_DATA
+    ssIdNumber		    7
+    name		    "i2_c"
+    linkNode		    [46 52 54]
+    scope		    INPUT_DATA
     machine		    1
     props {
       array {
@@ -9260,61 +9058,19 @@ Stateflow {
       type {
 	method			SF_INHERITED_TYPE
 	primitive		SF_DOUBLE_TYPE
+	isSigned		1
+	wordLength		"16"
       }
       complexity	      SF_COMPLEX_INHERITED
-      frame		      SF_FRAME_NO
+      frame		      SF_FRAME_INHERITED
     }
     dataType		    "Inherit: Same as Simulink"
   }
   data {
     id			    54
-    ssIdNumber		    6
-    name		    "i2_b"
-    linkNode		    [48 53 55]
-    scope		    INPUT_DATA
-    machine		    1
-    props {
-      array {
-	size			"-1"
-      }
-      type {
-	method			SF_INHERITED_TYPE
-	primitive		SF_DOUBLE_TYPE
-	isSigned		1
-	wordLength		"16"
-      }
-      complexity	      SF_COMPLEX_INHERITED
-      frame		      SF_FRAME_INHERITED
-    }
-    dataType		    "Inherit: Same as Simulink"
-  }
-  data {
-    id			    55
-    ssIdNumber		    7
-    name		    "i2_c"
-    linkNode		    [48 54 56]
-    scope		    INPUT_DATA
-    machine		    1
-    props {
-      array {
-	size			"-1"
-      }
-      type {
-	method			SF_INHERITED_TYPE
-	primitive		SF_DOUBLE_TYPE
-	isSigned		1
-	wordLength		"16"
-      }
-      complexity	      SF_COMPLEX_INHERITED
-      frame		      SF_FRAME_INHERITED
-    }
-    dataType		    "Inherit: Same as Simulink"
-  }
-  data {
-    id			    56
     ssIdNumber		    8
     name		    "i2_beta"
-    linkNode		    [48 55 57]
+    linkNode		    [46 53 55]
     scope		    OUTPUT_DATA
     machine		    1
     props {
@@ -9333,10 +9089,10 @@ Stateflow {
     dataType		    "Inherit: Same as Simulink"
   }
   data {
-    id			    57
+    id			    55
     ssIdNumber		    9
     name		    "i2_0"
-    linkNode		    [48 56 0]
+    linkNode		    [46 54 0]
     scope		    OUTPUT_DATA
     machine		    1
     props {
@@ -9355,26 +9111,26 @@ Stateflow {
     dataType		    "Inherit: Same as Simulink"
   }
   instance {
-    id			    58
+    id			    56
     name		    "Controlador/abc to alpha-beta-zero1"
     machine		    1
-    chart		    48
+    chart		    46
   }
   chart {
-    id			    59
+    id			    57
     name		    "Controlador/Controlador Adaptativo 0"
     windowPosition	    [1061.25 -69.167 278 600]
     viewLimits		    [0 156.75 0 153.75]
     screen		    [1 1 1440 900 1.333333333333333]
-    treeNode		    [0 60 0 0]
-    firstTransition	    62
-    firstJunction	    61
-    viewObj		    59
+    treeNode		    [0 58 0 0]
+    firstTransition	    60
+    firstJunction	    59
+    viewObj		    57
     machine		    1
     ssIdHighWaterMark	    16
     decomposition	    CLUSTER_CHART
     type		    EML_CHART
-    firstData		    63
+    firstData		    61
     chartFileNumber	    6
     disableImplicitCasting  1
     eml {
@@ -9382,100 +9138,58 @@ Stateflow {
     }
   }
   state {
-    id			    60
+    id			    58
     labelString		    "eML_blk_kernel()"
     position		    [18 64.5 118 66]
     fontSize		    12
-    chart		    59
-    treeNode		    [59 0 0 0]
+    chart		    57
+    treeNode		    [57 0 0 0]
     superState		    SUBCHART
-    subviewer		    59
+    subviewer		    57
     ssIdNumber		    1
     type		    FUNC_STATE
     decomposition	    CLUSTER_STATE
     eml {
       isEML		      1
-      script		      "function [up_0, theta_O] = adaptativo( i2ref_k, i2_k, ic_k, flag, t )\n\n%#CODEGEN\n    \n%Defini"
-      "ção dos valores projetados dos elementos do filtro\nL1ideal=2e-3;\nL2ideal=2e-3;\nLgideal=0;\nCideal=40e-6;\nR1i"
-      "deal=0;\nR2ideal=0;\nRgideal=0;\n\n%Definição de erros percentuais para simular variação paramétrica\nerrL1=0;\n"
-      "errL2=0;\nerrLg=0;\nerrC=0;\nerrR1=0;\nerrR2=0;\nerrRg=0;\ndeltaL1=errL1*L1ideal;\ndeltaL2=errL2*L2ideal;\ndelta"
-      "Lg=errLg*Lgideal;\ndeltaC=errC*Cideal;\ndeltaR1=errR1*R1ideal;\ndeltaR2=errR2*R2ideal;\ndeltaRg=errRg*Rgideal;\n"
-      "\n%Definição do valor real medido, incluindo a variação paramétrica\n%percentual\nL1=L1ideal+deltaL1;\nL2=L2idea"
-      "l+deltaL2+Lgideal+deltaLg;\nC=Cideal+deltaC;\nR1=R1ideal+deltaR1;\nR2=R2ideal+deltaR2+Rgideal+deltaRg;\n\n%Demai"
-      "s elementos\nTs=1/12000;\nw=sqrt((L1+L2)/(L1*L2*C));\n\n%Kp é a multiplicação do ganho do controlador da malha i"
-      "nterna(kp), do\n%ganho da planta(ki) e do ganho da malha externa(kod)\nkp=8;\n%Kp=0.156891976007044;\nKp=0.00478"
-      "0841242217;\n\n%polos do modelo de referência:\np1=0.2;\np2=0.2;\n\nkm=(1-p1)*(1-p2);\n\n%constantes -> gamaD < "
-      "(1-gama)*km/kp\ngamaD=0.0098;\ngama=0.99;\n\ndelta0=0.8;\n\n%adapt_time=2/60;\n%vg_switch_time=4/60;\n\n%% Variá"
-      "veis Persistentes e Inicializações\n\npersistent theta_k;\nif isempty(theta_k)\n    %COM compensação para vg\n  "
-      "  %theta_k=[-0.3106; -0.2728; 0.0368; -0.2369; -0.422; -0.2775; -0.7979; 1.786; -0.0008; 0.0003];\n    %theta_k="
-      "[-0.3106; -0.2728; 0.0368; -0.2369; -0.422; -0.2775; -0.7979; 1.786; 1; 0];\n    %theta_k=[-0.40085038; -0.36853"
-      "743; -0.064251891; -0.4277604154; -0.61214672; -0.46675405; -0.98929343; 1.76426551; 0.17164080; 0.11598547];\n "
-      "   %theta_k=[0;0;0;0;0;0; -0.98929343; 1.76426551; 0.17164080; 0.11598547];\n    %theta_k=[-0.071151848470510; -"
-      "0.470549298500393; -0.993323557655345; 1.762541193804541; 0.118014567931226; 0.108368323169129];\n    %theta_k=["
-      "-0.46; -0.58; -1.74; 1.73; 0.2; 0.03];\n    theta_k=[-0.03; -0.36; -0.57; -0.01; 0.16; 0.02];\nend\n\npersistent"
-      " omega_k;\nif isempty(omega_k)\n    %COM vg\n    omega_k=[0; 0; 0; 0; 0; 0];\nend\n\npersistent omega_k_1;\nif i"
-      "sempty(omega_k_1)\n    %COM vg\n    omega_k_1=[0; 0; 0; 0; 0; 0];\nend\n\npersistent omega_k_2;\nif isempty(omeg"
-      "a_k_2)\n    %COM vg\n    omega_k_2=[0; 0; 0; 0; 0; 0];\nend\n\npersistent omega_k_3;\nif isempty(omega_k_3)\n   "
-      " %COM vg\n    omega_k_3=[0; 0; 0; 0; 0; 0];\nend\n\npersistent eta_k_1;\nif isempty(eta_k_1)\n    %COM vg\n    e"
-      "ta_k_1=[0; 0; 0; 0; 0; 0];\nend\n\npersistent eta_k_2;\nif isempty(eta_k_2)\n    %COM vg\n    eta_k_2=[0; 0; 0; "
-      "0; 0; 0];\nend\n\npersistent eta_k_3;\nif isempty(eta_k_3)\n    %COM vg\n    eta_k_3=[0; 0; 0; 0; 0; 0];\nend\n\n"
-      "persistent i2m_k_1;\nif isempty(i2m_k_1)\n    i2m_k_1=0;\nend\n\npersistent i2m_k_2;\nif isempty(i2m_k_2)\n    i"
-      "2m_k_2=0;\nend\n\npersistent i2m_k_3;\nif isempty(i2m_k_3)\n    i2m_k_3=0;\nend\n\npersistent i2ref_k_1;\nif ise"
-      "mpty(i2ref_k_1)\n    i2ref_k_1=0;\nend\n\npersistent i2ref_k_2;\nif isempty(i2ref_k_2)\n    i2ref_k_2=0;\nend\n\n"
-      "persistent i2ref_k_3;\nif isempty(i2ref_k_3)\n    i2ref_k_3=0;\nend\n\npersistent v_k_1;\nif isempty(v_k_1)\n   "
-      " v_k_1=0;\nend\n\npersistent v_k_2;\nif isempty(v_k_2)\n    v_k_2=0;\nend\n\npersistent v_k_3;\nif isempty(v_k_3"
-      ")\n    v_k_3=0;\nend\n\npersistent rho_k;\nif isempty(rho_k)\n    rho_k=Kp/km;\nend\n\npersistent m2;\nif isempt"
-      "y(m2)\n    m2=1;\nend\n\npersistent u_k_1;\nif isempty(u_k_1)\n    u_k_1=0;\nend\n\npersistent u_k_2;\nif isempt"
-      "y(u_k_2)\n    u_k_2=0;\nend\n\npersistent P;\nif isempty(P)\n    %P=[0.002225441018075 -0.002258665319558 -1.129"
-      "332659782590e-004 -0.003793046611769; ...\n    %    -0.002258665319558 0.149747822133961 -0.042512608892738 0.00"
-      "2487914954665; ...\n    %    -1.129332659782590e-004 -0.042512608892738 0.997874369555398 1.243957477280539e-004"
-      "; ...\n    %    -0.003793046611769 0.002487914954665 1.243957477280538e-004 0.754190018333160];\n    %P=[0.00971"
-      "2540165252   -0.000020445335620  -0.000026266935611  -0.000037334327242 -0.001161097577207  -0.000971095497459; "
-      "...\n    %   -0.000020445335620   0.009977400822109  -0.000022631160072  -0.000009984284241 -0.000310511239892  "
-      " 0.000028021469709; ...\n    %   -0.000026266935611  -0.000022631160072   0.009976301443788  -0.000009972563160 "
-      "-0.000310146714255   0.000019062507239; ...\n    %   -0.000037334327242  -0.000009984284241  -0.000009972563160 "
-      "  0.009989966652248 -0.000312037115068   0.000004936266851; ...\n    %   -0.001161097577207  -0.000310511239892 "
-      " -0.000310146714255  -0.000312037115068 0.000295645721395   0.000153517899078; ...\n    %   -0.000971095497459  "
-      " 0.000028021469709   0.000019062507239   0.000004936266851 0.000153517899078   0.000171767843043];\n\n    P=gama"
-      "D*eye(6);\nend\n\npersistent gama2;\nif isempty(gama2)\n    %gama2=0.997899999973786;\n    gama2=gama;\nend\n\n%"
-      " persistent u_res_k1;\n% if isempty(u_res_k1)\n%     u_res_k1=0;\n% end\n% \n% persistent u_res_k2;\n% if isempt"
-      "y(u_res_k2)\n%     u_res_k2=0;\n% end\n% \n% persistent e_res_k1;\n% if isempty(e_res_k1)\n%     e_res_k1=0;\n% "
-      "end\n% \n% persistent e_res_k2;\n% if isempty(e_res_k2)\n%     e_res_k2=0;\n% end\n\n%persistent adapt_init_flag"
-      ";\n%if isempty(adapt_init_flag)\n%    adapt_init_flag=0;\n%end\n\n%if t>=adapt_time\n\n%% Cálculos\n\n%Ação de c"
-      "ontrole\nomega_k(3)= i2_k;\nomega_k(4)= i2ref_k;\n\n%if t>vg_switch_time\n%    omega_k(5)= 311*sin(2*pi*60*t);\n"
-      "%    omega_k(6)= 311*cos(2*pi*60*t);\n%    if adapt_init_flag<1\n%        %theta_k(5)=0.16;\n%        %theta_k(6"
-      ")=0.02;\n%        theta_k=[0.3127; -0.3906; -0.7082; 1.0079; 0.0873; 0.0164;];\n%        adapt_init_flag=1;\n%  "
-      "  end\n%else\n%    omega_k(5)= 0;\n%    omega_k(6)= 0;\n%end\n\nomega_k(5)= 311*sin(2*pi*60*t);\nomega_k(6)= 311"
-      "*cos(2*pi*60*t);\n\nu_k= theta_k'*omega_k;\n%Theta=theta_k;\n\n%inserindo o controlador proporcional no bloco do"
-      " adaptativo\nup_0= kp*(u_k-ic_k);\n\neta_k= (p1+p2)*eta_k_1 - p1*p2*eta_k_2 + (1-p1)*(1-p2)*omega_k_2;\n\ni2m_k="
-      " (p1+p2)*i2m_k_1 - p1*p2*i2m_k_2 + (1-p1)*(1-p2)*i2ref_k_2;\n\ne1_k= i2_k - i2m_k;\n\nv_k= (p1+p2)*v_k_1 - p1*p2"
-      "*v_k_2 + (1-p1)*(1-p2)*u_k_2;\n\nq_k= theta_k'*eta_k;\n\ne2_k= -v_k+q_k;\n\nea_k= e1_k+rho_k*e2_k;\n\nif flag==1"
-      "\n    m2_k= 0.1*eta_k'*eta_k + e2_k^2 + m2;\nelse\n    m2_k= 0.01*eta_k'*eta_k + e2_k^2 + m2;\nend\n%m2_k= m2 + "
-      "(1+eta_k'*P*eta_k) + gama2*e2_k^2;\n\nP= P - (P*eta_k*eta_k'*P)/m2_k;\ngama2= gama2 - (gama2^2*e2_k^2)/(m2_k^2);"
-      "\n\n%Pout=P;\n%gama_out=gama2;\n\n%% Atualização\n\n%calcula theta(k+1)\ntheta_k = theta_k - (gamaD*ea_k/m2_k)*e"
-      "ta_k;\n%theta_k = theta_k - (P*ea_k/m2_k)*eta_k;\ntheta_O = theta_k;\n\n%calcula rho(k+1)\nrho_k= rho_k - (gama*"
-      "ea_k*e2_k)/m2_k;\n\nif flag==1\n    m2 = delta0*(m2 - 1) + abs(u_k) + abs(i2_k) + 1;\nelse\n    m2 = delta0*(m2 "
-      "- 1) + abs(u_k) + abs(i2_k) + 1;\nend\n\nomega_k_3=omega_k_2;\nomega_k_2=omega_k_1;\nomega_k_1=omega_k;\n\nomega"
-      "_k(1)=0*omega_k(1) + 1*u_k;\nomega_k(2)=0*omega_k(2) + 1*i2_k;\n\neta_k_3=eta_k_2;\neta_k_2=eta_k_1;\neta_k_1=et"
-      "a_k;\n\ni2ref_k_3 = i2ref_k_2;\ni2ref_k_2 = i2ref_k_1;\ni2ref_k_1 = i2ref_k;\n\ni2m_k_3=i2m_k_2;\ni2m_k_2=i2m_k_"
-      "1;\ni2m_k_1=i2m_k;\n\nv_k_3=v_k_2;\nv_k_2=v_k_1;\nv_k_1=v_k;\n\nu_k_2=u_k_1;\nu_k_1=u_k;\n\n%else\n    \n% e_res"
-      "_k=0-ic_k;\n% u_res_k= 1.98*u_res_k1 - u_res_k2 + 1.25*10^(-5)*(e_res_k1 - e_res_k2);\n% \n% up_0= kp*e_res_k + "
-      "u_res_k;\n% \n% e_res_k2 = e_res_k1;\n% e_res_k1 = e_res_k;\n% u_res_k2 = u_res_k1;\n% u_res_k1 = u_res_k;\n\n%e"
-      "nd\n\nend"
+      script		      "function [up_0, theta_O] = adaptativo( i2ref_k, i2_k, ic_k, t )\n\n%#CODEGEN\n    \n%Kp é a multi"
+      "plicação do ganho do controlador da malha interna(kp), do\n%ganho da planta(ki) e do ganho da malha externa(kod)"
+      "\nkp=8;\n%Kp=0.156891976007044;\nKp=0.004780841242217;\n\n%polos do modelo de referência:\np1=0.2;\np2=0.2;\n\nk"
+      "m=(1-p1)*(1-p2);\n\n%constantes -> gamaD < (1-gama)*km/kp\ngamaD=0.0098;\ngama=0.99;\n\ndelta0=0.8;\n\n%% Variáv"
+      "eis Persistentes e Inicializações\n\npersistent theta_k;\nif isempty(theta_k)\n    theta_k=[-0.03; -0.36; -0.57;"
+      " -0.01; 0.16; 0.02];\nend\n\npersistent omega_k;\nif isempty(omega_k)\n    %COM vg\n    omega_k=[0; 0; 0; 0; 0; "
+      "0];\nend\n\npersistent omega_k_1;\nif isempty(omega_k_1)\n    %COM vg\n    omega_k_1=[0; 0; 0; 0; 0; 0];\nend\n\n"
+      "persistent omega_k_2;\nif isempty(omega_k_2)\n    %COM vg\n    omega_k_2=[0; 0; 0; 0; 0; 0];\nend\n\npersistent "
+      "eta_k_1;\nif isempty(eta_k_1)\n    %COM vg\n    eta_k_1=[0; 0; 0; 0; 0; 0];\nend\n\npersistent eta_k_2;\nif isem"
+      "pty(eta_k_2)\n    %COM vg\n    eta_k_2=[0; 0; 0; 0; 0; 0];\nend\n\npersistent i2m_k_1;\nif isempty(i2m_k_1)\n   "
+      " i2m_k_1=0;\nend\n\npersistent i2m_k_2;\nif isempty(i2m_k_2)\n    i2m_k_2=0;\nend\n\npersistent i2ref_k_1;\nif i"
+      "sempty(i2ref_k_1)\n    i2ref_k_1=0;\nend\n\npersistent i2ref_k_2;\nif isempty(i2ref_k_2)\n    i2ref_k_2=0;\nend\n"
+      "\npersistent v_k_1;\nif isempty(v_k_1)\n    v_k_1=0;\nend\n\npersistent v_k_2;\nif isempty(v_k_2)\n    v_k_2=0;\n"
+      "end\n\npersistent rho_k;\nif isempty(rho_k)\n    rho_k=Kp/km;\nend\n\npersistent m2;\nif isempty(m2)\n    m2=1;\n"
+      "end\n\npersistent u_k_1;\nif isempty(u_k_1)\n    u_k_1=0;\nend\n\npersistent u_k_2;\nif isempty(u_k_2)\n    u_k_"
+      "2=0;\nend\n\n%% Cálculos\n\n%Ação de controle\nomega_k(3)= i2_k;\nomega_k(4)= i2ref_k;\n\nomega_k(5)= 311*sin(2*"
+      "pi*60*t);\nomega_k(6)= 311*cos(2*pi*60*t);\n\nu_k= theta_k'*omega_k;\n\n%inserindo o controlador proporcional no"
+      " bloco do adaptativo\nup_0= kp*(u_k-ic_k);\n\neta_k= (p1+p2)*eta_k_1 - p1*p2*eta_k_2 + (1-p1)*(1-p2)*omega_k_2;\n"
+      "\ni2m_k= (p1+p2)*i2m_k_1 - p1*p2*i2m_k_2 + (1-p1)*(1-p2)*i2ref_k_2;\n\ne1_k= i2_k - i2m_k;\n\nv_k= (p1+p2)*v_k_1"
+      " - p1*p2*v_k_2 + (1-p1)*(1-p2)*u_k_2;\n\nq_k= theta_k'*eta_k;\n\ne2_k= -v_k+q_k;\n\nea_k= e1_k+rho_k*e2_k;\n\nm2"
+      "_k= 0.1*eta_k'*eta_k + e2_k^2 + m2;\n\n\n%% Atualização\n\n%calcula theta(k+1)\ntheta_k = theta_k - (gamaD*ea_k/"
+      "m2_k)*eta_k;\ntheta_O = theta_k;\n\n%calcula rho(k+1)\nrho_k= rho_k - (gama*ea_k*e2_k)/m2_k;\n\nm2 = delta0*(m2 "
+      "- 1) + abs(u_k) + abs(i2_k) + 1;\n\nomega_k_2=omega_k_1;\nomega_k_1=omega_k;\n\nomega_k(1)=0*omega_k(1) + 1*u_k;"
+      "\nomega_k(2)=0*omega_k(2) + 1*i2_k;\n\neta_k_2=eta_k_1;\neta_k_1=eta_k;\n\ni2ref_k_2 = i2ref_k_1;\ni2ref_k_1 = i"
+      "2ref_k;\n\ni2m_k_2=i2m_k_1;\ni2m_k_1=i2m_k;\n\nv_k_2=v_k_1;\nv_k_1=v_k;\n\nu_k_2=u_k_1;\nu_k_1=u_k;\n\n\nend"
       editorLayout	      "100 M4x1[10 5 700 500]"
     }
   }
   junction {
-    id			    61
+    id			    59
     position		    [23.5747 49.5747 7]
-    chart		    59
-    linkNode		    [59 0 0]
-    subviewer		    59
+    chart		    57
+    linkNode		    [57 0 0]
+    subviewer		    57
     ssIdNumber		    3
     type		    CONNECTIVE_JUNCTION
   }
   transition {
-    id			    62
+    id			    60
     labelString		    "{eML_blk_kernel();}"
     labelPosition	    [32.125 19.875 102.544 14.964]
     fontSize		    12
@@ -9483,14 +9197,14 @@ Stateflow {
       intersection	      [0 0 1 0 23.5747 14.625 0 0]
     }
     dst {
-      id		      61
+      id		      59
       intersection	      [1 0 -1 0 23.5747 42.5747 0 0]
     }
     midPoint		    [23.5747 24.9468]
-    chart		    59
-    linkNode		    [59 0 0]
+    chart		    57
+    linkNode		    [57 0 0]
     dataLimits		    [23.575 23.575 14.625 34.575]
-    subviewer		    59
+    subviewer		    57
     drawStyle		    SMART
     slide {
       sticky		      BOTH_STICK
@@ -9499,10 +9213,10 @@ Stateflow {
     ssIdNumber		    2
   }
   data {
-    id			    63
+    id			    61
     ssIdNumber		    4
     name		    "i2ref_k"
-    linkNode		    [59 0 64]
+    linkNode		    [57 0 62]
     scope		    INPUT_DATA
     machine		    1
     props {
@@ -9518,10 +9232,10 @@ Stateflow {
     dataType		    "Inherit: Same as Simulink"
   }
   data {
-    id			    64
+    id			    62
     ssIdNumber		    5
     name		    "up_0"
-    linkNode		    [59 63 65]
+    linkNode		    [57 61 63]
     scope		    OUTPUT_DATA
     machine		    1
     props {
@@ -9538,10 +9252,54 @@ Stateflow {
     dataType		    "Inherit: Same as Simulink"
   }
   data {
-    id			    65
+    id			    63
     ssIdNumber		    6
     name		    "i2_k"
-    linkNode		    [59 64 66]
+    linkNode		    [57 62 64]
+    scope		    INPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+	isSigned		1
+	wordLength		"16"
+      }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_INHERITED
+    }
+    dataType		    "Inherit: Same as Simulink"
+  }
+  data {
+    id			    64
+    ssIdNumber		    8
+    name		    "ic_k"
+    linkNode		    [57 63 65]
+    scope		    INPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+	isSigned		1
+	wordLength		"16"
+      }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_INHERITED
+    }
+    dataType		    "Inherit: Same as Simulink"
+  }
+  data {
+    id			    65
+    ssIdNumber		    11
+    name		    "t"
+    linkNode		    [57 64 66]
     scope		    INPUT_DATA
     machine		    1
     props {
@@ -9561,75 +9319,9 @@ Stateflow {
   }
   data {
     id			    66
-    ssIdNumber		    8
-    name		    "ic_k"
-    linkNode		    [59 65 67]
-    scope		    INPUT_DATA
-    machine		    1
-    props {
-      array {
-	size			"-1"
-      }
-      type {
-	method			SF_INHERITED_TYPE
-	primitive		SF_DOUBLE_TYPE
-	isSigned		1
-	wordLength		"16"
-      }
-      complexity	      SF_COMPLEX_INHERITED
-      frame		      SF_FRAME_INHERITED
-    }
-    dataType		    "Inherit: Same as Simulink"
-  }
-  data {
-    id			    67
-    ssIdNumber		    14
-    name		    "flag"
-    linkNode		    [59 66 68]
-    scope		    INPUT_DATA
-    machine		    1
-    props {
-      array {
-	size			"-1"
-      }
-      type {
-	method			SF_INHERITED_TYPE
-	primitive		SF_DOUBLE_TYPE
-	isSigned		1
-	wordLength		"16"
-      }
-      complexity	      SF_COMPLEX_INHERITED
-      frame		      SF_FRAME_INHERITED
-    }
-    dataType		    "Inherit: Same as Simulink"
-  }
-  data {
-    id			    68
-    ssIdNumber		    11
-    name		    "t"
-    linkNode		    [59 67 69]
-    scope		    INPUT_DATA
-    machine		    1
-    props {
-      array {
-	size			"-1"
-      }
-      type {
-	method			SF_INHERITED_TYPE
-	primitive		SF_DOUBLE_TYPE
-	isSigned		1
-	wordLength		"16"
-      }
-      complexity	      SF_COMPLEX_INHERITED
-      frame		      SF_FRAME_INHERITED
-    }
-    dataType		    "Inherit: Same as Simulink"
-  }
-  data {
-    id			    69
     ssIdNumber		    16
     name		    "theta_O"
-    linkNode		    [59 68 0]
+    linkNode		    [57 65 0]
     scope		    OUTPUT_DATA
     machine		    1
     props {
@@ -9648,26 +9340,26 @@ Stateflow {
     dataType		    "Inherit: Same as Simulink"
   }
   instance {
-    id			    70
+    id			    67
     name		    "Controlador/Controlador Adaptativo 0"
     machine		    1
-    chart		    59
+    chart		    57
   }
   chart {
-    id			    71
+    id			    68
     name		    "Controlador/abc to alpha-beta-zero2"
     windowPosition	    [1061.25 -69.167 183 600]
     viewLimits		    [0 156.75 0 153.75]
     screen		    [1 1 1440 900 1.333333333333333]
-    treeNode		    [0 72 0 0]
-    firstTransition	    74
-    firstJunction	    73
-    viewObj		    71
+    treeNode		    [0 69 0 0]
+    firstTransition	    71
+    firstJunction	    70
+    viewObj		    68
     machine		    1
     ssIdHighWaterMark	    9
     decomposition	    CLUSTER_CHART
     type		    EML_CHART
-    firstData		    75
+    firstData		    72
     chartFileNumber	    7
     disableImplicitCasting  1
     eml {
@@ -9675,14 +9367,14 @@ Stateflow {
     }
   }
   state {
-    id			    72
+    id			    69
     labelString		    "eML_blk_kernel()"
     position		    [18 64.5 118 66]
     fontSize		    12
-    chart		    71
-    treeNode		    [71 0 0 0]
+    chart		    68
+    treeNode		    [68 0 0 0]
     superState		    SUBCHART
-    subviewer		    71
+    subviewer		    68
     ssIdNumber		    1
     type		    FUNC_STATE
     decomposition	    CLUSTER_STATE
@@ -9697,16 +9389,16 @@ Stateflow {
     }
   }
   junction {
-    id			    73
+    id			    70
     position		    [23.5747 49.5747 7]
-    chart		    71
-    linkNode		    [71 0 0]
-    subviewer		    71
+    chart		    68
+    linkNode		    [68 0 0]
+    subviewer		    68
     ssIdNumber		    3
     type		    CONNECTIVE_JUNCTION
   }
   transition {
-    id			    74
+    id			    71
     labelString		    "{eML_blk_kernel();}"
     labelPosition	    [32.125 19.875 102.544 14.964]
     fontSize		    12
@@ -9714,14 +9406,14 @@ Stateflow {
       intersection	      [0 0 1 0 23.5747 14.625 0 0]
     }
     dst {
-      id		      73
+      id		      70
       intersection	      [1 0 -1 0 23.5747 42.5747 0 0]
     }
     midPoint		    [23.5747 24.9468]
-    chart		    71
-    linkNode		    [71 0 0]
+    chart		    68
+    linkNode		    [68 0 0]
     dataLimits		    [23.575 23.575 14.625 34.575]
-    subviewer		    71
+    subviewer		    68
     drawStyle		    SMART
     slide {
       sticky		      BOTH_STICK
@@ -9730,10 +9422,10 @@ Stateflow {
     ssIdNumber		    2
   }
   data {
-    id			    75
+    id			    72
     ssIdNumber		    4
     name		    "iC_a"
-    linkNode		    [71 0 76]
+    linkNode		    [68 0 73]
     scope		    INPUT_DATA
     machine		    1
     props {
@@ -9749,10 +9441,10 @@ Stateflow {
     dataType		    "Inherit: Same as Simulink"
   }
   data {
-    id			    76
+    id			    73
     ssIdNumber		    5
     name		    "iC_alpha"
-    linkNode		    [71 75 77]
+    linkNode		    [68 72 74]
     scope		    OUTPUT_DATA
     machine		    1
     props {
@@ -9762,6 +9454,72 @@ Stateflow {
       type {
 	method			SF_INHERITED_TYPE
 	primitive		SF_DOUBLE_TYPE
+      }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_NO
+    }
+    dataType		    "Inherit: Same as Simulink"
+  }
+  data {
+    id			    74
+    ssIdNumber		    6
+    name		    "iC_b"
+    linkNode		    [68 73 75]
+    scope		    INPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+	isSigned		1
+	wordLength		"16"
+      }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_INHERITED
+    }
+    dataType		    "Inherit: Same as Simulink"
+  }
+  data {
+    id			    75
+    ssIdNumber		    7
+    name		    "iC_c"
+    linkNode		    [68 74 76]
+    scope		    INPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+	isSigned		1
+	wordLength		"16"
+      }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_INHERITED
+    }
+    dataType		    "Inherit: Same as Simulink"
+  }
+  data {
+    id			    76
+    ssIdNumber		    8
+    name		    "iC_beta"
+    linkNode		    [68 75 77]
+    scope		    OUTPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+	isSigned		1
+	wordLength		"16"
       }
       complexity	      SF_COMPLEX_INHERITED
       frame		      SF_FRAME_NO
@@ -9770,75 +9528,9 @@ Stateflow {
   }
   data {
     id			    77
-    ssIdNumber		    6
-    name		    "iC_b"
-    linkNode		    [71 76 78]
-    scope		    INPUT_DATA
-    machine		    1
-    props {
-      array {
-	size			"-1"
-      }
-      type {
-	method			SF_INHERITED_TYPE
-	primitive		SF_DOUBLE_TYPE
-	isSigned		1
-	wordLength		"16"
-      }
-      complexity	      SF_COMPLEX_INHERITED
-      frame		      SF_FRAME_INHERITED
-    }
-    dataType		    "Inherit: Same as Simulink"
-  }
-  data {
-    id			    78
-    ssIdNumber		    7
-    name		    "iC_c"
-    linkNode		    [71 77 79]
-    scope		    INPUT_DATA
-    machine		    1
-    props {
-      array {
-	size			"-1"
-      }
-      type {
-	method			SF_INHERITED_TYPE
-	primitive		SF_DOUBLE_TYPE
-	isSigned		1
-	wordLength		"16"
-      }
-      complexity	      SF_COMPLEX_INHERITED
-      frame		      SF_FRAME_INHERITED
-    }
-    dataType		    "Inherit: Same as Simulink"
-  }
-  data {
-    id			    79
-    ssIdNumber		    8
-    name		    "iC_beta"
-    linkNode		    [71 78 80]
-    scope		    OUTPUT_DATA
-    machine		    1
-    props {
-      array {
-	size			"-1"
-      }
-      type {
-	method			SF_INHERITED_TYPE
-	primitive		SF_DOUBLE_TYPE
-	isSigned		1
-	wordLength		"16"
-      }
-      complexity	      SF_COMPLEX_INHERITED
-      frame		      SF_FRAME_NO
-    }
-    dataType		    "Inherit: Same as Simulink"
-  }
-  data {
-    id			    80
     ssIdNumber		    9
     name		    "iC_0"
-    linkNode		    [71 79 0]
+    linkNode		    [68 76 0]
     scope		    OUTPUT_DATA
     machine		    1
     props {
@@ -9857,13 +9549,13 @@ Stateflow {
     dataType		    "Inherit: Same as Simulink"
   }
   instance {
-    id			    81
+    id			    78
     name		    "Controlador/abc to alpha-beta-zero2"
     machine		    1
-    chart		    71
+    chart		    68
   }
   target {
-    id			    82
+    id			    79
     name		    "sfun"
     description		    "Default Simulink S-Function Target."
     machine		    1

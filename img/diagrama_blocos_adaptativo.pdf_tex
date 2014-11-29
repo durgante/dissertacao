@@ -36,7 +36,7 @@
   }%
   \providecommand\rotatebox[2]{#2}%
   \ifx\svgwidth\undefined%
-    \setlength{\unitlength}{566.0642433bp}%
+    \setlength{\unitlength}{566.0869553bp}%
     \ifx\svgscale\undefined%
       \relax%
     \else%
@@ -48,16 +48,16 @@
   \global\let\svgwidth\undefined%
   \global\let\svgscale\undefined%
   \makeatother%
-  \begin{picture}(1,0.37592906)%
+  \begin{picture}(1,0.37586982)%
     \put(0,0){\includegraphics[width=\unitlength]{diagrama_blocos_adaptativo.pdf}}%
-    \put(0.00690864,0.35536275){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.07369179\unitlength}\centering $r$\end{minipage}}}%
-    \put(0.2371414,0.34142341){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.08993977\unitlength}\centering $\sum$\end{minipage}}}%
-    \put(0.19770986,0.25331022){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.42385619\unitlength}\centering $\theta_1^T\frac{\alpha(s)}{\Lambda(s)}$\end{minipage}}}%
-    \put(0.3324206,0.16119813){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.58342733\unitlength}\centering $\theta_2^T\frac{\alpha(s)}{\Lambda(s)}$\end{minipage}}}%
-    \put(0.70549217,0.06178807){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.1565661\unitlength}\centering $\theta_3$\end{minipage}}}%
-    \put(0.05536558,0.3387365){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.17274145\unitlength}\centering $\theta_4$\end{minipage}}}%
-    \put(0.36535233,0.35537739){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.08851214\unitlength}\centering $u$\end{minipage}}}%
-    \put(0.88531005,0.35536275){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.05249278\unitlength}\centering $y$\end{minipage}}}%
-    \put(0.57074217,0.33889853){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.10707116\unitlength}\centering $G(s)$\end{minipage}}}%
+    \put(0.00694848,0.35531117){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.07368884\unitlength}\centering $r$\end{minipage}}}%
+    \put(0.237172,0.34137239){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.08993616\unitlength}\centering $\sum$\end{minipage}}}%
+    \put(0.19774204,0.25326274){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.42383919\unitlength}\centering $\theta_1^T\frac{\alpha(z)}{\Lambda(z)}$\end{minipage}}}%
+    \put(0.33244738,0.16115434){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.58340392\unitlength}\centering $\theta_2^T\frac{\alpha(z)}{\Lambda(z)}$\end{minipage}}}%
+    \put(0.70550399,0.06174827){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.15655982\unitlength}\centering $\theta_3$\end{minipage}}}%
+    \put(0.05540348,0.33868559){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.17273452\unitlength}\centering $\theta_4$\end{minipage}}}%
+    \put(0.36537779,0.35532581){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.08850859\unitlength}\centering $u$\end{minipage}}}%
+    \put(0.88531465,0.35531117){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.05249068\unitlength}\centering $y$\end{minipage}}}%
+    \put(0.57075939,0.33884761){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.10706686\unitlength}\centering $G(z)$\end{minipage}}}%
   \end{picture}%
 \endgroup%

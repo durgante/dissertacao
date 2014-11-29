@@ -4,9 +4,9 @@
 \chapter{Resultados}\label{resultados}
 %=========================================================================
 
-  A comprovação da teoria desenvolvida nos capítulos anteriores é feita através da demonstração de resultados de simulação e experimentais. As simulações são feitas utilizando o software \textsc{Matlab}, da empresa \textit{MathWorks}$^\circledR$. Mais especificamente, o \textit{toolbox} Simulink é o componente central para realização das simulações. O filtro LCL é descrito como uma função de transferência conforme o Capítulo~\ref{modelagem}, o conversor e a fonte são simulados usando modelos disponíveis no Simulink. A plataforma d\textsc{SPACE} serve como uma interface entre o circuito real e o \textsc{Matlab}, dispondo de $16$ conversores analógico-digitais (\emph{AD}) de $16$ bits de resolução e $8$ conversores digitais-analógicos (\emph{DA}) de $16$ bits de resolução, através dos quais são adquiridas as medidas feitas em tempo real no circuito. Acompanha a plataforma o programa \emph{ControlDesk}, que permite a criação de instrumentos virtuais para apresentação e armazenamento das leituras dos ADs. Uma vez computada, a ação de controle é transcrita em comando de acionamento das chaves do conversor e então enviada via \emph{DA} para o conversor.
+  A comprovação da teoria desenvolvida nos capítulos anteriores é feita através da demonstração de resultados de simulação e experimentais. As simulações são feitas utilizando o software \textsc{Matlab}, da empresa \textit{MathWorks}$^\circledR$. Mais especificamente, o \textit{toolbox} Simulink é o componente central para realização das simulações. O filtro LCL é descrito como uma função de transferência conforme o Capítulo~\ref{modelagem}, o conversor e a fonte são simulados usando modelos disponíveis no Simulink. A plataforma d\textsc{space} serve como uma interface entre o circuito real e o \textsc{Matlab}, dispondo de $16$ conversores analógico-digitais (\emph{A/D}) de $16$ bits de resolução e $8$ conversores digitais-analógicos (\emph{D/A}) de $16$ bits de resolução, através dos quais são adquiridas as medidas feitas em tempo real no circuito. Acompanha a plataforma o programa \emph{ControlDesk}, que permite a criação de instrumentos virtuais para apresentação e armazenamento das leituras dos conversores \emph{A/D}. Uma vez computada, a ação de controle é transcrita em comando de acionamento das chaves do conversor e então enviada via \emph{D/A} para o conversor.
 
-  Os resultados experimentais são obtidos utilizando uma bancada composta por uma fonte \textit{modelo}, um conversor \textsc{Semikron} \textit{SKS 50f B6U+E1CIF+B6CI 29V} com $380V$ de tensão e $50A$ de corrente nominais. A interface d\textsc{space} utilizada é o modelo \textit{ds1103}. O processador que a unidade possui é um \emph{DSP} modelo \emph{TMS320F240} com uma unidade de lógica e aritmética de ponto flutuante de $32$ bits. As medidas corrente do capacitor e da corrente do lado da rede foram feitas utilizando sensores de Efeito Hall. A Fig.~\ref{fig:topologia_bancada} apresenta a disposição dos elementos da bancada.
+  Os resultados experimentais são obtidos utilizando uma bancada composta por um conversor \textsc{Semikron} \textit{SKS 50f B6U+E1CIF+B6CI 29V} com $380V$ de tensão e $50A$ de corrente nominais. A interface d\textsc{space} utilizada é o modelo \textit{ds1103}. O processador que a unidade possui é um \emph{PowerPC} modelo \emph{PPC 750GX} com clock de $1GHz$. A unidade conta ainda com um \emph{DSP} escravo modelo \emph{TMS320F240} com uma unidade de lógica e aritmética de ponto flutuante de $32$ bits. As medidas da corrente do capacitor e da corrente do lado da rede foram feitas utilizando sensores de Efeito Hall. A Fig.~\ref{fig:topologia_bancada} apresenta a disposição dos elementos da bancada.
   %
   \begin{figure}[htb]
     \centering{
@@ -119,6 +119,7 @@
   \end{minipage}
 
   \vfill
+
   \noindent
   \begin{minipage}{0.9\textwidth}
     \makebox[\textwidth]{
@@ -128,6 +129,7 @@
     \captionof{figure}{Comportamento dos ganhos adaptativos $\theta$ na inicialização do sistema quando a variável intermediária é a corrente do capacitor $i_C$.}
     \label{fig:thetas_sim_ini}
   \end{minipage}
+  \vfill
 
   \newpage
 
@@ -547,12 +549,12 @@
 
   Devido às condições da bancada disponível no laboratório, não foi possível realizar um ensaio conectando o conversor à rede elétrica. Realizou-se, no entanto, um ensaio com os terminais do filtro que seriam conectados à rede elétrica em curto-circuito. Além disso, considerando a teoria de Componentes Simétricas e a transformação de Clarke apresentadas no capítulo~\ref{modelagem}, é suficiente ensaiar um sistema monofásico para comprovação experimental. A variável intermediária escolhida é a corrente do capacitor, devido aos melhores resultados de simulação obtidos. Os resultados experimentais obtidos neste trabalho, portanto, foram para um sistema monofásico com os terminais do filtro curto-circuitados.
 
-  A plataforma \textsc{dSpace} apresenta como principal vantagem o fato de que se encarrega de converter o código escrito em linguagem \emph{.m} do \textsc{Matlab} para linguagem \emph{c} utilizada pelo DSP, permitindo que o projetista trabalhe com uma linguagem de mais alto nível. Dessa forma, o procedimento para realização do experimento utilizando a plataforma \textsc{dSpace} é composto pelos passos a seguir:
+  A plataforma d\textsc{space} apresenta como principal vantagem o fato de que se encarrega de converter o código escrito em linguagem \emph{.m} do \textsc{Matlab} para linguagem \emph{c} utilizada pelo DSP, permitindo que o projetista trabalhe com uma linguagem de mais alto nível. Dessa forma, o procedimento para realização do experimento utilizando a plataforma d\textsc{space} é composto pelos passos a seguir:
   %
   \begin{enumerate}
     \item \textit{Simulação}: o sistema é simulado utilizando os blocos do Simulink para representar os elementos reais;
-    \item \textit{Ajuste}: a simulação é ajustada para comunicar com a plataforma \textsc{dSpace}. Isso é feito incluindo blocos de uma biblioteca específica da plataforma no Simulink. São necessários um bloco que representa os ADs, disponibilizando em sua saída a medida das grandezas reais do sistema, e um bloco que recebe a ação de controle em forma de PWM para acionamento das chaves do conversor. Dessa forma, a simulação fica reduzida a apenas o bloco do controlador e os blocos da plataforma;
-    \item \textit{Carregamento}: uma vez que o \textsc{Matlab} está configurado para trabalhar junto com a \textsc{dSpace}, basta iniciar a simulação configurada para execução \emph{em tempo real} para que a plataforma transforme o arquivo de simulação em código para o DSP;
+    \item \textit{Ajuste}: a simulação é ajustada para comunicar com a plataforma d\textsc{space}. Isso é feito incluindo blocos de uma biblioteca específica da plataforma no Simulink. São necessários um bloco que representa os \emph{A/Ds}, disponibilizando em sua saída a medida das grandezas reais do sistema, e um bloco que recebe a ação de controle em forma de PWM para acionamento das chaves do conversor. Dessa forma, a simulação fica reduzida a apenas o bloco do controlador e os blocos da plataforma;
+    \item \textit{Carregamento}: uma vez que o \textsc{Matlab} está configurado para trabalhar junto com a d\textsc{space}, basta iniciar a simulação configurada para execução \emph{em tempo real} para que a plataforma transforme o arquivo de simulação em código para o DSP;
     \item \textit{Experimento}: o início da simulação no \textsc{Matlab} em tempo real dará início ao experimento. Nesta etapa, é interessante que o programa \emph{ControlDesk} esteja em execução com instrumentos virtuais preparados para visualizar a leitura das variáveis de interesse.
   \end{enumerate}
 

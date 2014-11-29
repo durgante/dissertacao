@@ -44,6 +44,7 @@ G_vC_i2 = minreal(Gd/G1d);
 
 %% MALHA FECHADA COM CONTROLADOR "P" (controle de iC)
 KP=8;
+%KP=8.41;
 G_u_iC=minreal(KP*G2d/(1+KP*G2d));
 G_u_iC_i2=minreal(G_u_iC*G_iC_i2);
 
@@ -59,13 +60,13 @@ G_u_vC_i2=minreal(G_u_vC*G_vC_i2,0.01);
 %Go_iC=(z + 0.270665436545005)/(z^4 -2.828886133187644*z^3 +3.152657784036528*z^2 -1.647543301697770*z +0.323771650848891);
 Go=(Ts/(L1+L2))/(z*(z-1));
 
-%dnm_iC=minreal(G_u_iC_i2 - Go,0.01);
+dnm_iC=minreal(G_u_iC_i2 - Go,0.01);
 %dnm_vC=minreal(G_u_vC_i2 - Go,0.01);
-% figure
-% bode(G_u_iC_i2,'b')
-% hold
-% bode(Go,'g')
-% bode(dnm_iC,'r')
+ figure
+ bode(G_u_iC_i2,'b')
+ hold
+ bode(Go,'g')
+ bode(dnm_iC,'r')
 % hold
 % figure
 % bode(G_u_vC_i2,'b')
@@ -79,11 +80,11 @@ Go=(Ts/(L1+L2))/(z*(z-1));
 % %ganho de Go_vC = 0.005367335743755 (para usar no adaptativo)
  dnm_iC=minreal(G_u_iC_i2 - Go_iC,0.01);
  dnm_vC=minreal(G_u_vC_i2 - Go_vC,0.01);
-% figure
-% bode(G_u_iC_i2,'b')
-% hold
-% bode(Go_iC,'g')
-% bode(dnm_iC,'r')
+ figure
+ bode(G_u_iC_i2,'b')
+ hold
+ bode(Go_iC,'g')
+ bode(dnm_iC,'r')
 % hold
 % figure
 % bode(G_u_vC_i2,'b')

@@ -23,6 +23,10 @@ den= (s^3+a2*s^2+a1*s+a0);
 vc= ((2*Vdc/(L1*C))*(s+R2/L2))/den;
 ic= ((2*Vdc/(L1)*s)*(s+R2/L2))/den;
 
+rlocus(vc);
+figure;
+pzmap(ic);
+
 
 %Número de pontos para plotar
 pontos=2000;

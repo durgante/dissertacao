@@ -1,0 +1,3 @@
+; dlltool --base-file C:\Users\MARCEL~1\AppData\Local\Temp/cca19508.base --output-exp mrac_LCL_iC.exp --dllname mrac_LCL_iC.dll --output-def libmrac_LCL_iC.def --no-export-all-symbols --add-stdcall-alias --exclude-symbol=DllMainCRTStartup@12 --def C:\Users\MARCEL~1\AppData\Local\Temp/cca19508.def --output-lib libmrac_LCL_iC.a
+EXPORTS
+	simuser @ 1

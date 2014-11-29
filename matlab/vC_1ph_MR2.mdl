@@ -6,7 +6,7 @@ Model {
     NumRootInports	    0
     NumRootOutports	    0
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.449"
+    ComputedModelVersion    "1.465"
     NumModelReferences	    0
     NumTestPointedSignals   0
   }
@@ -38,9 +38,9 @@ Model {
   ModifiedByFormat	  "%<Auto>"
   LastModifiedBy	  "marcelodurgante"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Thu Jul 31 17:02:07 2014"
-  RTWModifiedTimeStamp	  328720329
-  ModelVersionFormat	  "1.%<AutoIncrement:449>"
+  LastModifiedDate	  "Fri Sep 19 14:55:02 2014"
+  RTWModifiedTimeStamp	  333021919
+  ModelVersionFormat	  "1.%<AutoIncrement:465>"
   ConfigurationManager	  "None"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
@@ -295,9 +295,9 @@ Model {
 	  InvalidFcnCallConnMsg	  "error"
 	  FcnCallInpInsideContextMsg "Use local settings"
 	  SignalLabelMismatchMsg  "none"
-	  UnconnectedInputMsg	  "warning"
-	  UnconnectedOutputMsg	  "warning"
-	  UnconnectedLineMsg	  "warning"
+	  UnconnectedInputMsg	  "none"
+	  UnconnectedOutputMsg	  "none"
+	  UnconnectedLineMsg	  "none"
 	  SFcnCompatibilityMsg	  "none"
 	  FrameProcessingCompatibilityMsg "warning"
 	  UniqueDataStoreMsg	  "none"
@@ -1108,7 +1108,7 @@ Model {
   }
   System {
     Name		    "vC_1ph_MR2"
-    Location		    [64, 82, 1598, 871]
+    Location		    [2, 74, 1598, 879]
     Open		    on
     ModelBrowserVisibility  off
     ModelBrowserWidth	    200
@@ -1146,7 +1146,7 @@ Model {
       MaskHideContents	      off
       System {
 	Name			"Controlador"
-	Location		[64, 82, 1598, 871]
+	Location		[2, 82, 1582, 871]
 	Open			on
 	ModelBrowserVisibility	off
 	ModelBrowserWidth	200
@@ -1161,7 +1161,7 @@ Model {
 	ZoomFactor		"100"
 	Block {
 	  BlockType		  Inport
-	  Name			  "i2ref_a"
+	  Name			  "i2ref"
 	  SID			  "61"
 	  Position		  [20, 28, 50, 42]
 	  BackgroundColor	  "gray"
@@ -1169,7 +1169,7 @@ Model {
 	}
 	Block {
 	  BlockType		  Inport
-	  Name			  "i2_a"
+	  Name			  "i2"
 	  SID			  "81"
 	  Position		  [20, 73, 50, 87]
 	  BackgroundColor	  "gray"
@@ -1178,7 +1178,7 @@ Model {
 	}
 	Block {
 	  BlockType		  Inport
-	  Name			  "vC_a"
+	  Name			  "vC"
 	  SID			  "84"
 	  Position		  [20, 118, 50, 132]
 	  BackgroundColor	  "gray"
@@ -1196,9 +1196,9 @@ Model {
 	}
 	Block {
 	  BlockType		  SubSystem
-	  Name			  "Controlador Adaptativo Alpha"
+	  Name			  "Controlador Adaptativo"
 	  SID			  "35"
-	  Ports			  [5, 3]
+	  Ports			  [4, 2]
 	  Position		  [475, 61, 690, 219]
 	  BackgroundColor	  "lightBlue"
 	  LibraryVersion	  "1.32"
@@ -1225,7 +1225,7 @@ Model {
 	  MaskPortRotate	  "default"
 	  MaskIconUnits		  "normalized"
 	  System {
-	    Name		    "Controlador Adaptativo Alpha"
+	    Name		    "Controlador Adaptativo"
 	    Location		    [16, 52, 1235, 2571]
 	    Open		    off
 	    ModelBrowserVisibility  off
@@ -1239,7 +1239,7 @@ Model {
 	    TiledPageScale	    1
 	    ShowPageBoundaries	    off
 	    ZoomFactor		    "100"
-	    SIDHighWatermark	    "532"
+	    SIDHighWatermark	    "533"
 	    SIDPrevWatermark	    "143"
 	    Block {
 	      BlockType		      Inport
@@ -1266,18 +1266,11 @@ Model {
 	    }
 	    Block {
 	      BlockType		      Inport
-	      Name		      "flag"
-	      SID		      "35::284"
-	      Position		      [20, 206, 40, 224]
-	      Port		      "4"
-	      IconDisplay	      "Port number"
-	    }
-	    Block {
-	      BlockType		      Inport
 	      Name		      "t"
-	      SID		      "35::285"
-	      Position		      [20, 246, 40, 264]
-	      Port		      "5"
+	      SID		      "35::533"
+	      Position		      [20, 206, 40, 224]
+	      ZOrder		      6
+	      Port		      "4"
 	      IconDisplay	      "Port number"
 	    }
 	    Block {
@@ -1294,27 +1287,21 @@ Model {
 	      Name		      " SFunction "
 	      SID		      "35::528"
 	      Tag		      "Stateflow S-Function vC_1ph_MR2 2"
-	      Ports		      [5, 4]
+	      Ports		      [4, 3]
 	      Position		      [180, 100, 230, 220]
 	      ZOrder		      1
 	      FunctionName	      "sf_sfun"
-	      PortCounts	      "[5 4]"
+	      PortCounts	      "[4 3]"
 	      EnableBusSupport	      on
 	      Port {
 		PortNumber		2
-		Name			"up_alpha"
+		Name			"up"
 		RTWStorageClass		"Auto"
 		DataLoggingNameMode	"SignalName"
 	      }
 	      Port {
 		PortNumber		3
-		Name			"theta_alpha"
-		RTWStorageClass		"Auto"
-		DataLoggingNameMode	"SignalName"
-	      }
-	      Port {
-		PortNumber		4
-		Name			"m"
+		Name			"theta"
 		RTWStorageClass		"Auto"
 		DataLoggingNameMode	"SignalName"
 	      }
@@ -1328,26 +1315,17 @@ Model {
 	    }
 	    Block {
 	      BlockType		      Outport
-	      Name		      "up_alpha"
+	      Name		      "up"
 	      SID		      "35::286"
 	      Position		      [460, 101, 480, 119]
 	      IconDisplay	      "Port number"
 	    }
 	    Block {
 	      BlockType		      Outport
-	      Name		      "theta_alpha"
+	      Name		      "theta"
 	      SID		      "35::287"
 	      Position		      [460, 136, 480, 154]
 	      Port		      "2"
-	      IconDisplay	      "Port number"
-	    }
-	    Block {
-	      BlockType		      Outport
-	      Name		      "m"
-	      SID		      "35::532"
-	      Position		      [460, 171, 480, 189]
-	      ZOrder		      5
-	      Port		      "3"
 	      IconDisplay	      "Port number"
 	    }
 	    Line {
@@ -1369,39 +1347,25 @@ Model {
 	      DstPort		      3
 	    }
 	    Line {
-	      SrcBlock		      "flag"
+	      SrcBlock		      "t"
 	      SrcPort		      1
 	      DstBlock		      " SFunction "
 	      DstPort		      4
 	    }
 	    Line {
-	      SrcBlock		      "t"
-	      SrcPort		      1
-	      DstBlock		      " SFunction "
-	      DstPort		      5
-	    }
-	    Line {
-	      Name		      "up_alpha"
+	      Name		      "up"
 	      Labels		      [0, 0]
 	      SrcBlock		      " SFunction "
 	      SrcPort		      2
-	      DstBlock		      "up_alpha"
+	      DstBlock		      "up"
 	      DstPort		      1
 	    }
 	    Line {
-	      Name		      "theta_alpha"
+	      Name		      "theta"
 	      Labels		      [0, 0]
 	      SrcBlock		      " SFunction "
 	      SrcPort		      3
-	      DstBlock		      "theta_alpha"
-	      DstPort		      1
-	    }
-	    Line {
-	      Name		      "m"
-	      Labels		      [0, 0]
-	      SrcBlock		      " SFunction "
-	      SrcPort		      4
-	      DstBlock		      "m"
+	      DstBlock		      "theta"
 	      DstPort		      1
 	    }
 	    Line {
@@ -1430,23 +1394,12 @@ Model {
 	  Lockdown		  off
 	}
 	Block {
-	  BlockType		  Step
-	  Name			  "Flag"
-	  SID			  "49"
-	  Position		  [20, 315, 50, 345]
-	  BackgroundColor	  "gray"
-	  Time			  "flag_time"
-	  Before		  "1"
-	  After			  "0"
-	  SampleTime		  "Ts"
-	}
-	Block {
 	  BlockType		  From
 	  Name			  "From1"
 	  SID			  "102"
 	  Position		  [355, 66, 430, 94]
 	  ShowName		  off
-	  GotoTag		  "i2ref_alpha"
+	  GotoTag		  "i2ref"
 	}
 	Block {
 	  BlockType		  From
@@ -1464,16 +1417,7 @@ Model {
 	  Position		  [900, 86, 975, 114]
 	  BackgroundColor	  "lightBlue"
 	  ShowName		  off
-	  GotoTag		  "up_alpha"
-	}
-	Block {
-	  BlockType		  From
-	  Name			  "From16"
-	  SID			  "198"
-	  Position		  [355, 156, 395, 184]
-	  BackgroundColor	  "gray"
-	  ShowName		  off
-	  GotoTag		  "flag"
+	  GotoTag		  "up"
 	}
 	Block {
 	  BlockType		  From
@@ -1481,7 +1425,7 @@ Model {
 	  SID			  "105"
 	  Position		  [355, 96, 430, 124]
 	  ShowName		  off
-	  GotoTag		  "i2_alpha"
+	  GotoTag		  "i2"
 	}
 	Block {
 	  BlockType		  From
@@ -1489,7 +1433,7 @@ Model {
 	  SID			  "108"
 	  Position		  [355, 126, 430, 154]
 	  ShowName		  off
-	  GotoTag		  "vC_alpha"
+	  GotoTag		  "vC"
 	}
 	Block {
 	  BlockType		  Goto
@@ -1504,19 +1448,10 @@ Model {
 	  BlockType		  Goto
 	  Name			  "Goto11"
 	  SID			  "114"
-	  Position		  [755, 75, 815, 105]
+	  Position		  [755, 85, 815, 115]
 	  BackgroundColor	  "lightBlue"
 	  ShowName		  off
-	  GotoTag		  "up_alpha"
-	}
-	Block {
-	  BlockType		  Goto
-	  Name			  "Goto14"
-	  SID			  "197"
-	  Position		  [165, 315, 205, 345]
-	  BackgroundColor	  "gray"
-	  ShowName		  off
-	  GotoTag		  "flag"
+	  GotoTag		  "up"
 	}
 	Block {
 	  BlockType		  Goto
@@ -1533,7 +1468,7 @@ Model {
 	  SID			  "90"
 	  Position		  [165, 65, 225, 95]
 	  ShowName		  off
-	  GotoTag		  "i2_alpha"
+	  GotoTag		  "i2"
 	}
 	Block {
 	  BlockType		  Goto
@@ -1541,7 +1476,7 @@ Model {
 	  SID			  "93"
 	  Position		  [165, 110, 225, 140]
 	  ShowName		  off
-	  GotoTag		  "vC_alpha"
+	  GotoTag		  "vC"
 	}
 	Block {
 	  BlockType		  Goto
@@ -1549,7 +1484,7 @@ Model {
 	  SID			  "96"
 	  Position		  [155, 20, 235, 50]
 	  ShowName		  off
-	  GotoTag		  "i2ref_alpha"
+	  GotoTag		  "i2ref"
 	}
 	Block {
 	  BlockType		  RateTransition
@@ -1565,7 +1500,7 @@ Model {
 	  Name			  "Scope"
 	  SID			  "312"
 	  Ports			  [1]
-	  Position		  [785, 39, 815, 71]
+	  Position		  [770, 39, 800, 71]
 	  ShowName		  off
 	  Floating		  off
 	  Location		  [63, 48, 1601, 899]
@@ -1595,53 +1530,20 @@ Model {
 	  SampleTime		  "0"
 	}
 	Block {
-	  BlockType		  Scope
-	  Name			  "Scope1"
-	  SID			  "528"
-	  Ports			  [1]
-	  Position		  [770, 174, 800, 206]
-	  ShowName		  off
-	  Floating		  off
-	  Location		  [63, 48, 1601, 899]
-	  Open			  off
-	  NumInputPorts		  "1"
-	  ZoomMode		  "yonly"
-	  List {
-	    ListType		    AxesTitles
-	    axes1		    "%<SignalLabel>"
-	  }
-	  List {
-	    ListType		    ScopeGraphics
-	    FigureColor		    "[0.5 0.5 0.5]"
-	    AxesColor		    "[0 0 0]"
-	    AxesTickColor	    "[1 1 1]"
-	    LineColors		    "[1 1 0;1 0 1;0 1 1;1 0 0;0 1 0;0 0 1]"
-	    LineStyles		    "-|-|-|-|-|-"
-	    LineWidths		    "[0.5 0.5 0.5 0.5 0.5 0.5]"
-	    MarkerStyles	    "none|none|none|none|none|none"
-	  }
-	  ShowLegends		  off
-	  YMin			  "-5500"
-	  YMax			  "5000"
-	  DataFormat		  "StructureWithTime"
-	  LimitDataPoints	  off
-	  SampleTime		  "0"
-	}
-	Block {
 	  BlockType		  ToWorkspace
 	  Name			  "To Workspace"
 	  SID			  "363"
 	  Ports			  [1]
-	  Position		  [755, 125, 815, 155]
+	  Position		  [755, 165, 815, 195]
 	  BackgroundColor	  "gray"
 	  ShowName		  off
-	  VariableName		  "theta_alpha"
+	  VariableName		  "theta"
 	  MaxDataPoints		  "inf"
 	  SampleTime		  "Ts1"
 	}
 	Block {
 	  BlockType		  Outport
-	  Name			  "up_a"
+	  Name			  "up"
 	  SID			  "57"
 	  Position		  [1110, 93, 1140, 107]
 	  BackgroundColor	  "gray"
@@ -1667,13 +1569,13 @@ Model {
 	  DstPort		  1
 	}
 	Line {
-	  SrcBlock		  "i2_a"
+	  SrcBlock		  "i2"
 	  SrcPort		  1
 	  DstBlock		  "Goto2"
 	  DstPort		  1
 	}
 	Line {
-	  SrcBlock		  "vC_a"
+	  SrcBlock		  "vC"
 	  SrcPort		  1
 	  DstBlock		  "Goto5"
 	  DstPort		  1
@@ -1681,47 +1583,31 @@ Model {
 	Line {
 	  SrcBlock		  "From1"
 	  SrcPort		  1
-	  DstBlock		  "Controlador Adaptativo Alpha"
+	  DstBlock		  "Controlador Adaptativo"
 	  DstPort		  1
 	}
 	Line {
 	  SrcBlock		  "From4"
 	  SrcPort		  1
-	  DstBlock		  "Controlador Adaptativo Alpha"
+	  Points		  [25, 0]
+	  DstBlock		  "Controlador Adaptativo"
 	  DstPort		  2
 	}
 	Line {
 	  SrcBlock		  "From7"
 	  SrcPort		  1
-	  DstBlock		  "Controlador Adaptativo Alpha"
+	  Points		  [25, 0]
+	  DstBlock		  "Controlador Adaptativo"
 	  DstPort		  3
-	}
-	Line {
-	  SrcBlock		  "From10"
-	  SrcPort		  1
-	  DstBlock		  "Controlador Adaptativo Alpha"
-	  DstPort		  5
 	}
 	Line {
 	  SrcBlock		  "From13"
 	  SrcPort		  1
-	  DstBlock		  "up_a"
+	  DstBlock		  "up"
 	  DstPort		  1
 	}
 	Line {
-	  SrcBlock		  "Flag"
-	  SrcPort		  1
-	  DstBlock		  "Goto14"
-	  DstPort		  1
-	}
-	Line {
-	  SrcBlock		  "From16"
-	  SrcPort		  1
-	  DstBlock		  "Controlador Adaptativo Alpha"
-	  DstPort		  4
-	}
-	Line {
-	  SrcBlock		  "Controlador Adaptativo Alpha"
+	  SrcBlock		  "Controlador Adaptativo"
 	  SrcPort		  2
 	  Points		  [15, 0]
 	  Branch {
@@ -1729,19 +1615,19 @@ Model {
 	    DstPort		    1
 	  }
 	  Branch {
-	    Points		    [0, 260]
+	    Points		    [0, 220]
 	    DstBlock		    "Display"
 	    DstPort		    1
 	  }
 	}
 	Line {
-	  SrcBlock		  "i2ref_a"
+	  SrcBlock		  "i2ref"
 	  SrcPort		  1
 	  DstBlock		  "Goto8"
 	  DstPort		  1
 	}
 	Line {
-	  SrcBlock		  "Controlador Adaptativo Alpha"
+	  SrcBlock		  "Controlador Adaptativo"
 	  SrcPort		  1
 	  Points		  [20, 0]
 	  Branch {
@@ -1749,16 +1635,16 @@ Model {
 	    DstPort		    1
 	  }
 	  Branch {
-	    Points		    [0, -35]
+	    Points		    [0, -45]
 	    DstBlock		    "Scope"
 	    DstPort		    1
 	  }
 	}
 	Line {
-	  SrcBlock		  "Controlador Adaptativo Alpha"
-	  SrcPort		  3
-	  DstBlock		  "Scope1"
-	  DstPort		  1
+	  SrcBlock		  "From10"
+	  SrcPort		  1
+	  DstBlock		  "Controlador Adaptativo"
+	  DstPort		  4
 	}
       }
     }
@@ -1778,8 +1664,8 @@ Model {
       MaskHideContents	      off
       System {
 	Name			"Conversor + Filtro"
-	Location		[64, 82, 1598, 871]
-	Open			on
+	Location		[2, 82, 1582, 871]
+	Open			off
 	ModelBrowserVisibility	off
 	ModelBrowserWidth	200
 	ScreenColor		"white"
@@ -1793,7 +1679,7 @@ Model {
 	ZoomFactor		"100"
 	Block {
 	  BlockType		  Inport
-	  Name			  "up_a"
+	  Name			  "up"
 	  SID			  "158"
 	  Position		  [15, 38, 45, 52]
 	  BackgroundColor	  "gray"
@@ -1801,7 +1687,7 @@ Model {
 	}
 	Block {
 	  BlockType		  Reference
-	  Name			  "Ca"
+	  Name			  "C"
 	  SID			  "123"
 	  Ports			  [0, 0, 0, 0, 0, 1, 1]
 	  Position		  [726, 95, 754, 165]
@@ -1886,7 +1772,7 @@ Model {
 	  SID			  "172"
 	  Position		  [275, 31, 315, 59]
 	  ShowName		  off
-	  GotoTag		  "up_a"
+	  GotoTag		  "up"
 	}
 	Block {
 	  BlockType		  From
@@ -1910,7 +1796,7 @@ Model {
 	  SID			  "175"
 	  Position		  [420, 306, 460, 334]
 	  ShowName		  off
-	  GotoTag		  "up_a"
+	  GotoTag		  "up"
 	}
 	Block {
 	  BlockType		  Gain
@@ -1943,7 +1829,7 @@ Model {
 	  SID			  "168"
 	  Position		  [150, 30, 190, 60]
 	  ShowName		  off
-	  GotoTag		  "up_a"
+	  GotoTag		  "up"
 	}
 	Block {
 	  BlockType		  Goto
@@ -2040,7 +1926,7 @@ Model {
 	}
 	Block {
 	  BlockType		  Reference
-	  Name			  "L1a"
+	  Name			  "L1"
 	  SID			  "138"
 	  Ports			  [0, 0, 0, 0, 0, 1, 1]
 	  Position		  [640, 36, 710, 64]
@@ -2063,7 +1949,7 @@ Model {
 	}
 	Block {
 	  BlockType		  Reference
-	  Name			  "L2a+Lga"
+	  Name			  "L2+Lg"
 	  SID			  "141"
 	  Ports			  [0, 0, 0, 0, 0, 1, 1]
 	  Position		  [770, 36, 840, 64]
@@ -2100,7 +1986,7 @@ Model {
 	  sel			  "[6 1]"
 	  L			  "6"
 	  Gain			  "[1 1]"
-	  yselected		  "{'Ib: Conversor + Filtro/L2a+Lga','Ub: Conversor + Filtro/Ca'};"
+	  yselected		  "{'Ib: Conversor + Filtro/L2+Lg','Ub: Conversor + Filtro/C'};"
 	  PSBOutputType		  "1"
 	  PSBequivalent		  "0"
 	  AxesSetting		  "[0,0.1,-100,100]"
@@ -2149,7 +2035,7 @@ Model {
 	  FontSize		  11
 	  SourceBlock		  "powerlib/Electrical\nSources/AC Voltage Source"
 	  SourceType		  "AC Voltage Source"
-	  Amplitude		  "Vg_teste"
+	  Amplitude		  "rede_amp"
 	  Phase			  "0"
 	  Frequency		  "60"
 	  SampleTime		  "0"
@@ -2157,7 +2043,7 @@ Model {
 	}
 	Block {
 	  BlockType		  Reference
-	  Name			  "Rinit_a"
+	  Name			  "Rinit"
 	  SID			  "352"
 	  Ports			  [0, 0, 0, 0, 0, 1, 1]
 	  Position		  [1245, 101, 1315, 129]
@@ -2205,7 +2091,7 @@ Model {
 	}
 	Block {
 	  BlockType		  Reference
-	  Name			  "deltaL2a"
+	  Name			  "deltaL2"
 	  SID			  "152"
 	  Ports			  [0, 0, 0, 0, 0, 1, 1]
 	  Position		  [1100, 101, 1170, 129]
@@ -2228,7 +2114,7 @@ Model {
 	}
 	Block {
 	  BlockType		  Outport
-	  Name			  "i2_a"
+	  Name			  "i2"
 	  SID			  "157"
 	  Position		  [180, 293, 210, 307]
 	  BackgroundColor	  "gray"
@@ -2236,7 +2122,7 @@ Model {
 	}
 	Block {
 	  BlockType		  Outport
-	  Name			  "vC_a"
+	  Name			  "vC"
 	  SID			  "182"
 	  Position		  [180, 333, 210, 347]
 	  BackgroundColor	  "gray"
@@ -2255,7 +2141,7 @@ Model {
 	  Branch {
 	    ConnectType		    "SRC_SRC"
 	    Points		    [0, 65]
-	    DstBlock		    "deltaL2a"
+	    DstBlock		    "deltaL2"
 	    DstPort		    RConn1
 	  }
 	  Branch {
@@ -2266,24 +2152,24 @@ Model {
 	  Branch {
 	    ConnectType		    "DEST_SRC"
 	    Points		    [0, 65]
-	    DstBlock		    "Rinit_a"
+	    DstBlock		    "Rinit"
 	    DstPort		    LConn1
 	  }
 	}
 	Line {
 	  LineType		  "Connection"
 	  Points		  [740, 50; 0, 30]
-	  DstBlock		  "Ca"
+	  DstBlock		  "C"
 	  DstPort		  LConn1
 	  Branch {
 	    ConnectType		    "SRC_DEST"
-	    SrcBlock		    "L2a+Lga"
+	    SrcBlock		    "L2+Lg"
 	    SrcPort		    LConn1
 	    Points		    [-15, 0]
 	  }
 	  Branch {
 	    ConnectType		    "SRC_SRC"
-	    DstBlock		    "L1a"
+	    DstBlock		    "L1"
 	    DstPort		    RConn1
 	  }
 	}
@@ -2305,7 +2191,7 @@ Model {
 	}
 	Line {
 	  LineType		  "Connection"
-	  SrcBlock		  "L2a+Lga"
+	  SrcBlock		  "L2+Lg"
 	  SrcPort		  RConn1
 	  Points		  [125, 0]
 	  Branch {
@@ -2322,7 +2208,7 @@ Model {
 	}
 	Line {
 	  LineType		  "Connection"
-	  SrcBlock		  "deltaL2a"
+	  SrcBlock		  "deltaL2"
 	  SrcPort		  LConn1
 	  DstBlock		  "Ideal Switch1"
 	  DstPort		  RConn1
@@ -2334,7 +2220,7 @@ Model {
 	  DstPort		  1
 	}
 	Line {
-	  SrcBlock		  "up_a"
+	  SrcBlock		  "up"
 	  SrcPort		  1
 	  DstBlock		  "Rate Transition13"
 	  DstPort		  1
@@ -2373,7 +2259,7 @@ Model {
 	Line {
 	  SrcBlock		  "Demux"
 	  SrcPort		  1
-	  DstBlock		  "i2_a"
+	  DstBlock		  "i2"
 	  DstPort		  1
 	}
 	Line {
@@ -2420,13 +2306,13 @@ Model {
 	  SrcBlock		  "Controlled Voltage Source"
 	  SrcPort		  RConn1
 	  Points		  [5, 0; 0, -280]
-	  DstBlock		  "L1a"
+	  DstBlock		  "L1"
 	  DstPort		  LConn1
 	}
 	Line {
 	  SrcBlock		  "Demux"
 	  SrcPort		  2
-	  DstBlock		  "vC_a"
+	  DstBlock		  "vC"
 	  DstPort		  1
 	}
 	Line {
@@ -2443,7 +2329,7 @@ Model {
 	  Branch {
 	    ConnectType		    "DEST_SRC"
 	    Points		    [0, 75]
-	    DstBlock		    "Rinit_a"
+	    DstBlock		    "Rinit"
 	    DstPort		    RConn1
 	  }
 	}
@@ -2462,7 +2348,7 @@ Model {
 	  }
 	  Branch {
 	    ConnectType		    "DEST_SRC"
-	    DstBlock		    "Ca"
+	    DstBlock		    "C"
 	    DstPort		    RConn1
 	  }
 	  Branch {
@@ -2486,7 +2372,7 @@ Model {
       Position		      [290, 171, 330, 199]
       BackgroundColor	      "darkGreen"
       ShowName		      off
-      GotoTag		      "i2_a"
+      GotoTag		      "i2"
     }
     Block {
       BlockType		      From
@@ -2495,7 +2381,7 @@ Model {
       Position		      [1060, 181, 1100, 209]
       BackgroundColor	      "darkGreen"
       ShowName		      off
-      GotoTag		      "i2_a"
+      GotoTag		      "i2"
     }
     Block {
       BlockType		      From
@@ -2504,7 +2390,7 @@ Model {
       Position		      [1060, 316, 1100, 344]
       BackgroundColor	      "darkGreen"
       ShowName		      off
-      GotoTag		      "vC_a"
+      GotoTag		      "vC"
     }
     Block {
       BlockType		      From
@@ -2513,7 +2399,7 @@ Model {
       Position		      [1055, 46, 1110, 74]
       BackgroundColor	      "orange"
       ShowName		      off
-      GotoTag		      "i2ref_a"
+      GotoTag		      "i2ref"
     }
     Block {
       BlockType		      From
@@ -2531,7 +2417,7 @@ Model {
       Position		      [1060, 451, 1100, 479]
       BackgroundColor	      "lightBlue"
       ShowName		      off
-      GotoTag		      "up_a"
+      GotoTag		      "up"
     }
     Block {
       BlockType		      From
@@ -2540,7 +2426,7 @@ Model {
       Position		      [600, 131, 640, 159]
       BackgroundColor	      "lightBlue"
       ShowName		      off
-      GotoTag		      "up_a"
+      GotoTag		      "up"
     }
     Block {
       BlockType		      From
@@ -2549,7 +2435,7 @@ Model {
       Position		      [290, 276, 330, 304]
       BackgroundColor	      "darkGreen"
       ShowName		      off
-      GotoTag		      "vC_a"
+      GotoTag		      "vC"
     }
     Block {
       BlockType		      From
@@ -2558,7 +2444,7 @@ Model {
       Position		      [285, 66, 340, 94]
       BackgroundColor	      "orange"
       ShowName		      off
-      GotoTag		      "i2ref_a"
+      GotoTag		      "i2ref"
     }
     Block {
       BlockType		      From
@@ -2576,7 +2462,7 @@ Model {
       Position		      [980, 80, 1020, 110]
       BackgroundColor	      "darkGreen"
       ShowName		      off
-      GotoTag		      "i2_a"
+      GotoTag		      "i2"
     }
     Block {
       BlockType		      Goto
@@ -2585,7 +2471,7 @@ Model {
       Position		      [565, 225, 605, 255]
       BackgroundColor	      "lightBlue"
       ShowName		      off
-      GotoTag		      "up_a"
+      GotoTag		      "up"
     }
     Block {
       BlockType		      Goto
@@ -2594,7 +2480,7 @@ Model {
       Position		      [980, 175, 1020, 205]
       BackgroundColor	      "darkGreen"
       ShowName		      off
-      GotoTag		      "vC_a"
+      GotoTag		      "vC"
     }
     Block {
       BlockType		      Goto
@@ -2603,7 +2489,7 @@ Model {
       Position		      [190, 175, 245, 205]
       BackgroundColor	      "orange"
       ShowName		      off
-      GotoTag		      "i2ref_a"
+      GotoTag		      "i2ref"
     }
     Block {
       BlockType		      Goto
@@ -2675,7 +2561,7 @@ Model {
       MaskHideContents	      off
       System {
 	Name			"Referência"
-	Location		[86, 82, 1542, 871]
+	Location		[2, 82, 1582, 871]
 	Open			off
 	ModelBrowserVisibility	off
 	ModelBrowserWidth	200
@@ -2695,8 +2581,8 @@ Model {
 	  Ports			  [0, 1]
 	  Position		  [25, 665, 55, 695]
 	  BackgroundColor	  "yellow"
-	  Amplitude		  "1.2"
-	  Frequency		  "2*pi*60*11"
+	  Amplitude		  "ref_amp11"
+	  Frequency		  "ref_freq*11"
 	  SampleTime		  "Ts"
 	}
 	Block {
@@ -2706,8 +2592,8 @@ Model {
 	  Ports			  [0, 1]
 	  Position		  [25, 730, 55, 760]
 	  BackgroundColor	  "yellow"
-	  Amplitude		  "1.2"
-	  Frequency		  "2*pi*60*13"
+	  Amplitude		  "ref_amp13"
+	  Frequency		  "ref_freq*13"
 	  SampleTime		  "Ts"
 	}
 	Block {
@@ -2717,8 +2603,8 @@ Model {
 	  Ports			  [0, 1]
 	  Position		  [25, 405, 55, 435]
 	  BackgroundColor	  "yellow"
-	  Amplitude		  "1.2"
-	  Frequency		  "2*pi*60*3"
+	  Amplitude		  "ref_amp3"
+	  Frequency		  "ref_freq*3"
 	  SampleTime		  "Ts"
 	}
 	Block {
@@ -2728,8 +2614,8 @@ Model {
 	  Ports			  [0, 1]
 	  Position		  [25, 470, 55, 500]
 	  BackgroundColor	  "yellow"
-	  Amplitude		  "1.2"
-	  Frequency		  "2*pi*60*5"
+	  Amplitude		  "ref_amp5"
+	  Frequency		  "ref_freq*5"
 	  SampleTime		  "Ts"
 	}
 	Block {
@@ -2739,8 +2625,8 @@ Model {
 	  Ports			  [0, 1]
 	  Position		  [25, 535, 55, 565]
 	  BackgroundColor	  "yellow"
-	  Amplitude		  "1.2"
-	  Frequency		  "2*pi*60*7"
+	  Amplitude		  "ref_amp7"
+	  Frequency		  "ref_freq*7"
 	  SampleTime		  "Ts"
 	}
 	Block {
@@ -2750,8 +2636,8 @@ Model {
 	  Ports			  [0, 1]
 	  Position		  [25, 600, 55, 630]
 	  BackgroundColor	  "yellow"
-	  Amplitude		  "1.2"
-	  Frequency		  "2*pi*60*9"
+	  Amplitude		  "ref_amp9"
+	  Frequency		  "ref_freq*9"
 	  SampleTime		  "Ts"
 	}
 	Block {
@@ -2843,18 +2729,18 @@ Model {
 	}
 	Block {
 	  BlockType		  Sin
-	  Name			  "i2ref_A"
+	  Name			  "i2_ref"
 	  SID			  "13"
 	  Ports			  [0, 1]
 	  Position		  [25, 25, 55, 55]
 	  BackgroundColor	  "orange"
-	  Amplitude		  "2"
-	  Frequency		  "2*pi*60"
+	  Amplitude		  "ref_amp"
+	  Frequency		  "ref_freq"
 	  SampleTime		  "Ts"
 	}
 	Block {
 	  BlockType		  Outport
-	  Name			  "i2ref_a"
+	  Name			  "i2ref"
 	  SID			  "28"
 	  Position		  [615, 53, 645, 67]
 	  BackgroundColor	  "gray"
@@ -2881,7 +2767,7 @@ Model {
 	  DstPort		  2
 	}
 	Line {
-	  SrcBlock		  "i2ref_A"
+	  SrcBlock		  "i2_ref"
 	  SrcPort		  1
 	  DstBlock		  "Product4"
 	  DstPort		  1
@@ -2902,7 +2788,7 @@ Model {
 	Line {
 	  SrcBlock		  "Sum2"
 	  SrcPort		  1
-	  DstBlock		  "i2ref_a"
+	  DstBlock		  "i2ref"
 	  DstPort		  1
 	}
 	Line {
@@ -2957,7 +2843,7 @@ Model {
       Position		      [1230, 45, 1290, 75]
       BackgroundColor	      "gray"
       ShowName		      off
-      VariableName	      "i2ref_a"
+      VariableName	      "i2ref"
       MaxDataPoints	      "inf"
       SampleTime	      "Ts1"
     }
@@ -2969,7 +2855,7 @@ Model {
       Position		      [1230, 450, 1290, 480]
       BackgroundColor	      "gray"
       ShowName		      off
-      VariableName	      "up_a"
+      VariableName	      "up"
       MaxDataPoints	      "inf"
       SampleTime	      "Ts1"
     }
@@ -2981,7 +2867,7 @@ Model {
       Position		      [1230, 180, 1290, 210]
       BackgroundColor	      "gray"
       ShowName		      off
-      VariableName	      "i2_a"
+      VariableName	      "i2"
       MaxDataPoints	      "inf"
       SampleTime	      "Ts1"
     }
@@ -2993,7 +2879,7 @@ Model {
       Position		      [1230, 315, 1290, 345]
       BackgroundColor	      "gray"
       ShowName		      off
-      VariableName	      "iC_a"
+      VariableName	      "iC"
       MaxDataPoints	      "inf"
       SampleTime	      "Ts1"
     }
@@ -3222,12 +3108,12 @@ Stateflow {
     name		    "vC_1ph_MR2"
     created		    "19-Aug-2013 14:46:26"
     isLibrary		    0
-    firstTarget		    15
+    firstTarget		    13
     sfVersion		    76014001.00040001
   }
   chart {
     id			    2
-    name		    "Controlador/Controlador Adaptativo Alpha"
+    name		    "Controlador/Controlador Adaptativo"
     windowPosition	    [1061.25 -69.167 278 600]
     viewLimits		    [0 156.75 0 153.75]
     screen		    [1 1 1440 900 1.333333333333333]
@@ -3236,7 +3122,7 @@ Stateflow {
     firstJunction	    4
     viewObj		    2
     machine		    1
-    ssIdHighWaterMark	    17
+    ssIdHighWaterMark	    18
     decomposition	    CLUSTER_CHART
     type		    EML_CHART
     firstData		    6
@@ -3260,68 +3146,34 @@ Stateflow {
     decomposition	    CLUSTER_STATE
     eml {
       isEML		      1
-      script		      "function [up_alpha, theta_alpha, m] = adaptativo( i2ref_k, i2_k, vc_k, flag, t )\n\n%#CODEGEN\n\n"
-      "%Definição dos valores projetados dos elementos do filtro\nL1ideal=2e-3;\nL2ideal=2e-3;\nLgideal=0;\nCideal=40e-"
-      "6;\nR1ideal=0;\nR2ideal=0;\nRgideal=0;\n\n%Definição de erros percentuais para simular variação paramétrica\nerr"
-      "L1=0;\nerrL2=0;\nerrLg=0;\nerrC=0;\nerrR1=0;\nerrR2=0;\nerrRg=0;\ndeltaL1=errL1*L1ideal;\ndeltaL2=errL2*L2ideal;"
-      "\ndeltaLg=errLg*Lgideal;\ndeltaC=errC*Cideal;\ndeltaR1=errR1*R1ideal;\ndeltaR2=errR2*R2ideal;\ndeltaRg=errRg*Rgi"
-      "deal;\n\n%Definição do valor real medido, incluindo a variação paramétrica\n%percentual\nL1=L1ideal+deltaL1;\nL2"
-      "=L2ideal+deltaL2+Lgideal+deltaLg;\nC=Cideal+deltaC;\nR1=R1ideal+deltaR1;\nR2=R2ideal+deltaR2+Rgideal+deltaRg;\n\n"
-      "%Demais elementos\nTs=1/12000;\nw=sqrt((L1+L2)/(L1*L2*C));\n\n%Kp é a multiplicação do ganho do controlador da m"
-      "alha interna(kp), do\n%ganho da planta(ki) e do ganho da malha externa(kod)\nkp_kd=3;\n%Kp=0.156891976007044;\nK"
-      "p=0.001792815465831;\n\n%polos do modelo de referência:\np1=0.2;\np2=0.2;\n\nkm=(1-p1)*(1-p2);\n\n%constantes ->"
-      " gamaD < (1-gama)*km/kp\n%gamaD=0.01;\ngamaD=0.0098;\ngama=0.99;\n\ndelta0=0.99;\n\n%% Variáveis Persistentes e "
-      "Inicializações\n\npersistent theta_k;\nif isempty(theta_k)\n    %COM compensação para vg\n    %theta_k=[-0.3106;"
-      " -0.2728; 0.0368; -0.2369; -0.422; -0.2775; -0.7979; 1.786; -0.0008; 0.0003];\n    %theta_k=[-0.3106; -0.2728; 0"
-      ".0368; -0.2369; -0.422; -0.2775; -0.7979; 1.786; 1; 0];\n    %theta_k=[-0.40085038; -0.36853743; -0.064251891; -"
-      "0.4277604154; -0.61214672; -0.46675405; -0.98929343; 1.76426551; 0.17164080; 0.11598547];\n    %theta_k=[0;0;0;0"
-      ";0;0; -0.98929343; 1.76426551; 0.17164080; 0.11598547];\n    %theta_k=[-0.071151848470510; -0.470549298500393; -"
-      "0.993323557655345; 1.762541193804541; 0.118014567931226; 0.108368323169129];\n    %theta_k=[-0.46; -0.58; -1.74;"
-      " 1.73; 0.2; 0.03];\n    %theta_k=[1; -3.39; -0.18; 12.72; 1; 0];\n    theta_k=[0.4226; -3.4222; -0.2133; 12.7376"
-      "; 0; 0];\nend\n\npersistent omega_k;\nif isempty(omega_k)\n    %COM vg\n    omega_k=[0; 0; 0; 0; 0; 0];\nend\n\n"
-      "persistent omega_k_1;\nif isempty(omega_k_1)\n    %COM vg\n    omega_k_1=[0; 0; 0; 0; 0; 0];\nend\n\npersistent "
-      "omega_k_2;\nif isempty(omega_k_2)\n    %COM vg\n    omega_k_2=[0; 0; 0; 0; 0; 0];\nend\n\npersistent omega_k_3;\n"
-      "if isempty(omega_k_3)\n    %COM vg\n    omega_k_3=[0; 0; 0; 0; 0; 0];\nend\n\npersistent eta_k_1;\nif isempty(et"
-      "a_k_1)\n    %COM vg\n    eta_k_1=[0; 0; 0; 0; 0; 0];\nend\n\npersistent eta_k_2;\nif isempty(eta_k_2)\n    %COM "
-      "vg\n    eta_k_2=[0; 0; 0; 0; 0; 0];\nend\n\npersistent eta_k_3;\nif isempty(eta_k_3)\n    %COM vg\n    eta_k_3=["
-      "0; 0; 0; 0; 0; 0];\nend\n\npersistent i2m_k_1;\nif isempty(i2m_k_1)\n    i2m_k_1=0;\nend\n\npersistent i2m_k_2;\n"
-      "if isempty(i2m_k_2)\n    i2m_k_2=0;\nend\n\npersistent i2m_k_3;\nif isempty(i2m_k_3)\n    i2m_k_3=0;\nend\n\nper"
-      "sistent i2ref_k_1;\nif isempty(i2ref_k_1)\n    i2ref_k_1=0;\nend\n\npersistent i2ref_k_2;\nif isempty(i2ref_k_2)"
-      "\n    i2ref_k_2=0;\nend\n\npersistent i2ref_k_3;\nif isempty(i2ref_k_3)\n    i2ref_k_3=0;\nend\n\npersistent v_k"
-      "_1;\nif isempty(v_k_1)\n    v_k_1=0;\nend\n\npersistent v_k_2;\nif isempty(v_k_2)\n    v_k_2=0;\nend\n\npersiste"
-      "nt v_k_3;\nif isempty(v_k_3)\n    v_k_3=0;\nend\n\npersistent rho_k;\nif isempty(rho_k)\n    rho_k=Kp/km;\nend\n"
+      script		      "function [up, theta] = adaptativo( i2ref_k, i2_k, vc_k, t)\n\n%#CODEGEN\n\n%Kp é a multiplicação "
+      "do ganho do controlador da malha interna(kp), do\n%ganho da planta(ki) e do ganho da malha externa(kod)\nkp_kd=3"
+      ";\n%Kp=0.156891976007044;\nKp=0.001792815465831;\n\n%polos do modelo de referência:\np1=0.2;\np2=0.2;\n\nkm=(1-p"
+      "1)*(1-p2);\n\n%constantes -> gamaD < (1-gama)*km/kp\n%gamaD=0.01;\ngamaD=0.0098;\ngama=0.99;\n\ndelta0=0.99;\n\n"
+      "%está ligado contra a rede?\nrede=1;\n\n%% Variáveis Persistentes e Inicializações\n\npersistent theta_k;\nif is"
+      "empty(theta_k)\n    %theta_k=[0.4226; -3.4222; -0.2133; 12.7376; 0; 0];\n    theta_k=[0.3258; -2.9077; -0.2815; "
+      "13.1402; 0; 0];\nend\n\npersistent omega_k;\nif isempty(omega_k)\n    omega_k=[0; 0; 0; 0; 0; 0];\nend\n\npersis"
+      "tent omega_k_1;\nif isempty(omega_k_1)\n    omega_k_1=[0; 0; 0; 0; 0; 0];\nend\n\npersistent omega_k_2;\nif isem"
+      "pty(omega_k_2)\n    omega_k_2=[0; 0; 0; 0; 0; 0];\nend\n\npersistent eta_k_1;\nif isempty(eta_k_1)\n    eta_k_1="
+      "[0; 0; 0; 0; 0; 0];\nend\n\npersistent eta_k_2;\nif isempty(eta_k_2)\n    eta_k_2=[0; 0; 0; 0; 0; 0];\nend\n\npe"
+      "rsistent i2m_k_1;\nif isempty(i2m_k_1)\n    i2m_k_1=0;\nend\n\npersistent i2m_k_2;\nif isempty(i2m_k_2)\n    i2m"
+      "_k_2=0;\nend\n\npersistent i2ref_k_1;\nif isempty(i2ref_k_1)\n    i2ref_k_1=0;\nend\n\npersistent i2ref_k_2;\nif"
+      " isempty(i2ref_k_2)\n    i2ref_k_2=0;\nend\n\npersistent v_k_1;\nif isempty(v_k_1)\n    v_k_1=0;\nend\n\npersist"
+      "ent v_k_2;\nif isempty(v_k_2)\n    v_k_2=0;\nend\n\npersistent rho_k;\nif isempty(rho_k)\n    rho_k=Kp/km;\nend\n"
       "\npersistent m2;\nif isempty(m2)\n    m2=1;\nend\n\npersistent vc_k_1;\nif isempty(vc_k_1)\n    vc_k_1=0;\nend\n"
-      "\npersistent vc_k_2;\nif isempty(vc_k_2)\n    vc_k_2=0;\nend\n\npersistent u_k_1;\nif isempty(u_k_1)\n    u_k_1="
-      "0;\nend\n\npersistent u_k_2;\nif isempty(u_k_2)\n    u_k_2=0;\nend\n\npersistent P;\nif isempty(P)\n    %P=[0.00"
-      "2225441018075 -0.002258665319558 -1.129332659782590e-004 -0.003793046611769; ...\n    %    -0.002258665319558 0."
-      "149747822133961 -0.042512608892738 0.002487914954665; ...\n    %    -1.129332659782590e-004 -0.042512608892738 0"
-      ".997874369555398 1.243957477280539e-004; ...\n    %    -0.003793046611769 0.002487914954665 1.243957477280538e-0"
-      "04 0.754190018333160];\n    %P=[0.009712540165252   -0.000020445335620  -0.000026266935611  -0.000037334327242 -"
-      "0.001161097577207  -0.000971095497459; ...\n    %   -0.000020445335620   0.009977400822109  -0.000022631160072  "
-      "-0.000009984284241 -0.000310511239892   0.000028021469709; ...\n    %   -0.000026266935611  -0.000022631160072  "
-      " 0.009976301443788  -0.000009972563160 -0.000310146714255   0.000019062507239; ...\n    %   -0.000037334327242  "
-      "-0.000009984284241  -0.000009972563160   0.009989966652248 -0.000312037115068   0.000004936266851; ...\n    %   "
-      "-0.001161097577207  -0.000310511239892  -0.000310146714255  -0.000312037115068 0.000295645721395   0.00015351789"
-      "9078; ...\n    %   -0.000971095497459   0.000028021469709   0.000019062507239   0.000004936266851 0.000153517899"
-      "078   0.000171767843043];\n\n    P=gamaD*eye(6);\nend\n\npersistent gama2;\nif isempty(gama2)\n    %gama2=0.9978"
-      "99999973786;\n    gama2=gama;\nend\n\n\n%% Cálculos\n\n%Ação de controle\nomega_k(3)= i2_k;\nomega_k(4)= i2ref_k"
-      ";\n\n%COM vg\n%omega_k(5)= 311*sin(2*pi*60*t);\n%omega_k(6)= 311*cos(2*pi*60*t);\nomega_k(5)= 0;\nomega_k(6)= 0;"
-      "\n\nu_k= theta_k'*omega_k;\n\n%inserindo o controlador proporcional no bloco do adaptativo\nup_alpha= kp_kd*(u_k"
-      " - vc_k) - kp_kd*(u_k_1 - vc_k_1);\n\neta_k= (p1+p2)*eta_k_1 - p1*p2*eta_k_2 + (1-p1)*(1-p2)*omega_k_2;\n\ni2m_k"
-      "= (p1+p2)*i2m_k_1 - p1*p2*i2m_k_2 + (1-p1)*(1-p2)*i2ref_k_2;\n\ne1_k= i2_k - i2m_k;\n\nv_k= (p1+p2)*v_k_1 - p1*p"
-      "2*v_k_2 + (1-p1)*(1-p2)*u_k_2;\n\nq_k= theta_k'*eta_k;\n\ne2_k= -v_k+q_k;\n\nea_k= e1_k+rho_k*e2_k;\n\neta2_k = "
-      "eta_k;\neta2_k(5) = 0;\neta2_k(6) = 0;\n\nif flag==1\n    %m2_k= 0.01*eta_k'*eta_k + e2_k^2 + m2;\n    m2_k= 0.1"
-      "*eta2_k'*eta2_k + e2_k^2 + m2;\nelse\n    %m2_k= eta_k'*eta_k + e2_k^2 + m2;\n    m2_k= 0.01*eta2_k'*eta2_k + e2"
-      "_k^2 + m2;\nend\n%m2_k= m2 + (1+eta_k'*P*eta_k) + gama2*e2_k^2;\nm = m2_k;\n\nP= P - (P*eta_k*eta_k'*P)/m2_k;\ng"
-      "ama2= gama2 - (gama2^2*e2_k^2)/(m2_k^2);\n\n%Pout=P;\n%gama_out=gama2;\n\n%% Atualização\n\n%calcula theta(k+1)\n"
-      "theta_k = theta_k - (gamaD*ea_k/m2_k)*eta_k;\n%theta_k = theta_k - (P*ea_k/m2_k)*eta_k;\ntheta_alpha = theta_k;\n"
-      "\n%calcula rho(k+1)\nrho_k= rho_k - (gama*ea_k*e2_k)/m2_k;\n\nif flag==1\n    %m2 = delta0*(m2 - 1) + abs(u_k) +"
-      " abs(i2_k) + 1;\n    m2 = delta0*(m2 - 1) + abs(u_k) + abs(i2_k) + 1;\nelse\n    %m2 = delta0*(m2 - 1) + abs(u_k"
-      ")^2 + abs(i2_k)^2 + 1;\n    m2 = delta0*(m2 - 1) + abs(u_k) + abs(i2_k) + 1;\nend\n\nomega_k_3=omega_k_2;\nomega"
-      "_k_2=omega_k_1;\nomega_k_1=omega_k;\n\nomega_k(1)=0*omega_k(1) + 1*u_k;\nomega_k(2)=0*omega_k(2) + 1*i2_k;\n\net"
-      "a_k_3=eta_k_2;\neta_k_2=eta_k_1;\neta_k_1=eta_k;\n\ni2ref_k_3 = i2ref_k_2;\ni2ref_k_2 = i2ref_k_1;\ni2ref_k_1 = "
-      "i2ref_k;\n\ni2m_k_3=i2m_k_2;\ni2m_k_2=i2m_k_1;\ni2m_k_1=i2m_k;\n\nv_k_3=v_k_2;\nv_k_2=v_k_1;\nv_k_1=v_k;\n\nu_k_"
-      "2=u_k_1;\nu_k_1=u_k;\n\nvc_k_2=vc_k_1;\nvc_k_1=vc_k;\n\nend"
+      "\npersistent u_k_1;\nif isempty(u_k_1)\n    u_k_1=0;\nend\n\npersistent u_k_2;\nif isempty(u_k_2)\n    u_k_2=0;\n"
+      "end\n\n\n%% Cálculos\n\n%Ação de controle\nomega_k(3)= i2_k;\nomega_k(4)= i2ref_k;\n\n%COM vg\nif rede\n    omeg"
+      "a_k(5)= 311*sin(2*pi*60*t);\n    omega_k(6)= 311*cos(2*pi*60*t);\nelse\n%SEM vg\n    omega_k(5)= 0;\n    omega_k"
+      "(6)= 0;\nend\n\nu_k= theta_k'*omega_k;\n\n%inserindo o controlador proporcional no bloco do adaptativo\nup= kp_k"
+      "d*(u_k - vc_k) - kp_kd*(u_k_1 - vc_k_1);\n\neta_k= (p1+p2)*eta_k_1 - p1*p2*eta_k_2 + (1-p1)*(1-p2)*omega_k_2;\n\n"
+      "i2m_k= (p1+p2)*i2m_k_1 - p1*p2*i2m_k_2 + (1-p1)*(1-p2)*i2ref_k_2;\n\ne1_k= i2_k - i2m_k;\n\nv_k= (p1+p2)*v_k_1 -"
+      " p1*p2*v_k_2 + (1-p1)*(1-p2)*u_k_2;\n\nq_k= theta_k'*eta_k;\n\ne2_k= -v_k+q_k;\n\nea_k= e1_k+rho_k*e2_k;\n\nm2_k"
+      "= 0.1*eta_k'*eta_k + e2_k^2 + m2;\n\n\n%% Atualização\n\n%calcula theta(k+1)\ntheta_k = theta_k - (gamaD*ea_k/m2"
+      "_k)*eta_k;\ntheta = theta_k;\n\n%calcula rho(k+1)\nrho_k= rho_k - (gama*ea_k*e2_k)/m2_k;\n\nm2 = delta0*(m2 - 1)"
+      " + abs(u_k) + abs(i2_k) + 1;\n\nomega_k_2=omega_k_1;\nomega_k_1=omega_k;\n\nomega_k(1)=0*omega_k(1) + 1*u_k;\nom"
+      "ega_k(2)=0*omega_k(2) + 1*i2_k;\n\neta_k_2=eta_k_1;\neta_k_1=eta_k;\n\ni2ref_k_2 = i2ref_k_1;\ni2ref_k_1 = i2ref"
+      "_k;\n\ni2m_k_2=i2m_k_1;\ni2m_k_1=i2m_k;\n\nv_k_2=v_k_1;\nv_k_1=v_k;\n\nu_k_2=u_k_1;\nu_k_1=u_k;\n\nvc_k_1=vc_k;\n"
+      "\nend"
       editorLayout	      "100 M4x1[10 5 700 500]"
     }
   }
@@ -3380,7 +3232,7 @@ Stateflow {
   data {
     id			    7
     ssIdNumber		    5
-    name		    "up_alpha"
+    name		    "up"
     linkNode		    [2 6 8]
     scope		    OUTPUT_DATA
     machine		    1
@@ -3443,10 +3295,10 @@ Stateflow {
   }
   data {
     id			    10
-    ssIdNumber		    14
-    name		    "flag"
+    ssIdNumber		    16
+    name		    "theta"
     linkNode		    [2 9 11]
-    scope		    INPUT_DATA
+    scope		    OUTPUT_DATA
     machine		    1
     props {
       array {
@@ -3459,15 +3311,15 @@ Stateflow {
 	wordLength		"16"
       }
       complexity	      SF_COMPLEX_INHERITED
-      frame		      SF_FRAME_INHERITED
+      frame		      SF_FRAME_NO
     }
     dataType		    "Inherit: Same as Simulink"
   }
   data {
     id			    11
-    ssIdNumber		    11
+    ssIdNumber		    18
     name		    "t"
-    linkNode		    [2 10 12]
+    linkNode		    [2 10 0]
     scope		    INPUT_DATA
     machine		    1
     props {
@@ -3485,58 +3337,14 @@ Stateflow {
     }
     dataType		    "Inherit: Same as Simulink"
   }
-  data {
-    id			    12
-    ssIdNumber		    16
-    name		    "theta_alpha"
-    linkNode		    [2 11 13]
-    scope		    OUTPUT_DATA
-    machine		    1
-    props {
-      array {
-	size			"-1"
-      }
-      type {
-	method			SF_INHERITED_TYPE
-	primitive		SF_DOUBLE_TYPE
-	isSigned		1
-	wordLength		"16"
-      }
-      complexity	      SF_COMPLEX_INHERITED
-      frame		      SF_FRAME_NO
-    }
-    dataType		    "Inherit: Same as Simulink"
-  }
-  data {
-    id			    13
-    ssIdNumber		    17
-    name		    "m"
-    linkNode		    [2 12 0]
-    scope		    OUTPUT_DATA
-    machine		    1
-    props {
-      array {
-	size			"-1"
-      }
-      type {
-	method			SF_INHERITED_TYPE
-	primitive		SF_DOUBLE_TYPE
-	isSigned		1
-	wordLength		"16"
-      }
-      complexity	      SF_COMPLEX_INHERITED
-      frame		      SF_FRAME_NO
-    }
-    dataType		    "Inherit: Same as Simulink"
-  }
   instance {
-    id			    14
-    name		    "Controlador/Controlador Adaptativo Alpha"
+    id			    12
+    name		    "Controlador/Controlador Adaptativo"
     machine		    1
     chart		    2
   }
   target {
-    id			    15
+    id			    13
     name		    "sfun"
     description		    "Default Simulink S-Function Target."
     machine		    1

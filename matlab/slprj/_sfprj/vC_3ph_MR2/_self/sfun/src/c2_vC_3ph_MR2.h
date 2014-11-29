@@ -35,32 +35,22 @@ typedef struct {
   boolean_T c2_omega_k_1_not_empty;
   real_T c2_omega_k_2[6];
   boolean_T c2_omega_k_2_not_empty;
-  real_T c2_omega_k_3[6];
-  boolean_T c2_omega_k_3_not_empty;
   real_T c2_eta_k_1[6];
   boolean_T c2_eta_k_1_not_empty;
   real_T c2_eta_k_2[6];
   boolean_T c2_eta_k_2_not_empty;
-  real_T c2_eta_k_3[6];
-  boolean_T c2_eta_k_3_not_empty;
   real_T c2_i2m_k_1;
   boolean_T c2_i2m_k_1_not_empty;
   real_T c2_i2m_k_2;
   boolean_T c2_i2m_k_2_not_empty;
-  real_T c2_i2m_k_3;
-  boolean_T c2_i2m_k_3_not_empty;
   real_T c2_i2ref_k_1;
   boolean_T c2_i2ref_k_1_not_empty;
   real_T c2_i2ref_k_2;
   boolean_T c2_i2ref_k_2_not_empty;
-  real_T c2_i2ref_k_3;
-  boolean_T c2_i2ref_k_3_not_empty;
   real_T c2_v_k_1;
   boolean_T c2_v_k_1_not_empty;
   real_T c2_v_k_2;
   boolean_T c2_v_k_2_not_empty;
-  real_T c2_v_k_3;
-  boolean_T c2_v_k_3_not_empty;
   real_T c2_rho_k;
   boolean_T c2_rho_k_not_empty;
   real_T c2_m2;
@@ -71,10 +61,6 @@ typedef struct {
   boolean_T c2_u_k_1_not_empty;
   real_T c2_u_k_2;
   boolean_T c2_u_k_2_not_empty;
-  real_T c2_P[36];
-  boolean_T c2_P_not_empty;
-  real_T c2_gama2;
-  boolean_T c2_gama2_not_empty;
 } SFc2_vC_3ph_MR2InstanceStruct;
 
 /* Named Constants */
